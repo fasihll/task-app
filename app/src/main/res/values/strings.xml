@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">taskapp</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_beranda">Home</string>
+    <string name="title_kalender">Kalender</string>
+    <string name="title_tugas">Tugas</string>
+    <string name="title_profile">Profile</string>
+</resources>

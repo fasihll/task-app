@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_beranda">
+
+    <fragment
+        android:id="@+id/navigation_beranda"
+        android:name="com.otakkanan.taskapp.ui.main.beranda.BerandaFragment"
+        android:label="@string/title_beranda"
+        tools:layout="@layout/fragment_beranda" />
+
+    <fragment
+        android:id="@+id/navigation_kalender"
+        android:name="com.otakkanan.taskapp.ui.main.kalender.KalenderFragment"
+        android:label="@string/title_kalender"
+        tools:layout="@layout/fragment_kalender" />
+
+    <fragment
+        android:id="@+id/navigation_tugas"
+        android:name="com.otakkanan.taskapp.ui.main.tugas.TugasFragment"
+        android:label="@string/title_tugas"
+        tools:layout="@layout/fragment_tugas" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.otakkanan.taskapp.ui.main.tugas.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
+
+</navigation>
