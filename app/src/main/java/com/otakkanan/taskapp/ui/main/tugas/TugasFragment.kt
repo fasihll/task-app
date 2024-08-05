@@ -23,7 +23,7 @@ class TugasFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         val profileViewModel =
-            ViewModelProvider(this).get(ProfileViewModel::class.java)
+            ViewModelProvider(this).get(TugasViewModel::class.java)
 
         _binding = FragmentTugasBinding.inflate(inflater, container, false)
         val root: View = binding.root
