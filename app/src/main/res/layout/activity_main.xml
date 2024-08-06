@@ -3,20 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        android:background="?attr/colorSurfaceContainer"
-        app:itemRippleColor="?attr/colorPrimary"
+        android:layout_height="60dp"
+        style="@style/CustomBottomNavigation"
+        app:menu="@menu/bottom_nav_menu"
+        android:background="?attr/colorOnPrimaryContainer"
+        app:itemTextAppearanceActiveBoldEnabled="false"
+        app:itemActiveIndicatorStyle="@null"
+        app:labelVisibilityMode="labeled"
+        android:elevation="32dp"
+        android:paddingHorizontal="32dp"
+        android:paddingVertical="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
+        app:layout_constraintRight_toRightOf="parent"/>
 
     <fragment
         android:id="@+id/nav_host_fragment_activity_main"

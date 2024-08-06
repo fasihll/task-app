@@ -3,22 +3,23 @@
 
     <item
         android:id="@+id/navigation_beranda"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_beranda" />
+        android:icon="@drawable/beranda_selector"
+        android:title="@string/title_beranda"
+        />
 
     <item
         android:id="@+id/navigation_kalender"
-        android:icon="@drawable/baseline_calendar_24"
+        android:icon="@drawable/kalender_selector"
         android:title="@string/title_kalender" />
 
     <item
         android:id="@+id/navigation_tugas"
-        android:icon="@drawable/outline_assignment_24"
+        android:icon="@drawable/tugas_selector"
         android:title="@string/title_tugas" />
 
     <item
         android:id="@+id/navigation_profile"
-        android:icon="@drawable/outline_account_circle_24"
+        android:icon="@drawable/profile_selector"
         android:title="@string/title_profile" />
 
 </menu>
