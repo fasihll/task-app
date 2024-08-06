@@ -1,5 +1,6 @@
 package com.otakkanan.taskapp.ui.main.beranda
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.otakkanan.taskapp.databinding.FragmentBerandaBinding
+import com.otakkanan.taskapp.ui.tugas.tugasbaru.TugasBaruActivity
 
 class BerandaFragment : Fragment() {
 
@@ -32,7 +34,21 @@ class BerandaFragment : Fragment() {
         berandaViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+
+        buttonToTugasBaru()
+
         return root
+    }
+
+    private fun buttonToTugasBaru(){
+        binding.btnAddTugasBaru.setOnClickListener {
+            navigateToTugasBaru()
+        }
+    }
+
+    private fun navigateToTugasBaru() {
+        startActivity(Intent(requireContext(), TugasBaruActivity::class.java))
+        requireActivity()
     }
 
     override fun onDestroyView() {
