@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources
+    xmlns:tools="http://schemas.android.com/tools">
 
     <style name="CustomBottomNavigation" parent="Widget.Design.BottomNavigationView">
         <item name="itemTextAppearanceActive">@style/BottomNavigationView.Active</item>
@@ -10,6 +11,8 @@
         <item name="android:textSize">10sp</item>
         <item name="android:padding">35dp</item>
         <item name="android:spacing">0dp</item>
+        <item name="android:textColor">@color/md_theme_onPrimary</item>
+
     </style>
 
     <style name="BottomNavigationView.Inactive" parent="TextAppearance.AppCompat.Caption">

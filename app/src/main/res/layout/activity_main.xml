@@ -16,6 +16,8 @@
         app:itemTextAppearanceActiveBoldEnabled="false"
         app:itemActiveIndicatorStyle="@null"
         app:labelVisibilityMode="labeled"
+        app:itemTextColor="@drawable/bottomnavigation_textcolor"
+        app:itemIconTint="@drawable/bottomnavigation_textcolor"
         android:elevation="32dp"
         android:paddingHorizontal="32dp"
         android:paddingVertical="4dp"
