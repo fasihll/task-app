@@ -74,7 +74,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        val colorSpan = ForegroundColorSpan(ContextCompat.getColor(this, R.color.md_theme_onPrimaryFixedVariant))
+        val colorSpan = ForegroundColorSpan(ContextCompat.getColor(this, R.color.md_theme_primaryContainer))
 
         val startIndex = text.indexOf("Daftar")
         val endIndex = startIndex + "Daftar".length
