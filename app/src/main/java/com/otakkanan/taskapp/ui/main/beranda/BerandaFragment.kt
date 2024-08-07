@@ -1,6 +1,7 @@
 package com.otakkanan.taskapp.ui.main.beranda
 
 import android.graphics.Color
+import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.databinding.FragmentBerandaBinding
+import com.otakkanan.taskapp.ui.tugas.tugasbaru.TugasBaruActivity
 
 class BerandaFragment : Fragment() {
 
@@ -40,11 +42,21 @@ class BerandaFragment : Fragment() {
             }
         }
 
-        var isChecked = false
+        buttonToTugasBaru()
 
         return root
     }
 
+    private fun buttonToTugasBaru(){
+        binding.btnAddTugasBaru.setOnClickListener {
+            navigateToTugasBaru()
+        }
+    }
+
+    private fun navigateToTugasBaru() {
+        startActivity(Intent(requireContext(), TugasBaruActivity::class.java))
+        requireActivity()
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

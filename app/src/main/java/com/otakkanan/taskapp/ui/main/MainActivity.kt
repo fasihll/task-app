@@ -2,6 +2,9 @@ package com.otakkanan.taskapp.ui.main
 
 import android.app.Activity
 import android.os.Build
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.view.Window
@@ -15,13 +18,24 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.databinding.ActivityMainBinding
+import com.otakkanan.taskapp.ui.auth.login.LoginActivity
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        sharedPreferences = getSharedPreferences("appPrefs", Context.MODE_PRIVATE)
+        val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", true)
+
+        if (!isLoggedIn) {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+            return
+        }
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -40,10 +54,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_beranda, R.id.navigation_kalender, R.id.navigation_tugas, R.id.navigation_profile
             )
         )
-//        setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
-
 
     fun setStatusBarGradiant(activity: Activity) {
         val window: Window = activity.window
@@ -58,4 +70,3 @@ class MainActivity : AppCompatActivity() {
                 View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
     }
 }
-
