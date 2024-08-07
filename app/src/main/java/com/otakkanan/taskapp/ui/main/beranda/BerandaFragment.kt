@@ -40,6 +40,8 @@ class BerandaFragment : Fragment() {
             }
         }
 
+        var isChecked = false
+
         return root
     }
 
