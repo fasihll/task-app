@@ -1,8 +1,15 @@
 <resources>
     <string name="app_name">taskapp</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="title_beranda">Home</string>
+    <string name="title_beranda">Beranda</string>
     <string name="title_kalender">Kalender</string>
     <string name="title_tugas">Tugas</string>
     <string name="title_profile">Profile</string>
+    <string name="tambah_tugas_baru">Tambah Tugas Baru</string>
+    <string name="selesai">Selesai</string>
+    <string name="tombol_untuk_menyelesaikan_dan_membuat_tugas_baru">Tombol untuk menyelesaikan dan membuat tugas baru</string>
+    <string name="tugas_baru">Tugas Baru</string>
+    <string name="nama_tugas">Nama Tugas</string>
+    <string name="deskripsi_opsional">Deskripsi (Opsional)</string>
+    <string name="tambahkan_sub_tugas">Tambahkan sub-tugas</string>
 </resources>
