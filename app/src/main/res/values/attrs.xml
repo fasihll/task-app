@@ -3,6 +3,10 @@
     <attr name="colorOnGold" format="color" />
     <attr name="colorGoldContainer" format="color" />
     <attr name="colorOnGoldContainer" format="color" />
+    <attr name="colorGreen" format="color" />
+    <attr name="colorOnGreen" format="color" />
+    <attr name="colorGreenContainer" format="color" />
+    <attr name="colorOnGreenContainer" format="color" />
     <attr name="colorPurple" format="color" />
     <attr name="colorOnPurple" format="color" />
     <attr name="colorPurpleContainer" format="color" />
@@ -11,8 +15,4 @@
     <attr name="colorOnBlue" format="color" />
     <attr name="colorBlueContainer" format="color" />
     <attr name="colorOnBlueContainer" format="color" />
-    <attr name="colorGreen" format="color" />
-    <attr name="colorOnGreen" format="color" />
-    <attr name="colorGreenContainer" format="color" />
-    <attr name="colorOnGreenContainer" format="color" />
 </resources>

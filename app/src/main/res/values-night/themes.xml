@@ -50,6 +50,10 @@
         <item name="colorOnGold">@color/colorOnGold</item>
         <item name="colorGoldContainer">@color/colorGoldContainer</item>
         <item name="colorOnGoldContainer">@color/colorOnGoldContainer</item>
+        <item name="colorGreen">@color/colorGreen</item>
+        <item name="colorOnGreen">@color/colorOnGreen</item>
+        <item name="colorGreenContainer">@color/colorGreenContainer</item>
+        <item name="colorOnGreenContainer">@color/colorOnGreenContainer</item>
         <item name="colorPurple">@color/colorPurple</item>
         <item name="colorOnPurple">@color/colorOnPurple</item>
         <item name="colorPurpleContainer">@color/colorPurpleContainer</item>
@@ -58,9 +62,5 @@
         <item name="colorOnBlue">@color/colorOnBlue</item>
         <item name="colorBlueContainer">@color/colorBlueContainer</item>
         <item name="colorOnBlueContainer">@color/colorOnBlueContainer</item>
-        <item name="colorGreen">@color/colorGreen</item>
-        <item name="colorOnGreen">@color/colorOnGreen</item>
-        <item name="colorGreenContainer">@color/colorGreenContainer</item>
-        <item name="colorOnGreenContainer">@color/colorOnGreenContainer</item>
     </style>
 </resources>

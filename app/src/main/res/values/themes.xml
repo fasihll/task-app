@@ -7,7 +7,7 @@
         <item name="colorSecondary">@color/md_theme_secondary</item>
         <item name="colorOnSecondary">@color/md_theme_onSecondary</item>
         <item name="colorSecondaryContainer">@color/md_theme_secondaryContainer</item>
-        <item name="colorOnSecondaryContainer">@color/md_theme_primary</item>
+        <item name="colorOnSecondaryContainer">@color/md_theme_onSecondaryContainer</item>
         <item name="colorTertiary">@color/md_theme_tertiary</item>
         <item name="colorOnTertiary">@color/md_theme_onTertiary</item>
         <item name="colorTertiaryContainer">@color/md_theme_tertiaryContainer</item>
@@ -19,9 +19,9 @@
         <item name="android:colorBackground">@color/md_theme_background</item>
         <item name="colorOnBackground">@color/md_theme_onBackground</item>
         <item name="colorSurface">@color/md_theme_surface</item>
-        <item name="colorOnSurface">@color/md_theme_primary</item>
+        <item name="colorOnSurface">@color/md_theme_onSurface</item>
         <item name="colorSurfaceVariant">@color/md_theme_surfaceVariant</item>
-        <item name="colorOnSurfaceVariant">@color/md_theme_outline</item>
+        <item name="colorOnSurfaceVariant">@color/md_theme_onSurfaceVariant</item>
         <item name="colorOutline">@color/md_theme_outline</item>
         <item name="colorOutlineVariant">@color/md_theme_outlineVariant</item>
         <item name="colorSurfaceInverse">@color/md_theme_inverseSurface</item>
@@ -50,6 +50,10 @@
         <item name="colorOnGold">@color/colorOnGold</item>
         <item name="colorGoldContainer">@color/colorGoldContainer</item>
         <item name="colorOnGoldContainer">@color/colorOnGoldContainer</item>
+        <item name="colorGreen">@color/colorGreen</item>
+        <item name="colorOnGreen">@color/colorOnGreen</item>
+        <item name="colorGreenContainer">@color/colorGreenContainer</item>
+        <item name="colorOnGreenContainer">@color/colorOnGreenContainer</item>
         <item name="colorPurple">@color/colorPurple</item>
         <item name="colorOnPurple">@color/colorOnPurple</item>
         <item name="colorPurpleContainer">@color/colorPurpleContainer</item>
@@ -58,9 +62,5 @@
         <item name="colorOnBlue">@color/colorOnBlue</item>
         <item name="colorBlueContainer">@color/colorBlueContainer</item>
         <item name="colorOnBlueContainer">@color/colorOnBlueContainer</item>
-        <item name="colorGreen">@color/colorGreen</item>
-        <item name="colorOnGreen">@color/colorOnGreen</item>
-        <item name="colorGreenContainer">@color/colorGreenContainer</item>
-        <item name="colorOnGreenContainer">@color/colorOnGreenContainer</item>
     </style>
 </resources>
