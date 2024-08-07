@@ -52,5 +52,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation("com.kingfisherphuoc:easy-recyclerview-indicator:1.3")
+    implementation("de.hdodenhof:circleimageview:3.1.0")
 }

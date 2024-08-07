@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="17dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,31 +16,38 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="100">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tugas 1 — Mengerjakan Kuis"/>
+                android:text="Tugas 1 — Mengerjakan Kuis"
+                android:textSize="18sp"
+                android:layout_marginBottom="5dp"/>
             <androidx.cardview.widget.CardView
                 android:layout_width="46dp"
                 android:layout_height="18dp"
                 app:cardCornerRadius="6px"
                 android:layout_marginTop="2dp"
-                android:backgroundTint="@color/colorPurpleContainer">
+                android:backgroundTint="@color/md_theme_primaryFixed">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="07:00"/>
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:text="07:00"
+                    android:textSize="11sp"
+                    android:textColor="@color/md_theme_primary"/>
             </androidx.cardview.widget.CardView>=
         </LinearLayout>
 
-        <androidx.cardview.widget.CardView
+        <ImageView
+            android:id="@+id/task_checkbox"
             android:layout_width="33dp"
             android:layout_height="33dp"
-            android:background="@color/colorBlue"
-            android:layout_weight="1">
-        </androidx.cardview.widget.CardView>
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/task_list_selector"
+            android:clickable="true"
+            android:focusable="true"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

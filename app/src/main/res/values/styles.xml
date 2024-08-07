@@ -18,4 +18,10 @@
     <style name="BottomNavigationView.Inactive" parent="TextAppearance.AppCompat.Caption">
         <item name="android:textSize">10sp</item>
     </style>
+
+    <style name="CheckboxNoThemeOverlay">
+        <item name="colorControlActivated">@android:color/transparent</item>
+        <item name="colorControlHighlight">@android:color/transparent</item>
+        <item name="colorAccent">@android:color/transparent</item>
+    </style>
 </resources>
