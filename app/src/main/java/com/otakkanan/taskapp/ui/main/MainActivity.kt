@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         sharedPreferences = getSharedPreferences("appPrefs", Context.MODE_PRIVATE)
         val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", true)
 
-        if (isLoggedIn) {
+        if (!isLoggedIn) {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
             return
