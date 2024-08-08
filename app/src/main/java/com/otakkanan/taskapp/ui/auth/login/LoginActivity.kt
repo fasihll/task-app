@@ -9,8 +9,10 @@ import android.text.Spanned
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.text.style.ForegroundColorSpan
+import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.ui.main.MainActivity
@@ -40,6 +42,20 @@ class LoginActivity : AppCompatActivity() {
         passwordEditText = findViewById(R.id.passwordEditText)
         loginButton = findViewById(R.id.loginButton)
         registerTextView = findViewById(R.id.registerTextView)
+
+        val toolbar: Toolbar = findViewById(R.id.topAppBar)
+        setSupportActionBar(toolbar)
+
+        // Enable the Up button
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
+
+        // Handle navigation button click
+        toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
 
         // Initialize SharedPreferences
         sharedPreferences = getSharedPreferences("appPrefs", Context.MODE_PRIVATE)
@@ -91,5 +107,15 @@ class LoginActivity : AppCompatActivity() {
         val email = emailEditText.text.toString()
         val password = passwordEditText.text.toString()
         return email.isNotEmpty() && password.isNotEmpty()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }
