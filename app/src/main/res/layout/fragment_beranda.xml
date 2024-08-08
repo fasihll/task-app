@@ -63,10 +63,10 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_task_banner"
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp_task_banner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="201.22dp"
                 tools:orientation="horizontal"
                 tools:itemCount="1"
                 tools:listitem="@layout/tasks_banner_list"
@@ -74,13 +74,14 @@
                 app:layout_constraintTop_toBottomOf="@id/searchBar"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
-
-            <!--pakai viewpager2-->
-          <!--  <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/tasks_banner"
+            
+            <LinearLayout
+                android:id="@+id/vp_indicator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/rv_task_banner"/>-->
+                android:orientation="horizontal"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/vp_task_banner"/>
             
             <TextView
                 android:id="@+id/title_tugasharian"
@@ -91,7 +92,7 @@
                 android:textStyle="bold"
                 android:textColor="?attr/colorOnBackground"
                 android:layout_marginTop="12.16dp"
-                app:layout_constraintTop_toBottomOf="@id/rv_task_banner"/>
+                app:layout_constraintTop_toBottomOf="@id/vp_task_banner"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_task_day"
