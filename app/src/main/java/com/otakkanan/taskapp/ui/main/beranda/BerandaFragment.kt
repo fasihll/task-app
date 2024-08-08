@@ -139,7 +139,7 @@ class BerandaFragment : Fragment() {
                 val scaleFactor = Math.max(0.85f, 1 - Math.abs(position) * 0.2f) // Mengurangi faktor skala saat position semakin besar
                 page.scaleY = scaleFactor
 
-// Apply translation to show the next card slightly
+                // Apply translation to show the next card slightly
                 val maxTranslation = 2 * offset * pageWidth + pageWidth
                 page.translationX = -position * maxTranslation
             }
@@ -206,7 +206,7 @@ class BerandaFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
         binding.vpTaskBanner.unregisterOnPageChangeCallback(pageChangeListener)
+        _binding = null
     }
 }
