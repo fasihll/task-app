@@ -2,7 +2,7 @@ package com.otakkanan.taskapp.data.model
 
 data class Task(
     val title: String,
-    val progress: Double,
+    val progress: Int,
     val team: List<Team>,
 )
 

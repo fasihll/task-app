@@ -18,18 +18,21 @@
             android:orientation="vertical"
             android:layout_weight="100">
             <TextView
+                android:id="@+id/task_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Tugas 1 — Mengerjakan Kuis"
                 android:textSize="18sp"
                 android:layout_marginBottom="5dp"/>
             <androidx.cardview.widget.CardView
+                android:id="@+id/task_time_container"
                 android:layout_width="46dp"
                 android:layout_height="18dp"
                 app:cardCornerRadius="6px"
                 android:layout_marginTop="2dp"
-                android:backgroundTint="@color/md_theme_primaryFixed">
+                app:cardBackgroundColor="@color/md_theme_primaryFixed">
                 <TextView
+                    android:id="@+id/task_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"
