@@ -68,9 +68,11 @@
                         app:trackStopIndicatorSize="0dp"
                         app:trackColor="#50000000"
                         app:indicatorColor="?attr/colorOnPrimary"
-                        app:indeterminate="true"
+                        android:indeterminate="false"
                         android:progress="50"
-                        app:progressMax="100"/>
+                        />
+                    <!--app:progressMax="100"-->
+
                 </LinearLayout>
 
                 <!--team layout-->
@@ -89,7 +91,7 @@
                         android:id="@+id/team_image1"
                         android:layout_width="27dp"
                         android:layout_height="27dp"
-                        android:src="@tools:sample/avatars"
+                        tools:src="@tools:sample/avatars"
                         app:civ_border_width="2dp"
                         app:civ_border_color="#61346B"
                         app:layout_constraintTop_toTopOf="parent"
@@ -98,7 +100,7 @@
                         android:id="@+id/team_image2"
                         android:layout_width="27dp"
                         android:layout_height="27dp"
-                        android:src="@tools:sample/avatars"
+                        tools:src="@tools:sample/avatars"
                         app:civ_border_width="2dp"
                         app:civ_border_color="#61346B"
                         android:translationX="-10dp"
