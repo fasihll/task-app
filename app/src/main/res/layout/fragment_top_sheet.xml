@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/bottom_sheet"
+    android:id="@+id/top_sheet_tugas_baru_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#ffffff"
-    android:orientation="vertical"
-    android:padding="12dp"
-    android:elevation="8dp"
-    app:behavior_hideable="false"
-    app:behavior_peekHeight="48dp"
-    app:layout_behavior="@string/top_sheet_auto_close_behavior">
+    android:background="@color/md_theme_onPrimary"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ed_deskripsi"
@@ -141,14 +137,4 @@
                 android:textSize="15sp" />
         </LinearLayout>
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/btn_expand"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingVertical="12dp"
-        android:layout_gravity="bottom"
-        android:gravity="center"
-        android:src="@drawable/ic_expand_more_24" />
-
 </LinearLayout>

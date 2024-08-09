@@ -1,7 +1,5 @@
 package com.otakkanan.taskapp.component.topsheet;
 
-import com.google.android.material.R;
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
@@ -10,18 +8,16 @@ import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
-import androidx.core.view.AccessibilityDelegateCompat;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.appcompat.app.AppCompatDialog;
 import android.util.TypedValue;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
+import com.otakkanan.taskapp.R;
 
 /** Base class for {@link android.app.Dialog}s styled as a bottom sheet. */
 public class TopSheetDialog extends AppCompatDialog {
@@ -56,7 +52,7 @@ public class TopSheetDialog extends AppCompatDialog {
 
     @Override
     public void setContentView(@LayoutRes int layoutResId) {
-        super.setContentView(wrapInBottomSheet(layoutResId, null, null));
+        super.setContentView(wrapInTopSheet(layoutResId, null, null));
     }
 
     @Override
@@ -74,12 +70,12 @@ public class TopSheetDialog extends AppCompatDialog {
 
     @Override
     public void setContentView(View view) {
-        super.setContentView(wrapInBottomSheet(0, view, null));
+        super.setContentView(wrapInTopSheet(0, view, null));
     }
 
     @Override
     public void setContentView(View view, ViewGroup.LayoutParams params) {
-        super.setContentView(wrapInBottomSheet(0, view, params));
+        super.setContentView(wrapInTopSheet(0, view, params));
     }
 
     @Override
@@ -101,15 +97,31 @@ public class TopSheetDialog extends AppCompatDialog {
         }
     }
 
+    /**
+     * This function can be called from a few different use cases, including Swiping the dialog down
+     * or calling `dismiss()` from a `BottomSheetDialogFragment`, tapping outside a dialog, etc...
+     *
+     * <p>The default animation to dismiss this dialog is a fade-out transition through a
+     * windowAnimation. Call  if you want to utilize the
+     * BottomSheet animation instead.
+     *
+     * <p>If this function is called from a swipe down interaction, or dismissWithAnimation is false,
+     * then keep the default behavior.
+     *
+     * <p>Else, since this is a terminal event which will finish this dialog, we override the attached
+     * {@link TopSheetBehavior.TopSheetCallback} to call this function, after {@link
+     * TopSheetBehavior#STATE_HIDDEN} is set. This will enforce the swipe down animation before
+     * canceling this dialog.
+     */
     @Override
     public void cancel() {
-        TopSheetBehavior<FrameLayout> behavior = getBehavior();
-
-        if (!dismissWithAnimation || behavior.getState() == TopSheetBehavior.STATE_HIDDEN) {
-            super.cancel();
-        } else {
-            behavior.setState(TopSheetBehavior.STATE_HIDDEN);
-        }
+//    TopSheetBehavior<FrameLayout> behavior = getBehavior();
+//
+//    if (!dismissWithAnimation || behavior.getState() == TopSheetBehavior.STATE_HIDDEN) {
+        super.cancel();
+    /*} else {
+      behavior.setState(TopSheetBehavior.STATE_HIDDEN);
+    }*/
     }
 
     @Override
@@ -122,14 +134,14 @@ public class TopSheetDialog extends AppCompatDialog {
         canceledOnTouchOutsideSet = true;
     }
 
-    @NonNull
-    public TopSheetBehavior<FrameLayout> getBehavior() {
-        if (behavior == null) {
-            // The content hasn't been set, so the behavior doesn't exist yet. Let's create it.
-            ensureContainerAndBehavior();
-        }
-        return behavior;
+  /*@NonNull
+  public TopSheetBehavior<FrameLayout> getBehavior() {
+    if (behavior == null) {
+      // The content hasn't been set, so the behavior doesn't exist yet. Let's create it.
+      ensureContainerAndBehavior();
     }
+    return behavior;
+  }*/
 
     /**
      * Set to perform the swipe down animation when dismissing instead of the window animation for the
@@ -153,77 +165,45 @@ public class TopSheetDialog extends AppCompatDialog {
     private FrameLayout ensureContainerAndBehavior() {
         if (container == null) {
             container =
-                    (FrameLayout) View.inflate(getContext(), com.otakkanan.taskapp.R.layout.design_top_sheet_dialog, null);
+                    (FrameLayout) View.inflate(getContext(), R.layout.top_sheet_dialog, null);
 
-            FrameLayout bottomSheet = (FrameLayout) container.findViewById(R.id.design_bottom_sheet);
+            FrameLayout bottomSheet = (FrameLayout) container.findViewById(R.id.design_top_sheet);
             behavior = TopSheetBehavior.from(bottomSheet);
-            behavior.addTopSheetCallback(topSheetCallback);
+//      behavior.addBottomSheetCallback(bottomSheetCallback);
             behavior.setHideable(cancelable);
         }
         return container;
     }
 
-    private View wrapInBottomSheet(
+    private View wrapInTopSheet(
             int layoutResId, @Nullable View view, @Nullable ViewGroup.LayoutParams params) {
-        ensureContainerAndBehavior();
-        CoordinatorLayout coordinator = (CoordinatorLayout) container.findViewById(R.id.coordinator);
+//    ensureContainerAndBehavior();
+        final CoordinatorLayout coordinator = (CoordinatorLayout) View.inflate(getContext(),
+                R.layout.top_sheet_dialog, null);
         if (layoutResId != 0 && view == null) {
             view = getLayoutInflater().inflate(layoutResId, coordinator, false);
         }
-
-        FrameLayout bottomSheet = (FrameLayout) container.findViewById(R.id.design_bottom_sheet);
-        bottomSheet.removeAllViews();
+        FrameLayout topSheet = (FrameLayout) coordinator.findViewById(R.id.design_top_sheet);
+        behavior = TopSheetBehavior.from(topSheet);
+        behavior.setTopSheetCallback(mTopSheetCallback);
         if (params == null) {
-            bottomSheet.addView(view);
+            topSheet.addView(view);
         } else {
-            bottomSheet.addView(view, params);
+            topSheet.addView(view, params);
         }
         // We treat the CoordinatorLayout as outside the dialog though it is technically inside
-        coordinator
-                .findViewById(R.id.touch_outside)
-                .setOnClickListener(
-                        new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                if (cancelable && isShowing() && shouldWindowCloseOnTouchOutside()) {
-                                    cancel();
-                                }
+        if (shouldWindowCloseOnTouchOutside()) {
+            coordinator.findViewById(R.id.top_sheet_touch_outside).setOnClickListener(
+                    new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if (isShowing()) {
+                                cancel();
                             }
-                        });
-        // Handle accessibility events
-        ViewCompat.setAccessibilityDelegate(
-                bottomSheet,
-                new AccessibilityDelegateCompat() {
-                    @Override
-                    public void onInitializeAccessibilityNodeInfo(
-                            View host, @NonNull AccessibilityNodeInfoCompat info) {
-                        super.onInitializeAccessibilityNodeInfo(host, info);
-                        if (cancelable) {
-                            info.addAction(AccessibilityNodeInfoCompat.ACTION_DISMISS);
-                            info.setDismissable(true);
-                        } else {
-                            info.setDismissable(false);
                         }
-                    }
-
-                    @Override
-                    public boolean performAccessibilityAction(View host, int action, Bundle args) {
-                        if (action == AccessibilityNodeInfoCompat.ACTION_DISMISS && cancelable) {
-                            cancel();
-                            return true;
-                        }
-                        return super.performAccessibilityAction(host, action, args);
-                    }
-                });
-        bottomSheet.setOnTouchListener(
-                new View.OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View view, MotionEvent event) {
-                        // Consume the event and prevent it from falling through
-                        return true;
-                    }
-                });
-        return container;
+                    });
+        }
+        return coordinator;
     }
 
     boolean shouldWindowCloseOnTouchOutside() {
@@ -242,32 +222,33 @@ public class TopSheetDialog extends AppCompatDialog {
         if (themeId == 0) {
             // If the provided theme is 0, then retrieve the dialogTheme from our theme
             TypedValue outValue = new TypedValue();
-            if (context.getTheme().resolveAttribute(R.attr.bottomSheetDialogTheme, outValue, true)) {
+            if (context.getTheme().resolveAttribute(
+                    com.google.android.material.R.attr.bottomSheetDialogTheme, outValue, true)) {
                 themeId = outValue.resourceId;
             } else {
                 // bottomSheetDialogTheme is not provided; we default to our light theme
-                themeId = R.style.Theme_Design_Light_BottomSheetDialog;
+                themeId = R.style.Theme_Design_TopSheetDialog;
             }
         }
         return themeId;
     }
 
-    void removeDefaultCallback() {
-        behavior.removeTopSheetCallback(topSheetCallback);
-    }
+//  void removeDefaultCallback() {
+//    behavior.removeBottomSheetCallback(bottomSheetCallback);
+//  }
 
-    @NonNull
-    private final TopSheetBehavior.SheetCallback topSheetCallback =
-            new TopSheetBehavior.SheetCallback() {
-                @Override
-                public void onStateChanged(
-                        @NonNull View topSheet, @TopSheetBehavior.State int newState) {
-                    if (newState == TopSheetBehavior.STATE_HIDDEN) {
-                        cancel();
-                    }
-                }
+    private TopSheetBehavior.TopSheetCallback mTopSheetCallback
+            = new TopSheetBehavior.TopSheetCallback() {
+        @Override
+        public void onStateChanged(@NonNull View topSheet,
+                                   @TopSheetBehavior.State int newState) {
+            if (newState == TopSheetBehavior.STATE_HIDDEN) {
+                dismiss();
+            }
+        }
 
-                @Override
-                public void onSlide(@NonNull View topSheet, float slideOffset) {}
-            };
+        @Override
+        public void onSlide(@NonNull View topSheet, float slideOffset, @Nullable Boolean isOpening) {
+        }
+    };
 }
