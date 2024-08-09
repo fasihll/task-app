@@ -53,5 +53,6 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("de.hdodenhof:circleimageview:3.1.0")
+    implementation ("me.relex:circleindicator:2.1.6")
     implementation("com.github.bumptech.glide:glide:4.16.0")
 }
