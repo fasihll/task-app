@@ -9,9 +9,10 @@
     tools:context=".ui.tugas.tugasbaru.TugasBaruActivity">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,49 +30,41 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <androidx.core.widget.NestedScrollView
+        <androidx.constraintlayout.motion.widget.MotionLayout
+            android:id="@+id/motionLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            android:background="@color/md_theme_onPrimary"
+            app:layoutDescription="@xml/scene_02">
 
-            <LinearLayout
+            <FrameLayout
+                android:id="@+id/container"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/md_theme_onPrimary"
-                android:orientation="vertical"
-                android:paddingHorizontal="20dp">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/ed_nama_tugas"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/nama_tugas"
-                    app:expandedHintEnabled="false"
-                    app:hintEnabled="true">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <FrameLayout
-                    android:id="@+id/top_sheet_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"/>
+                android:layout_height="32dp"
+                android:elevation="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent">
 
                 <ImageView
-                    android:id="@+id/btn_expand"
+                    android:id="@+id/icon"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="8dp"
+                    android:layout_gravity="bottom"
+                    android:gravity="center"
                     android:src="@drawable/ic_expand_more_24" />
+            </FrameLayout>
 
-            </LinearLayout>
-
-        </androidx.core.widget.NestedScrollView>
+            <Button
+                android:id="@+id/fragment_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/container" />
+        </androidx.constraintlayout.motion.widget.MotionLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
