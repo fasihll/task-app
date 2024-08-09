@@ -5,62 +5,49 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
     tools:context=".ui.tugas.tugasbaru.TugasBaruActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="4dp">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
+        android:layout_height="wrap_content">
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="?attr/actionBarSize"
-            app:menu="@menu/top_app_bar_tugas_baru"
-            app:navigationIcon="@drawable/ic_arrow_back_24"
-            app:title="@string/tugas_baru" />
+            android:background="@color/md_theme_onPrimary"
+            android:paddingHorizontal="4dp">
 
-    </com.google.android.material.appbar.AppBarLayout>
-    <!-- Note: A RecyclerView can also be used -->
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <!-- Scrollable content -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:orientation="vertical">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/ed_nama_tugas"
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/nama_tugas">
+                android:minHeight="?attr/actionBarSize"
+                app:menu="@menu/top_app_bar_tugas_baru"
+                app:navigationIcon="@drawable/ic_arrow_back_24"
+                app:title="@string/tugas_baru" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+        </com.google.android.material.appbar.AppBarLayout>
 
-            </com.google.android.material.textfield.TextInputLayout>
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <LinearLayout
-                android:id="@+id/expand_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:visibility="gone"
-                android:orientation="vertical">
+                android:background="@color/md_theme_onPrimary"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/ed_deskripsi"
+                    android:id="@+id/ed_nama_tugas"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="12dp"
-                    android:hint="@string/deskripsi_opsional">
+                    android:hint="@string/nama_tugas"
+                    app:expandedHintEnabled="false"
+                    app:hintEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
@@ -68,30 +55,92 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <LinearLayout
+                <FrameLayout
+                    android:id="@+id/top_sheet_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="start|center"
-                    android:orientation="horizontal">
+                    android:visibility="gone"
+                    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"/>
 
-                    <Button
-                        android:id="@+id/btn_tambah_sub_tugas"
-                        style="@style/Widget.Material3.Button.TextButton.Icon"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="0dp"
-                        android:text="@string/tambahkan_sub_tugas"
-                        app:icon="@drawable/ic_add_box_24" />
-                </LinearLayout>
+                <ImageView
+                    android:id="@+id/btn_expand"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_expand_more_24" />
+
             </LinearLayout>
-            <ImageView
-                android:id="@+id/btn_expand"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:src="@drawable/ic_expand_more_24" />
-        </LinearLayout>
 
-    </androidx.core.widget.NestedScrollView>
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- prev button -->
+            <Button
+                android:id="@+id/calendar_prev_button"
+                style="@style/Widget.Material3.Button.TextButton.Icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/inter_18pt_regular"
+                android:text="prev"
+                android:textColor="@color/md_theme_onBackground"
+                android:textSize="12sp"
+                app:icon="@drawable/ic_arrow_back_24"
+                app:iconSize="16dp"
+                app:iconTint="@color/md_theme_onBackground"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- date title -->
+            <TextView
+                android:id="@+id/txt_current_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_18pt_semibold"
+                android:gravity="center"
+                android:text="current date"
+                android:textAppearance="@android:style/TextAppearance.Medium"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- next button -->
+            <Button
+                android:id="@+id/calendar_next_button"
+                style="@style/Widget.Material3.Button.TextButton.Icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/inter_18pt_regular"
+                android:text="next"
+                android:textColor="@color/md_theme_onBackground"
+                android:textSize="12sp"
+                app:icon="@drawable/ic_arrow_forward_24"
+                app:iconGravity="end"
+                app:iconSize="16dp"
+                app:iconTint="@color/md_theme_onBackground"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- calendar -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/calendar_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:listitem="@layout/custom_calendar_day" />
+    </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
