@@ -7,4 +7,90 @@
     android:layout_height="match_parent"
     tools:context=".ui.onboarding.OnBoardingActivity">
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        android:textColor="@color/md_theme_primaryContainer"
+        android:layout_marginHorizontal="32dp"
+        android:text="tasks"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ellipse"
+        android:layout_width="64dp"
+        android:layout_height="49dp"
+        android:src="@drawable/ic_ellipse"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="32dp" />
+
+    <ImageView
+        android:id="@+id/ellipse2"
+        android:layout_width="6dp"
+        android:layout_height="6dp"
+        android:src="@drawable/bg_ellipse"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <ImageView
+        android:id="@+id/oval"
+        android:layout_width="4dp"
+        android:layout_height="4dp"
+        android:src="@drawable/bg_oval"
+        android:layout_marginStart="114dp"
+        android:layout_marginTop="29dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageButton
+        android:id="@+id/nextOnBoardingButton"
+        android:layout_width="129dp"
+        android:layout_height="191dp"
+        android:src="@drawable/ic_next_button"
+        android:paddingTop="32dp"
+        android:paddingStart="32dp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/view_pager2"
+        app:layout_constraintEnd_toEndOf="@+id/view_pager2"
+        tools:ignore="RtlSymmetry"/>
+
+    <me.relex.circleindicator.CircleIndicator3
+        android:id="@+id/indicator"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="84dp"
+        app:layout_constraintBottom_toTopOf="@+id/skipTextView"
+        app:layout_constraintStart_toStartOf="@+id/view_pager2"
+        app:ci_drawable="@drawable/indicator_selected"
+        app:ci_drawable_unselected="@drawable/indicator_unselected">
+    </me.relex.circleindicator.CircleIndicator3>
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/skipTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lewati"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="45dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

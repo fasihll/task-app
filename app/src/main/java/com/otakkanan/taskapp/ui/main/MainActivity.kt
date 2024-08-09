@@ -1,7 +1,6 @@
 package com.otakkanan.taskapp.ui.main
 
 import android.app.Activity
-import android.os.Build
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -14,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.databinding.ActivityMainBinding
@@ -31,6 +29,12 @@ class MainActivity : AppCompatActivity() {
         sharedPreferences = getSharedPreferences("appPrefs", Context.MODE_PRIVATE)
         val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", true)
 
+        //Developing Juki
+//        if (isLoggedIn) {
+//            startActivity(Intent(this, OnBoardingActivity::class.java))
+//            finish()
+//            return
+//        }
         if (!isLoggedIn) {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
