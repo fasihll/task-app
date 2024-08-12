@@ -31,4 +31,5 @@
         <item name="colorControlHighlight">@android:color/transparent</item>
         <item name="colorAccent">@android:color/transparent</item>
     </style>
+
 </resources>
