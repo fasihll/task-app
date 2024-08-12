@@ -27,25 +27,25 @@
             android:text="Budi Nam"
             android:textSize="18sp"
             android:layout_weight="1"/>
-        <RelativeLayout
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/role_container"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/role_container"
-                android:layout_width="78dp"
-                android:layout_height="32dp"
-                app:cardCornerRadius="9dp"
-                app:cardBackgroundColor="@color/colorPurpleContainer"/>
+            android:layout_height="33dp"
+            app:cardCornerRadius="9dp"
+            app:cardBackgroundColor="@color/colorPurpleContainer">
             <TextView
                 android:id="@+id/role"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:textColor="@color/md_theme_primary"
+                android:paddingHorizontal="20dp"
                 android:text="Admin"
-                android:layout_centerInParent="true"/>
-        </RelativeLayout>
+                android:layout_gravity="center"/>
+        </com.google.android.material.card.MaterialCardView>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

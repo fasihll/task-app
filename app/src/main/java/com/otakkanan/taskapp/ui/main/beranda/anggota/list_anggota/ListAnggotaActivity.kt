@@ -5,12 +5,15 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.Task
 import com.otakkanan.taskapp.data.model.Team
 import com.otakkanan.taskapp.databinding.ActivityDetailTaskBinding
 import com.otakkanan.taskapp.databinding.ActivityListAnggotaBinding
 import com.otakkanan.taskapp.ui.main.beranda.detail_task.DetailTaskActivity
+import com.otakkanan.taskapp.ui.main.beranda.detail_task.SubTugasAdapter
 
 class ListAnggotaActivity : AppCompatActivity() {
 
@@ -32,6 +35,21 @@ class ListAnggotaActivity : AppCompatActivity() {
             finish()
         }
         binding.countAnggota.text = "${task?.team!!.size} Anggota"
+
+        setupRecylerview(task)
+    }
+
+    private fun setupRecylerview(task: Task) {
+       with(binding){
+           val layoutManager = LinearLayoutManager(this@ListAnggotaActivity)
+           rvListAnggota.layoutManager = layoutManager
+           val itemDecoration = DividerItemDecoration(this@ListAnggotaActivity,layoutManager.orientation)
+           rvListAnggota.addItemDecoration(itemDecoration)
+
+           val adapter = ListAnggotaAdapter()
+           rvListAnggota.adapter = adapter
+           adapter.submitList(task.team)
+       }
     }
 
     override fun onDestroy() {
