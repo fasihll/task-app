@@ -53,12 +53,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4 Anggota"
+                android:textColor="@color/md_theme_secondary"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/topBar"/>
             <TextView
                 android:id="@+id/btn_search"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/md_theme_secondary"
+                android:clickable="true"
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackgroundBorderless"
                 android:layout_alignParentStart="true"
@@ -84,6 +87,7 @@
                 app:layout_constraintEnd_toEndOf="parent"/>
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_list_anggota"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@id/btn_add_anggota"
@@ -94,4 +98,20 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/leave_icon"
+        android:text="Keluar dari tim"
+        android:textSize="18sp"
+        android:drawablePadding="6dp"
+        android:textColor="@color/md_theme_errorContainer"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginBottom="41dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        android:layout_alignParentStart="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

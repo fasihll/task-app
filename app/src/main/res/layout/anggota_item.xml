@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/btn_tambah"
+        android:id="@+id/btn_container"
         android:layout_width="36dp"
         android:layout_height="36dp"
         app:cardBackgroundColor="?attr/colorPrimary"
@@ -29,8 +29,10 @@
         tools:visibility="visible"
         android:clickable="true"
         app:layout_constraintStart_toEndOf="@id/image_anggota"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
         <ImageView
+            android:id="@+id/btn_tambah"
             android:layout_width="27dp"
             android:layout_height="27dp"
             android:src="@drawable/plus"
