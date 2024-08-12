@@ -1,6 +1,7 @@
 package com.otakkanan.taskapp.ui.onboarding
 
 import ViewPagerAdapter
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -10,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.textview.MaterialTextView
 import com.otakkanan.taskapp.R
-import com.otakkanan.taskapp.ui.auth.register.RegisterActivity
+import com.otakkanan.taskapp.ui.auth.login.LoginActivity
 import me.relex.circleindicator.CircleIndicator3
 
 class OnBoardingActivity : AppCompatActivity() {
@@ -62,21 +63,28 @@ class OnBoardingActivity : AppCompatActivity() {
             if (nextItem < viewPager2.adapter!!.itemCount) {
                 viewPager2.setCurrentItem(nextItem, true)
             } else {
-                navigateToRegister()
+                completeOnboarding()
             }
         }
 
         // "Skip" button action
         skipTextView.setOnClickListener {
-            navigateToRegister()
+            completeOnboarding()
         }
 
         // Start auto-swiping
         handler.postDelayed(autoSwipeRunnable, 7000) // Start after an initial delay
     }
 
-    private fun navigateToRegister() {
-        val intent = Intent(this, RegisterActivity::class.java)
+    private fun completeOnboarding() {
+        // Mark onboarding as completed in SharedPreferences
+        val sharedPreferences = getSharedPreferences("appPrefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("isOnboardingCompleted", true)
+        editor.apply()
+
+        // Navigate to LoginActivity
+        val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish() // Optionally close the OnBoardingActivity
     }
