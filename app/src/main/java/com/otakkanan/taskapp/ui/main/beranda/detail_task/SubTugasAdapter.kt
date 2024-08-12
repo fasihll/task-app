@@ -1,23 +1,25 @@
-package com.otakkanan.taskapp.ui.main.beranda
+package com.otakkanan.taskapp.ui.main.beranda.detail_task
 
 import android.graphics.Paint
-import android.graphics.PorterDuff
+import android.graphics.Typeface
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.StyleSpan
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.TaskDay
+import com.otakkanan.taskapp.databinding.SubTugasListBinding
 import com.otakkanan.taskapp.databinding.TaskDayListBinding
 
-class TaskDayAdapter :  ListAdapter<TaskDay, TaskDayAdapter.MyViewHolder>(DIFF_CALLBACK) {
+class SubTugasAdapter :  ListAdapter<TaskDay, SubTugasAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val binding = TaskDayListBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val binding = SubTugasListBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return MyViewHolder(binding)
     }
 
@@ -26,7 +28,7 @@ class TaskDayAdapter :  ListAdapter<TaskDay, TaskDayAdapter.MyViewHolder>(DIFF_C
         holder.bind(items)
     }
 
-    class MyViewHolder(private val binding: TaskDayListBinding): RecyclerView.ViewHolder(binding
+    class MyViewHolder(private val binding: SubTugasListBinding): RecyclerView.ViewHolder(binding
         .root) {
 
         init {
@@ -36,10 +38,22 @@ class TaskDayAdapter :  ListAdapter<TaskDay, TaskDayAdapter.MyViewHolder>(DIFF_C
         }
         fun bind(items: TaskDay){
             with(binding){
-                taskTitle.text = items.title
-                taskTime.text = items.time
+                taskTitle.text = "Tugas ${itemId} — ${items.title}"
+                val itemId = position+1
+                val itemsTitle = "Example Title"
+
+                val spannableString = SpannableString("Tugas $itemId — $itemsTitle")
+
+                spannableString.setSpan(
+                    StyleSpan(Typeface.BOLD),
+                    0,
+                    "Tugas $itemId".length,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+
+                taskTitle.text = spannableString
                 if (items.isDone) {
-                   setUncheckedState()
+                    setUncheckedState()
 
                 } else {
                     setCheckedState()
@@ -60,18 +74,12 @@ class TaskDayAdapter :  ListAdapter<TaskDay, TaskDayAdapter.MyViewHolder>(DIFF_C
             binding.taskTitle.paintFlags = binding.taskTitle.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
             binding.taskCheckbox.setImageResource(R.drawable.unchecked_task)
             binding.taskTitle.setTextColor(ContextCompat.getColor(itemView.context, R.color.md_theme_onBackground))
-            binding.taskTime.setTextColor(ContextCompat.getColor(itemView.context, R.color.md_theme_primary))
-            binding.taskTimeContainer.setCardBackgroundColor(ContextCompat.getColor(itemView.context, R.color.md_theme_primaryFixed))
         }
 
         private fun setUncheckedState() {
             binding.taskTitle.paintFlags = binding.taskTitle.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-            binding.taskCheckbox.setImageResource(R.drawable.checked_task)
+            binding.taskCheckbox.setImageResource(R.drawable.checked_task_blue)
             binding.taskTitle.setTextColor(ContextCompat.getColor(itemView.context, R.color.md_theme_secondary))
-            binding.taskTime.setTextColor(ContextCompat.getColor(itemView.context, R.color.md_theme_secondary))
-            binding.taskTimeContainer.setCardBackgroundColor(ContextCompat.getColor(itemView.context, R.color.md_theme_secondaryContainer))
-
-
         }
     }
 
