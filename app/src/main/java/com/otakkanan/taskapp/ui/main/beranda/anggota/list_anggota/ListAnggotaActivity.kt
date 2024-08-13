@@ -1,5 +1,6 @@
 package com.otakkanan.taskapp.ui.main.beranda.anggota.list_anggota
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +13,7 @@ import com.otakkanan.taskapp.data.model.Task
 import com.otakkanan.taskapp.data.model.Team
 import com.otakkanan.taskapp.databinding.ActivityDetailTaskBinding
 import com.otakkanan.taskapp.databinding.ActivityListAnggotaBinding
+import com.otakkanan.taskapp.ui.main.beranda.anggota.add_anggota.AddAnggotaActivity
 import com.otakkanan.taskapp.ui.main.beranda.detail_task.DetailTaskActivity
 import com.otakkanan.taskapp.ui.main.beranda.detail_task.SubTugasAdapter
 
@@ -34,6 +36,14 @@ class ListAnggotaActivity : AppCompatActivity() {
         binding.btnBack.setOnClickListener(){
             finish()
         }
+
+        binding.btnAddAnggota.setOnClickListener{
+            val intent = Intent(this@ListAnggotaActivity,AddAnggotaActivity::class.java)
+            intent.putExtra("TotalAnggota",task?.team!!.size)
+            intent.putExtra(AddAnggotaActivity.TAG,task)
+            startActivity(intent)
+        }
+
         binding.countAnggota.text = "${task?.team!!.size} Anggota"
 
         setupRecylerview(task)

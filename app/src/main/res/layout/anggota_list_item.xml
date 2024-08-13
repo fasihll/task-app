@@ -33,6 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="33dp"
             app:cardCornerRadius="9dp"
+            app:strokeWidth="0dp"
             app:cardBackgroundColor="@color/colorPurpleContainer">
             <TextView
                 android:id="@+id/role"
