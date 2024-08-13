@@ -18,7 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="200dp"
-            android:paddingHorizontal="32dp">
+            android:paddingHorizontal="32dp"
+            android:paddingTop="6dp">
             <RelativeLayout
                 android:id="@+id/topBar"
                 android:layout_width="match_parent"
