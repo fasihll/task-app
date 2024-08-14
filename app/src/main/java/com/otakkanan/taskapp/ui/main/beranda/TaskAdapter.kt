@@ -2,15 +2,13 @@ package com.otakkanan.taskapp.ui.main.beranda
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.BlendMode
 import android.graphics.Color
 import android.graphics.PorterDuff
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -18,7 +16,6 @@ import com.bumptech.glide.Glide
 import com.otakkanan.taskapp.data.model.Task
 import com.otakkanan.taskapp.databinding.TasksBannerListBinding
 import com.otakkanan.taskapp.ui.main.beranda.detail_task.DetailTaskActivity
-import androidx.core.util.Pair
 
 class TaskAdapter :  ListAdapter<Task, TaskAdapter.MyViewHolder>(DIFF_CALLBACK) {
 

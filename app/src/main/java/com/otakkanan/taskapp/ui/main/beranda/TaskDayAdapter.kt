@@ -1,15 +1,12 @@
 package com.otakkanan.taskapp.ui.main.beranda
 
 import android.graphics.Paint
-import android.graphics.PorterDuff
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.TaskDay
 import com.otakkanan.taskapp.databinding.TaskDayListBinding
@@ -37,7 +34,7 @@ class TaskDayAdapter :  ListAdapter<TaskDay, TaskDayAdapter.MyViewHolder>(DIFF_C
         fun bind(items: TaskDay){
             with(binding){
                 taskTitle.text = items.title
-                taskTime.text = items.time
+                taskTime.text = items.time.toString()
                 if (items.isDone) {
                    setUncheckedState()
 

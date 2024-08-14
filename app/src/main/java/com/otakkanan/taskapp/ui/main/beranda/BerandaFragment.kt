@@ -1,25 +1,20 @@
 package com.otakkanan.taskapp.ui.main.beranda
 
-import android.graphics.Color
 import android.content.Intent
 import android.os.Bundle
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.Manajer
 import com.otakkanan.taskapp.data.model.Task
@@ -27,6 +22,7 @@ import com.otakkanan.taskapp.data.model.TaskDay
 import com.otakkanan.taskapp.data.model.Team
 import com.otakkanan.taskapp.databinding.FragmentBerandaBinding
 import com.otakkanan.taskapp.ui.tugas.tugasbaru.TugasBaruActivity
+import java.time.LocalTime
 
 class BerandaFragment : Fragment() {
 
@@ -96,7 +92,7 @@ class BerandaFragment : Fragment() {
                                 "&fit=crop&ixlib=rb-4.0" +
                                 ".3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                             role = "User"),
-                    )
+                    ),
                 ),
                 Task(
                     title = "Tugas \nLaravel",
@@ -219,10 +215,13 @@ class BerandaFragment : Fragment() {
 
     private fun setupTaskDayRecyclerview() {
         val taskDay = arrayListOf(
-            TaskDay("Tugas 1 — Mengerjakan beranda","08:00",true),
-            TaskDay("Tugas 2 — Mengerjakan detail","11:00",true),
-            TaskDay("Tugas 3 — Mengerjakan member level page","13:00",false),
-            TaskDay("Tugas 4 — Mengerjakan tambah anggota page","17:00",false)
+            TaskDay(title = "Tugas 1 — Mengerjakan beranda",time= LocalTime.of(10,0,0), isDone =
+            true),
+            TaskDay(title ="Tugas 2 — Mengerjakan detail",time= LocalTime.of(11,0,0),isDone = true),
+            TaskDay(title ="Tugas 3 — Mengerjakan member level page",time= LocalTime.of(13,0,0),
+                isDone = false),
+            TaskDay(title ="Tugas 4 — Mengerjakan tambah anggota page",time= LocalTime.of(17,0,0)
+                ,isDone = false)
         )
 
         with(binding){

@@ -14,13 +14,13 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
-import com.otakkanan.taskapp.R
-import com.otakkanan.taskapp.ui.main.MainActivity
-import com.otakkanan.taskapp.ui.auth.register.RegisterActivity
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import com.google.android.material.button.MaterialButton
 import com.google.android.material.textview.MaterialTextView
+import com.otakkanan.taskapp.R
+import com.otakkanan.taskapp.ui.auth.register.RegisterActivity
+import com.otakkanan.taskapp.ui.main.MainActivity
 
 class LoginActivity : AppCompatActivity() {
 
