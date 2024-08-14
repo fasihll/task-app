@@ -35,4 +35,9 @@
         <item name="behavior_peekHeight">@dimen/top_sheet_modal_peek_height</item>
         <item name="behavior_hideable">true</item>
     </style>
+    <style name="CustomTimePickerTheme" parent="ThemeOverlay.MaterialComponents.TimePicker">
+        <item name="colorPrimary">@color/md_theme_primary</item>
+        <item name="colorAccent">@color/md_theme_onPrimary</item>
+    </style>
+
 </resources>

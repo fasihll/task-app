@@ -126,9 +126,33 @@
                     android:paddingVertical="8dp"
                     android:orientation="horizontal"
                     tools:listitem="@layout/custom_calendar_day" />
-                <TimePicker
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/titleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="24dp"
+                        android:text="Pilih Waktu"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="#4F46E5" /> <!-- Text color dark purple -->
+
+                    <com.otakkanan.taskapp.component.TimePicker
+                        android:id="@+id/timePickerView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/titleText"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="24dp" />
+
+                </LinearLayout>
             </LinearLayout>
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
