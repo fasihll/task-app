@@ -10,13 +10,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.databinding.ActivityTugasBaruBinding
+import dagger.hilt.android.AndroidEntryPoint
 import com.otakkanan.taskapp.ui.adapter.CalendarAdapter
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 
+@AndroidEntryPoint
 class TugasBaruActivity : AppCompatActivity(), TopSheetFragment.ButtonClickCompleteListener {
+
 
     private lateinit var binding: ActivityTugasBaruBinding
     private var isExpanded: Boolean = false

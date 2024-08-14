@@ -11,9 +11,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.textview.MaterialTextView
 import com.otakkanan.taskapp.R
+import dagger.hilt.android.AndroidEntryPoint
 import com.otakkanan.taskapp.ui.auth.login.LoginActivity
 import me.relex.circleindicator.CircleIndicator3
 
+@AndroidEntryPoint
 class OnBoardingActivity : AppCompatActivity() {
 
     private val titleList = mutableListOf<String>()
