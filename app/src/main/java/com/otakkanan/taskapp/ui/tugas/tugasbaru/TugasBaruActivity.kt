@@ -8,7 +8,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.databinding.ActivityTugasBaruBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TugasBaruActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityTugasBaruBinding

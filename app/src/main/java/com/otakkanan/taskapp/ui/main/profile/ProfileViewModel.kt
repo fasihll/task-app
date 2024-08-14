@@ -3,6 +3,8 @@ package com.otakkanan.taskapp.ui.main.profile
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.AndroidEntryPoint
+
 
 class ProfileViewModel : ViewModel() {
 

@@ -19,7 +19,9 @@ import androidx.navigation.ui.setupWithNavController
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.databinding.ActivityMainBinding
 import com.otakkanan.taskapp.ui.auth.login.LoginActivity
-
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.HiltAndroidApp
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
