@@ -117,18 +117,17 @@ class KalenderFragment : Fragment(), CalendarAdapter.CalendarListener {
     private fun observeTreatments() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewmodel.treatments.collectLatest { data ->
-                val treatments = data.groupBy { it.time }.mapValues {}
-                adapter.submitTreatments(treatments)
+//                val treatments = data.groupBy { it.time }.mapValues {}
+                adapter.submitTreatments(data)
             }
         }
     }
 
     private fun observeSurveys() {
-
         viewLifecycleOwner.lifecycleScope.launch {
             viewmodel.surveys.collectLatest { data ->
-                val surveys = data.groupBy { it.time }.mapValues {}
-                adapter.submitSurveys(surveys)
+//                val surveys = data.groupBy { it.time }.mapValues {}
+                adapter.submitSurveys(data)
             }
         }
     }
