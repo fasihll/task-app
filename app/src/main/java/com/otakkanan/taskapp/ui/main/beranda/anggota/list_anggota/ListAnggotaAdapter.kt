@@ -1,28 +1,16 @@
 package com.otakkanan.taskapp.ui.main.beranda.anggota.list_anggota
 
-import android.app.Activity
-import android.content.Intent
-import android.graphics.Paint
-import android.graphics.Typeface
-import android.text.Spannable
-import android.text.SpannableString
-import android.text.style.StyleSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
-import androidx.core.util.Pair
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.Team
-import com.otakkanan.taskapp.databinding.AnggotaItemBinding
 import com.otakkanan.taskapp.databinding.AnggotaListItemBinding
-import com.otakkanan.taskapp.databinding.SubTugasListBinding
-import com.otakkanan.taskapp.ui.main.beranda.anggota.list_anggota.ListAnggotaActivity
 
 class ListAnggotaAdapter :  ListAdapter<Team, ListAnggotaAdapter.MyViewHolder>(DIFF_CALLBACK) {
 

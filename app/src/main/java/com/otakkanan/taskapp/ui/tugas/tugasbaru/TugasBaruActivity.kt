@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.databinding.ActivityTugasBaruBinding
-import dagger.hilt.android.AndroidEntryPoint
 import com.otakkanan.taskapp.ui.adapter.CalendarAdapter
+import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date

@@ -1,7 +1,6 @@
 package com.otakkanan.taskapp.ui.main.beranda.anggota.add_anggota
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -10,11 +9,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.Task
-import com.otakkanan.taskapp.data.model.Team
 import com.otakkanan.taskapp.databinding.ActivityAddAnggotaBinding
-import com.otakkanan.taskapp.databinding.ActivityListAnggotaBinding
-import com.otakkanan.taskapp.ui.main.beranda.anggota.list_anggota.ListAnggotaActivity
-import com.otakkanan.taskapp.ui.main.beranda.anggota.list_anggota.ListAnggotaAdapter
 
 class AddAnggotaActivity : AppCompatActivity() {
 

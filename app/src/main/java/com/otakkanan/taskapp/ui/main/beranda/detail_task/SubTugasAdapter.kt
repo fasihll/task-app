@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.TaskDay
 import com.otakkanan.taskapp.databinding.SubTugasListBinding
-import com.otakkanan.taskapp.databinding.TaskDayListBinding
 
 class SubTugasAdapter :  ListAdapter<TaskDay, SubTugasAdapter.MyViewHolder>(DIFF_CALLBACK) {
 

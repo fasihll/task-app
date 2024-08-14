@@ -5,12 +5,10 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import com.kizitonwose.calendarview.model.CalendarDay
 import com.kizitonwose.calendarview.model.DayOwner
-import com.kizitonwose.calendarview.model.InDateStyle
 import com.kizitonwose.calendarview.ui.DayBinder
 import com.kizitonwose.calendarview.ui.ViewContainer
 import com.otakkanan.taskapp.R
-import com.otakkanan.taskapp.data.model.SurveyModel
-import com.otakkanan.taskapp.data.model.TreatmentModel
+import com.otakkanan.taskapp.data.model.TaskDay
 import com.otakkanan.taskapp.databinding.CardDayBinding
 import java.time.LocalDate
 
@@ -19,8 +17,7 @@ class CalendarAdapter : DayBinder<CalendarAdapter.CalendarViewHolder> {
     var listener: CalendarListener? = null
 
     private var selectedDate: LocalDate = LocalDate.now()
-    private var surveys: List<SurveyModel> = emptyList()
-    private var treatments: List<TreatmentModel> = emptyList()
+    private var taskDay: List<TaskDay> = emptyList()
 
     inner class CalendarViewHolder(private val binding: CardDayBinding) : ViewContainer(binding.root) {
 
@@ -51,9 +48,8 @@ class CalendarAdapter : DayBinder<CalendarAdapter.CalendarViewHolder> {
                             ContextCompat.getColor(binding.root.context, R.color.md_theme_onBackground)
                     )
 
-                    val treatmentCount = treatments.count { it.time == model.date }
-                    val surveyCount = surveys.count { it.time == model.date }
-                    val taskCount = treatmentCount + surveyCount
+                    val treatmentCount = taskDay.count { it.date == model.date }
+                    val taskCount = treatmentCount
 
                     countTask.text = "$taskCount Tugas"
 
@@ -120,19 +116,13 @@ class CalendarAdapter : DayBinder<CalendarAdapter.CalendarViewHolder> {
         listener?.onDateChange(selectedDate)
     }
 
-    fun submitTreatments(treatments: List<TreatmentModel>) {
-        this.treatments = treatments
-        treatments.forEach { treatment ->
-            listener?.onDateChange(treatment.time)
+    fun submitTaskDay(taskDay: List<TaskDay>) {
+        this.taskDay = taskDay
+        taskDay.forEach { taskd ->
+            listener?.onDateChange(taskd.date!!)
         }
     }
 
-    fun submitSurveys(surveys: List<SurveyModel>) {
-        this.surveys = surveys
-        surveys.forEach { survey ->
-            listener?.onDateChange(survey.time)
-        }
-    }
 
     ///////////////////////////////////////////////////////////////////////////
     // MISC
