@@ -16,12 +16,14 @@ import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.component.topsheet.TopSheetBehavior
 import com.otakkanan.taskapp.databinding.ActivityTugasBaruBinding
 import com.otakkanan.taskapp.databinding.TopSheetTugasBaruBinding
+import dagger.hilt.android.AndroidEntryPoint
 import com.otakkanan.taskapp.ui.adapter.CalendarAdapter
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 
+@AndroidEntryPoint
 class TugasBaruActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityTugasBaruBinding
@@ -171,26 +173,4 @@ class TugasBaruActivity : AppCompatActivity() {
             monthCalendar.add(Calendar.DAY_OF_MONTH, 1)
         }
     }
-
-//    private fun setupTopSheetButton() {
-//        binding.btnExpand.setOnClickListener {
-//            isTopSheetVisible = !isTopSheetVisible
-//            if (isTopSheetVisible) {
-//                showTopSheet()
-//                binding.btnExpand.setImageResource(R.drawable.ic_expand_less_24)
-//            } else {
-//                binding.topSheetContainer.visibility = View.GONE
-//                binding.btnExpand.setImageResource(R.drawable.ic_expand_more_24)
-//            }
-//        }
-//    }
-//
-//    private fun showTopSheet() {
-//        val inflater = LayoutInflater.from(this)
-//        val topSheetView =
-//            inflater.inflate(R.layout.top_sheet_tugas_baru, binding.topSheetContainer, false)
-//        binding.topSheetContainer.removeAllViews()
-//        binding.topSheetContainer.addView(topSheetView)
-//        binding.topSheetContainer.visibility = View.VISIBLE
-//    }
 }

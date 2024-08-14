@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources
     xmlns:tools="http://schemas.android.com/tools">
+    <style name="SplashScreenTheme" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/md_theme_primaryContainer</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_screen</item>
+        <item name="windowSplashScreenAnimationDuration">5000</item>
+        <item name="postSplashScreenTheme">@style/AppTheme</item>
+    </style>
+
 
     <style name="CustomBottomNavigation" parent="Widget.Design.BottomNavigationView">
         <item name="itemTextAppearanceActive">@style/BottomNavigationView.Active</item>
@@ -39,5 +46,4 @@
         <item name="colorPrimary">@color/md_theme_primary</item>
         <item name="colorAccent">@color/md_theme_onPrimary</item>
     </style>
-
 </resources>

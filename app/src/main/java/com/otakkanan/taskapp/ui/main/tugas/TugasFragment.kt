@@ -8,7 +8,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.otakkanan.taskapp.databinding.FragmentTugasBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TugasFragment : Fragment() {
 
     private var _binding: FragmentTugasBinding? = null

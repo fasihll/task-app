@@ -13,8 +13,6 @@ import com.bumptech.glide.Glide
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.TaskDay
 import com.otakkanan.taskapp.databinding.TaskDayListBinding
-import com.otakkanan.taskapp.databinding.TasksBannerListBinding
-import com.otakkanan.taskapp.utils.RandomColor
 
 class TaskDayAdapter :  ListAdapter<TaskDay, TaskDayAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
