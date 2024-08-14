@@ -53,11 +53,15 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.library)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("de.hdodenhof:circleimageview:3.1.0")
+    implementation ("me.relex:circleindicator:2.1.6")
     implementation("com.github.bumptech.glide:glide:4.16.0")
+
+    implementation ("androidx.core:core-splashscreen:1.0.1")
 
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.2.2")
     implementation("com.github.kizitonwose:CalendarView:1.1.0")

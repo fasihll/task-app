@@ -17,4 +17,6 @@
     <string name="greeting_title">Halo Andi</string>
     <string name="greeting_subtitle">Semoga harimu menyenangkan!</string>
     <string name="title_tugas_harian">Tugas Harian</string>
+    <string name="pengingat">Pengingat</string>
+    <string name="prioritas">Prioritas</string>
 </resources>
