@@ -11,6 +11,8 @@ class MainRepository {
     companion object {
         private val surveys = listOf(
             SurveyModel(name = "Membuat Dashboard UI", time = LocalDate.of(2024, 8, 2)),
+            SurveyModel(name = "Membuat asdasdas", time = LocalDate.of(2024, 8, 2)),
+            SurveyModel(name = "Membuat gg", time = LocalDate.of(2024, 8, 2)),
             SurveyModel(name = "Slicing UI", time = LocalDate.of(2024, 8, 29)),
             SurveyModel(name = "Setup Project", time = LocalDate.of(2024, 8, 21))
         )

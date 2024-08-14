@@ -9,6 +9,8 @@ import com.kizitonwose.calendarview.model.InDateStyle
 import com.kizitonwose.calendarview.ui.DayBinder
 import com.kizitonwose.calendarview.ui.ViewContainer
 import com.otakkanan.taskapp.R
+import com.otakkanan.taskapp.data.model.SurveyModel
+import com.otakkanan.taskapp.data.model.TreatmentModel
 import com.otakkanan.taskapp.databinding.CardDayBinding
 import java.time.LocalDate
 
@@ -17,8 +19,8 @@ class CalendarAdapter : DayBinder<CalendarAdapter.CalendarViewHolder> {
     var listener: CalendarListener? = null
 
     private var selectedDate: LocalDate = LocalDate.now()
-    private var treatments: Map<LocalDate, Unit> = emptyMap()
-    private var surveys: Map<LocalDate, Unit> = emptyMap()
+    private var surveys: List<SurveyModel> = emptyList()
+    private var treatments: List<TreatmentModel> = emptyList()
 
     inner class CalendarViewHolder(private val binding: CardDayBinding) : ViewContainer(binding.root) {
 
@@ -49,21 +51,14 @@ class CalendarAdapter : DayBinder<CalendarAdapter.CalendarViewHolder> {
                             ContextCompat.getColor(binding.root.context, R.color.md_theme_onBackground)
                     )
 
-                    var task = 0
+                    val treatmentCount = treatments.count { it.time == model.date }
+                    val surveyCount = surveys.count { it.time == model.date }
+                    val taskCount = treatmentCount + surveyCount
 
-                    if (treatments.containsKey(model.date)) {
-                        task += 1
-                    }
-
-                    // Count if model.date exists in surveys
-                    if (surveys.containsKey(model.date)) {
-                        task += 1
-                    }
-
-                    countTask.text = "$task Tugas"
+                    countTask.text = "$taskCount Tugas"
 
                     when{
-                        task == 1 ->{
+                        taskCount == 1 ->{
                             countTask.setTextColor(ContextCompat.getColor(binding.root.context, R
                                 .color
                                 .colorPurple))
@@ -71,7 +66,7 @@ class CalendarAdapter : DayBinder<CalendarAdapter.CalendarViewHolder> {
                                 .color
                                 .colorPurpleContainer))
                         }
-                        task == 2 ->{
+                        taskCount == 2 ->{
                             countTask.setTextColor(ContextCompat.getColor(binding.root.context, R
                                 .color
                                 .colorBlue))
@@ -79,7 +74,7 @@ class CalendarAdapter : DayBinder<CalendarAdapter.CalendarViewHolder> {
                                 .color
                                 .colorBlueContainer))
                         }
-                        task >= 3 ->{
+                        taskCount >= 3 ->{
                             countTask.setTextColor(ContextCompat.getColor(binding.root.context, R
                                 .color
                                 .colorGreen))
@@ -87,7 +82,7 @@ class CalendarAdapter : DayBinder<CalendarAdapter.CalendarViewHolder> {
                                 .color
                                 .colorGreenContainer))
                         }
-                        task == 0 -> {
+                        taskCount == 0 -> {
                             statusContainer.visibility = View.INVISIBLE
                         }
 
@@ -125,17 +120,17 @@ class CalendarAdapter : DayBinder<CalendarAdapter.CalendarViewHolder> {
         listener?.onDateChange(selectedDate)
     }
 
-    fun submitTreatments(treatments: Map<LocalDate, Unit>) {
+    fun submitTreatments(treatments: List<TreatmentModel>) {
         this.treatments = treatments
-        treatments.keys.forEach { date ->
-            listener?.onDateChange(date)
+        treatments.forEach { treatment ->
+            listener?.onDateChange(treatment.time)
         }
     }
 
-    fun submitSurveys(surveys: Map<LocalDate, Unit>) {
+    fun submitSurveys(surveys: List<SurveyModel>) {
         this.surveys = surveys
-        surveys.keys.forEach { date ->
-            listener?.onDateChange(date)
+        surveys.forEach { survey ->
+            listener?.onDateChange(survey.time)
         }
     }
 
