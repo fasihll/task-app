@@ -1,15 +1,22 @@
 package com.otakkanan.taskapp.ui.tugas.tugasbaru
 
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.otakkanan.taskapp.R
+import com.otakkanan.taskapp.component.topsheet.TopSheetBehavior
 import com.otakkanan.taskapp.databinding.ActivityTugasBaruBinding
+import com.otakkanan.taskapp.databinding.TopSheetTugasBaruBinding
+import dagger.hilt.android.AndroidEntryPoint
 import com.otakkanan.taskapp.ui.adapter.CalendarAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
@@ -18,14 +25,11 @@ import java.util.Date
 import java.util.Locale
 
 @AndroidEntryPoint
-class TugasBaruActivity : AppCompatActivity(), TopSheetFragment.ButtonClickCompleteListener {
-
+class TugasBaruActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityTugasBaruBinding
-    private var isExpanded: Boolean = false
-    private var isTopSheetVisible: Boolean = false
-    private val rotation = 0f
-    private var fragment: TopSheetFragment? = null
+    private lateinit var buttonExpand: ImageView
+    private lateinit var topSheetBehavior: TopSheetBehavior<View>
 
     private val lastDayInCalendar = Calendar.getInstance(Locale.ENGLISH)
     private val sdf = SimpleDateFormat("MMMM yyyy", Locale.ENGLISH)
@@ -53,32 +57,45 @@ class TugasBaruActivity : AppCompatActivity(), TopSheetFragment.ButtonClickCompl
             insets
         }
 
-        //Top Sheet
-        fragment = TopSheetFragment()
-        fragment?.let { frag ->
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.container, frag)
-                .commit()
-            frag.setListener(this)
-        }
-        binding.motionLayout.setTransitionListener(object : MotionLayout.TransitionListener {
-            override fun onTransitionTrigger(p0: MotionLayout?, p1: Int, p2: Boolean, p3: Float) {
-            }
 
-            override fun onTransitionStarted(p0: MotionLayout?, p1: Int, p2: Int) {
-            }
-
-            override fun onTransitionChange(p0: MotionLayout?, p1: Int, p2: Int, p3: Float) {
-                binding.icon.animate().rotationBy(180f)
-            }
-
-            override fun onTransitionCompleted(p0: MotionLayout?, p1: Int) {
-            }
-        })
-
-//        setupTopSheetButton()
+        setupTopSheet()
         setupCalendar()
         setUpCalendar()
+    }
+
+    private fun setupTopSheet() {
+        topSheetBehavior = TopSheetBehavior.from(binding.topSheetContainer.root)
+        buttonExpand = findViewById(R.id.btn_expand)
+        buttonExpand.setOnClickListener {
+            openTopSheet()
+        }
+    }
+
+    private fun openTopSheet() {
+        buttonExpand = findViewById(R.id.btn_expand)
+        topSheetBehavior.state = TopSheetBehavior.STATE_EXPANDED
+
+        topSheetBehavior.setTopSheetCallback(object : TopSheetBehavior.TopSheetCallback() {
+            override fun onSlide(bottomSheet: View, slideOffset: Float, isOpening: Boolean?) {
+
+            }
+
+            override fun onStateChanged(bottomSheet: View, newState: Int) {
+                if (newState == TopSheetBehavior.STATE_EXPANDED) {
+                    // Change the image when the Bottom Sheet is expanded
+                    buttonExpand.setOnClickListener {
+                        topSheetBehavior.state = TopSheetBehavior.STATE_COLLAPSED
+                    }
+                    buttonExpand.setImageResource(R.drawable.ic_expand_less_24);
+                } else if (newState == TopSheetBehavior.STATE_COLLAPSED) {
+                    // Change the image when the Bottom Sheet is collapsed
+                    buttonExpand.setOnClickListener {
+                        topSheetBehavior.state = TopSheetBehavior.STATE_EXPANDED
+                    }
+                    buttonExpand.setImageResource(R.drawable.ic_expand_more_24);
+                }
+            }
+        })
     }
 
     private fun setupCalendar() {
@@ -109,7 +126,11 @@ class TugasBaruActivity : AppCompatActivity(), TopSheetFragment.ButtonClickCompl
 
     private fun setUpCalendar(changeMonth: Calendar? = null) {
         // first part
-        binding.calendarRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false) // Set LayoutManager first
+        binding.calendarRecyclerView.layoutManager = LinearLayoutManager(
+            this,
+            LinearLayoutManager.HORIZONTAL,
+            false
+        ) // Set LayoutManager first
         binding.calendarRecyclerView.adapter = CalendarAdapter(
             this,
             dates,
@@ -153,36 +174,4 @@ class TugasBaruActivity : AppCompatActivity(), TopSheetFragment.ButtonClickCompl
             monthCalendar.add(Calendar.DAY_OF_MONTH, 1)
         }
     }
-
-    override fun onResume() {
-        super.onResume()
-        fragment?.setListener(this)
-    }
-
-    override fun onButtonClicked() {
-        // set the state to initial state after button click from Top sheet fragment
-        binding.motionLayout.transitionToStart()
-    }
-
-//    private fun setupTopSheetButton() {
-//        binding.btnExpand.setOnClickListener {
-//            isTopSheetVisible = !isTopSheetVisible
-//            if (isTopSheetVisible) {
-//                showTopSheet()
-//                binding.btnExpand.setImageResource(R.drawable.ic_expand_less_24)
-//            } else {
-//                binding.topSheetContainer.visibility = View.GONE
-//                binding.btnExpand.setImageResource(R.drawable.ic_expand_more_24)
-//            }
-//        }
-//    }
-//
-//    private fun showTopSheet() {
-//        val inflater = LayoutInflater.from(this)
-//        val topSheetView =
-//            inflater.inflate(R.layout.top_sheet_tugas_baru, binding.topSheetContainer, false)
-//        binding.topSheetContainer.removeAllViews()
-//        binding.topSheetContainer.addView(topSheetView)
-//        binding.topSheetContainer.visibility = View.VISIBLE
-//    }
 }

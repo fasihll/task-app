@@ -52,7 +52,7 @@ class CalendarAdapter(private val context: Context,
     override fun getItemCount(): Int = data.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val sdf = SimpleDateFormat("EEE MMM dd HH:mm:ss", Locale.getDefault())
+        val sdf = SimpleDateFormat("EEE MMM dd HH:mm:ss", Locale.ENGLISH)
         val cal = Calendar.getInstance()
         cal.time = data[holder.adapterPosition]
 
