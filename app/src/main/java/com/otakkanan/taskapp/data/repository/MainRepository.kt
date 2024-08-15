@@ -16,7 +16,7 @@ class MainRepository {
             LocalTime.of(10,0,
                 0),
                 isDone =
-            true),
+            true, priority = 2),
             TaskDay(title ="Mengerjakan Kuis",date = LocalDate.of(2024,8,21),time= LocalTime.of(11,0,0),isDone = true),
             TaskDay(title ="Mempelajari Wireframe",date = LocalDate.of(2024,8,21),time= LocalTime.of(13,0,0),
             isDone = false),
@@ -25,7 +25,7 @@ class MainRepository {
                 subtugas = listOf(
                     SubTugasTaskDay(title = "Membuat moodboard", isDone = true),
                     SubTugasTaskDay(title = "Membuat wireframe", isDone = true),
-                    SubTugasTaskDay(title = "Membuat komponen desain", isDone = true),
+                    SubTugasTaskDay(title = "Membuat komponen desain", isDone = false),
                 )
             ),
             TaskDay(title ="Tugas Laravel",date = LocalDate.of(2024,8,21),time= LocalTime.of(17,0,0)
