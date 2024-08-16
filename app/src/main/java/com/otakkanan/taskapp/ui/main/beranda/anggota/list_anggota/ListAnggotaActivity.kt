@@ -27,9 +27,9 @@ class ListAnggotaActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val task: Task? = intent.getParcelableExtra(ListAnggotaActivity.TAG)
+        val task: Task? = intent.getParcelableExtra(TAG)
 
-        binding.btnBack.setOnClickListener(){
+        binding.btnBack.setOnClickListener {
             finish()
         }
 
@@ -40,7 +40,7 @@ class ListAnggotaActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.countAnggota.text = "${task?.team!!.size} Anggota"
+        binding.countAnggota.text = getString(R.string.anggota_counts, task?.team!!.size.toString())
 
         setupRecylerview(task)
     }

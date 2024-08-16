@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="29dp"
         style="@style/Widget.AppCompat.CompoundButton.RadioButton"
-        android:text="Membuat moodboard"
+        android:text="@string/sub_task_title"
         android:layout_marginVertical="2dp"
         android:buttonTint="@color/md_theme_primary"
         android:drawableTint="@color/md_theme_onPrimary"

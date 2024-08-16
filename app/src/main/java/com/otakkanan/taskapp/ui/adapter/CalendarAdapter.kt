@@ -72,7 +72,7 @@ class CalendarAdapter(private val context: Context,
         if (displayYear >= currentYear)
             if (displayMonth >= currentMonth || displayYear > currentYear)
                 if (displayDay >= currentDay || displayMonth > currentMonth || displayYear > currentYear) {
-                    holder.cardLayout!!.setOnClickListener {
+                    holder.cardLayout.setOnClickListener {
                         index = holder.adapterPosition
                         selectCurrentDate = false
                         holder.listener.onItemClick(holder.adapterPosition)

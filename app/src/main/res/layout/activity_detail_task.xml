@@ -33,6 +33,7 @@
                     android:id="@+id/btn_back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="tombol kembali"
                     android:src="@drawable/arrow_left"
                     android:clickable="true"
                     android:focusable="true"
@@ -43,6 +44,7 @@
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:translationY="-5dp"
+                    android:contentDescription="tombol kembali"
                     android:src="@drawable/option_icon"
                     android:clickable="true"
                     android:focusable="true"
@@ -54,7 +56,7 @@
                 android:id="@+id/greeting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Desain UI"
+                android:text="@string/title_task"
                 android:transitionName="title"
                 android:textSize="34sp"
                 android:textColor="?attr/colorOnBackground"
@@ -93,7 +95,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Manajer"
+                            android:text="@string/manajer"
                             android:textSize="13sp"
                             android:layout_marginBottom="3dp"/>
                         <TextView
@@ -103,7 +105,7 @@
                             android:textSize="15sp"
                             android:textStyle="bold"
                             android:textColor="@color/md_theme_onBackground"
-                            android:text="Budi Nam"/>
+                            android:text="@string/manajer_name"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -123,6 +125,7 @@
                         <ImageView
                             android:layout_width="27dp"
                             android:layout_height="27dp"
+                            android:contentDescription="icon calender"
                             android:src="@drawable/calendar_dedline"
                             android:layout_gravity="center"/>
                     </androidx.cardview.widget.CardView>
@@ -133,7 +136,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Tanggal Selesai"
+                            android:text="@string/tanggal_selesai"
                             android:textSize="13sp"
                             android:layout_marginBottom="3dp"/>
                         <TextView
@@ -143,7 +146,7 @@
                             android:textSize="15sp"
                             android:textStyle="bold"
                             android:textColor="@color/md_theme_onBackground"
-                            android:text="23/04/2024"/>
+                            android:text="@string/tanggal_selesai_value"/>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -163,14 +166,14 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/md_theme_onBackground"
-                    android:text="Deskripsi"
+                    android:text="@string/deskripsi"
                     android:layout_marginBottom="10dp"/>
                 <TextView
                     android:id="@+id/deskripsi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
-                    android:text="Antarmuka Pengguna (UI) adalah titik interaksi antara manusia dan mesin dalam perangkat lunak atau perangkat keras, memungkinkan pengguna berinteraksi dengan sistem secara efisien."/>
+                    android:text="@string/deskripsi_task"/>
             </LinearLayout>
 
             <LinearLayout
@@ -188,7 +191,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/md_theme_onBackground"
-                    android:text="Anggota Tim"
+                    android:text="@string/anggota_tim"
                     android:layout_marginBottom="10dp"/>
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -218,7 +221,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/md_theme_onBackground"
-                    android:text="Progres"
+                    android:text="@string/progres"
                     android:layout_marginBottom="10dp"/>
 
                 <RelativeLayout
@@ -245,7 +248,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:gravity="center"
-                        android:text="30%"
+                        android:text="@string/progres_value"
                         android:textColor="@color/md_theme_onPrimary"
                         android:textStyle="bold"
                         />
@@ -268,7 +271,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/md_theme_onBackground"
-                    android:text="Sub-tugas"
+                    android:text="@string/sub_tugas"
                     android:layout_marginBottom="10dp"/>
                <androidx.recyclerview.widget.RecyclerView
                    android:id="@+id/rv_subtugas"

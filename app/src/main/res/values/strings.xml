@@ -21,4 +21,39 @@
     <string name="prioritas">Prioritas</string>
     <string name="top_sheet_behavior" translatable="false">com.otakkanan.taskapp.component.topsheet.TopSheetBehavior</string>
     <string name="top_sheet_auto_close_behavior" translatable="false">com.otakkanan.taskapp.component.topsheet.AutoCloseTopSheetBehavior</string>
+    <string name="tambah_anggota_with_count">Tambah Anggota(1)</string>
+    <string name="search">Search</string>
+    <string name="title_task">Desain UI</string>
+    <string name="manajer">Manajer</string>
+    <string name="manajer_name">Budi Nam</string>
+    <string name="tanggal_selesai">Tanggal Selesai</string>
+    <string name="tanggal_selesai_value">23/04/2024</string>
+    <string name="deskripsi">Deskripsi</string>
+    <string name="deskripsi_task">Antarmuka Pengguna (UI) adalah titik interaksi antara manusia dan mesin dalam perangkat lunak atau perangkat keras, memungkinkan pengguna berinteraksi dengan sistem secara efisien.</string>
+    <string name="anggota_tim">Anggota Tim</string>
+    <string name="progres">Progres</string>
+    <string name="progres_value">30%</string>
+    <string name="sub_tugas">Sub-tugas</string>
+    <string name="anggota_count">4 Anggota</string>
+    <string name="tambah_anggota">Tambah Anggota</string>
+    <string name="keluar_dari_tim">Keluar dari tim</string>
+    <string name="username">Amy Vis</string>
+    <string name="admin_name">Budi Nam</string>
+    <string name="admin">Admin</string>
+    <string name="count_task">1 Tugas</string>
+    <string name="time">20:00</string>
+    <string name="priority_value">2</string>
+    <string name="day_date">9</string>
+    <string name="day">Sabtu</string>
+    <string name="sub_task_title">Membuat moodboard</string>
+    <string name="sub_task_Day">Tugas 1 — Membuat moodboard</string>
+    <string name="sub_task_day">Tugas 1 — Mengerjakan Kuis</string>
+    <string name="title_task_banner">Desain \nUI</string>
+    <string name="count_lainnya">2 lainnya</string>
+    <string name="back">back</string>
+    <string name="title_page_tambah_anggota">Tambah Anggota (%1$s)</string>
+    <string name="count_task_title">%1$s Tugas</string>
+    <string name="anggota_counts">%1$s Anggota</string>
+    <string name="task_title_with_bold">Tugas %1$s — %2$s</string>
+    <string name="lainnya">%1$s lainnya</string>
 </resources>

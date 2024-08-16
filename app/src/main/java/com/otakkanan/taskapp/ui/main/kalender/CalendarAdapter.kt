@@ -48,10 +48,10 @@ class CalendarAdapter : DayBinder<CalendarAdapter.CalendarViewHolder> {
                             ContextCompat.getColor(binding.root.context, R.color.md_theme_onBackground)
                     )
 
-                    val treatmentCount = taskDay.count { it.date == model.date }
-                    val taskCount = treatmentCount
+                    val taskCount = taskDay.count { it.date == model.date }
 
-                    countTask.text = "$taskCount Tugas"
+                    countTask.text = binding.root.context.getString(R.string.count_task_title,
+                        taskCount.toString())
 
                     when{
                         taskCount == 1 ->{

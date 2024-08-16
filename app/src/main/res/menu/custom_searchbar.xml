@@ -5,7 +5,7 @@
     <item
         android:id="@+id/navigation_beranda"
         android:icon="@drawable/search_icon"
-        android:title="Search"
+        android:title="@string/search"
         app:showAsAction="always"
         />
 </menu>

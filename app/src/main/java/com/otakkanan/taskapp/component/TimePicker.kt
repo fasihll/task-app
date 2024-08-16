@@ -1,11 +1,17 @@
 package com.otakkanan.taskapp.component
 
 import android.content.Context
-import android.graphics.*
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
-import kotlin.math.*
+import kotlin.math.atan2
+import kotlin.math.cos
+import kotlin.math.min
+import kotlin.math.sin
+import kotlin.math.sqrt
 
 class TimePicker @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyle: Int = 0
@@ -135,12 +141,9 @@ class TimePicker @JvmOverloads constructor(
                 invalidate()
                 return true
             }
-            MotionEvent.ACTION_UP -> {
-                if (isHourMode) {
-                    isHourMode = false // Switch to minute selection
-                } else {
-                    isHourMode = true // Switch back to hour selection
-                }
+            MotionEvent.ACTION_UP -> {// Switch back to hour selection
+                // Switch to minute selection
+                isHourMode = !isHourMode
                 return true
             }
         }
