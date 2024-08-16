@@ -2,21 +2,16 @@ package com.otakkanan.taskapp.ui.tugas.tugasbaru
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.ImageView
-import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.component.topsheet.TopSheetBehavior
 import com.otakkanan.taskapp.databinding.ActivityTugasBaruBinding
-import com.otakkanan.taskapp.databinding.TopSheetTugasBaruBinding
-import dagger.hilt.android.AndroidEntryPoint
 import com.otakkanan.taskapp.ui.adapter.CalendarAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
@@ -86,13 +81,13 @@ class TugasBaruActivity : AppCompatActivity() {
                     buttonExpand.setOnClickListener {
                         topSheetBehavior.state = TopSheetBehavior.STATE_COLLAPSED
                     }
-                    buttonExpand.setImageResource(R.drawable.ic_expand_less_24);
+                    buttonExpand.setImageResource(R.drawable.ic_expand_less_24)
                 } else if (newState == TopSheetBehavior.STATE_COLLAPSED) {
                     // Change the image when the Bottom Sheet is collapsed
                     buttonExpand.setOnClickListener {
                         topSheetBehavior.state = TopSheetBehavior.STATE_EXPANDED
                     }
-                    buttonExpand.setImageResource(R.drawable.ic_expand_more_24);
+                    buttonExpand.setImageResource(R.drawable.ic_expand_more_24)
                 }
             }
         })

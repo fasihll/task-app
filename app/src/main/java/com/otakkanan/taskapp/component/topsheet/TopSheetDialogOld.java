@@ -150,7 +150,7 @@ public class TopSheetDialogOld extends AppCompatDialog {
         return themeId;
     }
 
-    private TopSheetBehavior.TopSheetCallback mTopSheetCallback
+    private final TopSheetBehavior.TopSheetCallback mTopSheetCallback
             = new TopSheetBehavior.TopSheetCallback() {
         @Override
         public void onStateChanged(@NonNull View topSheet,

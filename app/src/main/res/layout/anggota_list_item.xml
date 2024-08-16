@@ -24,7 +24,7 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Budi Nam"
+            android:text="@string/admin_name"
             android:textSize="18sp"
             android:layout_weight="1"/>
 
@@ -43,7 +43,7 @@
                 android:textStyle="bold"
                 android:textColor="@color/md_theme_primary"
                 android:paddingHorizontal="20dp"
-                android:text="Admin"
+                android:text="@string/admin"
                 android:layout_gravity="center"/>
         </com.google.android.material.card.MaterialCardView>
 

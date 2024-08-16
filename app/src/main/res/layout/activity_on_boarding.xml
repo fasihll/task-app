@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:textSize="50dp"
+        android:textSize="50sp"
         android:textStyle="bold"
         android:textColor="@color/md_theme_primaryContainer"
         android:layout_marginHorizontal="32dp"

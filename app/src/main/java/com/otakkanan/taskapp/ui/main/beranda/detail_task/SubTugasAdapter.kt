@@ -37,7 +37,9 @@ class SubTugasAdapter :  ListAdapter<TaskDay, SubTugasAdapter.MyViewHolder>(DIFF
         }
         fun bind(items: TaskDay){
             with(binding){
-                taskTitle.text = "Tugas ${itemId} — ${items.title}"
+                taskTitle.text =
+                    itemView.context.getString(R.string.task_title_with_bold, itemId.toString(), items
+                        .title)
                 val itemId = position+1
                 val itemsTitle = "Example Title"
 
