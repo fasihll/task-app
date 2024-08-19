@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="280dp"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/md_theme_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:fontFamily="@font/inter_18pt_semibold"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Tentukan Prioritas"
+            android:textAlignment="center"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="35dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/toggleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:backgroundTint="@color/md_theme_secondaryFixedDim">
+
+                <Button
+                    android:id="@+id/btn_min"
+                    style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:backgroundTint="@color/md_theme_secondaryFixedDim"
+                    app:icon="@drawable/ic_min_24" />
+
+                <Button
+                    android:id="@+id/tv_priority_count"
+                    style="@style/Widget.App.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:fontFamily="@font/inter_18pt_semibold"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    app:backgroundTint="@color/md_theme_secondaryFixedDim" />
+
+                <Button
+                    android:id="@+id/btn_plus"
+                    style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:backgroundTint="@color/md_theme_secondaryFixedDim"
+                    app:icon="@drawable/ic_plus_24" />
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:fontFamily="@font/inter_18pt_regular"
+            android:layout_marginTop="20dp"
+            android:lines="2"
+            android:minLines="2"
+            android:singleLine="false"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Prioritas tertinggi akan diletakkan paling atas dalam list"
+            android:textAlignment="center"
+            android:textSize="12sp" />
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginTop="16dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:paddingVertical="8dp"
+                android:text="Cancel"
+                android:textColor="@color/md_theme_onBackground"
+                android:textSize="14sp"
+                app:backgroundTint="@color/md_theme_background" />
+
+            <View
+                android:layout_width="12dp"
+                android:layout_height="12dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_ok"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:fontFamily="@font/inter_18pt_semibold"
+                android:paddingVertical="8dp"
+                android:text="OK"
+                android:textColor="@color/md_theme_primary"
+                android:textSize="14sp"
+                app:backgroundTint="@color/md_theme_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

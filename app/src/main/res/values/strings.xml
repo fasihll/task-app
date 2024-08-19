@@ -21,4 +21,7 @@
     <string name="prioritas">Prioritas</string>
     <string name="top_sheet_behavior" translatable="false">com.otakkanan.taskapp.component.topsheet.TopSheetBehavior</string>
     <string name="top_sheet_auto_close_behavior" translatable="false">com.otakkanan.taskapp.component.topsheet.AutoCloseTopSheetBehavior</string>
+    <string name="pilih_waktu">Pilih Waktu</string>
+    <string name="tunda_tugas">Tunda Tugas</string>
+    <string name="tambah_anggota">Tambah Anggota</string>
 </resources>
