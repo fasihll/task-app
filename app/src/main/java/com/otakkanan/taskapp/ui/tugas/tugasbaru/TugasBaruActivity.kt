@@ -1,10 +1,20 @@
 package com.otakkanan.taskapp.ui.tugas.tugasbaru
 
+import android.app.Dialog
+import android.content.Intent
+import android.content.res.Configuration
+import android.content.res.Resources
+import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.view.Window
+import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
+import com.otakkanan.taskapp.component.TimePicker
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,6 +28,7 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
+
 
 @AndroidEntryPoint
 class TugasBaruActivity : AppCompatActivity() {
@@ -41,6 +52,8 @@ class TugasBaruActivity : AppCompatActivity() {
 
     private val dates = ArrayList<Date>()
 
+    private var tundaTugas: Boolean = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -56,6 +69,78 @@ class TugasBaruActivity : AppCompatActivity() {
         setupTopSheet()
         setupCalendar()
         setUpCalendar()
+        setupTimePicker()
+        setupTundaTugas()
+        setupPrioritas()
+        setupTopBar()
+    }
+
+    private fun setupTopBar() {
+        binding.topAppBar.setOnMenuItemClickListener { menuItem ->
+            when(menuItem.itemId) {
+                R.id.selesai -> {
+                    finish()
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
+    private fun setupPrioritas() {
+        topSheetBehavior = TopSheetBehavior.from(binding.topSheetContainer.root)
+        val btnPrioritas: Button = findViewById(R.id.btn_prioritas)
+        btnPrioritas.setOnClickListener {
+            val prioritasDialog = Dialog(this@TugasBaruActivity, R.style.CustomDialogTheme)
+            prioritasDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            prioritasDialog.setContentView(R.layout.dialog_prioritas)
+            prioritasDialog.setCancelable(false)
+
+            val btnYes = prioritasDialog.findViewById<View>(R.id.btn_ok)
+            val btnNo = prioritasDialog.findViewById<View>(R.id.btn_cancel)
+
+            btnYes.setOnClickListener {
+                prioritasDialog.dismiss()
+            }
+
+            btnNo.setOnClickListener {
+                prioritasDialog.dismiss()
+            }
+
+            prioritasDialog.show()
+        }
+    }
+
+    private fun setupTundaTugas() {
+        topSheetBehavior = TopSheetBehavior.from(binding.topSheetContainer.root)
+        val checkBoxTundaTugas: ImageView = findViewById(R.id.tunda_tugas_checkbox)
+        checkBoxTundaTugas.setOnClickListener {
+            if (tundaTugas) {
+                checkBoxTundaTugas.setImageResource(R.drawable.unchecked_task)
+                tundaTugas = false
+            } else {
+                checkBoxTundaTugas.setImageResource(R.drawable.checked_task)
+                checkBoxTundaTugas.setColorFilter(ContextCompat.getColor(this, R.color.md_theme_primary), android.graphics.PorterDuff.Mode.SRC_IN)
+                tundaTugas = true
+            }
+        }
+    }
+
+    private fun setupTimePicker() {
+        binding.pilihWaktuPicker.setTimeChangedListener(object : TimePicker.TimeChangeListener {
+            override fun onTimeChanged(hour: Int, minute: Int) {
+                binding.tvHour.text = hour.toString()
+                binding.tvMinute.text = minute.toString().padStart(2, '0')
+            }
+        })
+        binding.tvHour.setOnClickListener {
+            binding.pilihWaktuPicker.clockMode = TimePicker.ClockMode.HOUR
+        }
+
+        binding.tvMinute.setOnClickListener {
+            binding.pilihWaktuPicker.clockMode = TimePicker.ClockMode.MINUTE
+        }
+
     }
 
     private fun setupTopSheet() {
