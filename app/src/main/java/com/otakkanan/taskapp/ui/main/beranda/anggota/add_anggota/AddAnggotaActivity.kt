@@ -1,7 +1,6 @@
 package com.otakkanan.taskapp.ui.main.beranda.anggota.add_anggota
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -10,11 +9,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.Task
-import com.otakkanan.taskapp.data.model.Team
 import com.otakkanan.taskapp.databinding.ActivityAddAnggotaBinding
-import com.otakkanan.taskapp.databinding.ActivityListAnggotaBinding
-import com.otakkanan.taskapp.ui.main.beranda.anggota.list_anggota.ListAnggotaActivity
-import com.otakkanan.taskapp.ui.main.beranda.anggota.list_anggota.ListAnggotaAdapter
 
 class AddAnggotaActivity : AppCompatActivity() {
 
@@ -30,12 +25,12 @@ class AddAnggotaActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val total: Int? = intent.getIntExtra(AddAnggotaActivity.TOTAL, 0)
-        val task: Task? = intent.getParcelableExtra(AddAnggotaActivity.TAG)
+        val total: Int = intent.getIntExtra(TOTAL, 0)
+        val task: Task? = intent.getParcelableExtra(TAG)
 
 
         binding.btnBack.setOnClickListener { finish() }
-        binding.titleCountAnggota.text = "Tambah Anggota (${total})"
+        binding.titleCountAnggota.text = getString(R.string.title_page_tambah_anggota, total.toString())
 
         setupRecyclerview(task)
     }

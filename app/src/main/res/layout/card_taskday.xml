@@ -5,25 +5,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp">
+    android:paddingTop="16dp"
+    android:paddingHorizontal="32dp">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/name_t"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
+        android:drawableEnd="@drawable/arrow_down"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="treatment" />
     <LinearLayout
+        android:id="@+id/status_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:paddingBottom="16dp"
         app:layout_constraintTop_toBottomOf="@id/name_t"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/time_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -32,25 +37,29 @@
             app:cardCornerRadius="7dp"
             android:layout_marginEnd="4dp">
             <TextView
+                android:id="@+id/time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="20:00"
+                android:text="@string/time"
                 android:textSize="11sp"
                 android:textColor="@color/md_theme_primary"
                 android:layout_marginHorizontal="8dp"
                 android:layout_marginVertical="4dp" />
         </com.google.android.material.card.MaterialCardView>
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/priority_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             app:strokeWidth="@null"
+            android:visibility="gone"
             app:cardBackgroundColor="@color/colorPurpleContainer"
             app:cardCornerRadius="7dp">
             <TextView
+                android:id="@+id/priority"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2"
+                android:text="@string/priority_value"
                 android:textSize="11sp"
                 android:drawableEnd="@drawable/flag"
                 android:textColor="@color/md_theme_primary"
@@ -58,4 +67,17 @@
                 android:layout_marginVertical="4dp"/>
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_subtask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:itemCount="3"
+        android:visibility="gone"
+        tools:visibility="visible"
+        tools:listitem="@layout/sub_tugas_calendar_list_item"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintTop_toBottomOf="@id/status_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,10 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,7 +14,6 @@ import com.kizitonwose.calendarview.model.OutDateStyle
 import com.kizitonwose.calendarview.utils.next
 import com.kizitonwose.calendarview.utils.previous
 import com.otakkanan.taskapp.databinding.FragmentKalenderBinding
-import com.otakkanan.taskapp.ui.main.beranda.TaskAdapter
 import com.otakkanan.taskapp.utils.Helper
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -74,8 +71,7 @@ class KalenderFragment : Fragment(), CalendarAdapter.CalendarListener {
 
     private fun observe() {
         observeSelectedDate()
-        observeTreatments()
-        observeSurveys()
+        observeTaskDay()
         observeData()
     }
 
@@ -114,24 +110,15 @@ class KalenderFragment : Fragment(), CalendarAdapter.CalendarListener {
         }
     }
 
-    private fun observeTreatments() {
+    private fun observeTaskDay() {
         viewLifecycleOwner.lifecycleScope.launch {
-            viewmodel.treatments.collectLatest { data ->
-                val treatments = data.groupBy { it.time }.mapValues {}
-                adapter.submitTreatments(treatments)
+            viewmodel.taskDay.collectLatest { data ->
+//                val treatments = data.groupBy { it.time }.mapValues {}
+                adapter.submitTaskDay(data)
             }
         }
     }
 
-    private fun observeSurveys() {
-
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewmodel.surveys.collectLatest { data ->
-                val surveys = data.groupBy { it.time }.mapValues {}
-                adapter.submitSurveys(surveys)
-            }
-        }
-    }
 
     private fun observeData() {
 

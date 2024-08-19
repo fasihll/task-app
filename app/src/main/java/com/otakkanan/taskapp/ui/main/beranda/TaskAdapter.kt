@@ -2,23 +2,21 @@ package com.otakkanan.taskapp.ui.main.beranda
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.BlendMode
 import android.graphics.Color
 import android.graphics.PorterDuff
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.Task
 import com.otakkanan.taskapp.databinding.TasksBannerListBinding
 import com.otakkanan.taskapp.ui.main.beranda.detail_task.DetailTaskActivity
-import androidx.core.util.Pair
 
 class TaskAdapter :  ListAdapter<Task, TaskAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
@@ -53,7 +51,7 @@ class TaskAdapter :  ListAdapter<Task, TaskAdapter.MyViewHolder>(DIFF_CALLBACK) 
                 binding.tasksCard.backgroundTintMode = PorterDuff.Mode.SRC_ATOP
 
                 taskTitle.text = items.title
-                progresBar.progress = items?.progress!!
+                progresBar.progress = items.progress!!
                 when(items.team?.size){
                     1 -> {
                         teamImage1.visibility = View.VISIBLE
@@ -76,19 +74,19 @@ class TaskAdapter :  ListAdapter<Task, TaskAdapter.MyViewHolder>(DIFF_CALLBACK) 
                         teamImage2.visibility = View.VISIBLE
                         totalTeamContainer.visibility  = View.VISIBLE
                         Glide.with(itemView.context)
-                            .load(items?.team!![0].image)
+                            .load(items.team!![0].image)
                             .into(teamImage1)
                         Glide.with(itemView.context)
                             .load(items.team[1].image)
                             .into(teamImage2)
-                        totalTeam.text= "${items.team.size - 2} lainnya"
+                        totalTeam.text= itemView.context.getString(R.string.lainnya, items.team.size - 2)
 
                     }
                 }
 
 
 
-                itemView.setOnClickListener(){
+                itemView.setOnClickListener {
                     val intent = Intent(itemView.context,DetailTaskActivity::class.java)
                     intent.putExtra(DetailTaskActivity.TAG,items)
                     val optionsCompat: ActivityOptionsCompat =

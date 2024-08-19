@@ -166,13 +166,13 @@ class TugasBaruActivity : AppCompatActivity() {
                     buttonExpand.setOnClickListener {
                         topSheetBehavior.state = TopSheetBehavior.STATE_COLLAPSED
                     }
-                    buttonExpand.setImageResource(R.drawable.ic_expand_less_24);
+                    buttonExpand.setImageResource(R.drawable.ic_expand_less_24)
                 } else if (newState == TopSheetBehavior.STATE_COLLAPSED) {
                     // Change the image when the Bottom Sheet is collapsed
                     buttonExpand.setOnClickListener {
                         topSheetBehavior.state = TopSheetBehavior.STATE_EXPANDED
                     }
-                    buttonExpand.setImageResource(R.drawable.ic_expand_more_24);
+                    buttonExpand.setImageResource(R.drawable.ic_expand_more_24)
                 }
             }
         })

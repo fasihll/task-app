@@ -3,8 +3,6 @@ package com.otakkanan.taskapp.utils
 import com.kizitonwose.calendarview.model.CalendarMonth
 import java.time.DayOfWeek
 import java.time.format.DateTimeFormatter
-import java.time.temporal.WeekFields
-import java.util.Locale
 
 object Helper {
 

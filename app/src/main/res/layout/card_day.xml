@@ -45,7 +45,7 @@
             android:id="@+id/count_task"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1 Tugas"
+            android:text="@string/count_task"
             android:textSize="9sp"
             android:paddingHorizontal="5dp"
             android:paddingVertical="2dp"

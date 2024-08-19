@@ -5,10 +5,10 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import com.kizitonwose.calendarview.model.CalendarDay
 import com.kizitonwose.calendarview.model.DayOwner
-import com.kizitonwose.calendarview.model.InDateStyle
 import com.kizitonwose.calendarview.ui.DayBinder
 import com.kizitonwose.calendarview.ui.ViewContainer
 import com.otakkanan.taskapp.R
+import com.otakkanan.taskapp.data.model.TaskDay
 import com.otakkanan.taskapp.databinding.CardDayBinding
 import java.time.LocalDate
 
@@ -17,8 +17,7 @@ class CalendarAdapter : DayBinder<CalendarAdapter.CalendarViewHolder> {
     var listener: CalendarListener? = null
 
     private var selectedDate: LocalDate = LocalDate.now()
-    private var treatments: Map<LocalDate, Unit> = emptyMap()
-    private var surveys: Map<LocalDate, Unit> = emptyMap()
+    private var taskDay: List<TaskDay> = emptyList()
 
     inner class CalendarViewHolder(private val binding: CardDayBinding) : ViewContainer(binding.root) {
 
@@ -49,21 +48,13 @@ class CalendarAdapter : DayBinder<CalendarAdapter.CalendarViewHolder> {
                             ContextCompat.getColor(binding.root.context, R.color.md_theme_onBackground)
                     )
 
-                    var task = 0
+                    val taskCount = taskDay.count { it.date == model.date }
 
-                    if (treatments.containsKey(model.date)) {
-                        task += 1
-                    }
-
-                    // Count if model.date exists in surveys
-                    if (surveys.containsKey(model.date)) {
-                        task += 1
-                    }
-
-                    countTask.text = "$task Tugas"
+                    countTask.text = binding.root.context.getString(R.string.count_task_title,
+                        taskCount.toString())
 
                     when{
-                        task == 1 ->{
+                        taskCount == 1 ->{
                             countTask.setTextColor(ContextCompat.getColor(binding.root.context, R
                                 .color
                                 .colorPurple))
@@ -71,7 +62,7 @@ class CalendarAdapter : DayBinder<CalendarAdapter.CalendarViewHolder> {
                                 .color
                                 .colorPurpleContainer))
                         }
-                        task == 2 ->{
+                        taskCount == 2 ->{
                             countTask.setTextColor(ContextCompat.getColor(binding.root.context, R
                                 .color
                                 .colorBlue))
@@ -79,7 +70,7 @@ class CalendarAdapter : DayBinder<CalendarAdapter.CalendarViewHolder> {
                                 .color
                                 .colorBlueContainer))
                         }
-                        task >= 3 ->{
+                        taskCount >= 3 ->{
                             countTask.setTextColor(ContextCompat.getColor(binding.root.context, R
                                 .color
                                 .colorGreen))
@@ -87,7 +78,7 @@ class CalendarAdapter : DayBinder<CalendarAdapter.CalendarViewHolder> {
                                 .color
                                 .colorGreenContainer))
                         }
-                        task == 0 -> {
+                        taskCount == 0 -> {
                             statusContainer.visibility = View.INVISIBLE
                         }
 
@@ -125,19 +116,13 @@ class CalendarAdapter : DayBinder<CalendarAdapter.CalendarViewHolder> {
         listener?.onDateChange(selectedDate)
     }
 
-    fun submitTreatments(treatments: Map<LocalDate, Unit>) {
-        this.treatments = treatments
-        treatments.keys.forEach { date ->
-            listener?.onDateChange(date)
+    fun submitTaskDay(taskDay: List<TaskDay>) {
+        this.taskDay = taskDay
+        taskDay.forEach { taskd ->
+            listener?.onDateChange(taskd.date!!)
         }
     }
 
-    fun submitSurveys(surveys: Map<LocalDate, Unit>) {
-        this.surveys = surveys
-        surveys.keys.forEach { date ->
-            listener?.onDateChange(date)
-        }
-    }
 
     ///////////////////////////////////////////////////////////////////////////
     // MISC

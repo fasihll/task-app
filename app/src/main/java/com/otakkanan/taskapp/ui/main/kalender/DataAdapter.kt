@@ -1,67 +1,100 @@
 package com.otakkanan.taskapp.ui.main.kalender
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.otakkanan.taskapp.data.model.DataModel
-import com.otakkanan.taskapp.data.model.SurveyModel
-import com.otakkanan.taskapp.data.model.TreatmentModel
-import com.otakkanan.taskapp.databinding.CardSurveyBinding
-import com.otakkanan.taskapp.databinding.CardTreatmentBinding
+import com.otakkanan.taskapp.R
+import com.otakkanan.taskapp.data.model.TaskDay
+import com.otakkanan.taskapp.databinding.CardTaskdayBinding
 
 
 class DataAdapter(
     diff: DataDiff,
-) : ListAdapter<DataModel, RecyclerView.ViewHolder>(diff) {
+) : ListAdapter<TaskDay, RecyclerView.ViewHolder>(diff) {
+
 
     companion object {
-        const val TREATMENT = 0x4545
-        const val SURVEY = 0x4646
+        const val TASKDAY = 0x4545
     }
 
-    class TreatmentViewHolder(private val binding: CardTreatmentBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(model: TreatmentModel) {
+    class TaskDayViewHolder(private val binding: CardTaskdayBinding) : RecyclerView.ViewHolder
+        (binding
+        .root) {
+
+        fun bind(model: TaskDay) {
             binding.apply {
-                nameT.text = model.name
+                nameT.text = model.title
+                time.text = model.time.toString()
+//                timeContainer
+                if (model.priority != null){
+                    priorityContainer.visibility = View.VISIBLE
+                    priority.text = model.priority.toString()
+                }
+
+
+                if (model.subtugas != null){
+                    nameT.setOnClickListener{
+                        dropdownTaskDay(rvSubtask.visibility == View.VISIBLE)
+                        rvSubtask.parent.requestLayout()
+                    }
+                }else{
+                    nameT.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null)
+                }
+
+
+                val layoutManager = LinearLayoutManager(itemView.context)
+                rvSubtask.layoutManager = layoutManager
+
+                val adapter = SubTaskCalendarAdapter()
+                rvSubtask.adapter = adapter
+                adapter.submitList(model.subtugas)
             }
         }
-    }
 
-    class SurveyViewHolder(private val binding: CardSurveyBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun dropdownTaskDay(status: Boolean){
+            with(binding){
+                val drawableBuka = ContextCompat.getDrawable(itemView.context, R.drawable.arrow_up)
+                val drawableTutup = ContextCompat.getDrawable(itemView.context, R.drawable.arrow_down)
 
-        fun bind(model: SurveyModel) {
-            binding.apply {
-                nameT.text = model.name
+               if (status) {
+                   nameT.setCompoundDrawablesWithIntrinsicBounds(null, null, drawableTutup, null)
+                   rvSubtask.visibility = View.GONE
+               }else{
+                   nameT.setCompoundDrawablesWithIntrinsicBounds(null, null, drawableBuka, null)
+                   rvSubtask.visibility = View.VISIBLE
+               }
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return if (viewType == TREATMENT) TreatmentViewHolder(CardTreatmentBinding.inflate(inflater, parent, false))
-        else SurveyViewHolder(CardSurveyBinding.inflate(inflater, parent, false))
+        return TaskDayViewHolder(CardTaskdayBinding.inflate(inflater,
+            parent, false))
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is TreatmentViewHolder -> holder.bind(getItem(position) as TreatmentModel)
-            is SurveyViewHolder -> holder.bind(getItem(position) as SurveyModel)
+            is TaskDayViewHolder -> holder.bind(getItem(position) as TaskDay)
         }
     }
 
     override fun getItemViewType(position: Int): Int {
-        return if (getItem(position) is TreatmentModel) TREATMENT else SURVEY
+        return TASKDAY
     }
 
-    class DataDiff : DiffUtil.ItemCallback<DataModel>() {
-        override fun areItemsTheSame(oldItem: DataModel, newItem: DataModel): Boolean {
+    class DataDiff : DiffUtil.ItemCallback<TaskDay>() {
+        override fun areItemsTheSame(oldItem: TaskDay, newItem: TaskDay): Boolean {
             return oldItem === newItem
         }
 
-        override fun areContentsTheSame(oldItem: DataModel, newItem: DataModel): Boolean {
+        override fun areContentsTheSame(oldItem: TaskDay, newItem: TaskDay): Boolean {
             return oldItem == newItem
         }
     }

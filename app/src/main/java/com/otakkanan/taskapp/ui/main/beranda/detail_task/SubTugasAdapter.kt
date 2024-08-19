@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.TaskDay
 import com.otakkanan.taskapp.databinding.SubTugasListBinding
-import com.otakkanan.taskapp.databinding.TaskDayListBinding
 
 class SubTugasAdapter :  ListAdapter<TaskDay, SubTugasAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
@@ -38,7 +37,9 @@ class SubTugasAdapter :  ListAdapter<TaskDay, SubTugasAdapter.MyViewHolder>(DIFF
         }
         fun bind(items: TaskDay){
             with(binding){
-                taskTitle.text = "Tugas ${itemId} — ${items.title}"
+                taskTitle.text =
+                    itemView.context.getString(R.string.task_title_with_bold, itemId.toString(), items
+                        .title)
                 val itemId = position+1
                 val itemsTitle = "Example Title"
 

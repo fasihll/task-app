@@ -10,12 +10,8 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.Task
-import com.otakkanan.taskapp.data.model.Team
-import com.otakkanan.taskapp.databinding.ActivityDetailTaskBinding
 import com.otakkanan.taskapp.databinding.ActivityListAnggotaBinding
 import com.otakkanan.taskapp.ui.main.beranda.anggota.add_anggota.AddAnggotaActivity
-import com.otakkanan.taskapp.ui.main.beranda.detail_task.DetailTaskActivity
-import com.otakkanan.taskapp.ui.main.beranda.detail_task.SubTugasAdapter
 
 class ListAnggotaActivity : AppCompatActivity() {
 
@@ -31,9 +27,9 @@ class ListAnggotaActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val task: Task? = intent.getParcelableExtra(ListAnggotaActivity.TAG)
+        val task: Task? = intent.getParcelableExtra(TAG)
 
-        binding.btnBack.setOnClickListener(){
+        binding.btnBack.setOnClickListener {
             finish()
         }
 
@@ -44,7 +40,7 @@ class ListAnggotaActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.countAnggota.text = "${task?.team!!.size} Anggota"
+        binding.countAnggota.text = getString(R.string.anggota_counts, task?.team!!.size.toString())
 
         setupRecylerview(task)
     }

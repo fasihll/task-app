@@ -23,7 +23,7 @@
             android:id="@+id/checkbox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Amy Vis"
+            android:text="@string/username"
             android:textSize="18sp"
             android:layoutDirection="rtl"
             app:buttonIconTint="@color/md_theme_onPrimary"

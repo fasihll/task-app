@@ -2,7 +2,6 @@ package com.otakkanan.taskapp.ui.main.beranda.detail_task
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -14,9 +13,8 @@ import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.Task
 import com.otakkanan.taskapp.data.model.TaskDay
 import com.otakkanan.taskapp.databinding.ActivityDetailTaskBinding
-import com.otakkanan.taskapp.databinding.FragmentBerandaBinding
-import com.otakkanan.taskapp.ui.main.beranda.TaskDayAdapter
 import com.otakkanan.taskapp.ui.main.beranda.anggota.list_anggota.ListAnggotaActivity
+import java.time.LocalTime
 
 class DetailTaskActivity : AppCompatActivity() {
 
@@ -70,17 +68,20 @@ class DetailTaskActivity : AppCompatActivity() {
                 .into(imageManajer)
             manajerName.text = task?.manajer!![0].name
             deskripsi.text = task.deskripsi
-            progresBar.progress = task?.progress!!
+            progresBar.progress = task.progress!!
             progressBarinsideText.text = "${task.progress}%"
         }
     }
 
     private fun setupSubTugasRecyclerview() {
         val taskDay = arrayListOf(
-            TaskDay("Membuat moodboard","08:00",true),
-            TaskDay("Membuat wireframe","11:00",true),
-            TaskDay("Membuat komponen desain","13:00",false),
-            TaskDay("Membuat desain","17:00",false)
+            TaskDay(title = "Tugas 1 — Mengerjakan beranda",time= LocalTime.of(10,0,0), isDone =
+            true),
+            TaskDay(title ="Tugas 2 — Mengerjakan detail",time= LocalTime.of(11,0,0),isDone = true),
+            TaskDay(title ="Tugas 3 — Mengerjakan member level page",time= LocalTime.of(13,0,0),
+                isDone = false),
+            TaskDay(title ="Tugas 4 — Mengerjakan tambah anggota page",time= LocalTime.of(17,0,0)
+                ,isDone = false)
         )
 
         with(binding){
