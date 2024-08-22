@@ -1,16 +1,9 @@
 package com.otakkanan.taskapp.ui.tugas.tugasbaru
 
-import android.app.Dialog
-import android.content.Intent
-import android.content.res.Configuration
-import android.content.res.Resources
-import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.view.Window
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.LinearLayout
 import com.otakkanan.taskapp.component.TimePicker
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.component.topsheet.TopSheetBehavior
 import com.otakkanan.taskapp.databinding.ActivityTugasBaruBinding
@@ -34,14 +28,17 @@ import java.util.Locale
 class TugasBaruActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityTugasBaruBinding
+
+    // Top Sheet
     private lateinit var buttonExpand: ImageView
     private lateinit var topSheetBehavior: TopSheetBehavior<View>
 
-    private val lastDayInCalendar = Calendar.getInstance(Locale.ENGLISH)
-    private val sdf = SimpleDateFormat("MMMM yyyy", Locale.ENGLISH)
-    private val cal = Calendar.getInstance(Locale.ENGLISH)
+    //Calendar
+    private val lastDayInCalendar = Calendar.getInstance(Locale("id", "ID"))
+    private val sdf = SimpleDateFormat("MMMM", Locale("id", "ID"))
+    private val cal = Calendar.getInstance(Locale("id", "ID"))
 
-    private val currentDate = Calendar.getInstance(Locale.ENGLISH)
+    private val currentDate = Calendar.getInstance(Locale("id", "ID"))
     private val currentDay = currentDate[Calendar.DAY_OF_MONTH]
     private val currentMonth = currentDate[Calendar.MONTH]
     private val currentYear = currentDate[Calendar.YEAR]
@@ -52,7 +49,12 @@ class TugasBaruActivity : AppCompatActivity() {
 
     private val dates = ArrayList<Date>()
 
+    //Tunda Tugas
     private var tundaTugas: Boolean = false
+
+    //Prioritas
+    private var prioritas: String = "Default"
+    private var rankPrioritas: Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,7 +66,6 @@ class TugasBaruActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
 
         setupTopSheet()
         setupCalendar()
@@ -90,26 +91,65 @@ class TugasBaruActivity : AppCompatActivity() {
     private fun setupPrioritas() {
         topSheetBehavior = TopSheetBehavior.from(binding.topSheetContainer.root)
         val btnPrioritas: Button = findViewById(R.id.btn_prioritas)
+// Set nilai awal prioritas
+        btnPrioritas.text = "Default"  // Nilai awal
+        btnPrioritas.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null)  // Tidak ada ikon
+
         btnPrioritas.setOnClickListener {
-            val prioritasDialog = Dialog(this@TugasBaruActivity, R.style.CustomDialogTheme)
-            prioritasDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-            prioritasDialog.setContentView(R.layout.dialog_prioritas)
-            prioritasDialog.setCancelable(false)
+            val prioritasDialogView = layoutInflater.inflate(R.layout.dialog_prioritas, null)
 
-            val btnYes = prioritasDialog.findViewById<View>(R.id.btn_ok)
-            val btnNo = prioritasDialog.findViewById<View>(R.id.btn_cancel)
+            rankPrioritas = 1
 
-            btnYes.setOnClickListener {
-                prioritasDialog.dismiss()
+            val dialog = MaterialAlertDialogBuilder(this)
+                .setView(prioritasDialogView)
+                .show()
+
+            with(prioritasDialogView) {
+                val tvPriorityCount: Button = findViewById(R.id.tv_priority_count)
+
+                // Set fungsi tombol kurang
+                prioritasDialogView.findViewById<Button>(R.id.btn_min).setOnClickListener {
+                    if (rankPrioritas > 1) {  // Batas minimum 1
+                        rankPrioritas--
+                        tvPriorityCount.setText(rankPrioritas.toString())
+                    }
+                }
+
+                // Set fungsi tombol tambah
+                prioritasDialogView.findViewById<Button>(R.id.btn_plus).setOnClickListener {
+                    if (rankPrioritas < 5) {  // Batas maksimum 5 (misalnya)
+                        rankPrioritas++
+                        tvPriorityCount.setText(rankPrioritas.toString())
+                    }
+                }
+
+                findViewById<View>(R.id.btn_ok).setOnClickListener {
+                    // Update teks btnPrioritas dengan nilai prioritas yang dipilih
+                    val priorityText = "$rankPrioritas"
+                    btnPrioritas.text = priorityText
+
+                    // Jika prioritas bukan "Default", tambahkan ikon
+                    if (rankPrioritas != 1) {
+                        val icon = ContextCompat.getDrawable(this@TugasBaruActivity, R.drawable.flag)
+                        icon?.setColorFilter(ContextCompat.getColor(this@TugasBaruActivity, R.color.md_theme_primary), android.graphics.PorterDuff.Mode.SRC_IN)
+                        btnPrioritas.setCompoundDrawablesWithIntrinsicBounds(null, null, icon, null)
+                    } else {
+                        btnPrioritas.text = "Default"
+                        // Jika kembali ke "Default", hapus ikon
+                        btnPrioritas.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null)
+                    }
+
+                    dialog.dismiss()
+                }
+
+                findViewById<View>(R.id.btn_cancel).setOnClickListener {
+                    dialog.dismiss()
+                }
             }
-
-            btnNo.setOnClickListener {
-                prioritasDialog.dismiss()
-            }
-
-            prioritasDialog.show()
         }
     }
+
+
 
     private fun setupTundaTugas() {
         topSheetBehavior = TopSheetBehavior.from(binding.topSheetContainer.root)
@@ -182,25 +222,25 @@ class TugasBaruActivity : AppCompatActivity() {
         val snapHelper = LinearSnapHelper()
         snapHelper.attachToRecyclerView(binding.calendarRecyclerView)
 
-        lastDayInCalendar.add(Calendar.MONTH, 6)
+//        lastDayInCalendar.add(Calendar.MONTH, 6)
 
         setUpCalendar()
 
         binding.calendarPrevButton.setOnClickListener {
             if (cal.after(currentDate)) {
                 cal.add(Calendar.MONTH, -1)
-                if (cal == currentDate)
-                    setUpCalendar()
-                else
+//                if (cal == currentDate)
+//                    setUpCalendar()
+//                else
                     setUpCalendar(changeMonth = cal)
             }
         }
 
         binding.calendarNextButton.setOnClickListener {
-            if (cal.before(lastDayInCalendar)) {
+//            if (cal.before(lastDayInCalendar)) {
                 cal.add(Calendar.MONTH, 1)
                 setUpCalendar(changeMonth = cal)
-            }
+//            }
         }
     }
 
@@ -214,7 +254,7 @@ class TugasBaruActivity : AppCompatActivity() {
         binding.calendarRecyclerView.adapter = CalendarAdapter(
             this,
             dates,
-            Calendar.getInstance(Locale.ENGLISH),
+            Calendar.getInstance(Locale("id", "ID")),
             cal
         ).apply {
             setOnItemClickListener(object : CalendarAdapter.OnItemClickListener {

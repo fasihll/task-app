@@ -23,6 +23,7 @@ import com.otakkanan.taskapp.data.model.TaskDay
 import com.otakkanan.taskapp.data.model.Team
 import com.otakkanan.taskapp.databinding.FragmentBerandaBinding
 import com.otakkanan.taskapp.ui.tugas.tugasbaru.TugasBaruActivity
+import com.otakkanan.taskapp.ui.tugas.tugasberulangbaru.TugasBerulangBaruActivity
 import java.time.LocalTime
 
 class BerandaFragment : Fragment() {
@@ -253,8 +254,8 @@ class BerandaFragment : Fragment() {
                 startActivity(Intent(requireContext(),TugasBaruActivity::class.java))
             }
             menu2.setOnClickListener {
-//                dialog.dismiss()
-//                startActivity(Intent(requireContext(),TugasBerulangActivity::class.java))
+                dialog.dismiss()
+                startActivity(Intent(requireContext(), TugasBerulangBaruActivity::class.java))
             }
             menu3.setOnClickListener {
 //                dialog.dismiss()

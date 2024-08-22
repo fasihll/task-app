@@ -9,14 +9,14 @@
     android:paddingHorizontal="16dp"
     android:elevation="8dp"
     app:behavior_hideable="false"
-    app:behavior_peekHeight="48dp"
+    app:behavior_peekHeight="36dp"
     app:layout_behavior="@string/top_sheet_auto_close_behavior">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ed_deskripsi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="12dp"
+        android:layout_marginBottom="16dp"
         android:hint="@string/deskripsi_opsional"
         app:expandedHintEnabled="false"
         app:hintEnabled="true">
@@ -52,7 +52,7 @@
     <com.google.android.material.divider.MaterialDivider
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="15dp" />
+        android:layout_marginVertical="16dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -197,7 +197,7 @@
         android:id="@+id/btn_expand"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="12dp"
+        android:paddingTop="12dp"
         android:layout_gravity="bottom"
         android:gravity="center"
         android:src="@drawable/ic_expand_more_24" />

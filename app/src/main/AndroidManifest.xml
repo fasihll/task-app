@@ -16,6 +16,9 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".ui.tugas.tugasberulangbaru.TugasBerulangBaruActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.main.beranda.anggota.add_anggota.AddAnggotaActivity"
             android:exported="false" />
         <activity
@@ -41,8 +44,8 @@
             android:exported="false" />
         <activity
             android:name=".ui.main.MainActivity"
-            android:theme="@style/SplashScreenTheme"
             android:exported="true"
+            android:theme="@style/SplashScreenTheme"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
