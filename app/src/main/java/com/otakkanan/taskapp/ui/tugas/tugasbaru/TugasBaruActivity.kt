@@ -157,6 +157,7 @@ class TugasBaruActivity : AppCompatActivity() {
         checkBoxTundaTugas.setOnClickListener {
             if (tundaTugas) {
                 checkBoxTundaTugas.setImageResource(R.drawable.unchecked_task)
+                checkBoxTundaTugas.setColorFilter(ContextCompat.getColor(this, R.color.md_theme_secondaryContainer), android.graphics.PorterDuff.Mode.SRC_IN)
                 tundaTugas = false
             } else {
                 checkBoxTundaTugas.setImageResource(R.drawable.checked_task)
