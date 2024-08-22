@@ -222,10 +222,8 @@
 
                             <com.google.android.material.card.MaterialCardView
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginVertical="8dp"
+                                android:layout_height="match_parent"
                                 android:layout_marginStart="32dp"
-                                android:layout_marginTop="2dp"
                                 style="?attr/materialCardViewFilledStyle"
                                 app:cardBackgroundColor="@color/md_theme_primaryFixed"
                                 app:cardCornerRadius="7dp">
@@ -290,10 +288,8 @@
 
                             <com.google.android.material.card.MaterialCardView
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginVertical="8dp"
+                                android:layout_height="match_parent"
                                 android:layout_marginStart="32dp"
-                                android:layout_marginTop="2dp"
                                 style="?attr/materialCardViewFilledStyle"
                                 app:cardBackgroundColor="@color/md_theme_primaryFixed"
                                 app:cardCornerRadius="7dp">
