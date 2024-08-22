@@ -4,10 +4,10 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".ui.main.tugas.TugasFragment">
+    tools:context=".ui.main.tugas.TugasBerulangFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_tugas"
+        android:id="@+id/recycler_view_tugas_berulang"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp"/>

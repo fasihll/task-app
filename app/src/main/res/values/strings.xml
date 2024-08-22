@@ -21,4 +21,6 @@
     <string name="prioritas">Prioritas</string>
     <string name="top_sheet_behavior" translatable="false">com.otakkanan.taskapp.component.topsheet.TopSheetBehavior</string>
     <string name="top_sheet_auto_close_behavior" translatable="false">com.otakkanan.taskapp.component.topsheet.AutoCloseTopSheetBehavior</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

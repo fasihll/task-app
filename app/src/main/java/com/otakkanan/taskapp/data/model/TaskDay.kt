@@ -10,7 +10,7 @@ data class TaskDay(
     val date: LocalDate? = null,
     val time: LocalTime? = null,
     val priority: Int? = null,
-    val isDone: Boolean = false,
+    var isDone: Boolean = false,
     val subtugas: List<SubTugasTaskDay>? = null
 )
 

@@ -14,7 +14,7 @@ import java.time.LocalDate
 import java.time.LocalTime
 
 @AndroidEntryPoint
-class TugasFragment : Fragment(), ListTugasAdapter.OnTaskStatusChangeListener {
+class KebiasaanFragment : Fragment(), ListTugasAdapter.OnTaskStatusChangeListener {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ListTugasAdapter
