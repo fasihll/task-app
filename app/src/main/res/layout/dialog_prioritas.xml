@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="280dp"
-    android:layout_height="wrap_content"
-    app:cardBackgroundColor="@color/md_theme_background">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_onPrimary">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="16dp"
+        android:background="@color/md_theme_onPrimary"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -23,61 +24,77 @@
             android:textAlignment="center"
             android:textSize="16sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="35dp"
-            android:gravity="center"
-            android:orientation="vertical">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-            <com.google.android.material.button.MaterialButtonToggleGroup
-                android:id="@+id/toggleButton"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/button_prioritas_layout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:backgroundTint="@color/md_theme_secondaryFixedDim">
+                android:layout_gravity="center"
+                android:layout_marginTop="35dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
 
-                <Button
-                    android:id="@+id/btn_min"
-                    style="@style/Widget.App.Button.OutlinedButton.IconOnly"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    app:backgroundTint="@color/md_theme_secondaryFixedDim"
-                    app:icon="@drawable/ic_min_24" />
-
-                <Button
-                    android:id="@+id/tv_priority_count"
-                    style="@style/Widget.App.Button.OutlinedButton"
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/toggleButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1"
-                    android:fontFamily="@font/inter_18pt_semibold"
-                    android:textAlignment="center"
-                    android:textSize="24sp"
-                    app:backgroundTint="@color/md_theme_secondaryFixedDim" />
+                    app:backgroundTint="@color/md_theme_background">
 
-                <Button
-                    android:id="@+id/btn_plus"
-                    style="@style/Widget.App.Button.OutlinedButton.IconOnly"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    app:backgroundTint="@color/md_theme_secondaryFixedDim"
-                    app:icon="@drawable/ic_plus_24" />
-            </com.google.android.material.button.MaterialButtonToggleGroup>
-        </LinearLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:fontFamily="@font/inter_18pt_regular"
-            android:layout_marginTop="20dp"
-            android:lines="2"
-            android:minLines="2"
-            android:singleLine="false"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="Prioritas tertinggi akan diletakkan paling atas dalam list"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+                    <Button
+                        android:id="@+id/btn_min"
+                        style="@style/Widget.App.Button.ElevatedButton.IconOnly"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:backgroundTint="@color/md_theme_background"
+                        app:icon="@drawable/ic_min_24" />
+
+                    <Button
+                        android:id="@+id/tv_priority_count"
+                        style="@style/Widget.App.Button.ElevatedButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:fontFamily="@font/inter_18pt_semibold"
+                        android:text="1"
+                        android:textAlignment="center"
+                        android:textSize="24sp"
+                        app:backgroundTint="@color/md_theme_background" />
+
+                    <Button
+                        android:id="@+id/btn_plus"
+                        style="@style/Widget.App.Button.ElevatedButton.IconOnly"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:backgroundTint="@color/md_theme_background"
+                        app:icon="@drawable/ic_plus_24" />
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_prioritas_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_18pt_regular"
+                android:gravity="center_vertical|center_horizontal"
+                android:lines="2"
+                android:minLines="2"
+                android:singleLine="false"
+                android:text="@string/prioritas_tertinggi_akan_diletakkan_paling_atas_dalam_list"
+                android:textAlignment="center"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/button_prioritas_layout"
+                app:layout_constraintTop_toBottomOf="@+id/button_prioritas_layout"
+                app:layout_constraintEnd_toEndOf="@+id/button_prioritas_layout" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
         <com.google.android.material.divider.MaterialDivider
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -98,12 +115,12 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
-                android:fontFamily="@font/poppins_semi_bold"
+                android:fontFamily="@font/inter_18pt_semibold"
                 android:paddingVertical="8dp"
                 android:text="Cancel"
                 android:textColor="@color/md_theme_onBackground"
                 android:textSize="14sp"
-                app:backgroundTint="@color/md_theme_background" />
+                app:backgroundTint="@color/md_theme_onPrimary" />
 
             <View
                 android:layout_width="12dp"
@@ -120,7 +137,7 @@
                 android:text="OK"
                 android:textColor="@color/md_theme_primary"
                 android:textSize="14sp"
-                app:backgroundTint="@color/md_theme_background"
+                app:backgroundTint="@color/md_theme_onPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 

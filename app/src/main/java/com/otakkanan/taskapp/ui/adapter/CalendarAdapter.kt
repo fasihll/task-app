@@ -52,25 +52,26 @@ class CalendarAdapter(private val context: Context,
     override fun getItemCount(): Int = data.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val sdf = SimpleDateFormat("EEE MMM dd HH:mm:ss", Locale.ENGLISH)
+        // Format hari dalam seminggu untuk Bahasa Indonesia
+        val sdfDay = SimpleDateFormat("EEEE", Locale("id", "ID"))
         val cal = Calendar.getInstance()
         cal.time = data[holder.adapterPosition]
 
+        // Format hari dalam seminggu dan tanggal
         val displayMonth = cal[Calendar.MONTH]
         val displayYear = cal[Calendar.YEAR]
         val displayDay = cal[Calendar.DAY_OF_MONTH]
 
-        try {
-            val dayInWeek = sdf.parse(cal.time.toString())!!
-            sdf.applyPattern("EEE")
-            holder.txtDayInWeek.text = sdf.format(dayInWeek).toString()
-        } catch (ex: ParseException) {
-            Log.v("Exception", ex.localizedMessage!!)
-        }
-        holder.txtDay.text = cal[Calendar.DAY_OF_MONTH].toString()
+        // Format hari dalam seminggu
+        val dayInWeek = sdfDay.format(cal.time)
+        holder.txtDayInWeek.text = dayInWeek
 
-        if (displayYear >= currentYear)
-            if (displayMonth >= currentMonth || displayYear > currentYear)
+        // Format tanggal
+        holder.txtDay.text = displayDay.toString()
+
+        // Kondisi pemilihan dan tampilan item
+        if (displayYear >= currentYear) {
+            if (displayMonth >= currentMonth || displayYear > currentYear) {
                 if (displayDay >= currentDay || displayMonth > currentMonth || displayYear > currentYear) {
                     holder.cardLayout.setOnClickListener {
                         index = holder.adapterPosition
@@ -88,8 +89,8 @@ class CalendarAdapter(private val context: Context,
                             makeItemDefault(holder)
                     }
                 } else makeItemDisabled(holder)
-            else makeItemDisabled(holder)
-        else makeItemDisabled(holder)
+            } else makeItemDisabled(holder)
+        } else makeItemDisabled(holder)
     }
 
     inner class ViewHolder(itemView: View, val listener: OnItemClickListener): RecyclerView.ViewHolder(itemView) {

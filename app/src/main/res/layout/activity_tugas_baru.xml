@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginVertical="12dp"
+            android:layout_marginVertical="16dp"
             android:hint="@string/nama_tugas"
             app:expandedHintEnabled="false"
             app:hintEnabled="true"

@@ -37,7 +37,6 @@
     <string name="progres_value">30%</string>
     <string name="sub_tugas">Sub-tugas</string>
     <string name="anggota_count">4 Anggota</string>
-    <string name="tambah_anggota">Tambah Anggota</string>
     <string name="keluar_dari_tim">Keluar dari tim</string>
     <string name="username">Amy Vis</string>
     <string name="admin_name">Budi Nam</string>
@@ -58,4 +57,5 @@
     <string name="anggota_counts">%1$s Anggota</string>
     <string name="task_title_with_bold">Tugas %1$s — %2$s</string>
     <string name="lainnya">%1$s lainnya</string>
+    <string name="prioritas_tertinggi_akan_diletakkan_paling_atas_dalam_list">Prioritas tertinggi akan diletakkan paling atas dalam list</string>
 </resources>
