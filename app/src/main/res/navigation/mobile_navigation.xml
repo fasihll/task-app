@@ -19,9 +19,9 @@
 
     <fragment
         android:id="@+id/navigation_tugas"
-        android:name="com.otakkanan.taskapp.ui.main.tugas.TugasFragment"
+        android:name="com.otakkanan.taskapp.ui.main.tugas.ListTugasFragment"
         android:label="@string/title_tugas"
-        tools:layout="@layout/fragment_tugas" />
+        tools:layout="@layout/fragment_list_tugas" />
 
     <fragment
         android:id="@+id/navigation_profile"

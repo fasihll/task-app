@@ -1,5 +1,7 @@
 package com.otakkanan.taskapp.injection.provide
 
+import com.otakkanan.taskapp.ui.main.tugas.ListTugasAdapter
+import com.otakkanan.taskapp.ui.main.tugas.ListTugasFragment
 import com.otakkanan.taskapp.ui.main.kalender.CalendarAdapter
 import com.otakkanan.taskapp.ui.main.kalender.CalendarHeaderAdapter
 import com.otakkanan.taskapp.ui.main.kalender.DataAdapter
@@ -29,4 +31,10 @@ object FragmentModule {
     @Provides
     @FragmentScoped
     fun provideCalendarAdapter(): CalendarAdapter = CalendarAdapter()
+
+    @Provides
+    @FragmentScoped
+    fun provideListTugasAdapter(listener: ListTugasAdapter.OnTaskStatusChangeListener): ListTugasAdapter {
+        return ListTugasAdapter(emptyList(), listener)
+    }
 }
