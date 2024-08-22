@@ -68,7 +68,7 @@ class DetailTaskActivity : AppCompatActivity() {
                 .into(imageManajer)
             manajerName.text = task?.manajer!![0].name
             deskripsi.text = task.deskripsi
-            progresBar.progress = task?.progress!!
+            progresBar.progress = task.progress!!
             progressBarinsideText.text = "${task.progress}%"
         }
     }

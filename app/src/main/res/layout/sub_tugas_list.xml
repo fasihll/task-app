@@ -21,7 +21,7 @@
                 android:id="@+id/task_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tugas 1 — Membuat moodboard"
+                android:text="@string/sub_task_Day"
                 android:textSize="18sp"
                 android:layout_marginBottom="5dp"/>
         </LinearLayout>
@@ -30,6 +30,7 @@
             android:id="@+id/task_checkbox"
             android:layout_width="33dp"
             android:layout_height="33dp"
+            android:contentDescription="tombol checkbox tugas"
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
             android:src="@drawable/task_list_selector"

@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/inter_18pt_semibold"
-            android:text="9"
+            android:text="@string/day_date"
             android:textColor="@color/md_theme_onBackground"
             android:textSize="24sp" />
 
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/inter_18pt_regular"
-            android:text="Sabtu"
+            android:text="@string/day"
             android:textColor="@color/md_theme_onBackground"
             android:textSize="14sp" />
     </LinearLayout>

@@ -1,149 +1,260 @@
 package com.otakkanan.taskapp.component
 
 import android.content.Context
-import android.graphics.*
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
-import kotlin.math.*
+import com.otakkanan.taskapp.R
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlin.math.atan2
+import kotlin.math.pow
+import kotlin.math.atan2
+import kotlin.math.cos
+import kotlin.math.min
+import kotlin.math.sin
+import kotlin.math.sqrt
 
 class TimePicker @JvmOverloads constructor(
-    context: Context, attrs: AttributeSet? = null, defStyle: Int = 0
-) : View(context, attrs, defStyle) {
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : View(context, attrs, defStyleAttr) {
 
-    private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
-    private var radius = 0f
-    private var selectedHour = 0
-    private var selectedMinute = 0
-    private var isHourMode = true // Flag to track hour or minute selection
+    var hour = 12 // Default hour
+    var minute = 0 // Default minute
+    var clockMode = ClockMode.HOUR
+        set(value) {
+            field = value
+            invalidate()
+        }
+    var timeMode = TimeMode.AM
+        set(value) {
+            field = value
+            invalidate()
+        }
 
-    init {
-        paint.textAlign = Paint.Align.CENTER
+    private var timeChangedListener: TimeChangeListener? = null
+
+    private val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        style = Paint.Style.FILL
+        color = context.getColor(R.color.md_theme_secondaryFixed)
     }
+    private val paintTime = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        style = Paint.Style.FILL
+        color = context.getColor(R.color.md_theme_onSecondary)
+    }
+    private val numberPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        textAlign = Paint.Align.CENTER
+        textSize = TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_SP, 14f, resources.displayMetrics
+        )
+        color = context.getColor(R.color.md_theme_onBackground)
+    }
+
+    private val dotAndHandPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        style = Paint.Style.FILL
+        color = context.getColor(R.color.md_theme_primary)
+        strokeWidth = 5f
+    }
+    private val blackDot = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        style = Paint.Style.FILL
+        color = Color.BLACK
+    }
+
+    private val scope = CoroutineScope(Dispatchers.Main + Job())
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-
-        radius = (min(width, height) / 2 * 0.8).toFloat()
         val centerX = width / 2f
         val centerY = height / 2f
+        val radius = minOf(width, height) / 2 * 0.8f
 
-        // Draw the outer circle (C)
-        paint.color = Color.parseColor("#E0E7FF") // Light purple background
-        paint.setShadowLayer(8f, 0f, 0f, Color.parseColor("#B0A0FF"))
-        canvas.drawCircle(centerX, centerY, radius * 1.2f, paint)
-
-        // Draw the middle circle (B)
-        paint.color = Color.parseColor("#D3D9FF") // Lighter purple
+        // Draw the white circle for the clock face
         canvas.drawCircle(centerX, centerY, radius, paint)
+        canvas.drawCircle(centerX, centerY, (radius / 2), paintTime)
 
-        // Draw the inner circle (A)
-        paint.color = Color.WHITE
-        canvas.drawCircle(centerX, centerY, radius * 0.8f, paint)
 
-        // Draw the numbers for hours in two circles
-        if (isHourMode) {
-            paint.color = Color.BLACK
-            paint.textSize = 36f
-            // Hours 1 to 12 in outer circle
-            for (i in 1..12) {
-                val angle = Math.toRadians((i * 30 - 90).toDouble())
-                val x = (centerX + radius * 1.2f * cos(angle)).toFloat()
-                val y = (centerY + radius * 1.2f * sin(angle)).toFloat()
-                canvas.drawText(i.toString(), x, y + paint.textSize / 3, paint)
+        val itemCount = if (clockMode == ClockMode.HOUR) 12 else 60
+
+        // Draw all the highlight circles
+        for (i in 1..itemCount) {
+            val angle = Math.toRadians((i * 360.0 / itemCount) - 90)
+            val x = (centerX + cos(angle) * radius * 0.85).toFloat()
+            val y = (centerY + sin(angle) * radius * 0.85).toFloat()
+
+            if (clockMode == ClockMode.HOUR && i == hour || clockMode == ClockMode.MINUTE && (i == minute || minute == 0 && i == 60)) {
+                canvas.drawCircle(x, y, 55f, dotAndHandPaint) // Highlight selected hour/minute
+                if (clockMode == ClockMode.MINUTE && i % 5 != 0) canvas.drawCircle(
+                    x, y, 5f, blackDot
+                )
             }
-
-            // Hours 13 to 24 in inner circle
-            for (i in 13..24) {
-                val angle = Math.toRadians((i * 30 - 90).toDouble())
-                val x = (centerX + radius * 0.8f * cos(angle)).toFloat()
-                val y = (centerY + radius * 0.8f * sin(angle)).toFloat()
-                canvas.drawText(i.toString(), x, y + paint.textSize / 3, paint)
-            }
-
-            // Draw the selected hour indicator with text
-            paint.color = Color.parseColor("#4F46E5") // Dark purple
-            paint.style = Paint.Style.FILL_AND_STROKE
-            paint.strokeWidth = 4f
-            val selectedAngle = Math.toRadians(((selectedHour % 12) * 30 - 90).toDouble())
-            val selectedRadius = if (selectedHour < 13) radius * 1.2f else radius * 0.8f
-            val selectedX = (centerX + selectedRadius * cos(selectedAngle)).toFloat()
-            val selectedY = (centerY + selectedRadius * sin(selectedAngle)).toFloat()
-            canvas.drawCircle(selectedX, selectedY, 40f, paint)
-            paint.color = Color.WHITE
-            paint.textSize = 24f
-            canvas.drawText(selectedHour.toString(), selectedX, selectedY + paint.textSize / 3, paint)
-        } else {
-            // Draw the numbers for minutes
-            paint.color = Color.BLACK
-            paint.textSize = 24f
-            for (i in 0..59 step 5) {
-                val angle = Math.toRadians((i * 6 - 90).toDouble())
-                val x = (centerX + radius * 0.8f * cos(angle)).toFloat()
-                val y = (centerY + radius * 0.8f * sin(angle)).toFloat()
-                canvas.drawText(i.toString(), x, y + paint.textSize / 3, paint)
-            }
-
-            // Draw the selected minute indicator with text
-            paint.color = Color.parseColor("#4F46E5") // Dark purple
-            paint.style = Paint.Style.FILL_AND_STROKE
-            paint.strokeWidth = 4f
-            val selectedAngle = Math.toRadians((selectedMinute * 6 - 90).toDouble())
-            val selectedX = (centerX + radius * 0.8f * cos(selectedAngle)).toFloat()
-            val selectedY = (centerY + radius * 0.8f * sin(selectedAngle)).toFloat()
-            canvas.drawCircle(selectedX, selectedY, 40f, paint)
-            paint.color = Color.WHITE
-            paint.textSize = 24f
-            canvas.drawText(selectedMinute.toString(), selectedX, selectedY + paint.textSize / 3, paint)
         }
 
-        // Draw the selected time in the center
-        paint.color = Color.BLACK
-        paint.textSize = 80f
-        canvas.drawText(String.format("%02d:%02d", selectedHour, selectedMinute), centerX, centerY + paint.textSize / 3, paint)
+        // Draw all the highlight circles
+        for (i in 13..24) {
+            val angle = Math.toRadians((i * 360.0 / itemCount) - 90)
+            val x = (centerX + cos(angle) * radius * 0.65).toFloat()
+            val y = (centerY + sin(angle) * radius * 0.65).toFloat()
 
-        // Draw mode indicator
-        paint.textSize = 30f
-        paint.color = Color.RED
-        canvas.drawText(if (isHourMode) "Hour Mode" else "Minute Mode", centerX, centerY + radius * 1.4f, paint)
+            if (clockMode == ClockMode.HOUR && i == hour) {
+                canvas.drawCircle(x, y, 55f, dotAndHandPaint) // Highlight selected hour/minute
+            }
+        }
+
+        // Draw all the text
+        for (i in 1..itemCount) {
+            val angle = Math.toRadians((i * 360.0 / itemCount) - 90)
+            val x = (centerX + cos(angle) * radius * 0.85).toFloat()
+            val y = (centerY + sin(angle) * radius * 0.85).toFloat()
+
+            val displayText = if (clockMode == ClockMode.HOUR) i.toString()
+            else if (i == 60) "0" // when minute is 60, set 0
+            else if (i % 5 == 0) i.toString() // display only 5, 10, 15 .. 55
+            else "" // not display smaller minutes such as 1, 2, 3, 4, 6, 7, 8, 9 etc.
+
+            // Check if this is the selected hour or minute
+            if ((clockMode == ClockMode.HOUR && i == hour) ||
+                (clockMode == ClockMode.MINUTE && (i == minute || minute == 0 && i == 60))
+            ) {
+                numberPaint.color = Color.WHITE // Change text color to white
+            } else {
+                numberPaint.color = context.getColor(R.color.md_theme_onBackground) // Reset to original color
+            }
+            if (displayText.isNotBlank()) {
+                canvas.drawText(displayText, x, y + numberPaint.textSize / 3, numberPaint)
+            }
+        }
+        // Draw all the text
+        for (i in 13..24) {
+            val angle = Math.toRadians((i * 360.0 / itemCount) - 90)
+            val x = (centerX + cos(angle) * radius * 0.65).toFloat()
+            val y = (centerY + sin(angle) * radius * 0.65).toFloat()
+
+            val displayText = if (clockMode == ClockMode.HOUR) i.toString()
+            else ""
+            // Check if this is the selected hour
+            if (clockMode == ClockMode.HOUR && i == hour) {
+                numberPaint.color = Color.WHITE // Change text color to white
+            } else {
+                numberPaint.color = context.getColor(R.color.md_theme_onBackground) // Reset to original color
+            }
+            if (displayText.isNotBlank()) {
+                if (i == 24) {
+                    canvas.drawText("00", x, y + numberPaint.textSize / 3, numberPaint)
+                } else canvas.drawText(displayText, x, y + numberPaint.textSize / 3, numberPaint)
+            }
+        }
+
+        // Draw the hand and the central dot as before
+        val handAngle =
+            Math.toRadians(((if (clockMode == ClockMode.HOUR) hour % 12 else minute % 60) * 360.0 / itemCount) - 90)
+        val handEndX = (centerX + cos(handAngle) * (radius * 0.8 - 27)).toFloat()
+        val handEndY = (centerY + sin(handAngle) * (radius * 0.8 - 27)).toFloat()
+//        canvas.drawLine(centerX, centerY, handEndX, handEndY, dotAndHandPaint)
     }
 
+
     override fun onTouchEvent(event: MotionEvent): Boolean {
+        val touchX = event.x
+        val touchY = event.y
         val centerX = width / 2f
         val centerY = height / 2f
-        val angle = atan2(event.y - centerY, event.x - centerX).toDouble()
-        val distance = sqrt((event.x - centerX) * (event.x - centerX) + (event.y - centerY) * (event.y - centerY))
 
-        when (event.action) {
-            MotionEvent.ACTION_DOWN, MotionEvent.ACTION_MOVE -> {
-                if (isHourMode) {
-                    // Determine which circle is touched based on distance
-                    val radiusThreshold = radius * 0.9f // Adjust this threshold if necessary
-                    if (distance < radius * 0.8f) {
-                        // Inner circle (13-24)
-                        selectedHour = ((Math.toDegrees(angle) + 360) % 360 / 30).toInt() + 12
-                    } else if (distance < radius * 1.2f) {
-                        // Outer circle (1-12)
-                        selectedHour = ((Math.toDegrees(angle) + 360) % 360 / 30).toInt() + 1
+        val width = width.toFloat()
+        val height = height.toFloat()
+        val radius = width.coerceAtMost(height) / 2 * 0.9f
+        val radius2 = width.coerceAtMost(height) / 2 * 0.4f
+
+        // Calculate the distance from the touch point to the center of the clock
+        val distance = sqrt(
+            (touchX - centerX).toDouble().pow(2.0) + (touchY - centerY).toDouble().pow(2.0)
+        )
+
+        // Only react to touch events within the circular clock face
+        if (distance <= radius) {
+            when (event.action) {
+                MotionEvent.ACTION_DOWN, MotionEvent.ACTION_MOVE -> {
+                    // When a touch is detected, request the parent ScrollView to not intercept touch events
+                    parent?.requestDisallowInterceptTouchEvent(true)
+
+                    // Calculate the angle between the touch point and the horizontal line from the center
+                    val angleRad = atan2(
+                        (touchY - centerY).toDouble(), (touchX - centerX).toDouble()
+                    ) + Math.PI / 2
+                    var angleDeg = Math.toDegrees(angleRad)
+
+                    // Adjust the angle degree to be positive
+                    if (angleDeg < 0) {
+                        angleDeg += 360
                     }
-                    selectedHour = (selectedHour % 24)
-                } else {
-                    // Determine which circle is touched for minutes (assuming only one circle for minutes)
-                    selectedMinute = ((Math.toDegrees(angle) + 360) % 360 / 6).toInt()
-                    selectedMinute = (selectedMinute % 60)
+
+                    when (clockMode) {
+                        ClockMode.HOUR -> {
+                            // Convert angle to hour (12-hour format)
+                            var selectedHour = Math.round(angleDeg / 15).toInt() % 24
+                            if (selectedHour == 0) selectedHour = 24
+
+                            setTime(selectedHour, minute) // Update the selected hour
+                        }
+
+                        ClockMode.MINUTE -> {
+                            // Convert angle to minute (60 minute format)
+                            val selectedMinute = Math.round(angleDeg / 6)
+                                .toInt() % 60 // Converts 0-360 degrees to 0-59 minutes
+                            setTime(hour, selectedMinute) // Update the selected minute
+                        }
+                    }
+
+                    return true
                 }
-                invalidate()
-                return true
-            }
-            MotionEvent.ACTION_UP -> {
-                if (isHourMode) {
-                    isHourMode = false // Switch to minute selection
-                } else {
-                    isHourMode = true // Switch back to hour selection
+
+                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                    // When the touch is lifted or cancelled, allow the parent ScrollView to intercept touch events again
+                    parent?.requestDisallowInterceptTouchEvent(false)
+
+
+                    //the followings are for automatically switching from Hour to Minute
+                    scope.launch {
+                        delay(100)
+                        clockMode = ClockMode.MINUTE
+                        setTime(hour, minute)
+                    }
                 }
-                return true
             }
         }
         return super.onTouchEvent(event)
+    }
+
+    private fun setTime(hour: Int, minute: Int) {
+        this.hour = hour
+        this.minute = minute
+        invalidate() // Redraw the view with the new time
+        timeChangedListener?.onTimeChanged(hour, minute)
+    }
+
+    fun setTimeChangedListener(listener: TimeChangeListener) {
+        this.timeChangedListener = listener
+    }
+
+    interface TimeChangeListener {
+        fun onTimeChanged(hour: Int, minute: Int)
+    }
+
+    enum class ClockMode {
+        HOUR, MINUTE
+    }
+
+    enum class TimeMode {
+        AM, PM
+    }
+    fun switchClockMode(mode: ClockMode) {
+        clockMode = mode
+        invalidate()
     }
 }

@@ -24,8 +24,6 @@ import androidx.core.view.ViewCompat;
 import androidx.customview.view.AbsSavedState;
 import androidx.customview.widget.ViewDragHelper;
 
-import com.otakkanan.taskapp.R;
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;

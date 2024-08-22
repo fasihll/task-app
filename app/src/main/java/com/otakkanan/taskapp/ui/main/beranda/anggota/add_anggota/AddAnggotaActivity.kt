@@ -25,12 +25,12 @@ class AddAnggotaActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val total: Int? = intent.getIntExtra(AddAnggotaActivity.TOTAL, 0)
-        val task: Task? = intent.getParcelableExtra(AddAnggotaActivity.TAG)
+        val total: Int = intent.getIntExtra(TOTAL, 0)
+        val task: Task? = intent.getParcelableExtra(TAG)
 
 
         binding.btnBack.setOnClickListener { finish() }
-        binding.titleCountAnggota.text = "Tambah Anggota (${total})"
+        binding.titleCountAnggota.text = getString(R.string.title_page_tambah_anggota, total.toString())
 
         setupRecyclerview(task)
     }

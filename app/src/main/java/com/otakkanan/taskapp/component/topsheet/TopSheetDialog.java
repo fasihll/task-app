@@ -4,17 +4,18 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
 import android.os.Bundle;
-import androidx.annotation.LayoutRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.StyleRes;
-import androidx.appcompat.app.AppCompatDialog;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StyleRes;
+import androidx.appcompat.app.AppCompatDialog;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.otakkanan.taskapp.R;
@@ -167,7 +168,7 @@ public class TopSheetDialog extends AppCompatDialog {
             container =
                     (FrameLayout) View.inflate(getContext(), R.layout.top_sheet_dialog, null);
 
-            FrameLayout bottomSheet = (FrameLayout) container.findViewById(R.id.design_top_sheet);
+            FrameLayout bottomSheet = container.findViewById(R.id.design_top_sheet);
             behavior = TopSheetBehavior.from(bottomSheet);
 //      behavior.addBottomSheetCallback(bottomSheetCallback);
             behavior.setHideable(cancelable);
@@ -183,7 +184,7 @@ public class TopSheetDialog extends AppCompatDialog {
         if (layoutResId != 0 && view == null) {
             view = getLayoutInflater().inflate(layoutResId, coordinator, false);
         }
-        FrameLayout topSheet = (FrameLayout) coordinator.findViewById(R.id.design_top_sheet);
+        FrameLayout topSheet = coordinator.findViewById(R.id.design_top_sheet);
         behavior = TopSheetBehavior.from(topSheet);
         behavior.setTopSheetCallback(mTopSheetCallback);
         if (params == null) {
@@ -237,7 +238,7 @@ public class TopSheetDialog extends AppCompatDialog {
 //    behavior.removeBottomSheetCallback(bottomSheetCallback);
 //  }
 
-    private TopSheetBehavior.TopSheetCallback mTopSheetCallback
+    private final TopSheetBehavior.TopSheetCallback mTopSheetCallback
             = new TopSheetBehavior.TopSheetCallback() {
         @Override
         public void onStateChanged(@NonNull View topSheet,

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.Manajer
 import com.otakkanan.taskapp.data.model.Task
@@ -238,7 +239,27 @@ class BerandaFragment : Fragment() {
 
     private fun buttonToTugasBaru(){
         binding.btnAddTugasBaru.setOnClickListener {
-            navigateToTugasBaru()
+            val dialogView = layoutInflater.inflate(R.layout.dialog_add_button, null)
+
+            val dialog = MaterialAlertDialogBuilder(requireContext())
+                .setView(dialogView)
+                .show()
+
+            val menu1 = dialogView.findViewById<LinearLayout>(R.id.menu_1)
+            val menu2 = dialogView.findViewById<LinearLayout>(R.id.menu_2)
+            val menu3 = dialogView.findViewById<LinearLayout>(R.id.menu_3)
+            menu1.setOnClickListener {
+                dialog.dismiss()
+                startActivity(Intent(requireContext(),TugasBaruActivity::class.java))
+            }
+            menu2.setOnClickListener {
+//                dialog.dismiss()
+//                startActivity(Intent(requireContext(),TugasBerulangActivity::class.java))
+            }
+            menu3.setOnClickListener {
+//                dialog.dismiss()
+//                startActivity(Intent(requireContext(),KebiasaanActivity::class.java))
+            }
         }
     }
 

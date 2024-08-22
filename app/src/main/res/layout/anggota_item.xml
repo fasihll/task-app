@@ -35,6 +35,7 @@
             android:id="@+id/btn_tambah"
             android:layout_width="27dp"
             android:layout_height="27dp"
+            android:contentDescription="tombol anggota"
             android:src="@drawable/plus"
             android:layout_gravity="center"
             android:clickable="true"

@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:background="#ffffff"
     android:orientation="vertical"
-    android:padding="12dp"
+    android:paddingHorizontal="16dp"
     android:elevation="8dp"
     app:behavior_hideable="false"
     app:behavior_peekHeight="48dp"
@@ -81,16 +81,18 @@
             android:orientation="horizontal">
 
             <com.google.android.material.card.MaterialCardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                app:cornerRadius="33dp"
+                android:layout_gravity="center"
                 android:background="@color/md_theme_secondaryContainer"
                 app:strokeWidth="0dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginVertical="5dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:fontFamily="@font/inter_24pt_semibold"
                     android:text="0"
                     android:textColor="@color/md_theme_primary"
@@ -138,8 +140,57 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter_18pt_semibold"
                 android:text="Default"
+                app:cornerRadius="6dp"
                 android:textSize="15sp" />
         </LinearLayout>
+    </LinearLayout>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="15dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start|center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_pending_24dp"
+            app:tint="@color/md_theme_primary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:fontFamily="@font/inter_24pt_regular"
+            android:text="@string/tunda_tugas"
+            android:textColor="@color/md_theme_onBackground"
+            android:textSize="15sp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/tunda_tugas_checkbox"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:layout_gravity="end"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/task_list_selector"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
     <ImageView

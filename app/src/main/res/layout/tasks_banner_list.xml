@@ -19,6 +19,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="background abstrak"
                 android:src="@drawable/abstract_parent"
                 android:alpha="0.4"
                 android:layout_alignParentEnd="true"/>
@@ -33,7 +34,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:transitionName="title"
-                    android:text="Desain \nUI"
+                    android:text="@string/title_task_banner"
                     android:maxLines="2"
                     android:layout_marginTop="19.43dp"
                     android:layout_marginStart="23.58dp"
@@ -56,7 +57,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Progres"
+                        android:text="@string/progres"
                         android:textColor="?attr/colorOnPrimary"
                         android:layout_marginBottom="4dp"/>
 
@@ -125,7 +126,7 @@
                             android:id="@+id/total_team"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2 lainnya"
+                            android:text="@string/count_lainnya"
                             android:textSize="9sp"
                             android:textColor="?attr/colorOnBackground"
                             android:layout_gravity="center_horizontal|center_vertical"/>
