@@ -1,14 +1,76 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     tools:context=".ui.main.tugas.ListTersimpanFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        app:titleTextColor="@android:color/white"
+        app:subtitleTextColor="@android:color/white">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="List Tersimpan"
+            android:textColor="@color/md_theme_scrim"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_gravity="start"
+            android:layout_marginStart="32dp"/>
+
+        <ImageView
+            android:id="@+id/toolbar_bookmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:padding="8dp"
+            android:layout_marginEnd="32dp"
+            android:src="@drawable/ic_inbox_arrow_down_filled"
+            app:tint="@color/md_theme_scrim"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <ImageView
+            android:id="@+id/toolbar_sortby"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:padding="8dp"
+            android:layout_marginEnd="4dp"
+            android:src="@drawable/ic_sortby"
+            app:tint="@color/md_theme_scrim"/>
+
+        <ImageView
+            android:id="@+id/toolbar_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:padding="8dp"
+            android:layout_marginEnd="4dp"
+            android:src="@drawable/ic_search"
+            app:tint="@color/md_theme_scrim"/>
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTintMode="screen"
+        android:background="@color/md_theme_surfaceContainerLow_highContrast"
+        android:backgroundTint="@color/md_theme_surfaceContainerLow_highContrast"
+        app:tabIndicatorColor="@color/md_theme_primaryContainer"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+</LinearLayout>

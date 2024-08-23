@@ -24,6 +24,16 @@
         tools:layout="@layout/fragment_list_tugas" />
 
     <fragment
+        android:id="@+id/navigation_tersimpan"
+        android:name="com.otakkanan.taskapp.ui.main.tugas.ListTersimpanFragment"
+        android:label="List Tersimpan"
+        tools:layout="@layout/fragment_list_tersimpan" />
+
+    <action
+        android:id="@+id/action_listTugasFragment_to_listTersimpanFragment"
+        app:destination="@id/navigation_tersimpan" />
+
+    <fragment
         android:id="@+id/navigation_profile"
         android:name="com.otakkanan.taskapp.ui.main.profile.ProfileFragment"
         android:label="@string/title_profile"
