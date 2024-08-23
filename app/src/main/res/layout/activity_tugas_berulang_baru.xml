@@ -39,7 +39,9 @@
             <androidx.core.widget.NestedScrollView
                 android:id="@+id/container"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:paddingBottom="16dp"
                 app:layout_constraintBottom_toTopOf="@+id/btn_tambah_anggota"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -64,6 +66,7 @@
                         app:layout_anchorGravity="top">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/ed_nama_tugas_tugas"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -78,6 +81,7 @@
                         app:hintEnabled="true">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/ed_deskripsi_tugas"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
 
@@ -137,7 +141,7 @@
                             android:text="Hari tertentu dalam seminggu" />
 
                         <GridLayout
-                            android:id="@+id/gridLayoutHariTertentu"
+                            android:id="@+id/specific_day_layout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginVertical="8dp"
@@ -209,6 +213,7 @@
                             android:text="Tanggal tertentu dalam sebulan" />
 
                         <LinearLayout
+                            android:id="@+id/specific_month_layout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="start|center_vertical"
@@ -217,10 +222,8 @@
 
                             <com.google.android.material.card.MaterialCardView
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginVertical="8dp"
+                                android:layout_height="match_parent"
                                 android:layout_marginStart="32dp"
-                                android:layout_marginTop="2dp"
                                 style="?attr/materialCardViewFilledStyle"
                                 app:cardBackgroundColor="@color/md_theme_primaryFixed"
                                 app:cardCornerRadius="7dp">
@@ -244,7 +247,8 @@
                                     <com.google.android.material.textfield.TextInputEditText
                                         android:id="@+id/ed_date_of_month"
                                         android:layout_width="match_parent"
-                                        android:layout_height="wrap_content" />
+                                        android:layout_height="wrap_content"
+                                        android:inputType="number" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -275,6 +279,7 @@
                             android:text="Tanggal tertentu dalam setahun" />
 
                         <LinearLayout
+                            android:id="@+id/specific_year_layout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="start|center_vertical"
@@ -283,10 +288,8 @@
 
                             <com.google.android.material.card.MaterialCardView
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginVertical="8dp"
+                                android:layout_height="match_parent"
                                 android:layout_marginStart="32dp"
-                                android:layout_marginTop="2dp"
                                 style="?attr/materialCardViewFilledStyle"
                                 app:cardBackgroundColor="@color/md_theme_primaryFixed"
                                 app:cardCornerRadius="7dp">
@@ -310,7 +313,8 @@
                                     <com.google.android.material.textfield.TextInputEditText
                                         android:id="@+id/ed_date_of_year"
                                         android:layout_width="match_parent"
-                                        android:layout_height="wrap_content" />
+                                        android:layout_height="wrap_content"
+                                        android:inputType="number" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -341,6 +345,7 @@
                             android:text="Berulang" />
 
                         <LinearLayout
+                            android:id="@+id/berulang_layout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
@@ -366,7 +371,8 @@
                                         android:id="@+id/ed_hari_aktivitas"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:hint="Aktivitas"/>
+                                        android:hint="Aktivitas"
+                                        android:inputType="number" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -381,6 +387,7 @@
                                         android:id="@+id/ed_hari_istirahat"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
+                                        android:inputType="number"
                                         android:hint="Istirahat"/>
 
                                     <TextView
@@ -474,12 +481,14 @@
                             android:orientation="horizontal">
 
                             <com.google.android.material.materialswitch.MaterialSwitch
+                                android:id="@+id/switch_tanggal_selesai"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent" />
                         </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/tanggal_selesai_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -518,6 +527,7 @@
                                 android:id="@+id/ed_tgl_selesai_tugas_berulang"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:inputType="number"
                                 android:hint="7"/>
 
                             <TextView
