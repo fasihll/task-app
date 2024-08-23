@@ -21,6 +21,7 @@ tools:context=".ui.main.tugas.ListTugasFragment">
         android:text="List Tugas"
         android:textColor="@color/md_theme_scrim"
         android:textSize="20sp"
+        android:textStyle="bold"
         android:layout_gravity="start"
         android:layout_marginStart="32dp"/>
 
@@ -32,6 +33,26 @@ tools:context=".ui.main.tugas.ListTugasFragment">
         android:padding="8dp"
         android:layout_marginEnd="32dp"
         android:src="@drawable/ic_inbox_arrow_down"
+        app:tint="@color/md_theme_scrim"/>
+
+    <ImageView
+        android:id="@+id/toolbar_sortby"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:padding="8dp"
+        android:layout_marginEnd="4dp"
+        android:src="@drawable/ic_sortby"
+        app:tint="@color/md_theme_scrim"/>
+
+    <ImageView
+        android:id="@+id/toolbar_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:padding="8dp"
+        android:layout_marginEnd="4dp"
+        android:src="@drawable/ic_search"
         app:tint="@color/md_theme_scrim"/>
 
 </com.google.android.material.appbar.MaterialToolbar>

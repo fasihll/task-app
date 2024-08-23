@@ -6,13 +6,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.card.MaterialCardView
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.TaskDay
 
-class ListTugasAdapter(
+class TugasBerulangAdapter(
     private var tasks: List<TaskDay>,
     private val taskStatusChangeListener: OnTaskStatusChangeListener
-) : RecyclerView.Adapter<ListTugasAdapter.TaskViewHolder>() {
+) : RecyclerView.Adapter<TugasBerulangAdapter.TaskViewHolder>() {
 
     interface OnTaskStatusChangeListener {
         fun onTaskStatusChanged(task: TaskDay)
@@ -27,7 +28,7 @@ class ListTugasAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_list_tugas, parent, false)
+            .inflate(R.layout.item_tugas_berulang, parent, false)
         return TaskViewHolder(view)
     }
 
@@ -39,8 +40,15 @@ class ListTugasAdapter(
 
         // Update the icon based on the current task status
         holder.iconDone.setImageResource(
-            if (task.isDone) R.drawable.ic_checked else R.drawable.ic_unchecked
+            if (task.isDone) R.drawable.ic_repeat_on else R.drawable.ic_repeat_off
         )
+
+        // Set the visibility of the priority badge
+        if (task.priority == 0) {
+            holder.itemView.findViewById<MaterialCardView>(R.id.priority_container).visibility = View.GONE
+        } else {
+            holder.itemView.findViewById<MaterialCardView>(R.id.priority_container).visibility = View.VISIBLE
+        }
 
         // Set up the click listener to toggle the task status
         holder.iconDone.setOnClickListener {
@@ -48,6 +56,7 @@ class ListTugasAdapter(
             taskStatusChangeListener.onTaskStatusChanged(updatedTask)
         }
     }
+
 
     override fun getItemCount(): Int = tasks.size
 

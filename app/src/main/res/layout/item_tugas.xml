@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:paddingVertical="8dp"
-    android:paddingHorizontal="32dp">
+    android:paddingHorizontal="30dp">
 
     <ImageView
         android:id="@+id/icon_done"
@@ -64,7 +64,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 app:strokeWidth="@null"
-                android:visibility="gone"
                 app:cardBackgroundColor="@color/colorPurpleContainer"
                 app:cardCornerRadius="7dp">
 

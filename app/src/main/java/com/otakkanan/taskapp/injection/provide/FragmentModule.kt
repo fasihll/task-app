@@ -1,10 +1,11 @@
 package com.otakkanan.taskapp.injection.provide
 
-import com.otakkanan.taskapp.ui.main.tugas.ListTugasAdapter
-import com.otakkanan.taskapp.ui.main.tugas.ListTugasFragment
 import com.otakkanan.taskapp.ui.main.kalender.CalendarAdapter
 import com.otakkanan.taskapp.ui.main.kalender.CalendarHeaderAdapter
 import com.otakkanan.taskapp.ui.main.kalender.DataAdapter
+import com.otakkanan.taskapp.ui.main.tugas.KebiasaanAdapter
+import com.otakkanan.taskapp.ui.main.tugas.TugasAdapter
+import com.otakkanan.taskapp.ui.main.tugas.TugasBerulangAdapter
 import com.otakkanan.taskapp.utils.Helper
 import dagger.Module
 import dagger.Provides
@@ -34,7 +35,19 @@ object FragmentModule {
 
     @Provides
     @FragmentScoped
-    fun provideListTugasAdapter(listener: ListTugasAdapter.OnTaskStatusChangeListener): ListTugasAdapter {
-        return ListTugasAdapter(emptyList(), listener)
+    fun provideTugasAdapter(listener: TugasAdapter.OnTaskStatusChangeListener): TugasAdapter {
+        return TugasAdapter(emptyList(), listener)
+    }
+
+    @Provides
+    @FragmentScoped
+    fun provideTugasBerulangAdapter(listener: TugasBerulangAdapter.OnTaskStatusChangeListener): TugasBerulangAdapter {
+        return TugasBerulangAdapter(emptyList(), listener)
+    }
+
+    @Provides
+    @FragmentScoped
+    fun provideKebiasaanAdapter(listener: KebiasaanAdapter.OnTaskStatusChangeListener): KebiasaanAdapter {
+        return KebiasaanAdapter(emptyList(), listener)
     }
 }
