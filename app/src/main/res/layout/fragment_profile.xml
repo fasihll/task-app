@@ -1,22 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/md_theme_background"
     tools:context=".ui.main.profile.ProfileFragment">
 
-    <TextView
-        android:id="@+id/text_notifications"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+<com.google.android.material.textview.MaterialTextView
+    android:id="@+id/emailTextView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Email"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    android:textColor="@color/md_theme_onBackground"
+    android:layout_marginBottom="24dp" />
+
+<com.google.android.material.button.MaterialButton
+    android:id="@+id/logoutButton"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Logout"
+    android:textColor="@color/md_theme_onPrimary"
+    android:backgroundTint="@color/md_theme_primary"
+    app:cornerRadius="8dp" />
+</LinearLayout>

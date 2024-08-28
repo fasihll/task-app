@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.android.material.textview.MaterialTextView
@@ -64,14 +65,20 @@ class LoginActivity : AppCompatActivity() {
         loginButton.setOnClickListener {
             // Perform login logic here
             if (validateInputs()) {
-                // If validation passes, set logged in state and proceed to MainActivity
+                // If validation passes, save the email, set logged in state, and proceed to MainActivity
+                val email = emailEditText.text.toString()
+
                 val editor = sharedPreferences.edit()
+                editor.putString("userEmail", email)
                 editor.putBoolean("isLoggedIn", true)
                 editor.apply()
 
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 finish()  // Optional: Close the LoginActivity so the user can't go back to it
+            } else {
+                // Show Snackbar if inputs are invalid
+                Snackbar.make(loginButton, "Please fill in both email and password.", Snackbar.LENGTH_SHORT).show()
             }
         }
 
@@ -103,10 +110,21 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun validateInputs(): Boolean {
-        // Add your validation logic here
+        // Validation logic: Check if email and password are not empty
         val email = emailEditText.text.toString()
         val password = passwordEditText.text.toString()
-        return email.isNotEmpty() && password.isNotEmpty()
+
+        return when {
+            email.isEmpty() -> {
+                emailTextInputLayout.error = "Email is required"
+                false
+            }
+            password.isEmpty() -> {
+                passwordTextInputLayout.error = "Password is required"
+                false
+            }
+            else -> true
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

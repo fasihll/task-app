@@ -1,44 +1,58 @@
 package com.otakkanan.taskapp.ui.main.profile
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.otakkanan.taskapp.databinding.FragmentProfileBinding
-import dagger.hilt.android.AndroidEntryPoint
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textview.MaterialTextView
+import com.otakkanan.taskapp.R
+import com.google.android.material.button.MaterialButton
+import com.otakkanan.taskapp.ui.auth.login.LoginActivity
 
-@AndroidEntryPoint
 class ProfileFragment : Fragment() {
 
-    private var _binding: FragmentProfileBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    private lateinit var emailTextView: MaterialTextView
+    private lateinit var logoutButton: MaterialButton
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
-        val profileViewModel =
-            ViewModelProvider(this).get(ProfileViewModel::class.java)
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_profile, container, false)
 
-        _binding = FragmentProfileBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        emailTextView = view.findViewById(R.id.emailTextView)
+        logoutButton = view.findViewById(R.id.logoutButton)
 
-        val textView: TextView = binding.textNotifications
-        profileViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        sharedPreferences = requireContext().getSharedPreferences("appPrefs", Context.MODE_PRIVATE)
+
+        // Retrieve and display the user's email
+        val email = sharedPreferences.getString("userEmail", "")
+        if (email.isNullOrEmpty()) {
+            Snackbar.make(view, "No email found", Snackbar.LENGTH_SHORT).show()
+        } else {
+            emailTextView.text = email
         }
-        return root
-    }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        // Handle logout button click
+        logoutButton.setOnClickListener {
+            // Clear the login state
+            val editor = sharedPreferences.edit()
+            editor.clear()
+            editor.apply()
+
+            // Navigate to LoginActivity
+            val intent = Intent(requireContext(), LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            requireActivity().finish()
+        }
+
+        return view
     }
 }
