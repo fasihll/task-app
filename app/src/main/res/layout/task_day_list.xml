@@ -30,7 +30,7 @@
                 android:layout_height="18dp"
                 app:cardCornerRadius="6dp"
                 android:layout_marginTop="2dp"
-                app:cardBackgroundColor="@color/md_theme_primaryFixed">
+                app:cardBackgroundColor="?attr/colorPrimaryFixed">
                 <TextView
                     android:id="@+id/task_time"
                     android:layout_width="wrap_content"
@@ -38,7 +38,7 @@
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:text="07:00"
                     android:textSize="11sp"
-                    android:textColor="@color/md_theme_primary"/>
+                    android:textColor="?attr/colorPrimaryContainer"/>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
 

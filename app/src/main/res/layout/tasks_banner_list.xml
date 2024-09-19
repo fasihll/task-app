@@ -39,7 +39,7 @@
                     android:layout_marginTop="19.43dp"
                     android:layout_marginStart="23.58dp"
                     android:textSize="24sp"
-                    android:textColor="@color/md_theme_onPrimary"
+                    android:textColor="?attr/colorOnPrimaryContainer"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -58,7 +58,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/progres"
-                        android:textColor="?attr/colorOnPrimary"
+                        android:textColor="?attr/colorOnPrimaryContainer"
                         android:layout_marginBottom="4dp"/>
 
                     <com.google.android.material.progressindicator.LinearProgressIndicator
@@ -68,7 +68,7 @@
                         app:indicatorTrackGapSize="0dp"
                         app:trackStopIndicatorSize="0dp"
                         app:trackColor="#50000000"
-                        app:indicatorColor="?attr/colorOnPrimary"
+                        app:indicatorColor="?attr/colorOnPrimaryContainer"
                         android:indeterminate="false"
                         android:progress="50"
                         />

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.beranda.BerandaFragment">
+    tools:context=".ui.main.beranda.BerandaFragment"
+    android:background="@drawable/background_gradient">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -55,7 +56,6 @@
                 android:textAlignment="textStart"
                 style="@style/Widget.Material3.SearchBar.Outlined"
                 android:hint="@string/search_hint"
-                android:backgroundTint="@color/md_theme_onPrimary"
                 app:defaultMarginsEnabled="false"
                 app:menu="@menu/custom_searchbar"
                 android:layout_marginTop="7dp"
@@ -110,7 +110,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:hint="@string/search_hint"
-        app:backgroundTint="@color/md_theme_onPrimary"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

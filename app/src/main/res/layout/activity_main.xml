@@ -11,7 +11,7 @@
         android:layout_height="60dp"
         style="@style/CustomBottomNavigation"
         app:menu="@menu/bottom_nav_menu"
-        android:background="?attr/colorOnPrimaryContainer"
+        android:background="?attr/colorOnSecondary"
         app:itemTextAppearanceActiveBoldEnabled="false"
         app:itemActiveIndicatorStyle="@null"
         app:labelVisibilityMode="labeled"
