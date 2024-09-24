@@ -47,8 +47,7 @@ class DetailTaskActivity : AppCompatActivity() {
             val layoutManager = LinearLayoutManager(this@DetailTaskActivity,LinearLayoutManager
                 .HORIZONTAL,false)
             rvAnggota.layoutManager = layoutManager
-            val itemDecoration = DividerItemDecoration(this@DetailTaskActivity,0)
-            rvAnggota.addItemDecoration(itemDecoration)
+
 
             val adapter = AnggotaAdapter { team ->
                 // Handle button click here
