@@ -34,6 +34,12 @@
         app:destination="@id/navigation_tersimpan" />
 
     <fragment
+        android:id="@+id/navigation_target"
+        android:name="com.otakkanan.taskapp.ui.main.target.TargetFragment"
+        android:label="@string/target"
+        tools:layout="@layout/fragment_target" />
+
+    <fragment
         android:id="@+id/navigation_profile"
         android:name="com.otakkanan.taskapp.ui.main.profile.ProfileFragment"
         android:label="@string/title_profile"

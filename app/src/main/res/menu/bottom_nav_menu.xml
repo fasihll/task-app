@@ -18,6 +18,11 @@
         android:title="@string/title_tugas" />
 
     <item
+        android:id="@+id/navigation_target"
+        android:icon="@drawable/target_icon_solid"
+        android:title="@string/target" />
+
+    <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/profile_selector"
         android:title="@string/title_profile" />

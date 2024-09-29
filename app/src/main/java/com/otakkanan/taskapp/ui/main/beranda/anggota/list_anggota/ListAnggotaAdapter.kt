@@ -41,14 +41,14 @@ class ListAnggotaAdapter :  ListAdapter<Team, ListAnggotaAdapter.MyViewHolder>(D
                     "Admin" -> {
                         role.text = items.role
                         role.setTextColor(ContextCompat.getColor(itemView.context, R.color
-                            .md_theme_primary))
+                            .colorOnPurpleContainer))
                         roleContainer.setCardBackgroundColor(ContextCompat.getColor(itemView.context, R.color
                             .colorPurpleContainer))
                     }
                     "Manager" -> {
                         role.text = items.role
                         role.setTextColor(ContextCompat.getColor(itemView.context, R.color
-                            .colorGold))
+                            .colorOnGoldContainer))
                         roleContainer.setCardBackgroundColor(ContextCompat.getColor(itemView.context, R.color
                             .colorGoldContainer))
                     }

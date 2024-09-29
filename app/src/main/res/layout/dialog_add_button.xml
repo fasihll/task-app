@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/md_theme_onPrimary">
+    android:background="?attr/colorOnSecondary">
 
     <LinearLayout
         android:id="@+id/menu_1"
@@ -36,7 +36,7 @@
                <TextView
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
-                   android:text="Tugas"
+                   android:text="@string/title_tugas"
                    android:textSize="16sp"
                    android:drawableEnd="@drawable/arrow_right_menu"
                    android:textStyle="bold"
@@ -44,7 +44,7 @@
                <TextView
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:text="Aktivitas sekali selesai dan tidak perlu pelacakan waktu progres."
+                   android:text="@string/tugas_description"
                    android:maxLines="3"
                    android:ellipsize="end"
                    android:textSize="12sp" />
@@ -87,7 +87,7 @@
                <TextView
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
-                   android:text="Tugas Berulang"
+                   android:text="@string/tugas_berulang_title"
                    android:textSize="16sp"
                    android:drawableEnd="@drawable/arrow_right_menu"
                    android:textStyle="bold"
@@ -95,7 +95,7 @@
                <TextView
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:text="Aktivitas berkala yang dijadwalkan ulang otomatis tanpa pemantauan progres."
+                   android:text="@string/tugas_berulang_description"
                    android:maxLines="3"
                    android:ellipsize="end"
                    android:textSize="12sp" />
@@ -106,7 +106,7 @@
             android:layout_height="1dp"
             android:background="@color/md_theme_secondaryContainer"/>
     </LinearLayout>
-
+<!--kebiasaan-->
     <LinearLayout
         android:id="@+id/menu_3"
         android:layout_width="match_parent"
@@ -138,7 +138,7 @@
                <TextView
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
-                   android:text="Kebiasaan"
+                   android:text="@string/kebiasaan_title"
                    android:textSize="16sp"
                    android:drawableEnd="@drawable/arrow_right_menu"
                    android:textStyle="bold"
@@ -146,11 +146,63 @@
                <TextView
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:text="Aktivitas yang berulang seiring waktu dengan pelacakan dan statistik."
+                   android:text="@string/kebiasaan_description"
                    android:maxLines="3"
                    android:ellipsize="end"
                    android:textSize="12sp" />
            </LinearLayout>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/md_theme_secondaryContainer"/>
+    </LinearLayout>
+
+    <!--target-->
+    <LinearLayout
+        android:id="@+id/menu_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        app:layout_constraintTop_toBottomOf="@id/menu_3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:paddingVertical="24dp">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/add_target"
+                android:layout_marginRight="12dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/target"
+                    android:textSize="16sp"
+                    android:drawableEnd="@drawable/arrow_right_menu"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/target_description"
+                    android:maxLines="3"
+                    android:ellipsize="end"
+                    android:textSize="12sp" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 

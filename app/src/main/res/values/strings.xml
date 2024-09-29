@@ -61,4 +61,11 @@
     <string name="prioritas_tertinggi_akan_diletakkan_paling_atas_dalam_list">Prioritas tertinggi akan diletakkan paling atas dalam list</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="target">Target</string>
+    <string name="tugas_description">Aktivitas sekali selesai dan tidak perlu pelacakan waktu progres.</string>
+    <string name="tugas_berulang_title">Tugas Berulang</string>
+    <string name="tugas_berulang_description">Aktivitas berkala yang dijadwalkan ulang otomatis tanpa pemantauan progres.</string>
+    <string name="kebiasaan_title">Kebiasaan</string>
+    <string name="kebiasaan_description">Aktivitas yang berulang seiring waktu dengan pelacakan dan statistik.</string>
+    <string name="target_description">Aktivitas dengan pencapaian dalam jangka waktu tertentu yang terpantau.</string>
 </resources>

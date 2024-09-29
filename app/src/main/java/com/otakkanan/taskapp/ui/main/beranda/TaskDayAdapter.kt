@@ -65,7 +65,7 @@ class TaskDayAdapter :  ListAdapter<TaskDay, TaskDayAdapter.MyViewHolder>(DIFF_C
             binding.taskCheckbox.setImageResource(R.drawable.unchecked_task)
             binding.taskTitle.setTextColor(ContextCompat.getColor(itemView.context, R.color.md_theme_onBackground))
 
-            var colorPrimaryContainer = theme.resolveAttribute(Rmat.attr.colorPrimaryContainer, tV,
+            var colorPrimaryContainer = theme.resolveAttribute(Rmat.attr.colorOnPrimaryFixed, tV,
                 true)
             var taskTime: Int = tV.data
             binding.taskTime.setTextColor(taskTime)
@@ -85,12 +85,12 @@ class TaskDayAdapter :  ListAdapter<TaskDay, TaskDayAdapter.MyViewHolder>(DIFF_C
             binding.taskCheckbox.setImageResource(R.drawable.checked_task)
             binding.taskTitle.setTextColor(ContextCompat.getColor(itemView.context, R.color.md_theme_secondary))
 
-            var colorSecondary = theme.resolveAttribute(Rmat.attr.colorSecondary, tV,
+            var colorSecondary = theme.resolveAttribute(Rmat.attr.colorOnSecondaryContainer, tV,
                 true)
             var taskTimeColor: Int = tV.data
             binding.taskTime.setTextColor(taskTimeColor)
 
-            var colorOnSecondary = theme.resolveAttribute(Rmat.attr.colorOnSecondary, tV,
+            var colorOnSecondary = theme.resolveAttribute(Rmat.attr.colorSecondaryContainer, tV,
                 true)
             var containerColor: Int = tV.data
             binding.taskTimeContainer.setCardBackgroundColor(containerColor)

@@ -249,6 +249,7 @@ class BerandaFragment : Fragment() {
             val menu1 = dialogView.findViewById<LinearLayout>(R.id.menu_1)
             val menu2 = dialogView.findViewById<LinearLayout>(R.id.menu_2)
             val menu3 = dialogView.findViewById<LinearLayout>(R.id.menu_3)
+            val menu4 = dialogView.findViewById<LinearLayout>(R.id.menu_4)
             menu1.setOnClickListener {
                 dialog.dismiss()
                 startActivity(Intent(requireContext(),TugasBaruActivity::class.java))
@@ -260,6 +261,10 @@ class BerandaFragment : Fragment() {
             menu3.setOnClickListener {
 //                dialog.dismiss()
 //                startActivity(Intent(requireContext(),KebiasaanActivity::class.java))
+            }
+            menu4.setOnClickListener {
+//                dialog.dismiss()
+//                startActivity(Intent(requireContext(),AddTargetActivity::class.java))
             }
         }
     }

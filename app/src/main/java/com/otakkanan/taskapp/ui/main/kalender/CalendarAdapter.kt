@@ -57,7 +57,7 @@ class CalendarAdapter : DayBinder<CalendarAdapter.CalendarViewHolder> {
                         taskCount == 1 ->{
                             countTask.setTextColor(ContextCompat.getColor(binding.root.context, R
                                 .color
-                                .colorPurple))
+                                .colorOnPurpleContainer))
                             statusContainer.setCardBackgroundColor(ContextCompat.getColor(binding.root.context, R
                                 .color
                                 .colorPurpleContainer))
@@ -65,7 +65,7 @@ class CalendarAdapter : DayBinder<CalendarAdapter.CalendarViewHolder> {
                         taskCount == 2 ->{
                             countTask.setTextColor(ContextCompat.getColor(binding.root.context, R
                                 .color
-                                .colorBlue))
+                                .colorOnBlueContainer))
                             statusContainer.setCardBackgroundColor(ContextCompat.getColor(binding.root.context, R
                                 .color
                                 .colorBlueContainer))
@@ -73,7 +73,7 @@ class CalendarAdapter : DayBinder<CalendarAdapter.CalendarViewHolder> {
                         taskCount >= 3 ->{
                             countTask.setTextColor(ContextCompat.getColor(binding.root.context, R
                                 .color
-                                .colorGreen))
+                                .colorOnGreenContainer))
                             statusContainer.setCardBackgroundColor(ContextCompat.getColor(binding.root.context, R
                                 .color
                                 .colorGreenContainer))
