@@ -28,6 +28,7 @@
                 android:layout_height="wrap_content"
                 android:minHeight="?attr/actionBarSize"
                 app:menu="@menu/top_app_bar_tugas_baru"
+                app:navigationIconTint="@color/md_theme_onBackground"
                 app:navigationIcon="@drawable/ic_arrow_back_24"
                 app:title="@string/tugas_baru" />
 
@@ -148,7 +149,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="24dp"
                             android:text="@string/pilih_waktu"
-                            android:textColor="@color/md_theme_primary"
+                            android:textColor="@color/md_theme_primaryContainer"
                             android:textSize="20sp"
                             android:fontFamily="@font/inter_18pt_semibold" /> <!-- Text color dark purple -->
                         <androidx.constraintlayout.widget.ConstraintLayout
@@ -182,14 +183,14 @@
                                     android:text="00"
                                     android:layout_marginStart="4dp"
                                     android:layout_marginVertical="4dp"
-                                    android:textColor="#4F46E5"
+                                    android:textColor="@color/md_theme_primaryContainer"
                                     android:textSize="26sp"
                                     android:fontFamily="@font/inter_18pt_medium" />
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text=" : "
-                                    android:textColor="#4F46E5"
+                                    android:textColor="@color/md_theme_primaryContainer"
                                     android:textSize="26sp"
                                     android:fontFamily="@font/inter_18pt_medium" />
                                 <TextView
@@ -200,7 +201,7 @@
                                     android:layout_marginVertical="4dp"
                                     android:text="00"
                                     android:fontFamily="@font/inter_18pt_medium"
-                                    android:textColor="#4F46E5"
+                                    android:textColor="@color/md_theme_primaryContainer"
                                     android:textSize="26sp"
                                     />
                             </LinearLayout>

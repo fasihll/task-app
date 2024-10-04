@@ -28,6 +28,7 @@
                 android:minHeight="?attr/actionBarSize"
                 app:menu="@menu/top_app_bar_tugas_baru"
                 app:navigationIcon="@drawable/ic_arrow_back_24"
+                app:navigationIconTint="@color/md_theme_onBackground"
                 app:title="@string/tugas_baru" />
 
         </com.google.android.material.appbar.AppBarLayout>
@@ -50,7 +51,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#ffffff"
+                    android:background="@color/md_theme_onPrimary"
                     android:orientation="vertical"
                     android:paddingHorizontal="16dp">
 
@@ -241,7 +242,7 @@
                                         android:layout_gravity="center_horizontal|center_vertical"
                                         android:fontFamily="@font/inter_18pt_regular"
                                         android:text="Tanggal "
-                                        android:textColor="@color/md_theme_onBackground"
+                                        android:textColor="@android:color/black"
                                         android:textSize="12sp" />
 
                                     <com.google.android.material.textfield.TextInputEditText
@@ -256,7 +257,7 @@
                                         android:layout_gravity="center_horizontal|center_vertical"
                                         android:fontFamily="@font/inter_18pt_regular"
                                         android:text="tiap bulan"
-                                        android:textColor="@color/md_theme_onBackground"
+                                        android:textColor="@android:color/black"
                                         android:textSize="12sp" />
                                 </LinearLayout>
 
@@ -307,7 +308,7 @@
                                         android:layout_gravity="center_horizontal|center_vertical"
                                         android:fontFamily="@font/inter_18pt_regular"
                                         android:text="Tanggal "
-                                        android:textColor="@color/md_theme_onBackground"
+                                        android:textColor="@android:color/black"
                                         android:textSize="12sp" />
 
                                     <com.google.android.material.textfield.TextInputEditText
@@ -322,7 +323,7 @@
                                         android:layout_gravity="center_horizontal|center_vertical"
                                         android:fontFamily="@font/inter_18pt_regular"
                                         android:text="tiap tahun"
-                                        android:textColor="@color/md_theme_onBackground"
+                                        android:textColor="@android:color/black"
                                         android:textSize="12sp" />
                                 </LinearLayout>
 
@@ -372,6 +373,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:hint="Aktivitas"
+                                        android:textColorHint="@android:color/darker_gray"
                                         android:inputType="number" />
 
                                     <TextView
@@ -380,7 +382,7 @@
                                         android:layout_gravity="center_horizontal|center_vertical"
                                         android:fontFamily="@font/inter_18pt_regular"
                                         android:text=" hari x "
-                                        android:textColor="@color/md_theme_onBackground"
+                                        android:textColor="@android:color/black"
                                         android:textSize="12sp" />
 
                                     <com.google.android.material.textfield.TextInputEditText
@@ -388,6 +390,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:inputType="number"
+                                        android:textColorHint="@android:color/darker_gray"
                                         android:hint="Istirahat"/>
 
                                     <TextView
@@ -396,7 +399,7 @@
                                         android:layout_gravity="center_horizontal|center_vertical"
                                         android:fontFamily="@font/inter_18pt_regular"
                                         android:text=" hari"
-                                        android:textColor="@color/md_theme_onBackground"
+                                        android:textColor="@android:color/black"
                                         android:textSize="12sp" />
                                 </LinearLayout>
 
@@ -512,7 +515,7 @@
                                 android:layout_gravity="center_horizontal|center_vertical"
                                 android:fontFamily="@font/inter_18pt_regular"
                                 android:text="28/04/2024"
-                                android:textColor="@color/md_theme_onBackground"
+                                android:textColor="@color/md_theme_primaryContainer"
                                 android:textSize="12sp" />
 
                         </com.google.android.material.card.MaterialCardView>
@@ -555,7 +558,8 @@
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
-                            android:src="@drawable/ic_notifications_24" />
+                            android:src="@drawable/ic_notifications_24"
+                            app:tint="@color/md_theme_primary" />
 
                         <TextView
                             android:layout_width="wrap_content"

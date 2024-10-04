@@ -57,7 +57,7 @@ class TimePicker @JvmOverloads constructor(
 
     private val dotAndHandPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.FILL
-        color = context.getColor(R.color.md_theme_primary)
+        color = context.getColor(R.color.md_theme_primaryContainer)
         strokeWidth = 5f
     }
     private val blackDot = Paint(Paint.ANTI_ALIAS_FLAG).apply {
@@ -122,7 +122,7 @@ class TimePicker @JvmOverloads constructor(
             ) {
                 numberPaint.color = Color.WHITE // Change text color to white
             } else {
-                numberPaint.color = context.getColor(R.color.md_theme_onBackground) // Reset to original color
+                numberPaint.color = Color.BLACK // Reset to original color
             }
             if (displayText.isNotBlank()) {
                 canvas.drawText(displayText, x, y + numberPaint.textSize / 3, numberPaint)
@@ -140,7 +140,7 @@ class TimePicker @JvmOverloads constructor(
             if (clockMode == ClockMode.HOUR && i == hour) {
                 numberPaint.color = Color.WHITE // Change text color to white
             } else {
-                numberPaint.color = context.getColor(R.color.md_theme_onBackground) // Reset to original color
+                numberPaint.color = Color.BLACK  // Reset to original color
             }
             if (displayText.isNotBlank()) {
                 if (i == 24) {

@@ -126,7 +126,7 @@ class CalendarAdapter(private val context: Context,
     private fun makeItemSelected(holder: ViewHolder) {
         holder.txtDay.setTextColor(Color.WHITE)
         holder.txtDayInWeek.setTextColor(Color.WHITE)
-        holder.cardLayout.setCardBackgroundColor(ContextCompat.getColor(context, R.color.md_theme_primary))
+        holder.cardLayout.setCardBackgroundColor(ContextCompat.getColor(context, R.color.md_theme_primaryContainer))
         Log.d("CalendarAdapter", "Background color set to primary for selected item")
         holder.cardLayout.isEnabled = false
     }
