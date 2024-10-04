@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="List Tersimpan"
-            android:textColor="@color/md_theme_scrim"
+            android:textColor="?attr/colorOnBackground"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_gravity="start"
@@ -33,7 +33,7 @@
             android:padding="8dp"
             android:layout_marginEnd="32dp"
             android:src="@drawable/ic_inbox_arrow_down_filled"
-            app:tint="@color/md_theme_scrim"
+            app:tint="?attr/colorOnBackground"
             android:clickable="true"
             android:focusable="true"/>
 
@@ -45,7 +45,7 @@
             android:padding="8dp"
             android:layout_marginEnd="4dp"
             android:src="@drawable/ic_sortby"
-            app:tint="@color/md_theme_scrim"/>
+            app:tint="?attr/colorOnBackground"/>
 
         <ImageView
             android:id="@+id/toolbar_search"
@@ -55,7 +55,7 @@
             android:padding="8dp"
             android:layout_marginEnd="4dp"
             android:src="@drawable/ic_search"
-            app:tint="@color/md_theme_scrim"/>
+            app:tint="?attr/colorOnBackground"/>
 
     </com.google.android.material.appbar.MaterialToolbar>
 
