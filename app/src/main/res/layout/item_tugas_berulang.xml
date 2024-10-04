@@ -49,32 +49,11 @@
                 android:layout_marginEnd="4dp">
 
                 <TextView
-                    android:id="@+id/time"
+                    android:id="@+id/day_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="20:00"
+                    android:text="Monday"
                     android:textSize="11sp"
-                    android:textColor="?attr/colorPrimaryContainer"
-                    android:layout_marginHorizontal="8dp"
-                    android:layout_marginVertical="4dp"/>
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/priority_container"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                app:strokeWidth="@null"
-                app:cardBackgroundColor="?attr/colorPrimaryFixed"
-                app:cardCornerRadius="7dp">
-
-                <TextView
-                    android:id="@+id/priority"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="2"
-                    android:textSize="11sp"
-                    android:drawableEnd="@drawable/flag"
                     android:textColor="?attr/colorPrimaryContainer"
                     android:layout_marginHorizontal="8dp"
                     android:layout_marginVertical="4dp"/>
