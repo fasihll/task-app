@@ -1,4 +1,4 @@
-package com.otakkanan.taskapp.ui.main.beranda.anggota.list_anggota
+package com.otakkanan.taskapp.ui.main.beranda.anggota.partisipan
 
 import android.view.LayoutInflater
 import android.view.View

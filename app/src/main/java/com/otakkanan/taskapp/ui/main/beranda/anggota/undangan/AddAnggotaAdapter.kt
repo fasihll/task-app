@@ -1,4 +1,4 @@
-package com.otakkanan.taskapp.ui.main.beranda.anggota.add_anggota
+package com.otakkanan.taskapp.ui.main.beranda.anggota.undangan
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -33,8 +33,9 @@ class AddAnggotaAdapter :  ListAdapter<Team, AddAnggotaAdapter.MyViewHolder>(DIF
                   Glide.with(itemView.context)
                       .load(items.image)
                       .into(image)
-                  checkbox.text = items.name
-                  checkbox.isChecked = true
+                  name.text = items.name
+                  telp.text = items.telp
+                  checkbox.isChecked = false
               }catch (e: Exception){
                   Toast.makeText(itemView.context,"Koosng",Toast.LENGTH_SHORT).show()
               }

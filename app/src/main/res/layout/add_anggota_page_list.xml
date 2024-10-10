@@ -18,16 +18,30 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             tools:src="@tools:sample/avatars"
-            android:layout_marginEnd="9dp"/>
+            android:layout_marginEnd="17dp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Amy Vis"/>
+            <TextView
+                android:id="@+id/telp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+62 811-2334-655"/>
+
+        </LinearLayout>
         <CheckBox
             android:id="@+id/checkbox"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/username"
             android:textSize="18sp"
-            android:layoutDirection="rtl"
             app:buttonIconTint="@color/md_theme_onPrimary"
-
             app:buttonTint="@color/md_theme_primary"/>
     </LinearLayout>
 

@@ -82,18 +82,18 @@ class BerandaFragment : Fragment() {
                                 ".com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format" +
                                 "&fit=crop&ixlib=rb-4.0" +
                                 ".3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                            role = "Admin"),
+                            role = "Admin", telp = "+62 853 3607 6077"),
                         Team(name = "Budi Nam", image = "https://images.unsplash" +
                                 ".com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                            role = "Manager"),
+                            role = "Manager", telp = "+62 853 3607 6077"),
                         Team(name = "Stephany S", image = "https://images.unsplash" +
                                 ".com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                            role = "Admin"),
+                            role = "Admin", telp = "+62 853 3607 6077"),
                         Team(name = "Wen Anita", image = "https://images.unsplash" +
                                 ".com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format" +
                                 "&fit=crop&ixlib=rb-4.0" +
                                 ".3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                            role = "User"),
+                            role = "User", telp = "+62 853 3607 6077"),
                     ),
                 ),
                 Task(
@@ -109,21 +109,21 @@ class BerandaFragment : Fragment() {
                                 ".com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format" +
                                 "&fit=crop&ixlib=rb-4.0" +
                                 ".3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                            role = "Manager"),
+                            role = "Manager", telp = "+62 853 3607 6077"),
                         Team(name = "Marzuki", image = "https://images.unsplash" +
                                 ".com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                            role = "Admin"),
+                            role = "Admin", telp = "+62 853 3607 6077"),
                         Team(name = "Ahnaf", image = "https://images.unsplash" +
                                 ".com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                            role = "Admin"),
+                            role = "Admin", telp = "+62 853 3607 6077"),
                         Team(name = "Suep", image = "https://images.unsplash" +
                                 ".com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format" +
                                 "&fit=crop&ixlib=rb-4.0" +
                                 ".3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                            role = "User"),
+                            role = "User", telp = "+62 853 3607 6077"),
                         Team(name = "Budi Nam", image = "https://images.unsplash" +
                                 ".com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                            role = "User")
+                            role = "User", telp = "+62 853 3607 6077")
                     )
                 ),
                 Task(
@@ -139,10 +139,10 @@ class BerandaFragment : Fragment() {
                                 ".com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format" +
                                 "&fit=crop&ixlib=rb-4.0" +
                                 ".3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                            role = "Admin"),
+                            role = "Admin", telp = "+62 853 3607 6077"),
                         Team(name = "Marzuki", image = "https://images.unsplash" +
                                 ".com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                            role = "Manager"),
+                            role = "Manager", telp = "+62 853 3607 6077"),
                     )
                 ),
                 Task(
@@ -157,7 +157,7 @@ class BerandaFragment : Fragment() {
                                 ".com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format" +
                                 "&fit=crop&ixlib=rb-4.0" +
                                 ".3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                            role = "Manager"),
+                            role = "Manager", telp = "+62 853 3607 6077"),
                     )
                 ),
             )

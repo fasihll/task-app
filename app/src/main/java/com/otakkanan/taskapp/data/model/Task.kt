@@ -32,6 +32,7 @@ data class Manajer(
 @Parcelize
 data class Team(
     val name: String? = null,
+    val telp: String? = null,
     val image: String? = null,
     val role: String? = null
 ): Parcelable

@@ -13,7 +13,7 @@ import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.Task
 import com.otakkanan.taskapp.data.model.TaskDay
 import com.otakkanan.taskapp.databinding.ActivityDetailTaskBinding
-import com.otakkanan.taskapp.ui.main.beranda.anggota.list_anggota.ListAnggotaActivity
+import com.otakkanan.taskapp.ui.main.beranda.anggota.AnggotaActivity
 import java.time.LocalTime
 
 class DetailTaskActivity : AppCompatActivity() {
@@ -51,9 +51,11 @@ class DetailTaskActivity : AppCompatActivity() {
 
             val adapter = AnggotaAdapter { team ->
                 // Handle button click here
-                val intent = Intent(this@DetailTaskActivity, ListAnggotaActivity::class.java)
-                intent.putExtra(ListAnggotaActivity.TAG, task)
+                val intent = Intent(this@DetailTaskActivity, AnggotaActivity::class.java)
+                intent.putExtra(AnggotaActivity.TAG, task)
                 startActivity(intent)
+//                val intent = Intent(this@DetailTaskActivity, AnggotaActivity::class.java)
+//                startActivity(intent)
             }
             rvAnggota.adapter = adapter
             adapter.submitList(task!!.team)

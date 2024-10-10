@@ -16,13 +16,16 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".ui.main.beranda.anggota.AnggotaActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.tugas.tugasberulangbaru.TugasBerulangBaruActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.main.beranda.anggota.add_anggota.AddAnggotaActivity"
+            android:name=".ui.main.beranda.anggota.undangan.AddAnggotaActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.main.beranda.anggota.list_anggota.ListAnggotaActivity"
+            android:name=".ui.main.beranda.anggota.partisipan.ListAnggotaActivity"
             android:exported="false" />
         <activity
             android:name=".ui.main.beranda.detail_task.DetailTaskActivity"

@@ -1,4 +1,4 @@
-package com.otakkanan.taskapp.ui.main.beranda.anggota.add_anggota
+package com.otakkanan.taskapp.ui.main.beranda.anggota.undangan
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

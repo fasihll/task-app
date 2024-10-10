@@ -1,4 +1,4 @@
-package com.otakkanan.taskapp.ui.main.beranda.anggota.list_anggota
+package com.otakkanan.taskapp.ui.main.beranda.anggota.partisipan
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.Task
 import com.otakkanan.taskapp.databinding.ActivityListAnggotaBinding
-import com.otakkanan.taskapp.ui.main.beranda.anggota.add_anggota.AddAnggotaActivity
+import com.otakkanan.taskapp.ui.main.beranda.anggota.undangan.AddAnggotaActivity
 
 class ListAnggotaActivity : AppCompatActivity() {
 
