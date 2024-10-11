@@ -15,6 +15,7 @@ data class TaskDay(
     val date: LocalDate? = null,
     val time: LocalTime? = null,
     val priority: Int? = null,
+    val isRepeate: Boolean = false,
     var isDone: Boolean = false,
     val subtugas: List<SubTugasTaskDay>? = null,
     val dayType: DayType = DayType.SPECIFIC_DAY,

@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/time"
                 android:textSize="11sp"
-                android:textColor="@color/md_theme_primary"
+                android:textColor="?attr/colorOnPrimaryFixed"
                 android:layout_marginHorizontal="8dp"
                 android:layout_marginVertical="4dp" />
         </com.google.android.material.card.MaterialCardView>
@@ -61,7 +61,7 @@
                 android:text="@string/priority_value"
                 android:textSize="11sp"
                 android:drawableEnd="@drawable/flag"
-                android:textColor="@color/md_theme_primary"
+                android:textColor="?attr/colorOnPrimaryFixed"
                 android:layout_marginHorizontal="8dp"
                 android:layout_marginVertical="4dp"/>
         </com.google.android.material.card.MaterialCardView>

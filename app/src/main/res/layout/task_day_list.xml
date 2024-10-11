@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginBottom="17dp">
 
     <LinearLayout
@@ -24,22 +25,57 @@
                 android:text="@string/sub_task_day"
                 android:textSize="18sp"
                 android:layout_marginBottom="5dp"/>
-            <androidx.cardview.widget.CardView
-                android:id="@+id/task_time_container"
-                android:layout_width="46dp"
-                android:layout_height="18dp"
-                app:cardCornerRadius="6dp"
-                android:layout_marginTop="2dp"
-                app:cardBackgroundColor="?attr/colorPrimaryFixed">
-                <TextView
-                    android:id="@+id/task_time"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/task_time_container"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:text="07:00"
-                    android:textSize="11sp"
-                    android:textColor="?attr/colorPrimaryContainer"/>
-            </androidx.cardview.widget.CardView>
+                    app:cardCornerRadius="6dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="5dp"
+                    app:cardBackgroundColor="?attr/colorPrimaryFixed">
+                    <TextView
+                        android:id="@+id/task_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:text="07:00"
+                        android:paddingHorizontal="7dp"
+                        android:paddingVertical="2dp"
+                        android:drawableStart="@drawable/bell"
+                        android:drawableTint="?attr/colorPrimaryContainer"
+                        android:drawablePadding="3dp"
+                        android:textSize="11sp"
+                        android:textColor="?attr/colorPrimaryContainer"/>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/repeate_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="6dp"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="2dp"
+                    app:cardBackgroundColor="?attr/colorPrimaryFixed">
+                    <TextView
+                        android:id="@+id/icon_repeate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:paddingStart="3dp"
+                        android:paddingEnd="1dp"
+                        android:paddingVertical="2dp"
+                        android:drawableStart="@drawable/ph_repeat_fill"
+                        android:drawablePadding="3dp"
+                        android:textSize="11sp"
+                        android:drawableTint="?attr/colorPrimaryContainer"
+                        android:textColor="?attr/colorPrimaryContainer"/>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
         </LinearLayout>
 
         <ImageView

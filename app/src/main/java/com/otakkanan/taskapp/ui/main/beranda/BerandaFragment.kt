@@ -218,12 +218,13 @@ class BerandaFragment : Fragment() {
     private fun setupTaskDayRecyclerview() {
         val taskDay = arrayListOf(
             TaskDay(title = "Tugas 1 — Mengerjakan beranda",time= LocalTime.of(10,0,0), isDone =
-            true),
-            TaskDay(title ="Tugas 2 — Mengerjakan detail",time= LocalTime.of(11,0,0),isDone = true),
+            true, isRepeate = false),
+            TaskDay(title ="Tugas 2 — Mengerjakan detail",time= LocalTime.of(11,0,0),isDone =
+            true, isRepeate = true),
             TaskDay(title ="Tugas 3 — Mengerjakan member level page",time= LocalTime.of(13,0,0),
-                isDone = false),
+                isDone = false, isRepeate = false),
             TaskDay(title ="Tugas 4 — Mengerjakan tambah anggota page",time= LocalTime.of(17,0,0)
-                ,isDone = false)
+                ,isDone = false, isRepeate = false)
         )
 
         with(binding){
