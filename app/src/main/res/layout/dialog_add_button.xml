@@ -23,7 +23,7 @@
             android:orientation="horizontal"
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
-            android:paddingVertical="24dp">
+            android:paddingVertical="9dp">
             <ImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
@@ -53,7 +53,8 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/md_theme_secondaryContainer"/>
+            android:background="@color/md_theme_onSecondaryFixedVariant"
+            android:alpha="0.3"/>
     </LinearLayout>
 
     <LinearLayout
@@ -74,7 +75,7 @@
             android:orientation="horizontal"
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
-            android:paddingVertical="24dp">
+            android:paddingVertical="9dp">
             <ImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
@@ -104,7 +105,8 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/md_theme_secondaryContainer"/>
+            android:background="@color/md_theme_onSecondaryFixedVariant"
+            android:alpha="0.3"/>
     </LinearLayout>
 <!--kebiasaan-->
     <LinearLayout
@@ -125,7 +127,7 @@
             android:orientation="horizontal"
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
-            android:paddingVertical="24dp">
+            android:paddingVertical="9dp">
             <ImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
@@ -155,7 +157,8 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/md_theme_secondaryContainer"/>
+            android:background="@color/md_theme_onSecondaryFixedVariant"
+            android:alpha="0.3"/>
     </LinearLayout>
 
     <!--target-->
@@ -177,7 +180,7 @@
             android:orientation="horizontal"
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
-            android:paddingVertical="24dp">
+            android:paddingVertical="9dp">
             <ImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
@@ -190,7 +193,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/target"
+                    android:text="@string/goals_title"
                     android:textSize="16sp"
                     android:drawableEnd="@drawable/arrow_right_menu"
                     android:textStyle="bold"
@@ -199,6 +202,60 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/target_description"
+                    android:maxLines="3"
+                    android:ellipsize="end"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.60dp"
+            android:background="@color/md_theme_onSecondaryFixedVariant"
+            android:alpha="0.3"/>
+    </LinearLayout>
+<!--    menu 5-->
+    <LinearLayout
+        android:id="@+id/menu_5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        app:layout_constraintTop_toBottomOf="@id/menu_4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:paddingVertical="9dp">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/proyek_tim_icon"
+                android:layout_marginRight="12dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:drawableEnd="@drawable/arrow_right_menu"
+                    android:text="Proyek Tim"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Memudahkan kolaborasi dan pelacakan progres tugas secara efisien."
                     android:maxLines="3"
                     android:ellipsize="end"
                     android:textSize="12sp" />

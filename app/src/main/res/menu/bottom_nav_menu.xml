@@ -18,9 +18,9 @@
         android:title="@string/title_tugas" />
 
     <item
-        android:id="@+id/navigation_target"
-        android:icon="@drawable/target_icon_solid"
-        android:title="@string/target" />
+        android:id="@+id/navigation_goals"
+        android:icon="@drawable/goals_selector"
+        android:title="@string/goals_title" />
 
     <item
         android:id="@+id/navigation_profile"

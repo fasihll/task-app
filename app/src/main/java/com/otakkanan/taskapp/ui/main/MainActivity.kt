@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_beranda,
                 R.id.navigation_kalender,
                 R.id.navigation_tugas,
-                R.id.navigation_target,
+                R.id.navigation_goals,
                 R.id.navigation_profile
             )
         )

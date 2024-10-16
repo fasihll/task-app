@@ -68,4 +68,5 @@
     <string name="kebiasaan_title">Kebiasaan</string>
     <string name="kebiasaan_description">Aktivitas yang berulang seiring waktu dengan pelacakan dan statistik.</string>
     <string name="target_description">Aktivitas dengan pencapaian dalam jangka waktu tertentu yang terpantau.</string>
+    <string name="goals_title">Goals</string>
 </resources>

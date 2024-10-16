@@ -7,6 +7,7 @@ import android.graphics.PorterDuff
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import androidx.recyclerview.widget.DiffUtil
@@ -96,14 +97,15 @@ class GoalsAdapter :  ListAdapter<Goal, GoalsAdapter.MyViewHolder>(DIFF_CALLBACK
 
 
                 itemView.setOnClickListener {
-                    val intent = Intent(itemView.context,DetailTaskActivity::class.java)
-                    intent.putExtra(DetailTaskActivity.TAG,items)
-                    val optionsCompat: ActivityOptionsCompat =
-                        ActivityOptionsCompat.makeSceneTransitionAnimation(
-                            itemView.context as Activity,
-                            Pair(binding.goalsTitle, "title")
-                        )
-                    itemView.context.startActivity(intent,optionsCompat.toBundle())
+//                    val intent = Intent(itemView.context,GoalsActivity::class.java)
+//                    intent.putExtra(DetailTaskActivity.TAG,items)
+//                    val optionsCompat: ActivityOptionsCompat =
+//                        ActivityOptionsCompat.makeSceneTransitionAnimation(
+//                            itemView.context as Activity,
+//                            Pair(binding.goalsTitle, "title")
+//                        )
+//                    itemView.context.startActivity(intent,optionsCompat.toBundle())
+                    Toast.makeText(itemView.context,"Somming soon..........",Toast.LENGTH_SHORT).show()
                 }
 
             }

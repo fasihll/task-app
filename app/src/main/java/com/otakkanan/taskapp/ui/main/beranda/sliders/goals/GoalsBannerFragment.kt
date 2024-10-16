@@ -12,17 +12,12 @@ import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.Goal
-import com.otakkanan.taskapp.data.model.Manajer
-import com.otakkanan.taskapp.data.model.Task
-import com.otakkanan.taskapp.data.model.Team
-import com.otakkanan.taskapp.databinding.FragmentGoalsBinding
-import com.otakkanan.taskapp.databinding.FragmentTimBinding
-import com.otakkanan.taskapp.ui.main.beranda.sliders.tim.TaskAdapter
+import com.otakkanan.taskapp.databinding.FragmentBannerGoalsBinding
 import com.otakkanan.taskapp.utils.Helper.loadJSONFromAssets
 import com.otakkanan.taskapp.utils.Helper.parseGoalsJson
 
-class GoalsFragment : Fragment() {
-    private var _binding: FragmentGoalsBinding? = null
+class GoalsBannerFragment : Fragment() {
+    private var _binding: FragmentBannerGoalsBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewPager2: ViewPager2
     private lateinit var pageChangeListener: ViewPager2.OnPageChangeCallback
@@ -37,7 +32,7 @@ class GoalsFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentGoalsBinding.inflate(layoutInflater,container,false)
+        _binding = FragmentBannerGoalsBinding.inflate(layoutInflater,container,false)
         val root: View = binding.root
         return root
     }

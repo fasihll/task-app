@@ -5,19 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.otakkanan.taskapp.R
-import com.otakkanan.taskapp.databinding.FragmentKalenderBinding
-import com.otakkanan.taskapp.databinding.FragmentTargetBinding
+import com.otakkanan.taskapp.databinding.FragmentGoalsBinding
 
-class TargetFragment : Fragment() {
+class GoalsFragement : Fragment() {
 
-    private var _binding: FragmentTargetBinding? = null
+    private var _binding: FragmentGoalsBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        _binding = FragmentTargetBinding.inflate(inflater, container, false)
+        _binding = FragmentGoalsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         return root

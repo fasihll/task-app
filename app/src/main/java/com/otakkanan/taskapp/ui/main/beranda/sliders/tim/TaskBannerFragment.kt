@@ -11,16 +11,12 @@ import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.otakkanan.taskapp.R
-import com.otakkanan.taskapp.data.model.Goal
-import com.otakkanan.taskapp.data.model.Manajer
 import com.otakkanan.taskapp.data.model.Task
-import com.otakkanan.taskapp.data.model.Team
-import com.otakkanan.taskapp.databinding.FragmentBerandaBinding
-import com.otakkanan.taskapp.databinding.FragmentTimBinding
+import com.otakkanan.taskapp.databinding.FragmentBannerTaskBinding
 import com.otakkanan.taskapp.utils.Helper
 
-class TimFragment : Fragment() {
-    private var _binding: FragmentTimBinding? = null
+class TaskBannerFragment : Fragment() {
+    private var _binding: FragmentBannerTaskBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewPager2: ViewPager2
     private lateinit var pageChangeListener: ViewPager2.OnPageChangeCallback
@@ -35,7 +31,7 @@ class TimFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentTimBinding.inflate(layoutInflater,container,false)
+        _binding = FragmentBannerTaskBinding.inflate(layoutInflater,container,false)
         val root: View = binding.root
         return root
     }
