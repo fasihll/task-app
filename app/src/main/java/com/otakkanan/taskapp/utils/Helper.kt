@@ -5,6 +5,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.kizitonwose.calendarview.model.CalendarMonth
 import com.otakkanan.taskapp.data.model.Goal
+import com.otakkanan.taskapp.data.model.Task
 import java.io.InputStreamReader
 import java.time.DayOfWeek
 import java.time.format.DateTimeFormatter
@@ -57,5 +58,11 @@ object Helper {
         val gson = Gson()
         val goalListType = object : TypeToken<List<Goal>>() {}.type
         return gson.fromJson(jsonString, goalListType)
+    }
+
+    fun parseTaskJson(jsonString: String): List<Task> {
+        val gson = Gson()
+        val taskListType = object : TypeToken<List<Task>>() {}.type
+        return gson.fromJson(jsonString, taskListType)
     }
 }

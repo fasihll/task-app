@@ -11,11 +11,13 @@ import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.otakkanan.taskapp.R
+import com.otakkanan.taskapp.data.model.Goal
 import com.otakkanan.taskapp.data.model.Manajer
 import com.otakkanan.taskapp.data.model.Task
 import com.otakkanan.taskapp.data.model.Team
 import com.otakkanan.taskapp.databinding.FragmentBerandaBinding
 import com.otakkanan.taskapp.databinding.FragmentTimBinding
+import com.otakkanan.taskapp.utils.Helper
 
 class TimFragment : Fragment() {
     private var _binding: FragmentTimBinding? = null
@@ -45,102 +47,15 @@ class TimFragment : Fragment() {
 
     private fun setupTaskSliders() {
             with(binding){
-                val tasksList = arrayListOf(
-                    Task(
-                        title = "Desain \nUI",
-                        deskripsi = "Antarmuka Pengguna (UI) adalah titik interaksi antara manusia dan mesin dalam perangkat lunak atau perangkat keras, memungkinkan pengguna berinteraksi dengan sistem secara efisien.",
-                        manajer = listOf(
-                            Manajer(name = "Budi Nam",image = "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
-                        ),
-                        progress = 40,
-                        team = listOf(
-                            Team(name = "Fasih", image = "https://images.unsplash" +
-                                    ".com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format" +
-                                    "&fit=crop&ixlib=rb-4.0" +
-                                    ".3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                                role = "Admin", telp = "+62 853 3607 6077"),
-                            Team(name = "Budi Nam", image = "https://images.unsplash" +
-                                    ".com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                                role = "Manager", telp = "+62 853 3607 6077"),
-                            Team(name = "Stephany S", image = "https://images.unsplash" +
-                                    ".com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                                role = "Admin", telp = "+62 853 3607 6077"),
-                            Team(name = "Wen Anita", image = "https://images.unsplash" +
-                                    ".com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format" +
-                                    "&fit=crop&ixlib=rb-4.0" +
-                                    ".3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                                role = "User", telp = "+62 853 3607 6077"),
-                        ),
-                    ),
-                    Task(
-                        title = "Tugas \nLaravel",
-                        deskripsi = "Tugas pengembangan aplikasi Laravel meliputi pengaturan lingkungan pengembangan, desain database dan migrasi, pengembangan fitur backend seperti CRUD, autentikasi, dan otorisasi, serta pengaturan routing dan middleware. Selain itu, pengembang juga mengintegrasikan frontend dengan backend menggunakan Blade templating engine untuk membangun antarmuka pengguna yang interaktif.",
-                        manajer = listOf(
-                            Manajer(name = "Fasih Lisan",image = "https://images.unsplash" +
-                                    ".com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
-                        ),
-                        progress = 70,
-                        team = listOf(
-                            Team(name = "Fasih", image = "https://images.unsplash" +
-                                    ".com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format" +
-                                    "&fit=crop&ixlib=rb-4.0" +
-                                    ".3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                                role = "Manager", telp = "+62 853 3607 6077"),
-                            Team(name = "Marzuki", image = "https://images.unsplash" +
-                                    ".com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                                role = "Admin", telp = "+62 853 3607 6077"),
-                            Team(name = "Ahnaf", image = "https://images.unsplash" +
-                                    ".com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                                role = "Admin", telp = "+62 853 3607 6077"),
-                            Team(name = "Suep", image = "https://images.unsplash" +
-                                    ".com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format" +
-                                    "&fit=crop&ixlib=rb-4.0" +
-                                    ".3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                                role = "User", telp = "+62 853 3607 6077"),
-                            Team(name = "Budi Nam", image = "https://images.unsplash" +
-                                    ".com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                                role = "User", telp = "+62 853 3607 6077")
-                        )
-                    ),
-                    Task(
-                        title = "Tugas \nMobile App",
-                        deskripsi = "Tugas pengembangan aplikasi mobile mencakup perancangan antarmuka pengguna (UI/UX), pengembangan fitur aplikasi menggunakan bahasa pemrograman seperti Kotlin atau Swift, integrasi dengan API atau layanan backend, serta pengujian dan debugging untuk memastikan performa dan fungsionalitas aplikasi yang optimal. Selain itu, pengembang juga bertanggung jawab atas pengelolaan penyimpanan data, optimisasi aplikasi untuk berbagai perangkat, serta implementasi keamanan dan pengiriman aplikasi ke toko aplikasi seperti Google Play atau App Store.",
-                        manajer = listOf(
-                            Manajer(name = "Fasih Lisan",image = "https://images.unsplash" +
-                                    ".com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
-                        ),
-                        progress = 50,
-                        team = listOf(
-                            Team(name = "Fasih", image = "https://images.unsplash" +
-                                    ".com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format" +
-                                    "&fit=crop&ixlib=rb-4.0" +
-                                    ".3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                                role = "Admin", telp = "+62 853 3607 6077"),
-                            Team(name = "Marzuki", image = "https://images.unsplash" +
-                                    ".com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                                role = "Manager", telp = "+62 853 3607 6077"),
-                        )
-                    ),
-                    Task(
-                        title = "Tugas \nCloud Service",
-                        deskripsi = "Tugas pengembangan layanan cloud meliputi perancangan, implementasi, dan pemeliharaan infrastruktur cloud, termasuk pengaturan dan pengelolaan server virtual, penyimpanan data, dan jaringan. Pengembang juga bertanggung jawab untuk mengkonfigurasi dan mengelola layanan seperti database, keamanan, dan autentikasi, serta memastikan skalabilitas dan ketersediaan aplikasi melalui otomatisasi dan orkestrasi. Selain itu, tugas ini mencakup pemantauan performa, backup, pemulihan data, serta optimisasi biaya penggunaan layanan cloud.",
-                        manajer = listOf(
-                            Manajer(name = "Budi Nam",image = "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
-                        ),
-                        progress = 10,
-                        team = listOf(
-                            Team(name = "Fasih", image = "https://images.unsplash" +
-                                    ".com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format" +
-                                    "&fit=crop&ixlib=rb-4.0" +
-                                    ".3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                                role = "Manager", telp = "+62 853 3607 6077"),
-                        )
-                    ),
-                )
+                // Membaca file JSON dari assets
+                val jsonString = Helper.loadJSONFromAssets(requireContext(), "task_dummy.json")
+
+                // Mengonversi JSON ke List of Goals
+                val taskList: List<Task> = Helper.parseTaskJson(jsonString)
 
                 val taskAdapter = TaskAdapter()
                 vpTimBanner.adapter = taskAdapter
-                taskAdapter.submitList(tasksList)
+                taskAdapter.submitList(taskList)
 
                 vpTimBanner.offscreenPageLimit = 2 // Adjust the padding as needed
                 vpTimBanner.clipToPadding = false
@@ -164,7 +79,7 @@ class TimFragment : Fragment() {
                 vpTimBanner.setPageTransformer(transformer)
 
 
-                val taskIndicator = Array(tasksList.size){ ImageView(requireContext()) }
+                val taskIndicator = Array(taskList.size){ ImageView(requireContext()) }
 
                 taskIndicator.forEach {
                     it.setImageResource(
