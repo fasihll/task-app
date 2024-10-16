@@ -167,6 +167,14 @@ class BerandaFragment : Fragment() {
         requireActivity()
     }
 
+    override fun onPause() {
+        super.onPause()
+        with(binding){
+            vpSliders.currentItem = 0
+            setActiveButton(btnTim,txtTim, btnTarget,txtTarget)
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
