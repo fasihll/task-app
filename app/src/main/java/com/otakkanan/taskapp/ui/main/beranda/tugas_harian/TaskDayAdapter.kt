@@ -1,8 +1,6 @@
-package com.otakkanan.taskapp.ui.main.beranda
+package com.otakkanan.taskapp.ui.main.beranda.tugas_harian
 
 import android.content.res.Resources.Theme
-import android.graphics.Color
-import android.graphics.Paint
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View

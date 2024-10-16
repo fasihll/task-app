@@ -1,6 +1,11 @@
 package com.otakkanan.taskapp.utils
 
+import android.content.Context
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.kizitonwose.calendarview.model.CalendarMonth
+import com.otakkanan.taskapp.data.model.Goal
+import java.io.InputStreamReader
 import java.time.DayOfWeek
 import java.time.format.DateTimeFormatter
 
@@ -38,5 +43,19 @@ object Helper {
      */
     fun formatMonthYear(month: CalendarMonth): String {
         return monthYearFormatter.format(month.yearMonth)
+    }
+
+    // Fungsi untuk membaca file JSON dari folder assets
+    fun loadJSONFromAssets(context: Context, fileName: String): String {
+        val inputStream = context.assets.open(fileName)
+        val reader = InputStreamReader(inputStream)
+        return reader.readText()
+    }
+
+    // Fungsi untuk mengonversi JSON ke List of Goals
+    fun parseGoalsJson(jsonString: String): List<Goal> {
+        val gson = Gson()
+        val goalListType = object : TypeToken<List<Goal>>() {}.type
+        return gson.fromJson(jsonString, goalListType)
     }
 }

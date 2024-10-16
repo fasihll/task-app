@@ -1,0 +1,227 @@
+[
+  {
+    "name": "Pergi Liburan",
+    "description": "Increase company revenue by improving sales and marketing efforts",
+    "startDate": "2024-01-01",
+    "endDate": "2024-12-31",
+    "isPengingat": true,
+    "priority": 1,
+    "progress": 40,
+    "team": [
+      {
+        "name": "John Doe",
+        "telp": "+628123456789",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0",
+        "role": "Sales Manager"
+      },
+      {
+        "name": "Charlie Davis",
+        "telp": "+628987650123",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0",
+        "role": "Customer Service Lead"
+      },
+      {
+        "name": "Dana White",
+        "telp": "+6284455667788",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0",
+        "role": "Support Specialist"
+      },
+      {
+        "name": "Jane Smith",
+        "telp": "+628987654321",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0",
+        "role": "Marketing Specialist"
+      }
+    ],
+    "target": [
+      {
+        "name": "Revenue Growth",
+        "targetType": 1,
+        "startValue": 100000,
+        "endValue": 200000,
+        "progress": 75
+      },
+      {
+        "name": "New Customers",
+        "targetType": 2,
+        "startValue": 1000,
+        "endValue": 1500,
+        "progress": 50
+      }
+    ]
+  },
+  {
+    "name": "Planning Seminar",
+    "description": "Launch the new product by Q3",
+    "startDate": "2024-03-01",
+    "endDate": "2024-09-30",
+    "isPengingat": true,
+    "priority": 2,
+    "progress": 30,
+    "team": [
+      {
+        "name": "Alice Brown",
+        "telp": "+6285566778899",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0",
+        "role": "Product Manager"
+      },
+      {
+        "name": "Dana White",
+        "telp": "+6284455667788",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0",
+        "role": "Support Specialist"
+      },
+      {
+        "name": "Jane Smith",
+        "telp": "+628987654321",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0",
+        "role": "Marketing Specialist"
+      },
+      {
+        "name": "Bob Johnson",
+        "telp": "+6284433221100",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0",
+        "role": "Lead Developer"
+      }
+    ],
+    "target": [
+      {
+        "name": "Product Development",
+        "targetType": 1,
+        "startValue": 0,
+        "endValue": 100,
+        "progress": 60
+      },
+      {
+        "name": "Marketing Campaign",
+        "targetType": 2,
+        "startValue": 0,
+        "endValue": 50000,
+        "progress": 20
+      },
+      {
+        "name": "New Regions",
+        "targetType": 1,
+        "startValue": 2,
+        "endValue": 5,
+        "progress": 10
+      },
+      {
+        "name": "Market Share",
+        "targetType": 2,
+        "startValue": 5,
+        "endValue": 15,
+        "progress": 15
+      },
+      {
+        "name": "CSAT Score",
+        "targetType": 1,
+        "startValue": 75,
+        "endValue": 90,
+        "progress": 50
+      }
+    ]
+  },
+  {
+    "name": "Improve Customer Satisfaction",
+    "description": "Enhance customer service to improve satisfaction ratings",
+    "startDate": "2024-02-01",
+    "endDate": "2024-12-31",
+    "isPengingat": false,
+    "priority": 3,
+    "progress": 40,
+    "team": [
+      {
+        "name": "Charlie Davis",
+        "telp": "+628987650123",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0",
+        "role": "Customer Service Lead"
+      },
+      {
+        "name": "Eve Black",
+        "telp": "+628567890123",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0",
+        "role": "Business Development Manager"
+      },
+      {
+        "name": "Jane Smith",
+        "telp": "+628987654321",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0",
+        "role": "Marketing Specialist"
+      },
+      {
+        "name": "Dana White",
+        "telp": "+6284455667788",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0",
+        "role": "Support Specialist"
+      }
+    ],
+    "target": [
+      {
+        "name": "CSAT Score",
+        "targetType": 1,
+        "startValue": 75,
+        "endValue": 90,
+        "progress": 50
+      },
+      {
+        "name": "Response Time",
+        "targetType": 2,
+        "startValue": 60,
+        "endValue": 30,
+        "progress": 40
+      }
+    ]
+  },
+  {
+    "name": "Expand Market Reach",
+    "description": "Expand business into new international markets",
+    "startDate": "2024-05-01",
+    "endDate": "2025-05-01",
+    "isPengingat": true,
+    "priority": 1,
+    "progress": 20,
+    "team": [
+      {
+        "name": "Eve Black",
+        "telp": "+628567890123",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0",
+        "role": "Business Development Manager"
+      },
+      {
+        "name": "Charlie Davis",
+        "telp": "+628987650123",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0",
+        "role": "Customer Service Lead"
+      },
+      {
+        "name": "Dana White",
+        "telp": "+6284455667788",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0",
+        "role": "Support Specialist"
+      },
+      {
+        "name": "Frank Green",
+        "telp": "+628990001122",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0",
+        "role": "International Sales"
+      }
+    ],
+    "target": [
+      {
+        "name": "New Regions",
+        "targetType": 1,
+        "startValue": 2,
+        "endValue": 5,
+        "progress": 10
+      },
+      {
+        "name": "Market Share",
+        "targetType": 2,
+        "startValue": 5,
+        "endValue": 15,
+        "progress": 15
+      }
+    ]
+  }
+]

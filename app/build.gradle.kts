@@ -77,6 +77,8 @@ dependencies {
 
     // timber
     implementation("com.jakewharton.timber:timber:5.0.1")
+
+    implementation("com.google.code.gson:gson:2.11.0")
 }
 
 kapt{

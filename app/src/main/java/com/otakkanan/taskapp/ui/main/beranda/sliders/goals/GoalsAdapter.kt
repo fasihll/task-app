@@ -1,4 +1,4 @@
-package com.otakkanan.taskapp.ui.main.beranda
+package com.otakkanan.taskapp.ui.main.beranda.sliders.goals
 
 import android.app.Activity
 import android.content.Intent
@@ -14,14 +14,16 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.otakkanan.taskapp.R
+import com.otakkanan.taskapp.data.model.Goal
 import com.otakkanan.taskapp.data.model.Task
+import com.otakkanan.taskapp.databinding.GoalsBannerListBinding
 import com.otakkanan.taskapp.databinding.TasksBannerListBinding
 import com.otakkanan.taskapp.ui.main.beranda.detail_task.DetailTaskActivity
 
-class TaskAdapter :  ListAdapter<Task, TaskAdapter.MyViewHolder>(DIFF_CALLBACK) {
+class GoalsAdapter :  ListAdapter<Goal, GoalsAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val binding = TasksBannerListBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val binding = GoalsBannerListBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return MyViewHolder(binding)
     }
 
@@ -30,27 +32,34 @@ class TaskAdapter :  ListAdapter<Task, TaskAdapter.MyViewHolder>(DIFF_CALLBACK) 
         holder.bind(items)
     }
 
-    class MyViewHolder(private val binding: TasksBannerListBinding): RecyclerView.ViewHolder(binding
+    class MyViewHolder(private val binding: GoalsBannerListBinding): RecyclerView.ViewHolder(binding
         .root) {
 
 
-        fun bind(items: Task){
+        fun bind(items: Goal){
             with(binding){
 
                 if (position.mod(2) == 0){
-                    binding.tasksCard.setCardBackgroundColor(Color.parseColor("#61346B"))
-                    teamImage1.borderColor = Color.parseColor("#61346B")
-                    teamImage2.borderColor = Color.parseColor("#61346B")
-                    totalTeamContainer.strokeColor = Color.parseColor("#61346B")
+                    binding.goalsCard.setCardBackgroundColor(Color.parseColor("#0D2F77"))
+                    goalsTitle.setTextColor(Color.parseColor("#FFFFFF"))
+                    goalsCount.setTextColor(Color.parseColor("#FFFFFF"))
+                    txtProgress.setTextColor(Color.parseColor("#FFFFFF"))
+                    teamImage1.borderColor = Color.parseColor("#0D2F77")
+                    teamImage2.borderColor = Color.parseColor("#0D2F77")
+                    totalTeamContainer.strokeColor = Color.parseColor("#0D2F77")
                 }else{
-                    binding.tasksCard.setCardBackgroundColor(Color.parseColor("#F2C75B"))
-                    teamImage1.borderColor = Color.parseColor("#F2C75B")
-                    teamImage2.borderColor = Color.parseColor("#F2C75B")
-                    totalTeamContainer.strokeColor = Color.parseColor("#F2C75B")
+                    binding.goalsCard.setCardBackgroundColor(Color.parseColor("#E4DAFD"))
+                    goalsTitle.setTextColor(Color.parseColor("#000000"))
+                    goalsCount.setTextColor(Color.parseColor("#000000"))
+                    txtProgress.setTextColor(Color.parseColor("#000000"))
+                    teamImage1.borderColor = Color.parseColor("#E4DAFD")
+                    teamImage2.borderColor = Color.parseColor("#E4DAFD")
+                    totalTeamContainer.strokeColor = Color.parseColor("#E4DAFD")
                 }
-                binding.tasksCard.backgroundTintMode = PorterDuff.Mode.SRC_ATOP
+                binding.goalsCard.backgroundTintMode = PorterDuff.Mode.SRC_ATOP
 
-                taskTitle.text = items.title
+                goalsTitle.text = items.name
+                goalsCount.text = items.target!!.size.toString()+" Target" ?: "0 Target"
                 progresBar.progress = items.progress!!
                 when(items.team?.size){
                     1 -> {
@@ -92,7 +101,7 @@ class TaskAdapter :  ListAdapter<Task, TaskAdapter.MyViewHolder>(DIFF_CALLBACK) 
                     val optionsCompat: ActivityOptionsCompat =
                         ActivityOptionsCompat.makeSceneTransitionAnimation(
                             itemView.context as Activity,
-                            Pair(binding.taskTitle, "title")
+                            Pair(binding.goalsTitle, "title")
                         )
                     itemView.context.startActivity(intent,optionsCompat.toBundle())
                 }
@@ -102,11 +111,11 @@ class TaskAdapter :  ListAdapter<Task, TaskAdapter.MyViewHolder>(DIFF_CALLBACK) 
     }
 
     companion object{
-        val DIFF_CALLBACK= object : DiffUtil.ItemCallback<Task>(){
-            override fun areItemsTheSame(oldItem: Task, newItem: Task): Boolean {
+        val DIFF_CALLBACK= object : DiffUtil.ItemCallback<Goal>(){
+            override fun areItemsTheSame(oldItem: Goal, newItem: Goal): Boolean {
                 return  oldItem == newItem
             }
-            override fun areContentsTheSame(oldItem: Task, newItem: Task): Boolean {
+            override fun areContentsTheSame(oldItem: Goal, newItem: Goal): Boolean {
                 return oldItem == newItem
             }
         }
