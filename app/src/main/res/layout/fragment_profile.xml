@@ -120,7 +120,7 @@
                         android:id="@+id/tv_menu_setting"
                         android:layout_width="match_parent"
                         android:text="Pengaturan"
-                        android:textSize="18dp"
+                        android:textSize="14dp"
                         android:layout_height="wrap_content"/>
 
                 </LinearLayout>
@@ -144,7 +144,7 @@
                         android:id="@+id/tv_menu_friends"
                         android:layout_width="match_parent"
                         android:text="Teman"
-                        android:textSize="18dp"
+                        android:textSize="14dp"
                         android:layout_height="wrap_content"/>
 
                 </LinearLayout>
@@ -168,7 +168,7 @@
                         android:id="@+id/tv_menu_user_support"
                         android:layout_width="match_parent"
                         android:text="Support"
-                        android:textSize="18dp"
+                        android:textSize="14dp"
                         android:layout_height="wrap_content"/>
 
                 </LinearLayout>
@@ -192,7 +192,7 @@
                         android:id="@+id/tv_menu_share"
                         android:layout_width="match_parent"
                         android:text="Berbagi"
-                        android:textSize="18dp"
+                        android:textSize="14dp"
                         android:layout_height="wrap_content"/>
 
                 </LinearLayout>
@@ -216,7 +216,7 @@
                         android:id="@+id/tv_menu_about_us"
                         android:layout_width="match_parent"
                         android:text="Tentang Kami"
-                        android:textSize="18dp"
+                        android:textSize="14dp"
                         android:layout_height="wrap_content"/>
 
                 </LinearLayout>
@@ -240,7 +240,7 @@
                         android:id="@+id/tv_menu_logout"
                         android:layout_width="match_parent"
                         android:text="Keluar"
-                        android:textSize="18dp"
+                        android:textSize="14dp"
                         android:layout_height="wrap_content"/>
 
                 </LinearLayout>
