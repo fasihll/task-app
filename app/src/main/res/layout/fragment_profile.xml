@@ -1,30 +1,254 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:padding="16dp"
     android:background="@color/md_theme_background"
+    android:orientation="vertical"
     tools:context=".ui.main.profile.ProfileFragment">
 
-<com.google.android.material.textview.MaterialTextView
-    android:id="@+id/emailTextView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Email"
-    android:textSize="18sp"
-    android:textStyle="bold"
-    android:textColor="@color/md_theme_onBackground"
-    android:layout_marginBottom="24dp" />
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        android:textColor="?attr/colorOnBackground"
+        app:subtitleTextColor="?attr/colorOnBackground">
 
-<com.google.android.material.button.MaterialButton
-    android:id="@+id/logoutButton"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Logout"
-    android:textColor="@color/md_theme_onPrimary"
-    android:backgroundTint="@color/md_theme_primary"
-    app:cornerRadius="8dp" />
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Profil Saya"
+            android:textColor="?attr/colorOnBackground"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv_photo"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="16dp"
+                    android:src="@drawable/profile_photo"
+                    app:civ_border_color="@color/md_theme_onBackground"
+                    app:civ_border_width="1dp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="40dp"
+                    android:layout_marginBottom="4dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="Marzuki A"
+                    android:textAlignment="center"
+                    android:textColor="?attr/colorOnBackground"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="16dp"
+                    android:text="+62 8589 5645 849"
+                    android:textAlignment="center"
+                    android:textColor="?attr/colorAccent"
+                    android:textSize="16sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="40dp"
+                    android:backgroundTint="@color/md_theme_primary"
+                    android:text="Edit"
+                    android:textColor="@color/md_theme_background_highContrast" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/devider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginVertical="24dp"
+                android:src="@drawable/ic_devider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/menu_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="32dp"
+                    android:paddingVertical="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="14dp"
+                        android:src="@drawable/ic_setting"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_menu_setting"
+                        android:layout_width="match_parent"
+                        android:text="Pengaturan"
+                        android:textSize="18dp"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/menu_friends"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="32dp"
+                    android:paddingVertical="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="14dp"
+                        android:src="@drawable/ic_friends"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_menu_friends"
+                        android:layout_width="match_parent"
+                        android:text="Teman"
+                        android:textSize="18dp"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/menu_user_support"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="32dp"
+                    android:paddingVertical="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="14dp"
+                        android:src="@drawable/ic_user_support"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_menu_user_support"
+                        android:layout_width="match_parent"
+                        android:text="Support"
+                        android:textSize="18dp"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/menu_share"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="32dp"
+                    android:paddingVertical="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="14dp"
+                        android:src="@drawable/ic_share"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_menu_share"
+                        android:layout_width="match_parent"
+                        android:text="Berbagi"
+                        android:textSize="18dp"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/menu_about_us"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="32dp"
+                    android:paddingVertical="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="14dp"
+                        android:src="@drawable/ic_about_us"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_menu_about_us"
+                        android:layout_width="match_parent"
+                        android:text="Tentang Kami"
+                        android:textSize="18dp"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/menu_logout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="32dp"
+                    android:paddingVertical="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="14dp"
+                        android:src="@drawable/ic_log_out"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_menu_logout"
+                        android:layout_width="match_parent"
+                        android:text="Keluar"
+                        android:textSize="18dp"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
 </LinearLayout>
