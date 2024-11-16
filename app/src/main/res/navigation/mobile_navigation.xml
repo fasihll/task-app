@@ -45,4 +45,13 @@
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
 
+    <action
+        android:id="@+id/action_profileFragment_to_editProfileFragment"
+        app:destination="@id/editProfileFragment" />
+
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.otakkanan.taskapp.ui.main.profile.EditProfileFragment"
+        android:label="Edit Profile" />
+
 </navigation>

@@ -79,6 +79,7 @@
                     android:textSize="16sp" />
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_edit"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="40dp"
@@ -99,151 +100,111 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginBottom="60dp"
+                android:paddingHorizontal="16dp">
 
-                <LinearLayout
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/menu_setting"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingHorizontal="32dp"
-                    android:paddingVertical="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    app:icon="@drawable/ic_setting"
+                    app:iconTint="?attr/colorOnBackground"
+                    app:iconSize="30dp"
+                    app:iconPadding="16dp"
+                    android:drawablePadding="8dp"
+                    android:paddingBottom="6dp"
+                    android:text="Pengaturan"
+                    android:textColor="?attr/colorOnBackground"
+                    android:textSize="14sp"
+                    android:textAllCaps="false"
+                    android:gravity="center_vertical|start"
+                    style="@style/Widget.MaterialComponents.Button.TextButton" />
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginRight="14dp"
-                        android:src="@drawable/ic_setting"/>
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tv_menu_setting"
-                        android:layout_width="match_parent"
-                        android:text="Pengaturan"
-                        android:textSize="14dp"
-                        android:layout_height="wrap_content"/>
-
-                </LinearLayout>
-
-                <LinearLayout
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/menu_friends"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingHorizontal="32dp"
-                    android:paddingVertical="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    app:icon="@drawable/ic_friends"
+                    app:iconTint="?attr/colorOnBackground"
+                    app:iconSize="30dp"
+                    app:iconPadding="16dp"
+                    android:drawablePadding="8dp"
+                    android:paddingVertical="6dp"
+                    android:text="Teman"
+                    android:textColor="?attr/colorOnBackground"
+                    android:textSize="14sp"
+                    android:textAllCaps="false"
+                    android:gravity="center_vertical|start"
+                    style="@style/Widget.MaterialComponents.Button.TextButton" />
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginRight="14dp"
-                        android:src="@drawable/ic_friends"/>
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tv_menu_friends"
-                        android:layout_width="match_parent"
-                        android:text="Teman"
-                        android:textSize="14dp"
-                        android:layout_height="wrap_content"/>
-
-                </LinearLayout>
-
-                <LinearLayout
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/menu_user_support"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingHorizontal="32dp"
-                    android:paddingVertical="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    app:icon="@drawable/ic_user_support"
+                    app:iconTint="?attr/colorOnBackground"
+                    app:iconSize="30dp"
+                    app:iconPadding="16dp"
+                    android:drawablePadding="8dp"
+                    android:paddingVertical="6dp"
+                    android:text="Support"
+                    android:textColor="?attr/colorOnBackground"
+                    android:textSize="14sp"
+                    android:textAllCaps="false"
+                    android:gravity="center_vertical|start"
+                    style="@style/Widget.MaterialComponents.Button.TextButton" />
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginRight="14dp"
-                        android:src="@drawable/ic_user_support"/>
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tv_menu_user_support"
-                        android:layout_width="match_parent"
-                        android:text="Support"
-                        android:textSize="14dp"
-                        android:layout_height="wrap_content"/>
-
-                </LinearLayout>
-
-                <LinearLayout
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/menu_share"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingHorizontal="32dp"
-                    android:paddingVertical="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    app:icon="@drawable/ic_share"
+                    app:iconTint="?attr/colorOnBackground"
+                    app:iconSize="30dp"
+                    app:iconPadding="16dp"
+                    android:drawablePadding="8dp"
+                    android:paddingVertical="6dp"
+                    android:text="Berbagi"
+                    android:textColor="?attr/colorOnBackground"
+                    android:textSize="14sp"
+                    android:textAllCaps="false"
+                    android:gravity="center_vertical|start"
+                    style="@style/Widget.MaterialComponents.Button.TextButton" />
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginRight="14dp"
-                        android:src="@drawable/ic_share"/>
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tv_menu_share"
-                        android:layout_width="match_parent"
-                        android:text="Berbagi"
-                        android:textSize="14dp"
-                        android:layout_height="wrap_content"/>
-
-                </LinearLayout>
-
-                <LinearLayout
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/menu_about_us"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingHorizontal="32dp"
-                    android:paddingVertical="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    app:icon="@drawable/ic_about_us"
+                    app:iconTint="?attr/colorOnBackground"
+                    app:iconSize="30dp"
+                    app:iconPadding="16dp"
+                    android:drawablePadding="8dp"
+                    android:paddingVertical="6dp"
+                    android:text="Tentang Kami"
+                    android:textColor="?attr/colorOnBackground"
+                    android:textSize="14sp"
+                    android:textAllCaps="false"
+                    android:gravity="center_vertical|start"
+                    style="@style/Widget.MaterialComponents.Button.TextButton" />
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginRight="14dp"
-                        android:src="@drawable/ic_about_us"/>
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tv_menu_about_us"
-                        android:layout_width="match_parent"
-                        android:text="Tentang Kami"
-                        android:textSize="14dp"
-                        android:layout_height="wrap_content"/>
-
-                </LinearLayout>
-
-                <LinearLayout
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/menu_logout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingHorizontal="32dp"
-                    android:paddingVertical="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginRight="14dp"
-                        android:src="@drawable/ic_log_out"/>
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tv_menu_logout"
-                        android:layout_width="match_parent"
-                        android:text="Keluar"
-                        android:textSize="14dp"
-                        android:layout_height="wrap_content"/>
-
-                </LinearLayout>
+                    app:icon="@drawable/ic_log_out"
+                    app:iconTint="?attr/colorOnBackground"
+                    app:iconSize="30dp"
+                    app:iconPadding="16dp"
+                    android:drawablePadding="8dp"
+                    android:paddingVertical="6dp"
+                    android:text="Keluar"
+                    android:textColor="?attr/colorOnBackground"
+                    android:textSize="14sp"
+                    android:textAllCaps="false"
+                    android:gravity="center_vertical|start"
+                    style="@style/Widget.MaterialComponents.Button.TextButton" />
 
             </LinearLayout>
 
