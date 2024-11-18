@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/md_theme_background"
     android:orientation="vertical"
-    tools:context=".ui.main.profile.EditProfileFragment">
+    tools:context=".ui.main.profile.editprofile.EditProfileFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"

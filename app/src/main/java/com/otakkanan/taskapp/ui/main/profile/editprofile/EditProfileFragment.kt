@@ -1,4 +1,4 @@
-package com.otakkanan.taskapp.ui.main.profile
+package com.otakkanan.taskapp.ui.main.profile.editprofile
 
 import android.os.Bundle
 import android.view.LayoutInflater

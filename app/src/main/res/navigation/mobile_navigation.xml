@@ -51,7 +51,7 @@
 
     <fragment
         android:id="@+id/editProfileFragment"
-        android:name="com.otakkanan.taskapp.ui.main.profile.EditProfileFragment"
+        android:name="com.otakkanan.taskapp.ui.main.profile.editprofile.EditProfileFragment"
         android:label="Edit Profile" />
 
 </navigation>
