@@ -20,6 +20,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.otakkanan.taskapp.R
+import com.otakkanan.taskapp.data.model.Evaluasi
 import com.otakkanan.taskapp.data.model.Manajer
 import com.otakkanan.taskapp.data.model.Task
 import com.otakkanan.taskapp.data.model.TaskDay
@@ -104,13 +105,20 @@ class BerandaFragment : Fragment() {
 
     private fun setupTaskDayRecyclerview() {
         val taskDay = arrayListOf(
-            TaskDay(title = "Tugas 1 — Mengerjakan beranda",time= LocalTime.of(10,0,0), isDone =
+            TaskDay(type = 1, title = "Tugas 1 — Mengerjakan beranda",time= LocalTime.of(10,0,0),
+                isDone =
             true, isRepeate = false),
-            TaskDay(title ="Tugas 2 — Mengerjakan detail",time= LocalTime.of(11,0,0),isDone =
-            true, isRepeate = true),
-            TaskDay(title ="Tugas 3 — Mengerjakan member level page",time= LocalTime.of(13,0,0),
+            TaskDay(type = 2, evaluasi = arrayListOf(Evaluasi(type = 2, maxCount = 2)), title ="Kebiasaan 1 — " +
+                    "Literasi",
+                time=
+            LocalTime.of
+                (11,0,0),
                 isDone = false, isRepeate = false),
-            TaskDay(title ="Tugas 4 — Mengerjakan tambah anggota page",time= LocalTime.of(17,0,0)
+            TaskDay(type = 1, title ="Tugas 2 — Mengerjakan detail",time= LocalTime.of(11,0,0),isDone =
+            true, isRepeate = true),
+            TaskDay(type = 1, title ="Tugas 3 — Mengerjakan member level page",time= LocalTime.of(13,0,0),
+                isDone = false, isRepeate = false),
+            TaskDay(type = 1, title ="Tugas 4 — Mengerjakan tambah anggota page",time= LocalTime.of(17,0,0)
                 ,isDone = false, isRepeate = false)
         )
 

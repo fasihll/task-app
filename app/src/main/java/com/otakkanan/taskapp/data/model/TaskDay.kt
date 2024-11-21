@@ -10,7 +10,11 @@ enum class DayType {
     SPECIFIC_DAY, WEEKDAYS, WEEKENDS, EVERYDAY
 }
 
+
+
 data class TaskDay(
+    val type: Int? = null, //1=task2=kebiasaan
+    val evaluasi: List<Evaluasi>? = null,
     val title: String? = null,
     val date: LocalDate? = null,
     val time: LocalTime? = null,
@@ -22,8 +26,16 @@ data class TaskDay(
     val specificDays: List<DayOfWeek>? = null // Updated to list for multiple days
 )
 
+data class Evaluasi(
+    val type: Int? = null,//1=yes/no ,2=numerik
+    val maxCount: Int? = null
+)
+
+
 @Parcelize
 data class SubTugasTaskDay(
     val title: String? = null,
     val isDone: Boolean = false,
 ): Parcelable
+
+

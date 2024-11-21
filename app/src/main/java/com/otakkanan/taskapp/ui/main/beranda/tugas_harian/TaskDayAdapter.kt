@@ -1,18 +1,24 @@
 package com.otakkanan.taskapp.ui.main.beranda.tugas_harian
 
+import android.content.Intent
 import android.content.res.Resources.Theme
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.otakkanan.taskapp.R
 import com.google.android.material.R as Rmat
 import com.otakkanan.taskapp.data.model.TaskDay
 import com.otakkanan.taskapp.databinding.TaskDayListBinding
+import com.otakkanan.taskapp.ui.tugas.tugasbaru.TugasBaruActivity
 
 
 class TaskDayAdapter :  ListAdapter<TaskDay, TaskDayAdapter.MyViewHolder>(DIFF_CALLBACK) {
@@ -46,6 +52,15 @@ class TaskDayAdapter :  ListAdapter<TaskDay, TaskDayAdapter.MyViewHolder>(DIFF_C
                 taskTitle.text = items.title
                 taskTime.text = items.time.toString()
 
+                if (items.type == 2){ //kebiasaan
+                    kebiasaanContainer.visibility = View.VISIBLE
+                    if (items.evaluasi?.get(0)?.type == 2){ //nilai numerik
+                        itemView.setOnClickListener{
+                            items.evaluasi.get(0).maxCount?.let { it1 -> showDialog(it1) }
+                        }
+                    }
+                }
+
                 if (items.isRepeate) {
                     repeateContainer.visibility = View.VISIBLE
                 }
@@ -63,6 +78,49 @@ class TaskDayAdapter :  ListAdapter<TaskDay, TaskDayAdapter.MyViewHolder>(DIFF_C
                 } else {
                     setCheckedState()
                 }
+            }
+        }
+
+        private fun showDialog(maxCount: Int) {
+            val dialogView = LayoutInflater.from(itemView.context).inflate(R.layout
+                .dialog_kebiasaan,null)
+
+            val dialog = MaterialAlertDialogBuilder(itemView.context)
+                .setView(dialogView)
+                .show()
+
+            val btnPlus = dialogView.findViewById<ImageView>(R.id.btn_plus)
+            val countLayout = dialogView.findViewById<TextView>(R.id.count)
+            val progressCount = dialogView.findViewById<TextView>(R.id.progres_count)
+            val btnMin = dialogView.findViewById<ImageView>(R.id.btn_min)
+            val btnCancel = dialogView.findViewById<TextView>(R.id.cancle_button)
+            val btnOk = dialogView.findViewById<TextView>(R.id.ok_button)
+
+            var count = 0
+            countLayout.text = count.toString()
+            progressCount.text = count.toString()+"/"+maxCount
+
+            btnPlus.setOnClickListener {
+               if (count < maxCount){
+                   count++
+                   countLayout.text = count.toString()
+                   progressCount.text = count.toString()+"/"+maxCount
+               }
+            }
+            btnMin.setOnClickListener {
+                if (count > 0) {
+                    count--
+                    countLayout.text = count.toString()
+                    progressCount.text = count.toString()+"/"+maxCount
+
+                }
+            }
+            btnOk.setOnClickListener {
+                //Todo: Ok clicked
+                dialog.dismiss()
+            }
+            btnCancel.setOnClickListener {
+                dialog.dismiss()
             }
         }
 
