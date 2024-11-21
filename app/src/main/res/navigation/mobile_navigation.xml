@@ -54,4 +54,13 @@
         android:name="com.otakkanan.taskapp.ui.main.profile.editprofile.EditProfileFragment"
         android:label="Edit Profile" />
 
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.otakkanan.taskapp.ui.main.profile.setting.SettingFragment"
+        android:label="Pengaturan" />
+
+    <action
+        android:id="@+id/action_profileFragment_to_settingFragment"
+        app:destination="@id/settingFragment" />
+
 </navigation>

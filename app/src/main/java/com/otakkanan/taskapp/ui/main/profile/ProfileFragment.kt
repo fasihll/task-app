@@ -25,9 +25,12 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Action for btn_edit to navigate to EditProfileFragment
         binding.btnEdit.setOnClickListener {
             findNavController().navigate(R.id.action_profileFragment_to_editProfileFragment)
+        }
+
+        binding.menuSetting.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_settingFragment)
         }
     }
 

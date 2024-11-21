@@ -1,13 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/md_theme_background"
+    android:orientation="vertical"
     tools:context=".ui.main.profile.setting.SettingFragment">
 
-    <TextView
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        android:textColor="?attr/colorOnBackground"
+        app:navigationIcon="@drawable/ic_back_24"
+        app:subtitleTextColor="?attr/colorOnBackground">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="Pengaturan"
+            android:textColor="?attr/colorOnBackground"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="60dp"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/menu_pengaturantugas"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical|start"
+                    android:paddingBottom="6dp"
+                    android:text="Pengaturan Tugas"
+                    android:textAllCaps="false"
+                    android:textColor="?attr/colorOnBackground"
+                    android:textSize="14sp"
+                    app:icon="@drawable/ic_pengaturantugas"
+                    app:iconPadding="16dp"
+                    app:iconSize="30dp"
+                    app:iconTint="?attr/colorPrimary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/menu_notifikasi"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical|start"
+                    android:paddingVertical="6dp"
+                    android:text="Notifikasi"
+                    android:textAllCaps="false"
+                    android:textColor="?attr/colorOnBackground"
+                    android:textSize="14sp"
+                    app:icon="@drawable/ic_bell"
+                    app:iconPadding="16dp"
+                    app:iconSize="30dp"
+                    app:iconTint="?attr/colorPrimary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/menu_tema"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical|start"
+                    android:paddingVertical="6dp"
+                    android:text="Tema"
+                    android:textAllCaps="false"
+                    android:textColor="?attr/colorOnBackground"
+                    android:textSize="14sp"
+                    app:icon="@drawable/ic_dark_theme_24_filled"
+                    app:iconPadding="16dp"
+                    app:iconSize="30dp"
+                    app:iconTint="?attr/colorPrimary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/menu_sinkron"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical|start"
+                    android:paddingVertical="6dp"
+                    android:text="Sinkronisasi"
+                    android:textAllCaps="false"
+                    android:textColor="?attr/colorOnBackground"
+                    android:textSize="14sp"
+                    app:icon="@drawable/ic_sync_outline"
+                    app:iconPadding="16dp"
+                    app:iconSize="30dp"
+                    app:iconTint="?attr/colorPrimary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/menu_pencadangan"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical|start"
+                    android:paddingVertical="6dp"
+                    android:text="Pencadangan"
+                    android:textAllCaps="false"
+                    android:textColor="?attr/colorOnBackground"
+                    android:textSize="14sp"
+                    app:icon="@drawable/ic_cloud_backup"
+                    app:iconPadding="16dp"
+                    app:iconSize="30dp"
+                    app:iconTint="?attr/colorPrimary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/menu_bahasa"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical|start"
+                    android:paddingVertical="6dp"
+                    android:text="Bahasa"
+                    android:textAllCaps="false"
+                    android:textColor="?attr/colorOnBackground"
+                    android:textSize="14sp"
+                    app:icon="@drawable/ic_language"
+                    app:iconPadding="16dp"
+                    app:iconSize="30dp"
+                    app:iconTint="?attr/colorPrimary" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
