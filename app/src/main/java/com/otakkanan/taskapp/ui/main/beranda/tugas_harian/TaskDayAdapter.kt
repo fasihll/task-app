@@ -149,11 +149,13 @@ class TaskDayAdapter :  ListAdapter<TaskDay, TaskDayAdapter.MyViewHolder>(DIFF_C
             binding.taskTime.setTextColor(taskTime)
             binding.taskTime.compoundDrawables.getOrNull(0)?.setTint(taskTime)
             binding.iconRepeate.compoundDrawables.getOrNull(0)?.setTint(taskTime)
+            binding.iconKebiasaan.compoundDrawables.getOrNull(0)?.setTint(taskTime)
             var colorPrimaryFixed = theme.resolveAttribute(Rmat.attr.colorPrimaryFixed, tV,
                 true)
             var taskTimeContainer: Int = tV.data
             binding.taskTimeContainer.setCardBackgroundColor(taskTimeContainer)
             binding.repeateContainer.setCardBackgroundColor(taskTimeContainer)
+            binding.kebiasaanContainer.setCardBackgroundColor(taskTimeContainer)
 
 
         }
@@ -172,6 +174,7 @@ class TaskDayAdapter :  ListAdapter<TaskDay, TaskDayAdapter.MyViewHolder>(DIFF_C
             binding.taskTime.setTextColor(taskTimeColor)
             binding.taskTime.compoundDrawables.getOrNull(0)?.setTint(taskTimeColor)
             binding.iconRepeate.compoundDrawables.getOrNull(0)?.setTint(taskTimeColor)
+            binding.iconKebiasaan.compoundDrawables.getOrNull(0)?.setTint(taskTimeColor)
 
 
             var colorOnSecondary = theme.resolveAttribute(Rmat.attr.colorSecondaryContainer, tV,
@@ -179,6 +182,7 @@ class TaskDayAdapter :  ListAdapter<TaskDay, TaskDayAdapter.MyViewHolder>(DIFF_C
             var containerColor: Int = tV.data
             binding.taskTimeContainer.setCardBackgroundColor(containerColor)
             binding.repeateContainer.setCardBackgroundColor(containerColor)
+            binding.kebiasaanContainer.setCardBackgroundColor(containerColor)
 
         }
     }
