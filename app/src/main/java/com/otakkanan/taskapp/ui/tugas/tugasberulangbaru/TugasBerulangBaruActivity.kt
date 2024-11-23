@@ -19,9 +19,9 @@ class TugasBerulangBaruActivity : AppCompatActivity() {
     //Tunda Tugas
     private var tundaTugas: Boolean = false
 
-    //Prioritas
-    private var prioritas: String = "Default"
-    private var rankPrioritas: Int = 1
+        //Prioritas
+        private var prioritas: String = "Default"
+        private var rankPrioritas: Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
