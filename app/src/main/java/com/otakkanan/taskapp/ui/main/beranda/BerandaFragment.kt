@@ -29,6 +29,7 @@ import com.otakkanan.taskapp.databinding.FragmentBerandaBinding
 import com.otakkanan.taskapp.ui.main.beranda.sliders.SlidersAdapter
 import com.otakkanan.taskapp.ui.main.beranda.sliders.tim.TaskAdapter
 import com.otakkanan.taskapp.ui.main.beranda.tugas_harian.TaskDayAdapter
+import com.otakkanan.taskapp.ui.main.goals.AddGoalsActivity
 import com.otakkanan.taskapp.ui.tugas.tugasbaru.TugasBaruActivity
 import com.otakkanan.taskapp.ui.tugas.tugasberulangbaru.TugasBerulangBaruActivity
 import java.time.LocalTime
@@ -63,7 +64,7 @@ class BerandaFragment : Fragment() {
 
         setupViewPager2() //tim
         setupTaskDayRecyclerview()
-        buttonToTugasBaru()
+        DialogFAB()
 
         return root
     }
@@ -134,36 +135,36 @@ class BerandaFragment : Fragment() {
         }
     }
 
-    private fun buttonToTugasBaru(){
-        binding.btnAddTugasBaru.setOnClickListener {
+    private fun DialogFAB(){
+        binding.btnFab.setOnClickListener {
             val dialogView = layoutInflater.inflate(R.layout.dialog_add_button, null)
 
             val dialog = MaterialAlertDialogBuilder(requireContext())
                 .setView(dialogView)
                 .show()
 
-            val menu1 = dialogView.findViewById<LinearLayout>(R.id.menu_1)
-            val menu2 = dialogView.findViewById<LinearLayout>(R.id.menu_2)
-            val menu3 = dialogView.findViewById<LinearLayout>(R.id.menu_3)
-            val menu4 = dialogView.findViewById<LinearLayout>(R.id.menu_4)
-            val menu5 = dialogView.findViewById<LinearLayout>(R.id.menu_5)
-            menu1.setOnClickListener {
+            val tugas = dialogView.findViewById<LinearLayout>(R.id.menu_1)
+            val tugasBerulang = dialogView.findViewById<LinearLayout>(R.id.menu_2)
+            val kebiasaan = dialogView.findViewById<LinearLayout>(R.id.menu_3)
+            val goals = dialogView.findViewById<LinearLayout>(R.id.menu_4)
+            val proyekTim = dialogView.findViewById<LinearLayout>(R.id.menu_5)
+            tugas.setOnClickListener {
                 dialog.dismiss()
                 startActivity(Intent(requireContext(),TugasBaruActivity::class.java))
             }
-            menu2.setOnClickListener {
+            tugasBerulang.setOnClickListener {
                 dialog.dismiss()
                 startActivity(Intent(requireContext(), TugasBerulangBaruActivity::class.java))
             }
-            menu3.setOnClickListener {
+            kebiasaan.setOnClickListener {
 //                dialog.dismiss()
 //                startActivity(Intent(requireContext(),KebiasaanActivity::class.java))
             }
-            menu4.setOnClickListener {
-//                dialog.dismiss()
-//                startActivity(Intent(requireContext(),AddTargetActivity::class.java))
+            goals.setOnClickListener {
+                dialog.dismiss()
+                startActivity(Intent(requireContext(),AddGoalsActivity::class.java))
             }
-            menu4.setOnClickListener {
+            proyekTim.setOnClickListener {
 //                dialog.dismiss()
 //                startActivity(Intent(requireContext(),ProyekTimActivity::class.java))
             }
