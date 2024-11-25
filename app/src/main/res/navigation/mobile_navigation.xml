@@ -59,8 +59,16 @@
         android:name="com.otakkanan.taskapp.ui.main.profile.setting.SettingFragment"
         android:label="Pengaturan" />
 
+    <fragment
+        android:id="@+id/pengaturanTugasFragment"
+        android:name="com.otakkanan.taskapp.ui.main.profile.setting.pengaturantugas.PengaturanTugasFragment"
+        android:label="Pengaturan Tugas" />
+
     <action
         android:id="@+id/action_profileFragment_to_settingFragment"
         app:destination="@id/settingFragment" />
+    <action
+        android:id="@+id/action_settingFragment_to_pengaturanTugasFragment"
+        app:destination="@id/pengaturanTugasFragment" />
 
 </navigation>

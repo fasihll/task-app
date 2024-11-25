@@ -33,6 +33,10 @@ class SettingFragment : Fragment() {
         hideBottomNavigation()
         setupToolbar()
 
+        binding.menuPengaturantugas.setOnClickListener {
+            findNavController().navigate(R.id.action_settingFragment_to_pengaturanTugasFragment)
+        }
+
         return binding.root
     }
 
