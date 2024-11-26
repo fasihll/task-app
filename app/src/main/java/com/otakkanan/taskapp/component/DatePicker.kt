@@ -149,7 +149,7 @@ class DatePicker : DialogFragment() {
                     columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f)
                 }
                 setPadding(8, 8, 8, 8)
-                setTextColor(ContextCompat.getColor(requireContext(), R.color.md_theme_onSecondary)) // Warna untuk bulan berikutnya
+                setTextColor(ContextCompat.getColor(requireContext(), R.color.md_theme_secondaryContainer)) // Warna untuk bulan berikutnya
             }
             calendarGrid.addView(dayView)
         }

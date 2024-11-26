@@ -9,12 +9,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.leanback.widget.picker.TimePicker
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.component.DatePicker
 import com.otakkanan.taskapp.component.topsheet.TopSheetBehavior
 import com.otakkanan.taskapp.databinding.ActivityTugasBerulangBaruBinding
+import com.otakkanan.taskapp.databinding.DialogPengingatBinding
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -47,6 +49,7 @@ class TugasBerulangBaruActivity : AppCompatActivity(),
         }
         setupTopBar()
         setupPrioritas()
+        setupPrengingat()
         setupTundaTugas()
         setupFrekuensiPengerjaan()
         setupTanggalSelesai()
@@ -61,23 +64,6 @@ class TugasBerulangBaruActivity : AppCompatActivity(),
                 datePicker.setInitialSelectedDate(selectedDay!!, selectedMonth!!, selectedYear!!)
             }
             datePicker.show(supportFragmentManager, "DATE_PICKER")
-//            val datePicker = MaterialDatePicker.Builder.datePicker()
-//                .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
-//                .build()
-//
-//            datePicker.show(supportFragmentManager, "DATE_PICKER")
-//
-//            datePicker.addOnPositiveButtonClickListener { selection ->
-//                val selectedDate = datePicker.selection
-//                val formattedDate = selectedDate?.let {
-//                    val today = MaterialDatePicker.todayInUtcMilliseconds()
-//                    if (it == today) "Hari ini" else java.text.SimpleDateFormat(
-//                        "dd/MM/yyyy",
-//                        java.util.Locale.getDefault()
-//                    ).format(it)
-//                }
-//                binding.btnStart.text = formattedDate ?: "No date selected"
-//            }
         }
     }
 
@@ -109,6 +95,25 @@ class TugasBerulangBaruActivity : AppCompatActivity(),
                 }
 
                 else -> false
+            }
+        }
+    }
+
+    private fun setupPrengingat() {
+        val btnPengingat = binding.btnPengingat
+        btnPengingat.setOnClickListener {
+            val pengingatDialogView = DialogPengingatBinding.inflate(layoutInflater).root
+            val dialog = MaterialAlertDialogBuilder(this)
+                .setView(pengingatDialogView)
+                .show()
+            val btnOk = pengingatDialogView.findViewById<Button>(R.id.btn_ok)
+            val btnCancel = pengingatDialogView.findViewById<Button>(R.id.btn_cancel)
+            btnOk.setOnClickListener {
+                dialog.dismiss()
+            }
+
+            btnCancel.setOnClickListener {
+                dialog.dismiss()
             }
         }
     }

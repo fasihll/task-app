@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_onPrimary">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/md_theme_onPrimary"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:fontFamily="@font/inter_18pt_semibold"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Pengingat Baru"
+            android:textAlignment="center"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/inter_18pt_semibold"
+            android:text="12:00"
+            android:textAlignment="center"
+            android:textSize="36sp" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/inter_18pt_medium"
+            android:text="Tipe"
+            android:textAlignment="textStart"
+            android:textSize="13sp" />
+
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/toggleButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:singleSelection="true"
+            app:backgroundTint="@color/md_theme_background">
+
+            <Button
+                android:id="@+id/btn_jangan_ganggu"
+                style="@style/Widget.App.Button.ElevatedButton.IconOnly"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Jangan Ingatkan"
+                android:fontFamily="@font/inter_18pt_regular"
+                android:textSize="11sp"
+                app:iconGravity="textTop"
+                app:iconPadding="4dp"
+                app:backgroundTint="@color/md_theme_background"
+                app:icon="@drawable/outline_notifications_off_24" />
+            <Button
+                android:id="@+id/btn_notifikasi"
+                style="@style/Widget.App.Button.ElevatedButton.IconOnly"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Notifikasi"
+                android:fontFamily="@font/inter_18pt_regular"
+                android:textSize="11sp"
+                app:iconGravity="textTop"
+                app:iconPadding="4dp"
+                app:backgroundTint="@color/md_theme_background"
+                app:icon="@drawable/ic_notifications_24" />
+            <Button
+                android:id="@+id/btn_alarm"
+                style="@style/Widget.App.Button.ElevatedButton.IconOnly"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Alarm"
+                android:fontFamily="@font/inter_18pt_regular"
+                android:textSize="11sp"
+                app:iconGravity="textTop"
+                app:iconPadding="4dp"
+                app:backgroundTint="@color/md_theme_background"
+                app:icon="@drawable/baseline_alarm_24" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_18pt_medium"
+            android:text="Jadwal"
+            android:textAlignment="textStart"
+            android:textSize="13sp" />
+
+        <RadioGroup
+            android:checkedButton="@+id/rb_schedule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/selaluAktif"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:enabled="true"
+                android:paddingStart="4dp"
+                android:paddingBottom="0dp"
+                android:checked="true"
+                android:text="Selalu aktif"/>
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:checked="false"
+                android:enabled="true"
+                android:paddingStart="4dp"
+                android:text="Hari tertentu dalam seminggu"/>
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:checked="false"
+                android:enabled="true"
+                android:paddingStart="4dp"
+                android:text="Hari sebelumnya"/>
+        </RadioGroup>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginTop="16dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:fontFamily="@font/inter_18pt_semibold"
+                android:paddingVertical="8dp"
+                android:text="Cancel"
+                android:textColor="@color/md_theme_onBackground"
+                android:textSize="14sp"
+                app:backgroundTint="@color/md_theme_onPrimary" />
+
+            <View
+                android:layout_width="12dp"
+                android:layout_height="12dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_ok"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:fontFamily="@font/inter_18pt_semibold"
+                android:paddingVertical="8dp"
+                android:text="OK"
+                android:textColor="@color/md_theme_primary"
+                android:textSize="14sp"
+                app:backgroundTint="@color/md_theme_onPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
