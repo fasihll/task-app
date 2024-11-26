@@ -1,4 +1,188 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:background="@color/md_theme_background"-->
+<!--    android:orientation="vertical"-->
+<!--    tools:context=".ui.main.profile.setting.SettingFragment">-->
+
+<!--    <com.google.android.material.appbar.MaterialToolbar-->
+<!--        android:id="@+id/toolbar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:elevation="4dp"-->
+<!--        android:textColor="?attr/colorOnBackground"-->
+<!--        app:navigationIcon="@drawable/ic_back_24"-->
+<!--        app:subtitleTextColor="?attr/colorOnBackground">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/toolbar_title"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="left"-->
+<!--            android:text="Pengaturan"-->
+<!--            android:textColor="?attr/colorOnBackground"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textStyle="bold" />-->
+
+<!--    </com.google.android.material.appbar.MaterialToolbar>-->
+
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginBottom="60dp"-->
+<!--                android:orientation="vertical"-->
+<!--                android:paddingHorizontal="16dp">-->
+
+<!--                <com.google.android.material.button.MaterialButton-->
+<!--                    android:id="@+id/menu_pengaturantugas"-->
+<!--                    style="@style/Widget.MaterialComponents.Button.TextButton"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:drawablePadding="8dp"-->
+<!--                    android:gravity="center_vertical|start"-->
+<!--                    android:paddingBottom="6dp"-->
+<!--                    android:text="Pengaturan Tugas"-->
+<!--                    android:textAllCaps="false"-->
+<!--                    android:textColor="?attr/colorOnBackground"-->
+<!--                    android:textSize="14sp"-->
+<!--                    app:icon="@drawable/ic_pengaturantugas"-->
+<!--                    app:iconPadding="16dp"-->
+<!--                    app:iconSize="30dp"-->
+<!--                    app:iconTint="?attr/colorPrimary" />-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginVertical="2dp"-->
+<!--                    android:src="@drawable/ic_devider" />-->
+
+<!--                <com.google.android.material.button.MaterialButton-->
+<!--                    android:id="@+id/menu_notifikasi"-->
+<!--                    style="@style/Widget.MaterialComponents.Button.TextButton"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:drawablePadding="8dp"-->
+<!--                    android:gravity="center_vertical|start"-->
+<!--                    android:paddingVertical="6dp"-->
+<!--                    android:text="Notifikasi"-->
+<!--                    android:textAllCaps="false"-->
+<!--                    android:textColor="?attr/colorOnBackground"-->
+<!--                    android:textSize="14sp"-->
+<!--                    app:icon="@drawable/ic_bell"-->
+<!--                    app:iconPadding="16dp"-->
+<!--                    app:iconSize="30dp"-->
+<!--                    app:iconTint="?attr/colorPrimary" />-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginVertical="2dp"-->
+<!--                    android:src="@drawable/ic_devider" />-->
+
+<!--                <com.google.android.material.button.MaterialButton-->
+<!--                    android:id="@+id/menu_tema"-->
+<!--                    style="@style/Widget.MaterialComponents.Button.TextButton"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:drawablePadding="8dp"-->
+<!--                    android:gravity="center_vertical|start"-->
+<!--                    android:paddingVertical="6dp"-->
+<!--                    android:text="Tema"-->
+<!--                    android:textAllCaps="false"-->
+<!--                    android:textColor="?attr/colorOnBackground"-->
+<!--                    android:textSize="14sp"-->
+<!--                    app:icon="@drawable/ic_dark_theme_24_filled"-->
+<!--                    app:iconPadding="16dp"-->
+<!--                    app:iconSize="30dp"-->
+<!--                    app:iconTint="?attr/colorPrimary" />-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginVertical="2dp"-->
+<!--                    android:src="@drawable/ic_devider" />-->
+
+<!--                <com.google.android.material.button.MaterialButton-->
+<!--                    android:id="@+id/menu_sinkron"-->
+<!--                    style="@style/Widget.MaterialComponents.Button.TextButton"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:drawablePadding="8dp"-->
+<!--                    android:gravity="center_vertical|start"-->
+<!--                    android:paddingVertical="6dp"-->
+<!--                    android:text="Sinkronisasi"-->
+<!--                    android:textAllCaps="false"-->
+<!--                    android:textColor="?attr/colorOnBackground"-->
+<!--                    android:textSize="14sp"-->
+<!--                    app:icon="@drawable/ic_sync_outline"-->
+<!--                    app:iconPadding="16dp"-->
+<!--                    app:iconSize="30dp"-->
+<!--                    app:iconTint="?attr/colorPrimary" />-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginVertical="2dp"-->
+<!--                    android:src="@drawable/ic_devider" />-->
+
+<!--                <com.google.android.material.button.MaterialButton-->
+<!--                    android:id="@+id/menu_pencadangan"-->
+<!--                    style="@style/Widget.MaterialComponents.Button.TextButton"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:drawablePadding="8dp"-->
+<!--                    android:gravity="center_vertical|start"-->
+<!--                    android:paddingVertical="6dp"-->
+<!--                    android:text="Pencadangan"-->
+<!--                    android:textAllCaps="false"-->
+<!--                    android:textColor="?attr/colorOnBackground"-->
+<!--                    android:textSize="14sp"-->
+<!--                    app:icon="@drawable/ic_cloud_backup"-->
+<!--                    app:iconPadding="16dp"-->
+<!--                    app:iconSize="30dp"-->
+<!--                    app:iconTint="?attr/colorPrimary" />-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginVertical="2dp"-->
+<!--                    android:src="@drawable/ic_devider" />-->
+
+<!--                <com.google.android.material.button.MaterialButton-->
+<!--                    android:id="@+id/menu_bahasa"-->
+<!--                    style="@style/Widget.MaterialComponents.Button.TextButton"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:drawablePadding="8dp"-->
+<!--                    android:gravity="center_vertical|start"-->
+<!--                    android:paddingVertical="6dp"-->
+<!--                    android:text="Bahasa"-->
+<!--                    android:textAllCaps="false"-->
+<!--                    android:textColor="?attr/colorOnBackground"-->
+<!--                    android:textSize="14sp"-->
+<!--                    app:icon="@drawable/ic_language"-->
+<!--                    app:iconPadding="16dp"-->
+<!--                    app:iconSize="30dp"-->
+<!--                    app:iconTint="?attr/colorPrimary" />-->
+
+<!--            </LinearLayout>-->
+
+<!--        </LinearLayout>-->
+
+<!--    </ScrollView>-->
+
+<!--</LinearLayout>-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,8 +196,8 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         android:elevation="4dp"
-        android:textColor="?attr/colorOnBackground"
         app:navigationIcon="@drawable/ic_back_24"
         app:subtitleTextColor="?attr/colorOnBackground">
 
@@ -36,151 +220,266 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp">
 
-            <LinearLayout
+            <!-- Menu -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/menu_pengaturan_tugas_container"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="60dp"
-                android:orientation="vertical"
-                android:paddingHorizontal="16dp">
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="8dp">
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/menu_pengaturantugas"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_width="match_parent"
+                <!-- Ikon Start -->
+                <ImageView
+                    android:id="@+id/ic_pengaturan_tugas"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_pengaturantugas"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="?attr/colorPrimary" />
+
+                <!-- Teks -->
+                <TextView
+                    android:id="@+id/menu_pengaturan_tugas"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:drawablePadding="8dp"
+                    android:layout_marginStart="10dp"
                     android:gravity="center_vertical|start"
-                    android:paddingBottom="6dp"
                     android:text="Pengaturan Tugas"
-                    android:textAllCaps="false"
                     android:textColor="?attr/colorOnBackground"
                     android:textSize="14sp"
-                    app:icon="@drawable/ic_pengaturantugas"
-                    app:iconPadding="16dp"
-                    app:iconSize="30dp"
-                    app:iconTint="?attr/colorPrimary" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ic_pengaturan_tugas"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="8dp"
+                android:background="?attr/colorOutline" />
+
+            <!-- Menu -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/menu_notifikasi_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="8dp">
+
+                <!-- Ikon Start -->
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="2dp"
-                    android:src="@drawable/ic_devider" />
+                    android:id="@+id/ic_notifikasi"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_notifications_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="?attr/colorPrimary" />
 
-                <com.google.android.material.button.MaterialButton
+                <!-- Teks -->
+                <TextView
                     android:id="@+id/menu_notifikasi"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:drawablePadding="8dp"
+                    android:layout_marginStart="10dp"
                     android:gravity="center_vertical|start"
-                    android:paddingVertical="6dp"
                     android:text="Notifikasi"
-                    android:textAllCaps="false"
                     android:textColor="?attr/colorOnBackground"
                     android:textSize="14sp"
-                    app:icon="@drawable/ic_bell"
-                    app:iconPadding="16dp"
-                    app:iconSize="30dp"
-                    app:iconTint="?attr/colorPrimary" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ic_notifikasi"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="8dp"
+                android:background="?attr/colorOutline" />
+
+            <!-- Menu -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/menu_tema_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="8dp">
+
+                <!-- Ikon Start -->
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="2dp"
-                    android:src="@drawable/ic_devider" />
+                    android:id="@+id/ic_tema"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_dark_theme_24_filled"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="?attr/colorPrimary" />
 
-                <com.google.android.material.button.MaterialButton
+                <!-- Teks -->
+                <TextView
                     android:id="@+id/menu_tema"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:drawablePadding="8dp"
+                    android:layout_marginStart="10dp"
                     android:gravity="center_vertical|start"
-                    android:paddingVertical="6dp"
                     android:text="Tema"
-                    android:textAllCaps="false"
                     android:textColor="?attr/colorOnBackground"
                     android:textSize="14sp"
-                    app:icon="@drawable/ic_dark_theme_24_filled"
-                    app:iconPadding="16dp"
-                    app:iconSize="30dp"
-                    app:iconTint="?attr/colorPrimary" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ic_tema"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="8dp"
+                android:background="?attr/colorOutline" />
+
+            <!-- Menu -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/menu_sinkronisasi_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="8dp">
+
+                <!-- Ikon Start -->
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="2dp"
-                    android:src="@drawable/ic_devider" />
+                    android:id="@+id/ic_sinkronisasi"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_sync_outline"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="?attr/colorPrimary" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/menu_sinkron"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_width="match_parent"
+                <!-- Teks -->
+                <TextView
+                    android:id="@+id/menu_sinkronisasi"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:drawablePadding="8dp"
+                    android:layout_marginStart="10dp"
                     android:gravity="center_vertical|start"
-                    android:paddingVertical="6dp"
                     android:text="Sinkronisasi"
-                    android:textAllCaps="false"
                     android:textColor="?attr/colorOnBackground"
                     android:textSize="14sp"
-                    app:icon="@drawable/ic_sync_outline"
-                    app:iconPadding="16dp"
-                    app:iconSize="30dp"
-                    app:iconTint="?attr/colorPrimary" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ic_sinkronisasi"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="8dp"
+                android:background="?attr/colorOutline" />
+
+            <!-- Menu -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/menu_pencadangan_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="8dp">
+
+                <!-- Ikon Start -->
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="2dp"
-                    android:src="@drawable/ic_devider" />
+                    android:id="@+id/ic_pencadangan"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_cloud_backup"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="?attr/colorPrimary" />
 
-                <com.google.android.material.button.MaterialButton
+                <!-- Teks -->
+                <TextView
                     android:id="@+id/menu_pencadangan"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:drawablePadding="8dp"
+                    android:layout_marginStart="10dp"
                     android:gravity="center_vertical|start"
-                    android:paddingVertical="6dp"
                     android:text="Pencadangan"
-                    android:textAllCaps="false"
                     android:textColor="?attr/colorOnBackground"
                     android:textSize="14sp"
-                    app:icon="@drawable/ic_cloud_backup"
-                    app:iconPadding="16dp"
-                    app:iconSize="30dp"
-                    app:iconTint="?attr/colorPrimary" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ic_pencadangan"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="8dp"
+                android:background="?attr/colorOutline" />
+
+            <!-- Menu -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/menu_bahasa_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="8dp">
+
+                <!-- Ikon Start -->
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="2dp"
-                    android:src="@drawable/ic_devider" />
+                    android:id="@+id/ic_bahasa"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_language"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="?attr/colorPrimary" />
 
-                <com.google.android.material.button.MaterialButton
+                <!-- Teks -->
+                <TextView
                     android:id="@+id/menu_bahasa"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:drawablePadding="8dp"
+                    android:layout_marginStart="10dp"
                     android:gravity="center_vertical|start"
-                    android:paddingVertical="6dp"
-                    android:text="Bahasa"
-                    android:textAllCaps="false"
+                    android:text="Pencadangan"
                     android:textColor="?attr/colorOnBackground"
                     android:textSize="14sp"
-                    app:icon="@drawable/ic_language"
-                    app:iconPadding="16dp"
-                    app:iconSize="30dp"
-                    app:iconTint="?attr/colorPrimary" />
-
-            </LinearLayout>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ic_bahasa"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
-
     </ScrollView>
-
 </LinearLayout>

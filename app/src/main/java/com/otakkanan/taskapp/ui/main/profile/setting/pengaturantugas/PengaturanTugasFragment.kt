@@ -32,19 +32,16 @@ class PengaturanTugasFragment : Fragment() {
         hideBottomNavigation()
         setupToolbar()
 
-        // Handle klik untuk dropdown
-        binding.menuOpsi.setOnClickListener {
+//      Handle klik untuk dropdown
+        binding.menuOpsiPengurutanContainer.setOnClickListener {
             val opsiPengurutan = binding.opsiPengurutan
-            val devider = binding.devider
-            val iconEnd = binding.iconEnd
+            val icoonDropdown = binding.icDropdown
             if (opsiPengurutan.visibility == View.GONE) {
                 opsiPengurutan.visibility = View.VISIBLE
-                devider.visibility = View.VISIBLE
-                iconEnd.setImageResource(R.drawable.ic_up_dropdown)
+                icoonDropdown.setImageResource(R.drawable.ic_up_dropdown)
             } else {
                 opsiPengurutan.visibility = View.GONE
-                devider.visibility = View.GONE
-                iconEnd.setImageResource(R.drawable.ic_down_dropdown)
+                icoonDropdown.setImageResource(R.drawable.ic_down_dropdown)
             }
         }
 

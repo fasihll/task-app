@@ -1,11 +1,11 @@
 package com.otakkanan.taskapp.ui.main.profile.setting
 
-import androidx.fragment.app.viewModels
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.otakkanan.taskapp.R
@@ -33,7 +33,7 @@ class SettingFragment : Fragment() {
         hideBottomNavigation()
         setupToolbar()
 
-        binding.menuPengaturantugas.setOnClickListener {
+        binding.menuPengaturanTugasContainer.setOnClickListener {
             findNavController().navigate(R.id.action_settingFragment_to_pengaturanTugasFragment)
         }
 
