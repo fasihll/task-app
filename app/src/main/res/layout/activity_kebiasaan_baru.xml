@@ -5,8 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.tugas.tugasberulangbaru.TugasBerulangBaruActivity">
-
+    tools:context=".ui.kebiasaan.KebiasaanBaruActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,7 +28,7 @@
                 app:menu="@menu/top_app_bar_tugas_baru"
                 app:navigationIcon="@drawable/ic_arrow_back_24"
                 app:navigationIconTint="@color/md_theme_onBackground"
-                app:title="@string/tugas_baru" />
+                app:title="@string/kebiasaan_baru" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -88,33 +87,43 @@
 
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="start|center_vertical"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/ic_add_box_24"
-                            app:tint="@color/md_theme_primary" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="14dp"
-                            android:fontFamily="@font/inter_24pt_regular"
-                            android:text="@string/tambahkan_sub_tugas"
-                            android:textColor="@color/md_theme_onBackground"
-                            android:textSize="15sp" />
-                    </LinearLayout>
-
                     <com.google.android.material.divider.MaterialDivider
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="15dp" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_18pt_semibold"
+                        android:text="Evaluasi Pengerjaann"
+                        android:textColor="@color/md_theme_primary"
+                        android:textSize="16sp" />
+
+                    <RadioGroup
+                        android:id="@+id/radioGroupEvaluasi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checkedButton="@+id/radio_button_1">
+
+                    <RadioButton
+                        android:id="@+id/rb_yes_or_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:checked="true"
+                        android:text="Ya atau tidak" />
+
+                        <RadioButton
+                            android:id="@+id/rb_numerik"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Nilai numerik" />
+                    </RadioGroup>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="15dp" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -133,6 +142,7 @@
                             android:id="@+id/rb_all_day"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:checked="true"
                             android:text="Tiap hari" />
 
                         <RadioButton
@@ -206,138 +216,6 @@
                                 android:layout_gravity="fill_horizontal"
                                 android:text="Minggu" />
                         </GridLayout>
-
-                        <RadioButton
-                            android:id="@+id/rb_specific_month"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="Tanggal tertentu dalam sebulan" />
-
-                        <LinearLayout
-                            android:id="@+id/specific_month_layout"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="start|center_vertical"
-                            android:visibility="gone"
-                            android:orientation="horizontal">
-
-                            <com.google.android.material.card.MaterialCardView
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_marginStart="32dp"
-                                style="?attr/materialCardViewFilledStyle"
-                                app:cardBackgroundColor="@color/md_theme_primaryFixed"
-                                app:cardCornerRadius="7dp">
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginHorizontal="7dp"
-                                    android:layout_marginVertical="1dp"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center_horizontal|center_vertical"
-                                        android:fontFamily="@font/inter_18pt_regular"
-                                        android:text="Tanggal "
-                                        android:textColor="@android:color/black"
-                                        android:textSize="12sp" />
-
-                                    <com.google.android.material.textfield.TextInputEditText
-                                        android:id="@+id/ed_date_of_month"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:inputType="number" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center_horizontal|center_vertical"
-                                        android:fontFamily="@font/inter_18pt_regular"
-                                        android:text="tiap bulan"
-                                        android:textColor="@android:color/black"
-                                        android:textSize="12sp" />
-                                </LinearLayout>
-
-                            </com.google.android.material.card.MaterialCardView>
-                            <Button
-                                style="?attr/materialIconButtonFilledStyle"
-                                android:id="@+id/btn_date_of_month_picker"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="6dp"
-                                app:cornerRadius="7dp"
-                                app:icon="@drawable/calendar_solid"
-                                />
-                        </LinearLayout>
-
-                        <RadioButton
-                            android:id="@+id/rb_specific_year"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="Tanggal tertentu dalam setahun" />
-
-                        <LinearLayout
-                            android:id="@+id/specific_year_layout"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="start|center_vertical"
-                            android:visibility="gone"
-                            android:orientation="horizontal">
-
-                            <com.google.android.material.card.MaterialCardView
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_marginStart="32dp"
-                                style="?attr/materialCardViewFilledStyle"
-                                app:cardBackgroundColor="@color/md_theme_primaryFixed"
-                                app:cardCornerRadius="7dp">
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginHorizontal="7dp"
-                                    android:layout_marginVertical="1dp"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center_horizontal|center_vertical"
-                                        android:fontFamily="@font/inter_18pt_regular"
-                                        android:text="Tanggal "
-                                        android:textColor="@android:color/black"
-                                        android:textSize="12sp" />
-
-                                    <com.google.android.material.textfield.TextInputEditText
-                                        android:id="@+id/ed_date_of_year"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:inputType="number" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center_horizontal|center_vertical"
-                                        android:fontFamily="@font/inter_18pt_regular"
-                                        android:text="tiap tahun"
-                                        android:textColor="@android:color/black"
-                                        android:textSize="12sp" />
-                                </LinearLayout>
-
-                            </com.google.android.material.card.MaterialCardView>
-                            <Button
-                                style="?attr/materialIconButtonFilledStyle"
-                                android:id="@+id/btn_date_of_year_picker"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="6dp"
-                                app:cornerRadius="7dp"
-                                app:icon="@drawable/calendar_solid"
-                                />
-                        </LinearLayout>
 
                         <RadioButton
                             android:id="@+id/rb_berulang"
@@ -713,6 +591,5 @@
                 app:layout_constraintStart_toStartOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

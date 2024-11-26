@@ -26,6 +26,7 @@ import com.otakkanan.taskapp.data.model.Task
 import com.otakkanan.taskapp.data.model.TaskDay
 import com.otakkanan.taskapp.data.model.Team
 import com.otakkanan.taskapp.databinding.FragmentBerandaBinding
+import com.otakkanan.taskapp.ui.kebiasaan.KebiasaanBaruActivity
 import com.otakkanan.taskapp.ui.main.beranda.sliders.SlidersAdapter
 import com.otakkanan.taskapp.ui.main.beranda.sliders.tim.TaskAdapter
 import com.otakkanan.taskapp.ui.main.beranda.tugas_harian.TaskDayAdapter
@@ -157,8 +158,8 @@ class BerandaFragment : Fragment() {
                 startActivity(Intent(requireContext(), TugasBerulangBaruActivity::class.java))
             }
             kebiasaan.setOnClickListener {
-//                dialog.dismiss()
-//                startActivity(Intent(requireContext(),KebiasaanActivity::class.java))
+                dialog.dismiss()
+                startActivity(Intent(requireContext(), KebiasaanBaruActivity::class.java))
             }
             goals.setOnClickListener {
                 dialog.dismiss()

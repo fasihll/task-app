@@ -16,6 +16,9 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".ui.kebiasaan.KebiasaanBaruActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.main.goals.AddGoalsActivity"
             android:exported="false" />
         <activity
