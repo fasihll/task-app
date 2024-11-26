@@ -1,13 +1,255 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/md_theme_background"
+    android:orientation="vertical"
     tools:context=".ui.main.profile.setting.notifikasi.NotifikasiFragment">
 
-    <TextView
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:elevation="4dp"
+        app:navigationIcon="@drawable/ic_back_24"
+        app:subtitleTextColor="?attr/colorOnBackground">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="Notifikasi"
+            android:textColor="?attr/colorOnBackground"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp">
+
+            <!-- Menu -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/menu_tampilkan_notifikasi_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="8dp">
+
+                <!-- Ikon Start -->
+                <ImageView
+                    android:id="@+id/ic_tampilkan_notifikasi"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_notifications_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="?attr/colorPrimary" />
+
+                <!-- Teks -->
+                <TextView
+                    android:id="@+id/menu_tampilkan_notifikasi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:gravity="center_vertical|start"
+                    android:text="Tampilkan notifikasi"
+                    android:textColor="?attr/colorOnBackground"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_tampilkan_notifikasi"
+                    app:layout_constraintStart_toEndOf="@+id/ic_tampilkan_notifikasi"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Deskripsi -->
+                <TextView
+                    android:id="@+id/tv_tampilkan_notifikasi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Default"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="8dp"
+                android:background="?attr/colorOutline" />
+
+            <!-- Menu -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/menu_muculkan_dilayar_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="8dp">
+
+                <!-- Ikon Start -->
+                <ImageView
+                    android:id="@+id/ic_muculkan_dilayar"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_phone_status_bar"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="?attr/colorPrimary" />
+
+                <!-- Teks -->
+                <TextView
+                    android:id="@+id/menu_muculkan_dilayar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:gravity="center_vertical|start"
+                    android:text="Tampilkan prioritas"
+                    android:textColor="?attr/colorOnBackground"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/switch_muculkan_dilayar"
+                    app:layout_constraintStart_toEndOf="@+id/ic_muculkan_dilayar"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- MaterialSwitch -->
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/switch_muculkan_dilayar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="8dp"
+                android:background="?attr/colorOutline" />
+
+            <!-- Menu -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/menu_suara_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="8dp">
+
+                <!-- Ikon Start -->
+                <ImageView
+                    android:id="@+id/ic_suara"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_sound_min"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="?attr/colorPrimary" />
+
+                <!-- Teks -->
+                <TextView
+                    android:id="@+id/menu_suara"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:gravity="center_vertical|start"
+                    android:text="Suara"
+                    android:textColor="?attr/colorOnBackground"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_suara"
+                    app:layout_constraintStart_toEndOf="@+id/ic_suara"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Deskripsi -->
+                <TextView
+                    android:id="@+id/tv_suara"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Default"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="8dp"
+                android:background="?attr/colorOutline" />
+
+            <!-- Menu -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/menu_mode_jangan_ganggu_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="8dp">
+
+                <!-- Ikon Start -->
+                <ImageView
+                    android:id="@+id/ic_mode_jangan_ganggu"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_do_not_disturb_on_outline_rounded"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="?attr/colorPrimary" />
+
+                <!-- Teks -->
+                <TextView
+                    android:id="@+id/menu_mode_jangan_ganggu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:gravity="center_vertical|start"
+                    android:text="Mode jangan ganggu"
+                    android:textColor="?attr/colorOnBackground"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/switch_mode_jangan_ganggu"
+                    app:layout_constraintStart_toEndOf="@+id/ic_mode_jangan_ganggu"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- MaterialSwitch -->
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/switch_mode_jangan_ganggu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

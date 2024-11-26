@@ -64,11 +64,21 @@
         android:name="com.otakkanan.taskapp.ui.main.profile.setting.pengaturantugas.PengaturanTugasFragment"
         android:label="Pengaturan Tugas" />
 
+    <fragment
+        android:id="@+id/notifikasiFragment"
+        android:name="com.otakkanan.taskapp.ui.main.profile.setting.notifikasi.NotifikasiFragment"
+        android:label="Notifikasi" />
+
     <action
         android:id="@+id/action_profileFragment_to_settingFragment"
         app:destination="@id/settingFragment" />
+
     <action
         android:id="@+id/action_settingFragment_to_pengaturanTugasFragment"
         app:destination="@id/pengaturanTugasFragment" />
+
+    <action
+        android:id="@+id/action_settingFragment_to_notifikasiFragment"
+        app:destination="@id/notifikasiFragment" />
 
 </navigation>
