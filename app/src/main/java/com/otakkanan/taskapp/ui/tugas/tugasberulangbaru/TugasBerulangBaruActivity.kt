@@ -9,19 +9,31 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.otakkanan.taskapp.R
+import com.otakkanan.taskapp.component.DatePicker
 import com.otakkanan.taskapp.component.topsheet.TopSheetBehavior
 import com.otakkanan.taskapp.databinding.ActivityTugasBerulangBaruBinding
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
-class TugasBerulangBaruActivity : AppCompatActivity() {
+class TugasBerulangBaruActivity : AppCompatActivity(),
+    DatePicker.OnDateSelectedListener {
     private lateinit var binding: ActivityTugasBerulangBaruBinding
+
+    // Date Picker
+    private var selectedDay: Int? = null
+    private var selectedMonth: Int? = null
+    private var selectedYear: Int? = null
+
     //Tunda Tugas
     private var tundaTugas: Boolean = false
 
-        //Prioritas
-        private var prioritas: String = "Default"
-        private var rankPrioritas: Int = 1
+    //Prioritas
+    private var prioritas: String = "Default"
+    private var rankPrioritas: Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +50,35 @@ class TugasBerulangBaruActivity : AppCompatActivity() {
         setupTundaTugas()
         setupFrekuensiPengerjaan()
         setupTanggalSelesai()
+        setupTanggalMulai()
+    }
+
+    private fun setupTanggalMulai() {
+        val btnStart = binding.btnStart
+        btnStart.setOnClickListener {
+            val datePicker = DatePicker()
+            if (selectedDay != null && selectedMonth != null && selectedYear != null) {
+                datePicker.setInitialSelectedDate(selectedDay!!, selectedMonth!!, selectedYear!!)
+            }
+            datePicker.show(supportFragmentManager, "DATE_PICKER")
+//            val datePicker = MaterialDatePicker.Builder.datePicker()
+//                .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+//                .build()
+//
+//            datePicker.show(supportFragmentManager, "DATE_PICKER")
+//
+//            datePicker.addOnPositiveButtonClickListener { selection ->
+//                val selectedDate = datePicker.selection
+//                val formattedDate = selectedDate?.let {
+//                    val today = MaterialDatePicker.todayInUtcMilliseconds()
+//                    if (it == today) "Hari ini" else java.text.SimpleDateFormat(
+//                        "dd/MM/yyyy",
+//                        java.util.Locale.getDefault()
+//                    ).format(it)
+//                }
+//                binding.btnStart.text = formattedDate ?: "No date selected"
+//            }
+        }
     }
 
     private fun setupTanggalSelesai() {
@@ -61,11 +102,12 @@ class TugasBerulangBaruActivity : AppCompatActivity() {
 
     private fun setupTopBar() {
         binding.topAppBar.setOnMenuItemClickListener { menuItem ->
-            when(menuItem.itemId) {
+            when (menuItem.itemId) {
                 R.id.selesai -> {
                     finish()
                     true
                 }
+
                 else -> false
             }
         }
@@ -75,7 +117,12 @@ class TugasBerulangBaruActivity : AppCompatActivity() {
         val btnPrioritas: Button = binding.btnPrioritas
 
         btnPrioritas.text = "Default"
-        btnPrioritas.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null)  // Tidak ada ikon
+        btnPrioritas.setCompoundDrawablesWithIntrinsicBounds(
+            null,
+            null,
+            null,
+            null
+        )  // Tidak ada ikon
 
         btnPrioritas.setOnClickListener {
             val prioritasDialogView = layoutInflater.inflate(R.layout.dialog_prioritas, null)
@@ -112,8 +159,16 @@ class TugasBerulangBaruActivity : AppCompatActivity() {
 
                     // Jika prioritas bukan "Default", tambahkan ikon
                     if (rankPrioritas != 1) {
-                        val icon = ContextCompat.getDrawable(this@TugasBerulangBaruActivity, R.drawable.flag)
-                        icon?.setColorFilter(ContextCompat.getColor(this@TugasBerulangBaruActivity, R.color.md_theme_primary), android.graphics.PorterDuff.Mode.SRC_IN)
+                        val icon = ContextCompat.getDrawable(
+                            this@TugasBerulangBaruActivity,
+                            R.drawable.flag
+                        )
+                        icon?.setColorFilter(
+                            ContextCompat.getColor(
+                                this@TugasBerulangBaruActivity,
+                                R.color.md_theme_primary
+                            ), android.graphics.PorterDuff.Mode.SRC_IN
+                        )
                         btnPrioritas.setCompoundDrawablesWithIntrinsicBounds(null, null, icon, null)
                     } else {
                         btnPrioritas.text = "Default"
@@ -136,11 +191,21 @@ class TugasBerulangBaruActivity : AppCompatActivity() {
         checkBoxTundaTugas.setOnClickListener {
             if (tundaTugas) {
                 checkBoxTundaTugas.setImageResource(R.drawable.unchecked_task)
-                checkBoxTundaTugas.setColorFilter(ContextCompat.getColor(this, R.color.md_theme_secondaryContainer), android.graphics.PorterDuff.Mode.SRC_IN)
+                checkBoxTundaTugas.setColorFilter(
+                    ContextCompat.getColor(
+                        this,
+                        R.color.md_theme_secondaryContainer
+                    ), android.graphics.PorterDuff.Mode.SRC_IN
+                )
                 tundaTugas = false
             } else {
                 checkBoxTundaTugas.setImageResource(R.drawable.checked_task)
-                checkBoxTundaTugas.setColorFilter(ContextCompat.getColor(this, R.color.md_theme_primary), android.graphics.PorterDuff.Mode.SRC_IN)
+                checkBoxTundaTugas.setColorFilter(
+                    ContextCompat.getColor(
+                        this,
+                        R.color.md_theme_primary
+                    ), android.graphics.PorterDuff.Mode.SRC_IN
+                )
                 tundaTugas = true
             }
         }
@@ -159,6 +224,7 @@ class TugasBerulangBaruActivity : AppCompatActivity() {
                         unCheckedSpecificDay()
                         clearEditText(0)
                     }
+
                     R.id.rb_specific_day -> {
                         specificDayLayout.visibility = View.VISIBLE
                         specificMonthLayout.visibility = View.GONE
@@ -166,6 +232,7 @@ class TugasBerulangBaruActivity : AppCompatActivity() {
                         berulangLayout.visibility = View.GONE
                         clearEditText(0)
                     }
+
                     R.id.rb_specific_month -> {
                         specificDayLayout.visibility = View.GONE
                         specificMonthLayout.visibility = View.VISIBLE
@@ -174,6 +241,7 @@ class TugasBerulangBaruActivity : AppCompatActivity() {
                         unCheckedSpecificDay()
                         clearEditText(1)
                     }
+
                     R.id.rb_specific_year -> {
                         specificDayLayout.visibility = View.GONE
                         specificMonthLayout.visibility = View.GONE
@@ -182,6 +250,7 @@ class TugasBerulangBaruActivity : AppCompatActivity() {
                         unCheckedSpecificDay()
                         clearEditText(2)
                     }
+
                     R.id.rb_berulang -> {
                         specificDayLayout.visibility = View.GONE
                         specificMonthLayout.visibility = View.GONE
@@ -190,6 +259,7 @@ class TugasBerulangBaruActivity : AppCompatActivity() {
                         unCheckedSpecificDay()
                         clearEditText(3)
                     }
+
                     else -> {
                         specificDayLayout.visibility = View.GONE
                         specificMonthLayout.visibility = View.GONE
@@ -201,8 +271,9 @@ class TugasBerulangBaruActivity : AppCompatActivity() {
             }
         }
     }
-    private fun unCheckedSpecificDay(){
-        with(binding){
+
+    private fun unCheckedSpecificDay() {
+        with(binding) {
             checkBoxMonday.isChecked = false
             checkBoxTuesday.isChecked = false
             checkBoxWednesday.isChecked = false
@@ -213,26 +284,30 @@ class TugasBerulangBaruActivity : AppCompatActivity() {
         }
     }
 
-    private fun clearEditText(rbs: Int){
-        with(binding){
-            when(rbs){
+    private fun clearEditText(rbs: Int) {
+        with(binding) {
+            when (rbs) {
                 1 -> {
                     edDateOfYear.setText("")
                     edHariAktivitas.setText("")
                     edHariIstirahat.setText("")
                 }
+
                 2 -> {
                     edDateOfMonth.setText("")
                     edHariAktivitas.setText("")
                     edHariIstirahat.setText("")
                 }
+
                 3 -> {
                     edDateOfYear.setText("")
                     edDateOfMonth.setText("")
                 }
+
                 4 -> {
                     edTglSelesaiTugasBerulang.setText("")
                 }
+
                 else -> {
                     edDateOfYear.setText("")
                     edDateOfMonth.setText("")
@@ -240,6 +315,23 @@ class TugasBerulangBaruActivity : AppCompatActivity() {
                     edHariIstirahat.setText("")
                 }
             }
+        }
+    }
+
+    override fun onDateSelected(date: String) {
+        // Tampilkan tanggal terpilih di UI
+        binding.btnStart.text = date
+        try {
+            val parts = date.split(" ") // Pecah string tanggal menjadi bagian
+            selectedDay = parts[0].toInt()
+
+            val sdf = SimpleDateFormat("MMMM, yyyy", Locale.getDefault())
+            val parsedDate = sdf.parse(parts[1] + " " + parts[2]) // Format "MMMM yyyy"
+            val calendar = Calendar.getInstance().apply { time = parsedDate!! }
+            selectedMonth = calendar.get(Calendar.MONTH)
+            selectedYear = calendar.get(Calendar.YEAR)
+        } catch (e: Exception) {
+            e.printStackTrace() // Debug jika format salah
         }
     }
 
