@@ -62,6 +62,12 @@
                     app:iconSize="30dp"
                     app:iconTint="?attr/colorPrimary" />
 
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="2dp"
+                    android:src="@drawable/ic_devider" />
+
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/menu_notifikasi"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
@@ -78,6 +84,12 @@
                     app:iconPadding="16dp"
                     app:iconSize="30dp"
                     app:iconTint="?attr/colorPrimary" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="2dp"
+                    android:src="@drawable/ic_devider" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/menu_tema"
@@ -96,6 +108,12 @@
                     app:iconSize="30dp"
                     app:iconTint="?attr/colorPrimary" />
 
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="2dp"
+                    android:src="@drawable/ic_devider" />
+
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/menu_sinkron"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
@@ -113,6 +131,12 @@
                     app:iconSize="30dp"
                     app:iconTint="?attr/colorPrimary" />
 
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="2dp"
+                    android:src="@drawable/ic_devider" />
+
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/menu_pencadangan"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
@@ -129,6 +153,12 @@
                     app:iconPadding="16dp"
                     app:iconSize="30dp"
                     app:iconTint="?attr/colorPrimary" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="2dp"
+                    android:src="@drawable/ic_devider" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/menu_bahasa"
