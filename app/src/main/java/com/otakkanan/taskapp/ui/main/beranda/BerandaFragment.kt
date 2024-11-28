@@ -30,7 +30,8 @@ import com.otakkanan.taskapp.ui.kebiasaan.KebiasaanBaruActivity
 import com.otakkanan.taskapp.ui.main.beranda.sliders.SlidersAdapter
 import com.otakkanan.taskapp.ui.main.beranda.sliders.tim.TaskAdapter
 import com.otakkanan.taskapp.ui.main.beranda.tugas_harian.TaskDayAdapter
-import com.otakkanan.taskapp.ui.main.goals.AddGoalsActivity
+import com.otakkanan.taskapp.ui.goals.AddGoalsActivity
+import com.otakkanan.taskapp.ui.proyek.ProyekBaruActivity
 import com.otakkanan.taskapp.ui.tugas.tugasbaru.TugasBaruActivity
 import com.otakkanan.taskapp.ui.tugas.tugasberulangbaru.TugasBerulangBaruActivity
 import java.time.LocalTime
@@ -163,11 +164,11 @@ class BerandaFragment : Fragment() {
             }
             goals.setOnClickListener {
                 dialog.dismiss()
-                startActivity(Intent(requireContext(),AddGoalsActivity::class.java))
+                startActivity(Intent(requireContext(), AddGoalsActivity::class.java))
             }
             proyekTim.setOnClickListener {
-//                dialog.dismiss()
-//                startActivity(Intent(requireContext(),ProyekTimActivity::class.java))
+                dialog.dismiss()
+                startActivity(Intent(requireContext(),ProyekBaruActivity::class.java))
             }
         }
     }

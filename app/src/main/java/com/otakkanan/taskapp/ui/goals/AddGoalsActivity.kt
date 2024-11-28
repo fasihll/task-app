@@ -1,4 +1,4 @@
-package com.otakkanan.taskapp.ui.main.goals
+package com.otakkanan.taskapp.ui.goals
 
 import android.os.Bundle
 import android.view.View
