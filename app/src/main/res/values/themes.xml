@@ -74,4 +74,5 @@
         <item name="android:windowAnimationStyle">@style/Animation.Design.TopSheetDialog</item>
         <item name="bottomSheetStyle">@style/Widget.Design.TopSheet.Modal</item>
     </style>
+
 </resources>

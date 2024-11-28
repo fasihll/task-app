@@ -1,4 +1,4 @@
-package com.otakkanan.taskapp.ui.main.target
+package com.otakkanan.taskapp.ui.main.goals
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

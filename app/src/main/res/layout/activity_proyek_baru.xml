@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.proyek.ProyekBaruActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="200dp"
+            android:paddingHorizontal="32dp"
+            android:paddingTop="6dp">
+            <RelativeLayout
+                android:id="@+id/topBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                app:layout_constraintBaseline_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+                <ImageView
+                    android:id="@+id/btn_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="tombol kembali"
+                    android:src="@drawable/arrow_left"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="11.36dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                    android:layout_alignParentStart="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="tombol kembali"
+                    android:text="Proyek Baru"
+                    android:textSize="26sp"
+                    android:fontFamily="@font/inter_24pt_bold"
+                    android:textColor="?attr/colorOnBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_centerVertical="true"
+                    android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                    android:layout_toEndOf="@id/btn_back"/>
+                <TextView
+                    android:id="@+id/btn_selesai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="tombol kembali"
+                    android:text="Selesai"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/inter_24pt_medium"
+                    android:layout_centerVertical="true"
+                    android:textColor="?attr/colorPrimary"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                    android:layout_alignParentEnd="true"/>
+            </RelativeLayout>
+
+            <!--            content-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nama_goals"
+                android:layout_width="match_parent"
+                android:layout_marginTop="40dp"
+                android:layout_height="50dp"
+                app:boxCornerRadiusBottomEnd="14dp"
+                app:boxCornerRadiusBottomStart="14dp"
+                app:boxCornerRadiusTopEnd="14dp"
+                app:boxCornerRadiusTopStart="14dp"
+                android:hint="Nama Proyek"
+                app:layout_constraintTop_toBottomOf="@id/topBar">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="10dp"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/deskripsi"
+                android:layout_width="match_parent"
+                android:layout_marginTop="14dp"
+                android:layout_height="50dp"
+                app:boxCornerRadiusBottomEnd="14dp"
+                app:boxCornerRadiusBottomStart="14dp"
+                app:boxCornerRadiusTopEnd="14dp"
+                app:boxCornerRadiusTopStart="14dp"
+                android:hint="Deskripsi (Opsional)"
+                app:boxBackgroundMode="outline"
+                app:shapeAppearanceOverlay="?attr/shapeAppearanceMediumComponent"
+                app:layout_constraintTop_toBottomOf="@id/nama_goals">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="10dp"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/btn_tambah_tugas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="12dp"
+                android:drawableStart="@drawable/ic_add_box_24"
+                android:text="Tambah tugas"
+                android:textSize="19sp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                android:drawablePadding="15dp"
+                android:fontFamily="@font/inter_24pt_regular"
+                app:layout_constraintTop_toBottomOf="@id/deskripsi"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/container_frekuensi_pengerjaan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="22dp"
+                app:layout_constraintTop_toBottomOf="@id/btn_tambah_tugas">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/md_theme_onSecondaryFixedVariant"
+                    android:alpha="0.3" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:paddingTop="13dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_18pt_semibold"
+                        android:text="Frekuensi Pengerjaan"
+                        android:textColor="@color/md_theme_primary"
+                        android:textSize="16sp" />
+
+                    <RadioGroup
+                        android:id="@+id/radioGroupFrekuensi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checkedButton="@+id/radio_button_1">
+
+                        <RadioButton
+                            android:id="@+id/rb_all_day"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Tiap hari" />
+
+                        <RadioButton
+                            android:id="@+id/rb_specific_day"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Hari tertentu dalam seminggu" />
+
+                        <GridLayout
+                            android:id="@+id/specific_day_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="8dp"
+                            android:layout_marginStart="16dp"
+                            android:columnCount="3"
+                            android:visibility="gone"
+                            tools:visibility="visible">
+
+                            <CheckBox
+                                android:id="@+id/checkBoxMonday"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="fill_horizontal"
+                                android:text="Senin" />
+
+                            <CheckBox
+                                android:id="@+id/checkBoxTuesday"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="fill_horizontal"
+                                android:text="Selasa" />
+
+                            <CheckBox
+                                android:id="@+id/checkBoxWednesday"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="fill_horizontal"
+                                android:text="Rabu" />
+
+                            <CheckBox
+                                android:id="@+id/checkBoxThursday"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="fill_horizontal"
+                                android:text="Kamis" />
+
+                            <CheckBox
+                                android:id="@+id/checkBoxFriday"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="fill_horizontal"
+                                android:text="Jumat" />
+
+                            <CheckBox
+                                android:id="@+id/checkBoxSaturday"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="fill_horizontal"
+                                android:text="Sabtu" />
+
+                            <CheckBox
+                                android:id="@+id/checkBoxSunday"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="fill_horizontal"
+                                android:text="Minggu" />
+                        </GridLayout>
+
+                        <RadioButton
+                            android:id="@+id/rb_specific_month"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Tanggal tertentu dalam sebulan" />
+
+                        <com.kizitonwose.calendarview.CalendarView
+                            android:id="@+id/specific_month_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:visibility="gone"
+                            tools:visibility="visible"
+                            tools:itemCount="3"
+                            android:layout_marginHorizontal="35dp"
+                            app:cv_dayViewResource="@layout/calendar_specific_month_layout" />
+
+                        <RadioButton
+                            android:id="@+id/rb_specific_year"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Tanggal tertentu dalam setahun" />
+
+                        <LinearLayout
+                            android:id="@+id/specific_year_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start|center_vertical"
+                            android:visibility="gone"
+                            tools:visibility="visible"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="32dp"
+                                style="?attr/materialCardViewFilledStyle"
+                                app:cardBackgroundColor="@color/md_theme_primaryFixed"
+                                app:cardCornerRadius="7dp">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="7dp"
+                                    android:layout_marginVertical="1dp"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal|center_vertical"
+                                        android:fontFamily="@font/inter_18pt_regular"
+                                        android:text="Tanggal "
+                                        android:textColor="@android:color/black"
+                                        android:textSize="12sp" />
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/ed_date_of_year"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:inputType="number" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal|center_vertical"
+                                        android:fontFamily="@font/inter_18pt_regular"
+                                        android:text="tiap tahun"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="12sp" />
+                                </LinearLayout>
+
+                            </com.google.android.material.card.MaterialCardView>
+                            <Button
+                                style="?attr/materialIconButtonFilledStyle"
+                                android:id="@+id/btn_date_of_year_picker"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="6dp"
+                                app:cornerRadius="7dp"
+                                app:icon="@drawable/calendar_solid"
+                                />
+                        </LinearLayout>
+
+                        <RadioButton
+                            android:id="@+id/rb_berulang"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Siklus ativitas-istirahat" />
+
+                        <LinearLayout
+                            android:id="@+id/berulang_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            tools:visibility="visible"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="8dp"
+                                style="?attr/materialCardViewFilledStyle"
+                                app:cardBackgroundColor="@color/md_theme_primaryFixed"
+                                app:cardCornerRadius="7dp">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="7dp"
+                                    android:layout_marginVertical="1dp"
+                                    android:orientation="horizontal">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/ed_hari_aktivitas"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:hint="Aktivitas"
+                                        android:textColorHint="@android:color/darker_gray"
+                                        android:inputType="number" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal|center_vertical"
+                                        android:fontFamily="@font/inter_18pt_regular"
+                                        android:text=" hari x "
+                                        android:textColor="@android:color/black"
+                                        android:textSize="12sp" />
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/ed_hari_istirahat"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:inputType="number"
+                                        android:textColorHint="@android:color/darker_gray"
+                                        android:hint="Istirahat"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal|center_vertical"
+                                        android:fontFamily="@font/inter_18pt_regular"
+                                        android:text=" hari"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="12sp" />
+                                </LinearLayout>
+
+                            </com.google.android.material.card.MaterialCardView>
+                        </LinearLayout>
+                    </RadioGroup>
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/container_tgl_mulai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="5dp"
+                app:layout_constraintTop_toBottomOf="@id/container_frekuensi_pengerjaan">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/md_theme_onSecondaryFixedVariant"
+                    android:alpha="0.3" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="13dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tanggal Mulai"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/inter_24pt_regular"
+                        android:drawableStart="@drawable/calendar_start"
+                        android:drawablePadding="11dp"
+                        android:gravity="center_vertical"/>
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_tgl_mulai"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="6dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                        app:cardBackgroundColor="?attr/colorPrimaryFixed">
+                        <TextView
+                            android:id="@+id/txt_tgl_mulai"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hari ini"
+                            android:textSize="15sp"
+                            android:textColor="?attr/colorPrimaryContainer"
+                            android:fontFamily="@font/inter_24pt_semibold"
+                            android:padding="5dp"/>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/container_tgl_selesai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/container_tgl_mulai">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/md_theme_onSecondaryFixedVariant"
+                    android:alpha="0.3" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingVertical="13dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tanggal Selesai"
+                            android:textSize="15sp"
+                            android:fontFamily="@font/inter_24pt_regular"
+                            android:drawableStart="@drawable/calendar_end"
+                            android:drawablePadding="11dp"
+                            android:gravity="center_vertical"/>
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <com.google.android.material.materialswitch.MaterialSwitch
+                            android:id="@+id/sw_tgl_selesai"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="false"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layout_tgl_selesai"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        android:gravity="center_horizontal|center_vertical">
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="7dp"
+                            app:cardBackgroundColor="?attr/colorPrimaryFixed">
+                            <TextView
+                                android:id="@+id/txt_tgl_selesai_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="15/10/2024"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/inter_24pt_semibold"
+                                android:textColor="?attr/colorPrimaryContainer"
+                                android:padding="5dp"/>
+                        </androidx.cardview.widget.CardView>
+                        <EditText
+                            android:id="@+id/ed_tgl_selesai"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:inputType="number"
+                            android:hint="45"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="hari"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/container_pengingat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/container_tgl_selesai">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/md_theme_onSecondaryFixedVariant"
+                    android:alpha="0.3" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="13dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pengingat"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/inter_24pt_regular"
+                        android:drawableStart="@drawable/ic_notifications_24"
+                        android:drawablePadding="11dp"
+                        android:gravity="center_vertical"/>
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_pengingat"
+                        android:layout_width="33dp"
+                        android:layout_height="33dp"
+                        app:cardCornerRadius="16.5dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                        app:cardBackgroundColor="?attr/colorPrimaryFixed">
+                        <TextView
+                            android:id="@+id/txt_pengingat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textSize="15sp"
+                            android:text="0"
+                            android:textAlignment="center"
+                            android:textColor="?attr/colorPrimaryContainer"
+                            android:fontFamily="@font/inter_24pt_semibold"
+                            android:padding="5dp"/>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/container_prioritas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/container_pengingat">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/md_theme_onSecondaryFixedVariant"
+                    android:alpha="0.3" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="13dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Prioritas"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/inter_24pt_regular"
+                        android:drawableStart="@drawable/ic_flag_24"
+                        android:drawablePadding="11dp"
+                        android:gravity="center_vertical"/>
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_prioritas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="6dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                        app:cardBackgroundColor="?attr/colorPrimaryFixed">
+                        <TextView
+                            android:id="@+id/txt_prioritas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Default"
+                            android:textSize="15sp"
+                            android:textColor="?attr/colorPrimaryContainer"
+                            android:fontFamily="@font/inter_24pt_semibold"
+                            android:padding="5dp"/>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/container_tunda_tugas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/container_prioritas">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/md_theme_onSecondaryFixedVariant"
+                    android:alpha="0.3" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="13dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tunda Tugas"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/inter_24pt_regular"
+                        android:drawableStart="@drawable/ic_pending_24dp"
+                        android:drawablePadding="11dp"
+                        android:gravity="center_vertical"/>
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/tunda_tugas_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:button="@drawable/task_list_selector" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

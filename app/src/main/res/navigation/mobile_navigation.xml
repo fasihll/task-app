@@ -35,7 +35,7 @@
 
     <fragment
         android:id="@+id/navigation_goals"
-        android:name="com.otakkanan.taskapp.ui.main.target.GoalsFragement"
+        android:name="com.otakkanan.taskapp.ui.main.goals.GoalsFragement"
         android:label="@string/goals_title"
         tools:layout="@layout/fragment_goals" />
 
