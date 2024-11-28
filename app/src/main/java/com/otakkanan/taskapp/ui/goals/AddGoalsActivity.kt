@@ -13,8 +13,10 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.otakkanan.taskapp.R
+import com.otakkanan.taskapp.component.DatePicker
 import com.otakkanan.taskapp.databinding.ActivityAddGoalsBinding
 import com.otakkanan.taskapp.databinding.ActivityMainBinding
+import com.otakkanan.taskapp.databinding.DialogPengingatBinding
 import com.otakkanan.taskapp.databinding.FragmentBerandaBinding
 import org.w3c.dom.Text
 
@@ -22,6 +24,11 @@ class AddGoalsActivity : AppCompatActivity() {
 
     private var _binding: ActivityAddGoalsBinding? = null
     private val binding get() = _binding!!
+
+    // Date Picker
+    private var selectedDay: Int? = null
+    private var selectedMonth: Int? = null
+    private var selectedYear: Int? = null
 
     //Prioritas
     private var prioritas: String = "Default"
@@ -43,14 +50,27 @@ class AddGoalsActivity : AppCompatActivity() {
                 finish()
             }
             btnSelesai.setOnClickListener{
-                Toast.makeText(this@AddGoalsActivity,"Selesai",Toast.LENGTH_SHORT).show()
+                finish()
             }
         }
 
         setupTanggalSelesai()
         setupPrioritas()
+        setupPrengingat()
+        setupTanggalMulai()
 
 
+    }
+
+    private fun setupTanggalMulai() {
+        val btnTglMulai = binding.btnTglMulai
+        btnTglMulai.setOnClickListener {
+            val datePicker = DatePicker()
+            if (selectedDay != null && selectedMonth != null && selectedYear != null) {
+                datePicker.setInitialSelectedDate(selectedDay!!, selectedMonth!!, selectedYear!!)
+            }
+            datePicker.show(supportFragmentManager, "DATE_PICKER")
+        }
     }
 
     private fun setupTanggalSelesai() {
@@ -130,6 +150,25 @@ class AddGoalsActivity : AppCompatActivity() {
                 findViewById<View>(R.id.btn_cancel).setOnClickListener {
                     dialog.dismiss()
                 }
+            }
+        }
+    }
+
+    private fun setupPrengingat() {
+        val btnPengingat = binding.btnPengingat
+        btnPengingat.setOnClickListener {
+            val pengingatDialogView = DialogPengingatBinding.inflate(layoutInflater).root
+            val dialog = MaterialAlertDialogBuilder(this)
+                .setView(pengingatDialogView)
+                .show()
+            val btnOk = pengingatDialogView.findViewById<Button>(R.id.btn_ok)
+            val btnCancel = pengingatDialogView.findViewById<Button>(R.id.btn_cancel)
+            btnOk.setOnClickListener {
+                dialog.dismiss()
+            }
+
+            btnCancel.setOnClickListener {
+                dialog.dismiss()
             }
         }
     }

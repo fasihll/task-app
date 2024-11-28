@@ -73,6 +73,16 @@ class ProyekBaruActivity : AppCompatActivity(),
                 v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
                 insets
             }
+
+            with(binding){
+                btnBack.setOnClickListener{
+                    finish()
+                }
+                btnSelesai.setOnClickListener{
+                    finish()
+                }
+            }
+
             setupCalenderMonth()
             setupPrioritas()
             setupPrengingat()
