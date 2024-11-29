@@ -5,25 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.Goal
 import com.otakkanan.taskapp.databinding.FragmentGoalsBinding
 import com.otakkanan.taskapp.utils.Helper.loadJSONFromAssets
 import com.otakkanan.taskapp.utils.Helper.parseGoalsJson
 
-class GoalsFragement : Fragment() {
+class GoalsFragment : Fragment() {
 
     private var _binding: FragmentGoalsBinding? = null
     private val binding get() = _binding!!
-
-    // Data dummy
-    private val items = listOf(
-        Goal(name = "Goal 1", description = "Complete the project documentation", endDate = "2024-11-01", progress = 40),
-        Goal(name = "Goal 2", description = "Fix bugs in the application", endDate = "2024-11-15", progress = 60),
-        Goal(name = "Goal 3", description = "Prepare the project presentation", endDate = "2024-11-20", progress = 10),
-        Goal(name = "Goal 4", description = "Deploy to production environment", endDate = "2024-12-01", progress = 90)
-    )
 
     private lateinit var adapter: GoalAdapter
 
@@ -38,6 +31,10 @@ class GoalsFragement : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupRecyclerView()
+    }
+
+    private fun setupRecyclerView() {
         // Membaca file JSON dari assets
         val jsonString = loadJSONFromAssets(requireContext(), "goals_dummy.json")
 
@@ -45,13 +42,16 @@ class GoalsFragement : Fragment() {
         val goalsList: List<Goal> = parseGoalsJson(jsonString)
 
         // Inisialisasi adapter
-        adapter = GoalAdapter(goalsList)
+        adapter = GoalAdapter(goalsList) { goal ->
+            val bundle = Bundle().apply {
+                putParcelable("goal", goal)
+            }
+            findNavController().navigate(R.id.action_goalsFragment_to_goalDetailFragment, bundle)
+        }
 
         // Setup RecyclerView
-        binding.rvGoals.apply {
-            layoutManager = LinearLayoutManager(requireContext())
-            adapter = this@GoalsFragement.adapter
-        }
+        binding.rvGoals.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvGoals.adapter = adapter
     }
 
     override fun onDestroyView() {

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ui.main.goals.detailGoal.GoalDetailFragment">
+
+    <!-- Scrollable Layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Goal Name -->
+            <TextView
+                android:id="@+id/tvGoalName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:text="Goal Name"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <!-- Goal Description -->
+            <TextView
+                android:id="@+id/tvGoalDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:text="Description: Lorem ipsum dolor sit amet"
+                android:textSize="16sp" />
+
+            <!-- Goal Dates -->
+            <TextView
+                android:id="@+id/tvStartGoalDates"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:text="Start Date: 2024-01-01"
+                android:textSize="14sp" />
+
+            <!-- Goal Dates -->
+            <TextView
+                android:id="@+id/tvEndGoalDates"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:text="End Date: 2024-03-01"
+                android:textSize="14sp" />
+
+            <!-- Goal Priority -->
+            <TextView
+                android:id="@+id/tvGoalPriority"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                android:text="Priority: High"
+                android:textSize="14sp" />
+
+            <!-- Progress Section -->
+            <FrameLayout
+                android:id="@+id/progressContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="16dp">
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/progressBar"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:indeterminate="false"
+                    app:indicatorColor="@color/md_theme_primary"
+                    app:indicatorSize="80dp"
+                    app:trackColor="@color/md_theme_primaryFixed"
+                    app:trackThickness="8dp" />
+
+                <TextView
+                    android:id="@+id/txtProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="40%"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </FrameLayout>
+
+            <!-- Goal Team Section -->
+            <TextView
+                android:id="@+id/tvGoalTeam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingBottom="8dp"
+                android:text="Team Members"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTeam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                tools:listitem="@layout/anggota_item" />
+
+            <!-- Goal Target Section -->
+            <TextView
+                android:id="@+id/tvGoalTargets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingBottom="8dp"
+                android:text="Targets"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTargets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/anggota_item" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

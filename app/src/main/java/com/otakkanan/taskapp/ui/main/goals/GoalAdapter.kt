@@ -1,46 +1,41 @@
 package com.otakkanan.taskapp.ui.main.goals
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.progressindicator.CircularProgressIndicator
-import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.Goal
+import com.otakkanan.taskapp.databinding.ItemGoalBinding
 
 class GoalAdapter(
-    private val itemList: List<Goal>
-) : RecyclerView.Adapter<GoalAdapter.ItemViewHolder>() {
+    private val itemList: List<Goal>,
+    private val onItemClick: (Goal) -> Unit // Callback untuk menangani klik pada item
+) : RecyclerView.Adapter<GoalAdapter.ViewHolder>() {
 
-    // ViewHolder class
-    class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val txtTitle: TextView = view.findViewById(R.id.txtTitle)
-        val txtDescription: TextView = view.findViewById(R.id.txtDescription)
-        val txtDate: TextView = view.findViewById(R.id.txtDate)
-        val txtProgress: TextView = view.findViewById(R.id.txtProgress)
-        val progressBar: CircularProgressIndicator = view.findViewById(R.id.progressBar)
+    inner class ViewHolder(private val binding: ItemGoalBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(goal: Goal) {
+            // Mengisi tampilan secara manual
+            binding.txtTitle.text = goal.name
+            binding.txtDescription.text = goal.description
+            binding.txtDate.text = goal.endDate
+            binding.progressBar.progress = goal.progress ?: 0 // Menggunakan nilai default jika null
+
+            // Menambahkan listener klik pada item
+            binding.root.setOnClickListener {
+                onItemClick(goal) // Memanggil callback saat item di-klik
+            }
+        }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_goal, parent, false)
-        return ItemViewHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val binding = ItemGoalBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        val item = itemList[position]
-
-        // Set text fields
-        holder.txtTitle.text = item.name
-        holder.txtDescription.text = item.description
-        holder.txtDate.text = item.endDate
-
-        // Update progress bar and percentage text
-        holder.progressBar.progress = item.progress!!
-        holder.txtProgress.text = "${item.progress}%"
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(itemList[position])
     }
 
     override fun getItemCount(): Int = itemList.size
 }
-
