@@ -19,43 +19,44 @@
             android:id="@+id/toolbar_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginStart="32dp"
             android:text="Goals"
             android:textColor="?attr/colorOnBackground"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_gravity="start"
+            android:layout_marginStart="32dp"/>
 
         <ImageView
             android:id="@+id/toolbar_bookmark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_marginEnd="32dp"
-            android:clickable="true"
-            android:focusable="true"
             android:padding="8dp"
+            android:layout_marginEnd="32dp"
             android:src="@drawable/ic_inbox_arrow_down"
-            app:tint="?attr/colorOnBackground" />
+            app:tint="?attr/colorOnBackground"
+            android:clickable="true"
+            android:focusable="true"/>
 
         <ImageView
             android:id="@+id/toolbar_sortby"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
+            android:padding="8dp"
             android:layout_marginEnd="4dp"
             android:src="@drawable/ic_sortby"
-            app:tint="?attr/colorOnBackground" />
+            app:tint="?attr/colorOnBackground"/>
 
         <ImageView
             android:id="@+id/toolbar_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_marginEnd="4dp"
             android:padding="8dp"
+            android:layout_marginEnd="4dp"
             android:src="@drawable/ic_search"
-            app:tint="?attr/colorOnBackground" />
+            app:tint="?attr/colorOnBackground"/>
 
     </com.google.android.material.appbar.MaterialToolbar>
 
