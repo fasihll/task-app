@@ -12,6 +12,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         android:elevation="4dp"
         android:textColor="?attr/colorOnBackground"
         app:subtitleTextColor="?attr/colorOnBackground">
@@ -89,122 +90,248 @@
 
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/devider"
+            <!-- Divider -->
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="24dp"
+                android:layout_height="1dp"
                 android:layout_marginVertical="24dp"
-                android:src="@drawable/ic_devider" />
+                android:layout_marginHorizontal="24dp"
+                android:background="?attr/colorOutline" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="60dp"
+                android:orientation="vertical"
                 android:paddingHorizontal="16dp">
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/menu_setting"
+                <!-- Menu -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/menu_pengaturan_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:icon="@drawable/ic_setting"
-                    app:iconTint="?attr/colorOnBackground"
-                    app:iconSize="30dp"
-                    app:iconPadding="16dp"
-                    android:drawablePadding="8dp"
-                    android:paddingBottom="6dp"
-                    android:text="Pengaturan"
-                    android:textColor="?attr/colorOnBackground"
-                    android:textSize="14sp"
-                    android:textAllCaps="false"
-                    android:gravity="center_vertical|start"
-                    style="@style/Widget.MaterialComponents.Button.TextButton" />
+                    android:layout_marginVertical="2dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="8dp">
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/menu_friends"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:icon="@drawable/ic_friends"
-                    app:iconTint="?attr/colorOnBackground"
-                    app:iconSize="30dp"
-                    app:iconPadding="16dp"
-                    android:drawablePadding="8dp"
-                    android:paddingVertical="6dp"
-                    android:text="Teman"
-                    android:textColor="?attr/colorOnBackground"
-                    android:textSize="14sp"
-                    android:textAllCaps="false"
-                    android:gravity="center_vertical|start"
-                    style="@style/Widget.MaterialComponents.Button.TextButton" />
+                    <!-- Ikon Start -->
+                    <ImageView
+                        android:id="@+id/ic_pengaturan"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_setting"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="?attr/colorOnBackground" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/menu_user_support"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:icon="@drawable/ic_user_support"
-                    app:iconTint="?attr/colorOnBackground"
-                    app:iconSize="30dp"
-                    app:iconPadding="16dp"
-                    android:drawablePadding="8dp"
-                    android:paddingVertical="6dp"
-                    android:text="Support"
-                    android:textColor="?attr/colorOnBackground"
-                    android:textSize="14sp"
-                    android:textAllCaps="false"
-                    android:gravity="center_vertical|start"
-                    style="@style/Widget.MaterialComponents.Button.TextButton" />
+                    <!-- Teks -->
+                    <TextView
+                        android:id="@+id/menu_pengaturan_tugas"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:gravity="center_vertical|start"
+                        android:text="Pengaturan Tugas"
+                        android:textColor="?attr/colorOnBackground"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/ic_pengaturan"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/menu_share"
+                <!-- Menu -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/menu_teman_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:icon="@drawable/ic_share"
-                    app:iconTint="?attr/colorOnBackground"
-                    app:iconSize="30dp"
-                    app:iconPadding="16dp"
-                    android:drawablePadding="8dp"
-                    android:paddingVertical="6dp"
-                    android:text="Berbagi"
-                    android:textColor="?attr/colorOnBackground"
-                    android:textSize="14sp"
-                    android:textAllCaps="false"
-                    android:gravity="center_vertical|start"
-                    style="@style/Widget.MaterialComponents.Button.TextButton" />
+                    android:layout_marginVertical="2dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="8dp">
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/menu_about_us"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:icon="@drawable/ic_about_us"
-                    app:iconTint="?attr/colorOnBackground"
-                    app:iconSize="30dp"
-                    app:iconPadding="16dp"
-                    android:drawablePadding="8dp"
-                    android:paddingVertical="6dp"
-                    android:text="Tentang Kami"
-                    android:textColor="?attr/colorOnBackground"
-                    android:textSize="14sp"
-                    android:textAllCaps="false"
-                    android:gravity="center_vertical|start"
-                    style="@style/Widget.MaterialComponents.Button.TextButton" />
+                    <!-- Ikon Start -->
+                    <ImageView
+                        android:id="@+id/ic_teman"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_friends"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="?attr/colorOnBackground" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/menu_logout"
+                    <!-- Teks -->
+                    <TextView
+                        android:id="@+id/menu_notifikasi"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:gravity="center_vertical|start"
+                        android:text="Teman"
+                        android:textColor="?attr/colorOnBackground"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/ic_teman"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Menu -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/menu_support_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:icon="@drawable/ic_log_out"
-                    app:iconTint="?attr/colorOnBackground"
-                    app:iconSize="30dp"
-                    app:iconPadding="16dp"
-                    android:drawablePadding="8dp"
-                    android:paddingVertical="6dp"
-                    android:text="Keluar"
-                    android:textColor="?attr/colorOnBackground"
-                    android:textSize="14sp"
-                    android:textAllCaps="false"
-                    android:gravity="center_vertical|start"
-                    style="@style/Widget.MaterialComponents.Button.TextButton" />
+                    android:layout_marginVertical="2dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="8dp">
+
+                    <!-- Ikon Start -->
+                    <ImageView
+                        android:id="@+id/ic_support"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_user_support"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="?attr/colorOnBackground" />
+
+                    <!-- Teks -->
+                    <TextView
+                        android:id="@+id/menu_support"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:gravity="center_vertical|start"
+                        android:text="Support"
+                        android:textColor="?attr/colorOnBackground"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/ic_support"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Menu -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/menu_berbagi_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="2dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="8dp">
+
+                    <!-- Ikon Start -->
+                    <ImageView
+                        android:id="@+id/ic_berbagi"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_share"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="?attr/colorOnBackground" />
+
+                    <!-- Teks -->
+                    <TextView
+                        android:id="@+id/menu_berbagi"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:gravity="center_vertical|start"
+                        android:text="Berbagi"
+                        android:textColor="?attr/colorOnBackground"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/ic_berbagi"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Menu -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/menu_tantang_kami_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="2dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="8dp">
+
+                    <!-- Ikon Start -->
+                    <ImageView
+                        android:id="@+id/ic_tentang_kami"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_about_us"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="?attr/colorOnBackground" />
+
+                    <!-- Teks -->
+                    <TextView
+                        android:id="@+id/menu_tentang_kami"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:gravity="center_vertical|start"
+                        android:text="Tentang Kami"
+                        android:textColor="?attr/colorOnBackground"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/ic_tentang_kami"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Menu -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/menu_keluar_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="2dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="8dp">
+
+                    <!-- Ikon Start -->
+                    <ImageView
+                        android:id="@+id/ic_keluar"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_log_out"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="?attr/colorOnBackground" />
+
+                    <!-- Teks -->
+                    <TextView
+                        android:id="@+id/menu_keluar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:gravity="center_vertical|start"
+                        android:text="Keluar"
+                        android:textColor="?attr/colorOnBackground"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/ic_keluar"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
 

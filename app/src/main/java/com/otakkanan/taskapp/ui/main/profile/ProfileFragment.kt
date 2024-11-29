@@ -29,7 +29,7 @@ class ProfileFragment : Fragment() {
             findNavController().navigate(R.id.action_profileFragment_to_editProfileFragment)
         }
 
-        binding.menuSetting.setOnClickListener {
+        binding.menuPengaturanContainer.setOnClickListener {
             findNavController().navigate(R.id.action_profileFragment_to_settingFragment)
         }
     }
