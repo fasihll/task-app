@@ -240,7 +240,7 @@ class ProyekBaruActivity : AppCompatActivity(),
                             berulangLayout.visibility = View.GONE
                             unCheckedSpecificDay()
                             clearEditText(0)
-                            selectedDates.clear()
+                            removeSelectedDate()
                         }
 
                         R.id.rb_specific_day -> {
@@ -249,7 +249,7 @@ class ProyekBaruActivity : AppCompatActivity(),
                             specificYearLayout.visibility = View.GONE
                             berulangLayout.visibility = View.GONE
                             clearEditText(0)
-                            selectedDates.clear()
+                            removeSelectedDate()
                         }
 
                         R.id.rb_specific_month -> {
@@ -258,7 +258,7 @@ class ProyekBaruActivity : AppCompatActivity(),
                             specificYearLayout.visibility = View.GONE
                             berulangLayout.visibility = View.GONE
                             unCheckedSpecificDay()
-                            selectedDates.clear()
+                            removeSelectedDate()
                             clearEditText(1)
                         }
 
@@ -268,7 +268,7 @@ class ProyekBaruActivity : AppCompatActivity(),
                             specificYearLayout.visibility = View.VISIBLE
                             berulangLayout.visibility = View.GONE
                             unCheckedSpecificDay()
-                            selectedDates.clear()
+                            removeSelectedDate()
                             clearEditText(2)
                         }
 
@@ -278,7 +278,7 @@ class ProyekBaruActivity : AppCompatActivity(),
                             specificYearLayout.visibility = View.GONE
                             berulangLayout.visibility = View.VISIBLE
                             unCheckedSpecificDay()
-                            selectedDates.clear()
+                            removeSelectedDate()
                             clearEditText(3)
                         }
 
@@ -288,12 +288,17 @@ class ProyekBaruActivity : AppCompatActivity(),
                             specificYearLayout.visibility = View.GONE
                             berulangLayout.visibility = View.GONE
                             unCheckedSpecificDay()
-                            selectedDates.clear()
+                            removeSelectedDate()
                         }
                     }
                 }
             }
         }
+
+    private fun removeSelectedDate() {
+        selectedDates.clear()
+        setupCalenderMonth()
+    }
 
     private fun setupCalenderMonth() {
         val currentMonth = YearMonth.now()
