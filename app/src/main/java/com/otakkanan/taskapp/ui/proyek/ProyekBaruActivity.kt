@@ -1,5 +1,6 @@
 package com.otakkanan.taskapp.ui.proyek
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -34,6 +35,7 @@ import com.otakkanan.taskapp.databinding.DialogPengingatBinding
 import com.otakkanan.taskapp.ui.main.kalender.CalendarAdapter
 import com.otakkanan.taskapp.ui.main.kalender.CalendarHeaderAdapter
 import com.otakkanan.taskapp.ui.main.kalender.DataAdapter
+import com.otakkanan.taskapp.ui.proyek.detail.ProyekTimDetailActivity
 import com.otakkanan.taskapp.utils.Helper
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
@@ -80,6 +82,7 @@ class ProyekBaruActivity : AppCompatActivity(),
                 }
                 btnSelesai.setOnClickListener{
                     finish()
+                    startActivity(Intent(this@ProyekBaruActivity,ProyekTimDetailActivity::class.java))
                 }
             }
 

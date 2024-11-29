@@ -37,10 +37,12 @@ class AnggotaAdapter(private val onAddClick: (Team) -> Unit) :  ListAdapter<Team
                 btnTambah.setOnClickListener{
                     onAddClick(items)
                 }
-                imageAnggota.visibility = View.VISIBLE
-                Glide.with(itemView.context)
-                    .load(items.image)
-                    .into(imageAnggota)
+               if (items != null){
+                   imageAnggota.visibility = View.VISIBLE
+                   Glide.with(itemView.context)
+                       .load(items.image)
+                       .into(imageAnggota)
+               }
             }
         }
 
