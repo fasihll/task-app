@@ -95,15 +95,16 @@
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="6dp"
                     app:cardBackgroundColor="?attr/colorSecondaryContainer">
+
                     <TextView
                         android:id="@+id/txt_target"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Target"
-                        android:fontFamily="@font/inter_24pt_medium"
                         android:layout_marginHorizontal="22dp"
                         android:layout_marginVertical="3dp"
-                        android:textColor="?attr/colorOnSecondaryFixedVariant"/>
+                        android:fontFamily="@font/inter_24pt_medium"
+                        android:text="Goals"
+                        android:textColor="?attr/colorOnSecondaryFixedVariant" />
                 </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
 
