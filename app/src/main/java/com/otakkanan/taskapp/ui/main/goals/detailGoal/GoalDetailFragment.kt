@@ -5,11 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.snackbar.Snackbar
+import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.Goal
+import com.otakkanan.taskapp.data.model.Target
 import com.otakkanan.taskapp.databinding.FragmentGoalDetailBinding
-//import com.otakkanan.taskapp.ui.adapters.TeamAdapter
-//import com.otakkanan.taskapp.ui.adapters.TargetAdapter
+
 
 class GoalDetailFragment : Fragment() {
 
@@ -17,8 +21,7 @@ class GoalDetailFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var goal: Goal
-//    private lateinit var teamAdapter: TeamAdapter
-//    private lateinit var targetAdapter: TargetAdapter
+    private lateinit var targetAdapter: TargetAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,6 +33,9 @@ class GoalDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        hideBottomNavigation()
+        setupToolbar()
 
         // Ambil data Goal dari arguments
         goal = arguments?.getParcelable("goal") ?: return
@@ -43,9 +49,8 @@ class GoalDetailFragment : Fragment() {
         // Set data detail goal
         binding.tvGoalName.text = goal.name ?: "No title"
         binding.tvGoalDescription.text = goal.description ?: "No description"
-        binding.tvStartGoalDates.text = "Start Date: ${goal.startDate ?: "N/A"}"
-        binding.tvEndGoalDates.text = "End Date: ${goal.endDate ?: "N/A"}"
-        binding.tvGoalPriority.text = "Priority: ${goal.priority ?: "N/A"}"
+        binding.tvEndGoalDates.text = "Berakhir : ${goal.endDate ?: "N/A"}"
+
 
         // Progress bar
         binding.txtProgress.text = "${goal.progress ?: 0}%"
@@ -53,19 +58,42 @@ class GoalDetailFragment : Fragment() {
     }
 
     private fun setupRecyclerViews() {
-        // Setup RecyclerView untuk Tim
-//        teamAdapter = TeamAdapter(goal.team ?: emptyList())
-        binding.rvTeam.layoutManager = LinearLayoutManager(requireContext())
-//        binding.rvTeam.adapter = teamAdapter
+        // Gunakan target dari goal yang sudah diparsing
+        val targetList: List<Target> = goal.target ?: emptyList()
 
-        // Setup RecyclerView untuk Target
-//        targetAdapter = TargetAdapter(goal.targets ?: emptyList())
-        binding.rvTargets.layoutManager = LinearLayoutManager(requireContext())
-//        binding.rvTargets.adapter = targetAdapter
+        // Inisialisasi adapter dengan click listener
+        targetAdapter = TargetAdapter(targetList) { target ->
+            // Tampilkan Snackbar ketika item di klik
+            Snackbar.make(
+                binding.root,
+                "Anda mengklik target: ${target.name ?: "Unnamed Target"}",
+                Snackbar.LENGTH_SHORT
+            ).show()
+        }
+
+        binding.rvTarget.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvTarget.adapter = targetAdapter
+    }
+
+    private fun setupToolbar() {
+        binding.toolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
+        }
+    }
+
+    private fun hideBottomNavigation() {
+        val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.nav_view)
+        bottomNav.visibility = View.GONE
+    }
+
+    private fun showBottomNavigation() {
+        val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.nav_view)
+        bottomNav.visibility = View.VISIBLE
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        showBottomNavigation()
     }
 }

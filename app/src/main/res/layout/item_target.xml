@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="8dp"
+    app:cardCornerRadius="12dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Target Title"
+            android:textColor="?attr/colorOnBackground"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/btnOption"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Options Button -->
+        <ImageView
+            android:id="@+id/btnOption"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/option_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="?attr/colorOnBackground" />
+
+        <!-- Icon Target -->
+        <ImageView
+            android:id="@+id/ic_target"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_target"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtTitle"
+            app:tint="?attr/colorSecondary" />
+
+        <!-- Start Value / End Value -->
+        <TextView
+            android:id="@+id/txtStartEndValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="1 / 5"
+            android:textColor="?attr/colorSecondary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ic_target"
+            app:layout_constraintTop_toBottomOf="@id/txtTitle" />
+
+        <!-- Linear Progress Indicator -->
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/linearProgress"
+            android:layout_width="0dp"
+            android:layout_height="8dp"
+            android:layout_marginTop="12dp"
+            android:progress="40"
+            app:indicatorColor="@color/md_theme_primary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtStartEndValue"
+            app:trackColor="@color/md_theme_primaryFixed" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
