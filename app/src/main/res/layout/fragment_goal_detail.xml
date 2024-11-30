@@ -1,134 +1,328 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:background="@color/md_theme_background"
+    android:orientation="vertical"
     tools:context=".ui.main.goals.detailGoal.GoalDetailFragment">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:elevation="4dp"
+        app:navigationIcon="@drawable/ic_back_24"
+        app:subtitleTextColor="?attr/colorOnBackground">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="Detail Goal"
+            android:textColor="?attr/colorOnBackground"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/btn_option"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:paddingEnd="24dp"
+            android:src="@drawable/ic_ellipsis_horizontal"
+            app:tint="?attr/colorOnBackground" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
 
     <!-- Scrollable Layout -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingHorizontal="24dp">
 
-            <!-- Goal Name -->
-            <TextView
-                android:id="@+id/tvGoalName"
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="8dp"
-                android:text="Goal Name"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:background="@color/md_theme_background"
+                app:cardCornerRadius="12dp">
 
-            <!-- Goal Description -->
-            <TextView
-                android:id="@+id/tvGoalDescription"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_goal_card_detail"
+                    android:padding="16dp">
+
+                    <!-- Title -->
+                    <TextView
+                        android:id="@+id/tvGoalName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Title"
+                        android:textColor="@color/md_theme_background_highContrast"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/btnOptions"
+                        app:layout_constraintStart_toEndOf="@+id/progressContainer"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!-- Description -->
+                    <TextView
+                        android:id="@+id/tvGoalDescription"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Description goes here"
+                        android:textColor="@color/md_theme_background_mediumContrast"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toTopOf="@id/tvEndGoalDates"
+                        app:layout_constraintEnd_toStartOf="@+id/btnOptions"
+                        app:layout_constraintStart_toEndOf="@+id/progressContainer"
+                        app:layout_constraintTop_toBottomOf="@id/tvGoalName" />
+
+                    <TextView
+                        android:id="@+id/tvEndGoalDates"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="01 Jan 2024"
+                        android:textColor="@color/md_theme_background_mediumContrast"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/btnAdd"
+                        app:layout_constraintStart_toEndOf="@id/progressContainer"
+                        app:layout_constraintTop_toBottomOf="@id/tvGoalDescription" />
+
+                    <!-- Progress Bar -->
+                    <FrameLayout
+                        android:id="@+id/progressContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingEnd="12dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <!-- Circular Progress Indicator -->
+                        <com.google.android.material.progressindicator.CircularProgressIndicator
+                            android:id="@+id/progressBar"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:indeterminate="false"
+                            android:progress="40"
+                            app:indicatorColor="@color/md_theme_background_highContrast"
+                            app:indicatorSize="55dp"
+                            app:trackColor="@color/md_theme_primaryFixed"
+                            app:trackThickness="8dp" />
+
+                        <!-- Text Percentage -->
+                        <TextView
+                            android:id="@+id/txtProgress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="40%"
+                            android:textColor="@color/md_theme_background_highContrast"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </FrameLayout>
+
+                    <!-- Option Button -->
+                    <ImageView
+                        android:id="@+id/btnOptions"
+                        android:layout_width="30dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="Options Button"
+                        android:src="@drawable/ic_ellipsis_horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/md_theme_background_highContrast" />
+
+                    <!-- Add Button -->
+                    <ImageView
+                        android:id="@+id/btnAdd"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:backgroundTint="@color/md_theme_primary"
+                        android:contentDescription="Add Button"
+                        android:elevation="4dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/add_member_icon"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="8dp"
-                android:text="Description: Lorem ipsum dolor sit amet"
-                android:textSize="16sp" />
+                android:layout_marginTop="24dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-            <!-- Goal Dates -->
-            <TextView
-                android:id="@+id/tvStartGoalDates"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="8dp"
-                android:text="Start Date: 2024-01-01"
-                android:textSize="14sp" />
-
-            <!-- Goal Dates -->
-            <TextView
-                android:id="@+id/tvEndGoalDates"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="8dp"
-                android:text="End Date: 2024-03-01"
-                android:textSize="14sp" />
-
-            <!-- Goal Priority -->
-            <TextView
-                android:id="@+id/tvGoalPriority"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="16dp"
-                android:text="Priority: High"
-                android:textSize="14sp" />
-
-            <!-- Progress Section -->
-            <FrameLayout
-                android:id="@+id/progressContainer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:padding="16dp">
-
-                <com.google.android.material.progressindicator.CircularProgressIndicator
-                    android:id="@+id/progressBar"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:indeterminate="false"
-                    app:indicatorColor="@color/md_theme_primary"
-                    app:indicatorSize="80dp"
-                    app:trackColor="@color/md_theme_primaryFixed"
-                    app:trackThickness="8dp" />
-
+                <!-- Target Text -->
                 <TextView
-                    android:id="@+id/txtProgress"
+                    android:id="@+id/target"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="40%"
-                    android:textSize="16sp"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_weight="1"
+                    android:text="Target"
+                    android:textColor="?attr/colorOnBackground"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
-            </FrameLayout>
 
-            <!-- Goal Team Section -->
-            <TextView
-                android:id="@+id/tvGoalTeam"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="16dp"
-                android:paddingBottom="8dp"
-                android:text="Team Members"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                <!-- Plus Button -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnPlusCard"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="end"
+                    app:cardBackgroundColor="@color/md_theme_primary"
+                    app:cardCornerRadius="8dp">
 
+                    <ImageView
+                        android:id="@+id/btnPlus"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="4dp"
+                        android:src="@drawable/ic_plus_24"
+                        app:tint="@color/md_theme_background_highContrast" />
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <!-- RecyclerView for Item Target -->
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvTeam"
+                android:id="@+id/rvTarget"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="16dp"
-                tools:listitem="@layout/anggota_item" />
+                android:layout_marginTop="8dp"
+                android:clipToPadding="false"
+                android:scrollbars="vertical"
+                tools:listitem="@layout/item_target" />
 
-            <!-- Goal Target Section -->
-            <TextView
-                android:id="@+id/tvGoalTargets"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="16dp"
-                android:paddingBottom="8dp"
-                android:text="Targets"
-                android:textSize="16sp"
-                android:textStyle="bold" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvTargets"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:listitem="@layout/anggota_item" />
+            <!--            &lt;!&ndash; Goal Name &ndash;&gt;-->
+            <!--            <TextView-->
+            <!--                android:id="@+id/tvGoalName"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:paddingBottom="8dp"-->
+            <!--                android:text="Goal Name"-->
+            <!--                android:textSize="20sp"-->
+            <!--                android:textStyle="bold" />-->
+
+            <!--            &lt;!&ndash; Goal Description &ndash;&gt;-->
+            <!--            <TextView-->
+            <!--                android:id="@+id/tvGoalDescription"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:paddingBottom="8dp"-->
+            <!--                android:text="Description: Lorem ipsum dolor sit amet"-->
+            <!--                android:textSize="16sp" />-->
+
+            <!--            &lt;!&ndash; Goal Dates &ndash;&gt;-->
+            <!--            <TextView-->
+            <!--                android:id="@+id/tvStartGoalDates"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:paddingBottom="8dp"-->
+            <!--                android:text="Start Date: 2024-01-01"-->
+            <!--                android:textSize="14sp" />-->
+
+            <!--            &lt;!&ndash; Goal Dates &ndash;&gt;-->
+            <!--            <TextView-->
+            <!--                android:id="@+id/tvEndGoalDates"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:paddingBottom="8dp"-->
+            <!--                android:text="End Date: 2024-03-01"-->
+            <!--                android:textSize="14sp" />-->
+
+            <!--            &lt;!&ndash; Goal Priority &ndash;&gt;-->
+            <!--            <TextView-->
+            <!--                android:id="@+id/tvGoalPriority"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:paddingBottom="16dp"-->
+            <!--                android:text="Priority: High"-->
+            <!--                android:textSize="14sp" />-->
+
+            <!--            &lt;!&ndash; Progress Section &ndash;&gt;-->
+            <!--            <FrameLayout-->
+            <!--                android:id="@+id/progressContainer"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_gravity="center"-->
+            <!--                android:padding="16dp">-->
+
+            <!--                <com.google.android.material.progressindicator.CircularProgressIndicator-->
+            <!--                    android:id="@+id/progressBar"-->
+            <!--                    android:layout_width="100dp"-->
+            <!--                    android:layout_height="100dp"-->
+            <!--                    android:indeterminate="false"-->
+            <!--                    app:indicatorColor="@color/md_theme_primary"-->
+            <!--                    app:indicatorSize="80dp"-->
+            <!--                    app:trackColor="@color/md_theme_primaryFixed"-->
+            <!--                    app:trackThickness="8dp" />-->
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/txtProgress"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_gravity="center"-->
+            <!--                    android:text="40%"-->
+            <!--                    android:textSize="16sp"-->
+            <!--                    android:textStyle="bold" />-->
+            <!--            </FrameLayout>-->
+
+            <!--            &lt;!&ndash; Goal Team Section &ndash;&gt;-->
+            <!--            <TextView-->
+            <!--                android:id="@+id/tvGoalTeam"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:paddingTop="16dp"-->
+            <!--                android:paddingBottom="8dp"-->
+            <!--                android:text="Team Members"-->
+            <!--                android:textSize="16sp"-->
+            <!--                android:textStyle="bold" />-->
+
+            <!--            <androidx.recyclerview.widget.RecyclerView-->
+            <!--                android:id="@+id/rvTeam"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:paddingBottom="16dp"-->
+            <!--                tools:listitem="@layout/anggota_item" />-->
+
+            <!--            &lt;!&ndash; Goal Target Section &ndash;&gt;-->
+            <!--            <TextView-->
+            <!--                android:id="@+id/tvGoalTargets"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:paddingTop="16dp"-->
+            <!--                android:paddingBottom="8dp"-->
+            <!--                android:text="Targets"-->
+            <!--                android:textSize="16sp"-->
+            <!--                android:textStyle="bold" />-->
+
+            <!--            <androidx.recyclerview.widget.RecyclerView-->
+            <!--                android:id="@+id/rvTargets"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                tools:listitem="@layout/anggota_item" />-->
         </LinearLayout>
     </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
 
 

@@ -19,7 +19,8 @@ class GoalAdapter(
             binding.txtTitle.text = goal.name
             binding.txtDescription.text = goal.description
             binding.txtDate.text = goal.endDate
-            binding.progressBar.progress = goal.progress ?: 0 // Menggunakan nilai default jika null
+            binding.txtProgress.text = "${goal.progress ?: 0}%"
+            binding.progressBar.progress = goal.progress ?: 0
 
             // Menambahkan listener klik pada item
             binding.root.setOnClickListener {
