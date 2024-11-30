@@ -97,7 +97,7 @@
                         android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/btnAdd"
+                        app:layout_constraintEnd_toStartOf="@+id/rvAnggota"
                         app:layout_constraintStart_toEndOf="@id/progressContainer"
                         app:layout_constraintTop_toBottomOf="@id/tvGoalDescription" />
 
@@ -146,9 +146,20 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:tint="@color/md_theme_background_highContrast" />
 
+<!--                    <androidx.recyclerview.widget.RecyclerView-->
+<!--                        android:id="@+id/rvAnggota"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        tools:itemCount="1"-->
+<!--                        tools:listitem="@layout/anggota_item"-->
+<!--                        android:overScrollMode="never"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        />-->
+
                     <!-- Add Button -->
                     <ImageView
-                        android:id="@+id/btnAdd"
+                        android:id="@+id/rvAnggota"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:backgroundTint="@color/md_theme_primary"
