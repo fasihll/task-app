@@ -4,19 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
-import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.Goal
 import com.otakkanan.taskapp.data.model.Riwayat
 import com.otakkanan.taskapp.data.model.Target
 import com.otakkanan.taskapp.databinding.FragmentGoalDetailBinding
+import com.otakkanan.taskapp.utils.BaseFragment
 
 
-class GoalDetailFragment : Fragment() {
+class GoalDetailFragment : BaseFragment() {
 
     private var _binding: FragmentGoalDetailBinding? = null
     private val binding get() = _binding!!
@@ -34,8 +33,6 @@ class GoalDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        hideBottomNavigation()
         setupToolbar()
 
         // Ambil data Goal dari arguments
@@ -76,6 +73,10 @@ class GoalDetailFragment : Fragment() {
         val riwayatAdapter = RiwayatAdapter(riwayatList)
         binding.rvRiwayat.layoutManager = LinearLayoutManager(requireContext())
         binding.rvRiwayat.adapter = riwayatAdapter
+
+        // Tambahkan Divider ke RecyclerView
+        val dividerItemDecoration = DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL)
+        binding.rvRiwayat.addItemDecoration(dividerItemDecoration)
     }
 
     private fun getDummyRiwayat(): List<Riwayat> {
@@ -93,19 +94,8 @@ class GoalDetailFragment : Fragment() {
         }
     }
 
-    private fun hideBottomNavigation() {
-        val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.nav_view)
-        bottomNav.visibility = View.GONE
-    }
-
-    private fun showBottomNavigation() {
-        val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.nav_view)
-        bottomNav.visibility = View.VISIBLE
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        showBottomNavigation()
     }
 }
