@@ -1,9 +1,9 @@
 [
   {
-    "name": "Sidang Skripsi",
-    "description": "Increase company revenue by improving sales and marketing efforts",
+    "name": "Pergi Liburan",
+    "description": "Rencana liburan jangka panjang",
     "startDate": "2024-01-01",
-    "endDate": "2024-12-31",
+    "endDate": "2024-10-15",
     "isPengingat": true,
     "priority": 1,
     "progress": 40,
@@ -35,18 +35,35 @@
     ],
     "target": [
       {
-        "name": "Revenue Growth",
-        "targetType": 1,
-        "startValue": 100000,
-        "endValue": 200000,
-        "progress": 75
+        "name": "Menabung 500.000",
+        "targetType": 3,
+        "startValue": 200000,
+        "endValue": 500000,
+        "progress": 40
       },
       {
-        "name": "New Customers",
-        "targetType": 2,
-        "startValue": 1000,
-        "endValue": 1500,
-        "progress": 50
+        "name": "Mencari Referensi Travel",
+        "targetType": 1,
+        "startValue": 2,
+        "endValue": 5,
+        "progress": 40
+      }
+    ],
+    "riwayat": [
+      {
+        "targetName": "Mencari Referensi Travel",
+        "amount": 2,
+        "created_at": "8 Okt 24"
+      },
+      {
+        "targetName": "Menabung 500.000",
+        "amount": null,
+        "created_at": "8 Okt 24"
+      },
+      {
+        "targetName": "Mencari Referensi Travel",
+        "amount": null,
+        "created_at": "6 Okt 24"
       }
     ]
   },
@@ -89,7 +106,7 @@
         "name": "Product Development",
         "targetType": 1,
         "startValue": 0,
-        "endValue": 100,
+        "endValue": 5,
         "progress": 60
       },
       {
@@ -109,16 +126,43 @@
       {
         "name": "Market Share",
         "targetType": 2,
-        "startValue": 5,
-        "endValue": 15,
+        "startValue": 0,
+        "endValue": 1,
         "progress": 15
       },
       {
         "name": "CSAT Score",
         "targetType": 1,
-        "startValue": 75,
-        "endValue": 90,
+        "startValue": 0,
+        "endValue": 5,
         "progress": 50
+      }
+    ],
+    "riwayat": [
+      {
+        "targetName": "Product Development",
+        "amount": null,
+        "created_at": "7 Okt 24"
+      },
+      {
+        "targetName": "Marketing Campaign",
+        "amount": null,
+        "created_at": "8 Okt 24"
+      },
+      {
+        "targetName": "New Regions",
+        "amount": null,
+        "created_at": "9 Okt 24"
+      },
+      {
+        "targetName": "Market Share",
+        "amount": null,
+        "created_at": "10 Okt 24"
+      },
+      {
+        "targetName": "CSAT Score",
+        "amount": null,
+        "created_at": "11 Okt 24"
       }
     ]
   },
@@ -160,16 +204,28 @@
       {
         "name": "CSAT Score",
         "targetType": 1,
-        "startValue": 75,
-        "endValue": 90,
+        "startValue": 0,
+        "endValue": 5,
         "progress": 50
       },
       {
         "name": "Response Time",
         "targetType": 2,
-        "startValue": 60,
-        "endValue": 30,
+        "startValue": 0,
+        "endValue": 1,
         "progress": 40
+      }
+    ],
+    "riwayat": [
+      {
+        "targetName": "CSAT Score",
+        "amount": null,
+        "created_at": "9 Okt 24"
+      },
+      {
+        "targetName": "Response Time",
+        "amount": null,
+        "created_at": "10 Okt 24"
       }
     ]
   },
@@ -221,6 +277,18 @@
         "startValue": 5,
         "endValue": 15,
         "progress": 15
+      }
+    ],
+    "riwayat": [
+      {
+        "targetName": "New Regions",
+        "amount": null,
+        "created_at": "9 Okt 24"
+      },
+      {
+        "targetName": "Market Share",
+        "amount": null,
+        "created_at": "10 Okt 24"
       }
     ]
   }

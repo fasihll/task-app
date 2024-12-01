@@ -9,7 +9,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.Goal
+import com.otakkanan.taskapp.data.model.Task
 import com.otakkanan.taskapp.databinding.FragmentGoalsBinding
+import com.otakkanan.taskapp.utils.Helper
 import com.otakkanan.taskapp.utils.Helper.loadJSONFromAssets
 import com.otakkanan.taskapp.utils.Helper.parseGoalsJson
 

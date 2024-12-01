@@ -1,5 +1,6 @@
 package com.otakkanan.taskapp.ui.main.goals.detailGoal
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +12,10 @@ import com.google.android.material.snackbar.Snackbar
 import com.otakkanan.taskapp.data.model.Goal
 import com.otakkanan.taskapp.data.model.Riwayat
 import com.otakkanan.taskapp.data.model.Target
+import com.otakkanan.taskapp.data.model.Task
 import com.otakkanan.taskapp.databinding.FragmentGoalDetailBinding
+import com.otakkanan.taskapp.ui.main.beranda.anggota.AnggotaActivity
+import com.otakkanan.taskapp.ui.main.beranda.detail_task.AnggotaAdapter
 import com.otakkanan.taskapp.utils.BaseFragment
 
 
@@ -39,8 +43,28 @@ class GoalDetailFragment : BaseFragment() {
         goal = arguments?.getParcelable("goal") ?: return
 
         // Set data ke elemen UI
+        setupAnggotaRecyclerview(goal)
         setupGoalDetails()
-        setupRecyclerViews()
+        setupRecyclerViews(goal)
+    }
+
+    private fun setupAnggotaRecyclerview(goal: Goal?) {
+        with(binding){
+            val layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager
+                .HORIZONTAL,false)
+            rvAnggota.layoutManager = layoutManager
+
+
+            val adapter = GoalsDetailAnggotaAdapter { team ->
+                // Handle button click here
+                val intent = Intent(requireContext(), AnggotaActivity::class.java)
+                intent.putExtra(AnggotaActivity.TAG, goal)
+                startActivity(intent)
+            }
+            rvAnggota.adapter = adapter
+            val limitedTeam = goal!!.team?.take(1)
+            adapter.submitList(limitedTeam)
+        }
     }
 
     private fun setupGoalDetails() {
@@ -55,10 +79,10 @@ class GoalDetailFragment : BaseFragment() {
         binding.progressBar.progress = goal.progress ?: 0
     }
 
-    private fun setupRecyclerViews() {
+    private fun setupRecyclerViews(goal: Goal?) {
         // Setup untuk RecyclerView Target
-        val targetList: List<Target> = goal.target ?: emptyList()
-        targetAdapter = TargetAdapter(targetList) { target ->
+//        val targetList: List<Target> = goal.target ?: emptyList()
+        targetAdapter = TargetAdapter(goal?.target!!) { target ->
             Snackbar.make(
                 binding.root,
                 "Anda mengklik target: ${target.name ?: "Unnamed Target"}",
@@ -69,8 +93,8 @@ class GoalDetailFragment : BaseFragment() {
         binding.rvTarget.adapter = targetAdapter
 
         // Setup untuk RecyclerView Riwayat
-        val riwayatList = getDummyRiwayat()
-        val riwayatAdapter = RiwayatAdapter(riwayatList)
+//        val riwayatList = getDummyRiwayat()
+        val riwayatAdapter = RiwayatAdapter(goal.riwayat!!)
         binding.rvRiwayat.layoutManager = LinearLayoutManager(requireContext())
         binding.rvRiwayat.adapter = riwayatAdapter
 

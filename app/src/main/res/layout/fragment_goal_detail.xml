@@ -146,29 +146,30 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:tint="@color/md_theme_background_highContrast" />
 
-                    <!--                    <androidx.recyclerview.widget.RecyclerView-->
-                    <!--                        android:id="@+id/rvAnggota"-->
-                    <!--                        android:layout_width="wrap_content"-->
-                    <!--                        android:layout_height="wrap_content"-->
-                    <!--                        tools:itemCount="1"-->
-                    <!--                        tools:listitem="@layout/anggota_item"-->
-                    <!--                        android:overScrollMode="never"-->
-                    <!--                        app:layout_constraintBottom_toBottomOf="parent"-->
-                    <!--                        app:layout_constraintEnd_toEndOf="parent"-->
-                    <!--                        />-->
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvAnggota"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:itemCount="1"
+                            android:translationX="6.5dp"
+                            tools:listitem="@layout/goals_detail_team_item"
+                            android:overScrollMode="never"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            />
 
                     <!-- Add Button -->
-                    <ImageView
-                        android:id="@+id/rvAnggota"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:backgroundTint="@color/md_theme_primary"
-                        android:contentDescription="Add Button"
-                        android:elevation="4dp"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/add_member_icon"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent" />
+<!--                    <ImageView-->
+<!--                        android:id="@+id/rvAnggota"-->
+<!--                        android:layout_width="30dp"-->
+<!--                        android:layout_height="30dp"-->
+<!--                        android:backgroundTint="@color/md_theme_primary"-->
+<!--                        android:contentDescription="Add Button"-->
+<!--                        android:elevation="4dp"-->
+<!--                        android:scaleType="centerInside"-->
+<!--                        android:src="@drawable/add_member_icon"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent" />-->
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

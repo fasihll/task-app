@@ -14,7 +14,8 @@ data class Goal(
     val priority: Int?= null,
     val progress: Int? = null,
     val team: List<Team>? = null,
-    val target: List<Target>? = null
+    val target: List<Target>? = null,
+    val riwayat: List<Riwayat>? = null
 ): Parcelable
 
 @Parcelize
@@ -28,6 +29,7 @@ data class Target(
 
 @Parcelize
 data class Riwayat(
-    val name: String? = null,
-    val amount: Int? = null
+    val targetName: String? = null,
+    val amount: Int? = null,
+    val created_at: String? = null,
 ): Parcelable
