@@ -5,17 +5,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
+import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.Goal
-import com.otakkanan.taskapp.data.model.Riwayat
 import com.otakkanan.taskapp.data.model.Target
-import com.otakkanan.taskapp.data.model.Task
+import com.otakkanan.taskapp.databinding.DetailGoalsAddTargetDialogBinding
 import com.otakkanan.taskapp.databinding.FragmentGoalDetailBinding
 import com.otakkanan.taskapp.ui.main.beranda.anggota.AnggotaActivity
-import com.otakkanan.taskapp.ui.main.beranda.detail_task.AnggotaAdapter
 import com.otakkanan.taskapp.utils.BaseFragment
 
 
@@ -46,12 +50,120 @@ class GoalDetailFragment : BaseFragment() {
         setupAnggotaRecyclerview(goal)
         setupGoalDetails()
         setupRecyclerViews(goal)
+
+        // Set Click Listener
+        setupOnClickListener()
+    }
+
+    private fun setupOnClickListener() {
+        binding.btnPlusCard.setOnClickListener {
+            setupDialogAddTarget(goal.target?.get(0))
+        }
+    }
+
+    private fun setupDialogAddTarget(target: Target?) {
+        val dialogBinding = DetailGoalsAddTargetDialogBinding.inflate(layoutInflater)
+        val dialog = MaterialAlertDialogBuilder(requireContext())
+            .setView(dialogBinding.root)
+            .show()
+
+        // Akses elemen menggunakan dialogBinding
+        dialogBinding.btnDialogSelesai.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialogBinding.rbIntervalPengukuran.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                updateSubLayoutVisibility(
+                    selectedSubLayout = dialogBinding.subIntervalPengukuran,
+                    otherSubLayouts = listOf(
+                        dialogBinding.subBerlangsung,
+                        dialogBinding.subMataUang
+                    )
+                )
+            }
+        }
+
+        dialogBinding.rbSedangBerlansungSelesai.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                updateSubLayoutVisibility(
+                    selectedSubLayout = dialogBinding.subBerlangsung,
+                    otherSubLayouts = listOf(
+                        dialogBinding.subIntervalPengukuran,
+                        dialogBinding.subMataUang
+                    )
+                )
+            }
+        }
+
+        dialogBinding.rbMataUang.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                updateSubLayoutVisibility(
+                    selectedSubLayout = dialogBinding.subMataUang,
+                    otherSubLayouts = listOf(
+                        dialogBinding.subIntervalPengukuran,
+                        dialogBinding.subBerlangsung
+                    )
+                )
+            }
+        }
+
+        dialogBinding.swBerlangsung.setOnClickListener {
+            updateSwitchStyles(dialogBinding.swBerlangsung, dialogBinding.swSelesai)
+        }
+
+        dialogBinding.swSelesai.setOnClickListener {
+            updateSwitchStyles(dialogBinding.swSelesai, dialogBinding.swBerlangsung)
+        }
+    }
+
+    fun updateSwitchStyles(selectedSwitch: TextView, unselectedSwitch: TextView) {
+        selectedSwitch.setBackgroundResource(R.drawable.selected_berlangsung_background)
+        selectedSwitch.setTextColor(
+            ContextCompat.getColor(
+                selectedSwitch.context,
+                R.color.md_theme_onSecondary
+            )
+        )
+
+        unselectedSwitch.setBackgroundResource(R.color.md_theme_primaryFixed)
+        unselectedSwitch.setTextColor(
+            ContextCompat.getColor(
+                unselectedSwitch.context, R.color
+                    .md_theme_onSecondaryFixed
+            )
+        )
+    }
+
+    fun updateSubLayoutVisibility(
+        selectedSubLayout: LinearLayout,
+        otherSubLayouts: List<LinearLayout>
+    ) {
+
+        selectedSubLayout.visibility = View.VISIBLE
+
+        otherSubLayouts.forEach { layout ->
+            layout.visibility = View.GONE
+            clearEditTexts(layout)
+        }
+    }
+
+
+    fun clearEditTexts(layout: LinearLayout) {
+        for (i in 0 until layout.childCount) {
+            val child = layout.getChildAt(i)
+            if (child is EditText) {
+                child.text.clear()
+            }
+        }
     }
 
     private fun setupAnggotaRecyclerview(goal: Goal?) {
-        with(binding){
-            val layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager
-                .HORIZONTAL,false)
+        with(binding) {
+            val layoutManager = LinearLayoutManager(
+                requireContext(), LinearLayoutManager
+                    .HORIZONTAL, false
+            )
             rvAnggota.layoutManager = layoutManager
 
 
@@ -73,7 +185,6 @@ class GoalDetailFragment : BaseFragment() {
         binding.tvGoalDescription.text = goal.description ?: "No description"
         binding.tvEndGoalDates.text = "Berakhir : ${goal.endDate ?: "N/A"}"
 
-
         // Progress bar
         binding.txtProgress.text = "${goal.progress ?: 0}%"
         binding.progressBar.progress = goal.progress ?: 0
@@ -81,7 +192,6 @@ class GoalDetailFragment : BaseFragment() {
 
     private fun setupRecyclerViews(goal: Goal?) {
         // Setup untuk RecyclerView Target
-//        val targetList: List<Target> = goal.target ?: emptyList()
         targetAdapter = TargetAdapter(goal?.target!!) { target ->
             Snackbar.make(
                 binding.root,
@@ -93,23 +203,14 @@ class GoalDetailFragment : BaseFragment() {
         binding.rvTarget.adapter = targetAdapter
 
         // Setup untuk RecyclerView Riwayat
-//        val riwayatList = getDummyRiwayat()
         val riwayatAdapter = RiwayatAdapter(goal.riwayat!!)
         binding.rvRiwayat.layoutManager = LinearLayoutManager(requireContext())
         binding.rvRiwayat.adapter = riwayatAdapter
 
         // Tambahkan Divider ke RecyclerView
-        val dividerItemDecoration = DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL)
+        val dividerItemDecoration =
+            DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL)
         binding.rvRiwayat.addItemDecoration(dividerItemDecoration)
-    }
-
-    private fun getDummyRiwayat(): List<Riwayat> {
-        return listOf(
-            Riwayat("Penambahan Target", +200),
-            Riwayat("Pengurangan Target", -100),
-            Riwayat("Bonus", +50),
-            Riwayat("Kesalahan Input", -30)
-        )
     }
 
     private fun setupToolbar() {

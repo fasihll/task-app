@@ -51,6 +51,7 @@
             android:paddingHorizontal="24dp">
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardGoal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/md_theme_background"
@@ -157,19 +158,6 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             />
-
-                    <!-- Add Button -->
-<!--                    <ImageView-->
-<!--                        android:id="@+id/rvAnggota"-->
-<!--                        android:layout_width="30dp"-->
-<!--                        android:layout_height="30dp"-->
-<!--                        android:backgroundTint="@color/md_theme_primary"-->
-<!--                        android:contentDescription="Add Button"-->
-<!--                        android:elevation="4dp"-->
-<!--                        android:scaleType="centerInside"-->
-<!--                        android:src="@drawable/add_member_icon"-->
-<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                        app:layout_constraintEnd_toEndOf="parent" />-->
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
