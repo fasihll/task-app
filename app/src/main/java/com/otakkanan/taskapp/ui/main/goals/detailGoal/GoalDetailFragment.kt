@@ -58,7 +58,7 @@ class GoalDetailFragment : BaseFragment() {
             val adapter = GoalsDetailAnggotaAdapter { team ->
                 // Handle button click here
                 val intent = Intent(requireContext(), AnggotaActivity::class.java)
-                intent.putExtra(AnggotaActivity.TAG, goal)
+                intent.putParcelableArrayListExtra(AnggotaActivity.TAG, ArrayList(goal!!.team ?: emptyList()))
                 startActivity(intent)
             }
             rvAnggota.adapter = adapter

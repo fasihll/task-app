@@ -8,7 +8,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.otakkanan.taskapp.data.model.Task
+import com.otakkanan.taskapp.data.model.Team
 import com.otakkanan.taskapp.databinding.FragmentAddAnggotaBinding
+import com.otakkanan.taskapp.ui.main.beranda.anggota.AnggotaActivity
+import com.otakkanan.taskapp.ui.main.beranda.anggota.AnggotaActivity.Companion
 
 class AddAnggotaFragment : Fragment() {
 
@@ -28,12 +31,12 @@ class AddAnggotaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val task = arguments?.getParcelable<Task>(TAG)
+        val teamList: ArrayList<Team>? = arguments?.getParcelableArrayList(TAG)
 
-        setupRecyclerview(task)
+        setupRecyclerview(teamList)
     }
 
-    private fun setupRecyclerview(task: Task?) {
+    private fun setupRecyclerview(teamList: List<Team>?) {
 
         with(binding) {
             val layoutManager = LinearLayoutManager(
@@ -45,16 +48,16 @@ class AddAnggotaFragment : Fragment() {
 
             val adapter = AddAnggotaAdapter()
             rvCehckboxAnggota.adapter = adapter
-            adapter.submitList(task!!.team)
+            adapter.submitList(teamList)
         }
     }
 
     companion object{
         val TAG = "AddAnggotaFragment"
-        fun newInstance(task: Task?): AddAnggotaFragment {
+        fun newInstance(teamList: ArrayList<Team>?): AddAnggotaFragment {
             val fragment = AddAnggotaFragment()
             val args = Bundle()
-            args.putParcelable(TAG, task) // Kirim Task melalui Bundle
+            args.putParcelableArrayList(TAG, teamList) // Kirim Task melalui Bundle
             fragment.arguments = args
             return fragment
         }

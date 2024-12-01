@@ -107,7 +107,8 @@ class ProyekTimDetailActivity : AppCompatActivity() {
         val adapter = AnggotaAdapter { team ->
             // Handle button click here
             val intent = Intent(this@ProyekTimDetailActivity, AnggotaActivity::class.java)
-            intent.putExtra(AnggotaActivity.TAG, task)
+            intent.putParcelableArrayListExtra(AnggotaActivity.TAG, ArrayList(task!!.team ?:
+            emptyList()))
             startActivity(intent)
 //                val intent = Intent(this@DetailTaskActivity, AnggotaActivity::class.java)
 //                startActivity(intent)
@@ -199,7 +200,8 @@ class ProyekTimDetailActivity : AppCompatActivity() {
             val adapter = AnggotaAdapter { team ->
                 // Handle button click here
                 val intent = Intent(this@ProyekTimDetailActivity, AnggotaActivity::class.java)
-                intent.putExtra(AnggotaActivity.TAG, task)
+                intent.putParcelableArrayListExtra(AnggotaActivity.TAG, ArrayList(task!!.team ?:
+                emptyList()))
                 startActivity(intent)
 //                val intent = Intent(this@ProyekTimDetailActivity, AnggotaActivity::class.java)
 //                startActivity(intent)

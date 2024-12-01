@@ -53,7 +53,11 @@ class ListAnggotaAdapter :  ListAdapter<Team, ListAnggotaAdapter.MyViewHolder>(D
                             .colorGoldContainer))
                     }
                     else -> {
-                        roleContainer.visibility = View.GONE
+                        role.text = items.role
+                        role.setTextColor(ContextCompat.getColor(itemView.context, R.color
+                            .md_theme_onSecondaryContainer))
+                        roleContainer.setCardBackgroundColor(ContextCompat.getColor(itemView.context, R.color
+                            .md_theme_secondaryContainer))
                     }
                 }
 

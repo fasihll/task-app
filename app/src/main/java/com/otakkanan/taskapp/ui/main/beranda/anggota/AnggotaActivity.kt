@@ -10,6 +10,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.Task
+import com.otakkanan.taskapp.data.model.Team
 import com.otakkanan.taskapp.databinding.ActivityAnggotaBinding
 
 class AnggotaActivity : AppCompatActivity() {
@@ -29,22 +30,22 @@ class AnggotaActivity : AppCompatActivity() {
             insets
         }
 
-        val task: Task? = intent.getParcelableExtra(TAG)
+        val teamList: ArrayList<Team>? = intent.getParcelableArrayListExtra(TAG)
 
         binding.btnBack.setOnClickListener(){
             finish()
         }
 
-        binding.countAnggota.text = getString(R.string.anggota_counts, task?.team!!.size.toString())
+        binding.countAnggota.text = getString(R.string.anggota_counts, teamList?.size.toString())
 
 
-       setupViewPager(task)
+       setupViewPager(teamList)
 
 
     }
 
-    private fun setupViewPager(task: Task) {
-        adapter = FragmentPageAdapter(supportFragmentManager,lifecycle,task)
+    private fun setupViewPager(team: ArrayList<Team>?) {
+        adapter = FragmentPageAdapter(supportFragmentManager,lifecycle,team)
 
         binding.apply {
             tabLayout.addTab(tabLayout.newTab().setText("Partisipan"))
