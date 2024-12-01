@@ -146,16 +146,16 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:tint="@color/md_theme_background_highContrast" />
 
-<!--                    <androidx.recyclerview.widget.RecyclerView-->
-<!--                        android:id="@+id/rvAnggota"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        tools:itemCount="1"-->
-<!--                        tools:listitem="@layout/anggota_item"-->
-<!--                        android:overScrollMode="never"-->
-<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                        app:layout_constraintEnd_toEndOf="parent"-->
-<!--                        />-->
+                    <!--                    <androidx.recyclerview.widget.RecyclerView-->
+                    <!--                        android:id="@+id/rvAnggota"-->
+                    <!--                        android:layout_width="wrap_content"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        tools:itemCount="1"-->
+                    <!--                        tools:listitem="@layout/anggota_item"-->
+                    <!--                        android:overScrollMode="never"-->
+                    <!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--                        app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--                        />-->
 
                     <!-- Add Button -->
                     <ImageView
@@ -223,115 +223,44 @@
                 android:scrollbars="vertical"
                 tools:listitem="@layout/item_target" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-            <!--            &lt;!&ndash; Goal Name &ndash;&gt;-->
-            <!--            <TextView-->
-            <!--                android:id="@+id/tvGoalName"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:paddingBottom="8dp"-->
-            <!--                android:text="Goal Name"-->
-            <!--                android:textSize="20sp"-->
-            <!--                android:textStyle="bold" />-->
+                <!-- Target Text -->
+                <TextView
+                    android:id="@+id/riwayat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_weight="1"
+                    android:text="Riwayat"
+                    android:textColor="?attr/colorOnBackground"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
-            <!--            &lt;!&ndash; Goal Description &ndash;&gt;-->
-            <!--            <TextView-->
-            <!--                android:id="@+id/tvGoalDescription"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:paddingBottom="8dp"-->
-            <!--                android:text="Description: Lorem ipsum dolor sit amet"-->
-            <!--                android:textSize="16sp" />-->
+            <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="16dp"
+                app:cardCornerRadius="12dp">
 
-            <!--            &lt;!&ndash; Goal Dates &ndash;&gt;-->
-            <!--            <TextView-->
-            <!--                android:id="@+id/tvStartGoalDates"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:paddingBottom="8dp"-->
-            <!--                android:text="Start Date: 2024-01-01"-->
-            <!--                android:textSize="14sp" />-->
+                <!-- RecyclerView for Item Target -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvRiwayat"
+                    android:layout_marginVertical="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:scrollbars="vertical"
+                    tools:listitem="@layout/item_riwayat" />
 
-            <!--            &lt;!&ndash; Goal Dates &ndash;&gt;-->
-            <!--            <TextView-->
-            <!--                android:id="@+id/tvEndGoalDates"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:paddingBottom="8dp"-->
-            <!--                android:text="End Date: 2024-03-01"-->
-            <!--                android:textSize="14sp" />-->
-
-            <!--            &lt;!&ndash; Goal Priority &ndash;&gt;-->
-            <!--            <TextView-->
-            <!--                android:id="@+id/tvGoalPriority"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:paddingBottom="16dp"-->
-            <!--                android:text="Priority: High"-->
-            <!--                android:textSize="14sp" />-->
-
-            <!--            &lt;!&ndash; Progress Section &ndash;&gt;-->
-            <!--            <FrameLayout-->
-            <!--                android:id="@+id/progressContainer"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_gravity="center"-->
-            <!--                android:padding="16dp">-->
-
-            <!--                <com.google.android.material.progressindicator.CircularProgressIndicator-->
-            <!--                    android:id="@+id/progressBar"-->
-            <!--                    android:layout_width="100dp"-->
-            <!--                    android:layout_height="100dp"-->
-            <!--                    android:indeterminate="false"-->
-            <!--                    app:indicatorColor="@color/md_theme_primary"-->
-            <!--                    app:indicatorSize="80dp"-->
-            <!--                    app:trackColor="@color/md_theme_primaryFixed"-->
-            <!--                    app:trackThickness="8dp" />-->
-
-            <!--                <TextView-->
-            <!--                    android:id="@+id/txtProgress"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_gravity="center"-->
-            <!--                    android:text="40%"-->
-            <!--                    android:textSize="16sp"-->
-            <!--                    android:textStyle="bold" />-->
-            <!--            </FrameLayout>-->
-
-            <!--            &lt;!&ndash; Goal Team Section &ndash;&gt;-->
-            <!--            <TextView-->
-            <!--                android:id="@+id/tvGoalTeam"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:paddingTop="16dp"-->
-            <!--                android:paddingBottom="8dp"-->
-            <!--                android:text="Team Members"-->
-            <!--                android:textSize="16sp"-->
-            <!--                android:textStyle="bold" />-->
-
-            <!--            <androidx.recyclerview.widget.RecyclerView-->
-            <!--                android:id="@+id/rvTeam"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:paddingBottom="16dp"-->
-            <!--                tools:listitem="@layout/anggota_item" />-->
-
-            <!--            &lt;!&ndash; Goal Target Section &ndash;&gt;-->
-            <!--            <TextView-->
-            <!--                android:id="@+id/tvGoalTargets"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:paddingTop="16dp"-->
-            <!--                android:paddingBottom="8dp"-->
-            <!--                android:text="Targets"-->
-            <!--                android:textSize="16sp"-->
-            <!--                android:textStyle="bold" />-->
-
-            <!--            <androidx.recyclerview.widget.RecyclerView-->
-            <!--                android:id="@+id/rvTargets"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                tools:listitem="@layout/anggota_item" />-->
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

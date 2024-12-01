@@ -11,6 +11,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.Goal
+import com.otakkanan.taskapp.data.model.Riwayat
 import com.otakkanan.taskapp.data.model.Target
 import com.otakkanan.taskapp.databinding.FragmentGoalDetailBinding
 
@@ -58,21 +59,32 @@ class GoalDetailFragment : Fragment() {
     }
 
     private fun setupRecyclerViews() {
-        // Gunakan target dari goal yang sudah diparsing
+        // Setup untuk RecyclerView Target
         val targetList: List<Target> = goal.target ?: emptyList()
-
-        // Inisialisasi adapter dengan click listener
         targetAdapter = TargetAdapter(targetList) { target ->
-            // Tampilkan Snackbar ketika item di klik
             Snackbar.make(
                 binding.root,
                 "Anda mengklik target: ${target.name ?: "Unnamed Target"}",
                 Snackbar.LENGTH_SHORT
             ).show()
         }
-
         binding.rvTarget.layoutManager = LinearLayoutManager(requireContext())
         binding.rvTarget.adapter = targetAdapter
+
+        // Setup untuk RecyclerView Riwayat
+        val riwayatList = getDummyRiwayat()
+        val riwayatAdapter = RiwayatAdapter(riwayatList)
+        binding.rvRiwayat.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvRiwayat.adapter = riwayatAdapter
+    }
+
+    private fun getDummyRiwayat(): List<Riwayat> {
+        return listOf(
+            Riwayat("Penambahan Target", +200),
+            Riwayat("Pengurangan Target", -100),
+            Riwayat("Bonus", +50),
+            Riwayat("Kesalahan Input", -30)
+        )
     }
 
     private fun setupToolbar() {

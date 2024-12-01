@@ -25,3 +25,9 @@ data class Target(
     val endValue: Int? = null,
     val progress: Int? = null,
 ): Parcelable
+
+@Parcelize
+data class Riwayat(
+    val name: String? = null,
+    val amount: Int? = null
+): Parcelable
