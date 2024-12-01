@@ -3,8 +3,12 @@ package com.otakkanan.taskapp.ui.main.goals.detailGoal
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.otakkanan.taskapp.data.model.Target
+import com.otakkanan.taskapp.databinding.DialogDetailTargetBinding
 import com.otakkanan.taskapp.databinding.ItemTargetBinding
+import java.text.NumberFormat
+import java.util.Locale
 
 class TargetAdapter(
     private val itemList: List<Target>,
@@ -22,7 +26,42 @@ class TargetAdapter(
 
             // Menambahkan listener klik pada item
             binding.root.setOnClickListener {
-                onItemClick(target) // Memanggil callback saat item di-klik
+                openDialog(target)
+            }
+        }
+
+        private fun openDialog(target: Target) {
+            val dialogBinding =
+                DialogDetailTargetBinding.inflate(LayoutInflater.from(binding.root.context))
+            val dialog = MaterialAlertDialogBuilder(binding.root.context)
+                .setView(dialogBinding.root)
+                .show()
+
+            // Menampilkan data target di dialog
+            dialogBinding.titleMenabung.text = target.name ?: "Unnamed Target"
+            dialogBinding.txtStartvalue.text =
+                "Rp ${NumberFormat.getNumberInstance(Locale.US).format(target.startValue ?: 0)}"
+            dialogBinding.txtEndvalue.text =
+                "Rp ${NumberFormat.getNumberInstance(Locale.US).format(target.endValue ?: 0)}"
+            dialogBinding.txtSaatIni.text =
+                "Rp ${NumberFormat.getNumberInstance(Locale.US).format(target.progress ?: 0)}"
+
+            dialogBinding.btnSimpan.setOnClickListener {
+                dialog.dismiss()
+            }
+
+            val nilaiAkhir = target.endValue ?: 500000
+            val nilaiSaatIni = target.progress ?: 200000
+
+            dialogBinding.slider.addOnChangeListener { _, value, _ ->
+                val menabungValue = (nilaiAkhir * value.toInt() / 100)
+                dialogBinding.edMenabung.setText(
+                    NumberFormat.getNumberInstance(Locale.US).format(menabungValue)
+                )
+
+                val totalValue = nilaiSaatIni + menabungValue
+                dialogBinding.txtTotal.text =
+                    "Rp " + NumberFormat.getNumberInstance(Locale.US).format(totalValue)
             }
         }
     }

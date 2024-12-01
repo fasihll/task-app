@@ -19,31 +19,19 @@ class RiwayatAdapter(
         fun bind(riwayat: Riwayat) {
             txtName.text = riwayat.targetName
 
-            if (riwayat.amount == null){
-                txtBadge.text = "Dibuat: "+riwayat.created_at
+            if (riwayat.amount == null) {
+                txtBadge.text = "Dibuat: " + riwayat.created_at
                 txtBadge.setBackgroundResource(R.drawable.badge_riwayat_grey)
 
-            }else{
-                if (riwayat.amount!! > 0){
+            } else {
+                if (riwayat.amount!! > 0) {
                     txtBadge.text = "+${riwayat.amount}"
                     txtBadge.setBackgroundResource(R.drawable.badge_riwayat_green)
-                }else{
+                } else {
                     txtBadge.text = "-${riwayat.amount}"
                     txtBadge.setBackgroundResource(R.drawable.badge_riwayat_red)
                 }
-
             }
-
-
-//            txtBadge.text = if (riwayat.amount!! > 0) "+${riwayat.amount}" else "${riwayat.amount}"
-//
-//            // Ubah background badge sesuai nilai
-//            val badgeBackground = if (riwayat.amount > 0) {
-//                R.drawable.badge_riwayat_green
-//            } else {
-//                R.drawable.badge_riwayat_red
-//            }
-//            txtBadge.setBackgroundResource(badgeBackground)
         }
     }
 

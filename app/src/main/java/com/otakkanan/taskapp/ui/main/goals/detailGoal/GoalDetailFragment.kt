@@ -17,7 +17,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.data.model.Goal
 import com.otakkanan.taskapp.data.model.Target
-import com.otakkanan.taskapp.databinding.DetailGoalsAddTargetDialogBinding
+import com.otakkanan.taskapp.databinding.DialogAddTargetDetailGoalsBinding
 import com.otakkanan.taskapp.databinding.FragmentGoalDetailBinding
 import com.otakkanan.taskapp.ui.main.beranda.anggota.AnggotaActivity
 import com.otakkanan.taskapp.utils.BaseFragment
@@ -62,7 +62,7 @@ class GoalDetailFragment : BaseFragment() {
     }
 
     private fun setupDialogAddTarget(target: Target?) {
-        val dialogBinding = DetailGoalsAddTargetDialogBinding.inflate(layoutInflater)
+        val dialogBinding = DialogAddTargetDetailGoalsBinding.inflate(layoutInflater)
         val dialog = MaterialAlertDialogBuilder(requireContext())
             .setView(dialogBinding.root)
             .show()
@@ -170,7 +170,10 @@ class GoalDetailFragment : BaseFragment() {
             val adapter = GoalsDetailAnggotaAdapter { team ->
                 // Handle button click here
                 val intent = Intent(requireContext(), AnggotaActivity::class.java)
-                intent.putParcelableArrayListExtra(AnggotaActivity.TAG, ArrayList(goal!!.team ?: emptyList()))
+                intent.putParcelableArrayListExtra(
+                    AnggotaActivity.TAG,
+                    ArrayList(goal!!.team ?: emptyList())
+                )
                 startActivity(intent)
             }
             rvAnggota.adapter = adapter
