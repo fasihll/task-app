@@ -4,20 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.databinding.FragmentSettingBinding
+import com.otakkanan.taskapp.utils.BaseFragment
 import java.util.Locale
 
-class SettingFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = SettingFragment()
-    }
+class SettingFragment : BaseFragment() {
 
     private val viewModel: SettingViewModel by viewModels()
 
@@ -32,38 +27,10 @@ class SettingFragment : Fragment() {
         // Inisialisasi binding
         _binding = FragmentSettingBinding.inflate(inflater, container, false)
 
-        hideBottomNavigation()
         setupToolbar()
-
-        binding.menuPengaturanTugasContainer.setOnClickListener {
-            findNavController().navigate(R.id.action_settingFragment_to_pengaturanTugasFragment)
-        }
-
-        binding.menuNotifikasiContainer.setOnClickListener {
-            findNavController().navigate(R.id.action_settingFragment_to_notifikasiFragment)
-        }
-
-        binding.menuBahasaContainer.setOnClickListener {
-            openLanguageDialog()
-        }
+        setupListeners()
 
         return binding.root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-        showBottomNavigation()
-    }
-
-    private fun hideBottomNavigation() {
-        val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.nav_view)
-        bottomNav.visibility = View.GONE
-    }
-
-    private fun showBottomNavigation() {
-        val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.nav_view)
-        bottomNav.visibility = View.VISIBLE
     }
 
     private fun setupToolbar() {
@@ -72,15 +39,31 @@ class SettingFragment : Fragment() {
         }
     }
 
+    private fun setupListeners() {
+        // Listener untuk menu pengaturan tugas
+        binding.menuPengaturanTugasContainer.setOnClickListener {
+            findNavController().navigate(R.id.action_settingFragment_to_pengaturanTugasFragment)
+        }
+
+        // Listener untuk menu notifikasi
+        binding.menuNotifikasiContainer.setOnClickListener {
+            findNavController().navigate(R.id.action_settingFragment_to_notifikasiFragment)
+        }
+
+        // Listener untuk menu bahasa
+        binding.menuBahasaContainer.setOnClickListener {
+            openLanguageDialog()
+        }
+    }
+
     private fun openLanguageDialog() {
-        // Daftar bahasa yang dapat dipilih
+        // Dialog bahasa
         val languages = arrayOf(
             "Bahasa Indonesia", "English", "Français", "Deutsch",
             "Español", "Italiano", "Português", "Русский",
             "中文", "日本語", "한국어"
         )
 
-        // Tentukan bahasa default (misalnya Bahasa Indonesia atau bahasa sistem)
         val checkedItem = when (Locale.getDefault().language) {
             "id" -> 0 // Bahasa Indonesia
             "en" -> 1 // English
@@ -97,16 +80,10 @@ class SettingFragment : Fragment() {
         }
 
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Pilih Bahasa") // Judul dialog
-            .setNeutralButton("Batal") { dialog, which ->
-                // Respons ketika tombol Batal ditekan
-            }
-            .setPositiveButton("OK") { dialog, which ->
-                // Respons ketika tombol OK ditekan
-            }
-            // Pilihan tunggal (single choice), dimulai dengan item yang terpilih
-            .setSingleChoiceItems(languages, checkedItem) { dialog, which ->
-                // Respons ketika item dipilih
+            .setTitle("Pilih Bahasa")
+            .setNeutralButton("Batal") { dialog, _ -> dialog.dismiss() }
+            .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
+            .setSingleChoiceItems(languages, checkedItem) { _, which ->
                 when (which) {
                     0 -> setLanguage("id") // Bahasa Indonesia dipilih
                     1 -> setLanguage("en") // Bahasa Inggris dipilih
@@ -121,24 +98,15 @@ class SettingFragment : Fragment() {
                     10 -> setLanguage("ko") // 한국어 dipilih
                 }
             }
-            .show() // Tampilkan dialog
+            .show()
     }
 
     private fun setLanguage(languageCode: String) {
-        // Membuat Locale baru berdasarkan kode bahasa
-        val locale = Locale(languageCode)
-        Locale.setDefault(locale) // Set Locale default aplikasi
+        // Implementasi pengaturan bahasa
+    }
 
-        // Membuat dan mengubah konfigurasi sumber daya aplikasi
-        val config = resources.configuration
-        config.setLocale(locale)
-
-//        // Mengupdate konfigurasi dengan konteks baru
-//        createConfigurationContext(config)
-//
-//        // Memanggil ulang aktivitas untuk menerapkan perubahan bahasa
-//        val intent = Intent(applicationContext, MainActivity::class.java) // Ganti dengan activity yang sesuai
-//        startActivity(intent) // Restart activity untuk melihat perubahan
-//        finish() // Tutup activity lama
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

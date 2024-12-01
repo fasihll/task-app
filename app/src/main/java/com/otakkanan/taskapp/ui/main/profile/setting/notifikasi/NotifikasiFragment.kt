@@ -1,17 +1,15 @@
 package com.otakkanan.taskapp.ui.main.profile.setting.notifikasi
 
-import androidx.fragment.app.viewModels
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.databinding.FragmentNotifikasiBinding
+import com.otakkanan.taskapp.utils.BaseFragment
 
-class NotifikasiFragment : Fragment() {
+class NotifikasiFragment : BaseFragment() {
 
     companion object {
         fun newInstance() = NotifikasiFragment()
@@ -30,35 +28,27 @@ class NotifikasiFragment : Fragment() {
         // Inisialisasi binding
         _binding = FragmentNotifikasiBinding.inflate(inflater, container, false)
 
-        hideBottomNavigation()
         setupToolbar()
-
-//        binding..setOnClickListener {
-//            findNavController().navigate(R.id.action_settingFragment_to_pengaturanTugasFragment)
-//        }
+        setupListeners()
 
         return binding.root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-        showBottomNavigation()
-    }
-
-    private fun hideBottomNavigation() {
-        val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.nav_view)
-        bottomNav.visibility = View.GONE
-    }
-
-    private fun showBottomNavigation() {
-        val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.nav_view)
-        bottomNav.visibility = View.VISIBLE
     }
 
     private fun setupToolbar() {
         binding.toolbar.setNavigationOnClickListener {
             findNavController().popBackStack()
         }
+    }
+
+    private fun setupListeners() {
+        // Listener untuk menu
+//        binding.menuPengaturanTugasContainer.setOnClickListener {
+//            findNavController().navigate(R.id.action_settingFragment_to_pengaturanTugasFragment)
+//        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

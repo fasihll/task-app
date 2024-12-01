@@ -4,35 +4,38 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.otakkanan.taskapp.R
 import com.otakkanan.taskapp.databinding.FragmentPengaturanTugasBinding
+import com.otakkanan.taskapp.utils.BaseFragment
 
-class PengaturanTugasFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = PengaturanTugasFragment()
-    }
-
-    private val viewModel: PengaturanTugasViewModel by viewModels()
+class PengaturanTugasFragment : BaseFragment() {
 
     // Deklarasi objek binding
     private var _binding: FragmentPengaturanTugasBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
         // Inisialisasi binding
         _binding = FragmentPengaturanTugasBinding.inflate(inflater, container, false)
 
-        hideBottomNavigation()
         setupToolbar()
+        setupListeners()
 
-//      Handle klik untuk dropdown
+        return binding.root
+    }
+
+    private fun setupToolbar() {
+        binding.toolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
+        }
+    }
+
+    private fun setupListeners() {
+        // Tambahkan listener untuk pengaturan tugas jika diperlukan
         binding.menuOpsiPengurutanContainer.setOnClickListener {
             val opsiPengurutan = binding.opsiPengurutan
             val icoonDropdown = binding.icDropdown
@@ -44,30 +47,11 @@ class PengaturanTugasFragment : Fragment() {
                 icoonDropdown.setImageResource(R.drawable.ic_down_dropdown)
             }
         }
-
-        return binding.root
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        showBottomNavigation()
-    }
-
-    private fun hideBottomNavigation() {
-        val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.nav_view)
-        bottomNav.visibility = View.GONE
-    }
-
-    private fun showBottomNavigation() {
-        val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.nav_view)
-        bottomNav.visibility = View.VISIBLE
-    }
-
-    private fun setupToolbar() {
-        binding.toolbar.setNavigationOnClickListener {
-            findNavController().popBackStack()
-        }
     }
 }
+
