@@ -4,12 +4,16 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.PorterDuff
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -97,15 +101,12 @@ class GoalsAdapter :  ListAdapter<Goal, GoalsAdapter.MyViewHolder>(DIFF_CALLBACK
 
 
                 itemView.setOnClickListener {
-//                    val intent = Intent(itemView.context,GoalsActivity::class.java)
-//                    intent.putExtra(DetailTaskActivity.TAG,items)
-//                    val optionsCompat: ActivityOptionsCompat =
-//                        ActivityOptionsCompat.makeSceneTransitionAnimation(
-//                            itemView.context as Activity,
-//                            Pair(binding.goalsTitle, "title")
-//                        )
-//                    itemView.context.startActivity(intent,optionsCompat.toBundle())
-                    Toast.makeText(itemView.context,"Somming soon..........",Toast.LENGTH_SHORT).show()
+                    val bundle = Bundle().apply {
+                        putParcelable("goal", items)
+                    }
+                    itemView.findNavController().navigate(R.id
+                         .action_goalsFragment_to_goalDetailFragment, bundle)
+//                    Toast.makeText(itemView.context,"Somming soon..........",Toast.LENGTH_SHORT).show()
                 }
 
             }
