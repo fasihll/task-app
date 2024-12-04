@@ -34,12 +34,6 @@
             android:name=".ui.tugas.tugasberulangbaru.TugasBerulangBaruActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.main.beranda.anggota.undangan.AddAnggotaActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.main.beranda.anggota.partisipan.ListAnggotaActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.main.beranda.detail_task.DetailTaskActivity"
             android:exported="false" />
         <activity

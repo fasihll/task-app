@@ -77,13 +77,18 @@ class TugasBaruActivity : AppCompatActivity() {
     }
 
     private fun setupTopBar() {
-        binding.topAppBar.setOnMenuItemClickListener { menuItem ->
-            when(menuItem.itemId) {
-                R.id.selesai -> {
-                    finish()
-                    true
+        binding.topAppBar.apply {
+            setNavigationOnClickListener {
+                finish()
+            }
+            setOnMenuItemClickListener { menuItem ->
+                when (menuItem.itemId) {
+                    R.id.selesai -> {
+                        finish()
+                        true
+                    }
+                    else -> false
                 }
-                else -> false
             }
         }
     }
